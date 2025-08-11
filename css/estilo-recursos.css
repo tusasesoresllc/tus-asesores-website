@@ -1,0 +1,566 @@
+:root {
+    --negro: #000000; 
+    --amarillo: #f3ce37; 
+    --blanco: #ffffff;
+    --naranja: #f8b133; 
+    --gris: #ede6d9; 
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    line-height: 1.6;
+    color: var(--blanco);
+    background-color: var(--naranja);
+    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding for left/right */
+}
+
+a {
+    text-decoration: none;
+    color: var(--amarillo);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: -10%;
+}
+
+.navbar .logo img {
+    height: 35px;
+    margin-right: 10px;
+    filter: brightness(1.2);
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    color: var(--blanco);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--amarillo);
+}
+
+.navbar .btn-nav {
+    background-color: var(--naranja);
+    color: var(--negro);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .btn-nav:hover {
+    background-color: var(--blanco);
+    transform: translateY(-1px);
+}
+
+
+/* Hero Section */
+.hero-section {
+    background-image: url(../img/recursos/fondo-recursos.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
+    background-size: cover; /* Cubrirá todo el espacio */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat;
+    color: var(--naranja);
+    text-align: center;
+    padding: 150px 20px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    left: -20vw;
+    transform: skewX(-20deg);
+}
+
+.hero-section::after {
+    right: -20vw;
+    transform: skewX(20deg);
+}
+
+/* Adjust overlay and central light if needed */
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Content above background elements and overlay */
+    max-width: 900px;
+}
+
+.hero-section h1 {
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    color: var(--accent-gold);
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: var(--blanco);
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+
+/* ============================================== */
+/* Sección: Recursos */
+/* ============================================== */
+.recursos-section {
+    background-image: url(../img/recursos/fondo-R2.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
+    background-size: cover; /* Cubrirá todo el espacio */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.recursos-top-line,
+.recursos-bottom-line {
+    position: absolute;
+    left: 0;
+    margin-top: 40px;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.recursos-top-line {
+    top: 0;
+}
+
+.recursos-bottom-line {
+    bottom: 0;
+}
+
+.recursos-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.recursos-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--naranja);
+    margin: 0;
+}
+
+.recursos-content-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Espacio vertical entre cada recurso */
+}
+
+.recurso-card-container {
+    display: flex;
+    background-color: transparent;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease-in-out;
+    width: 100%; /* Ocupa todo el ancho disponible */
+}
+
+.recurso-card-container:hover {
+    border: 2px solid var(--accent-gold);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
+}
+
+/* Estilos para la combinación de imágenes */
+.recurso-images-column-combined {
+    display: flex;
+    padding: 20px;
+    width: 300px; /* Ancho fijo para el contenedor de imágenes */
+    align-items: center;
+    gap: 10px;
+}
+
+.recurso-main-image {
+    width: 150px; /* Ancho de la imagen grande */
+    height: 310px; /* Altura de la imagen grande */
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.recurso-sub-images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 130px; /* Ancho de la columna de las imágenes pequeñas */
+    height: 310px;
+}
+
+.recurso-image-item {
+    width: 130px;
+    height: 310px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.recurso-image-item img,
+.recurso-main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.recurso-content-column {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.recurso-content-column h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.6em;
+    font-weight: 700;
+    color: var(--naranja);
+    margin: 0 0 10px 0;
+}
+
+.recurso-content-column p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    color: var(--blanco);
+    line-height: 1.6;
+    margin: 0 0 15px 0;
+}
+
+.ver-mas-btn {
+    display: inline-block;
+    color: var(--naranja);
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+    color: var(--blanco);
+}
+
+/* Nota: Los estilos responsive se han omitido como me pediste. */
+
+
+/* ============================================== */
+/* Sección: Podcast */
+/* ============================================== */
+.podcast-section {
+    background-image: url(../img/recursos/fondo-R3.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
+    background-size: cover; /* Cubrirá todo el espacio */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.podcast-top-line,
+.podcast-bottom-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.podcast-top-line {
+    top: 0;
+}
+
+.podcast-bottom-line {
+    bottom: 0;
+}
+
+.podcast-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.podcast-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--negro);
+    margin: 0;
+}
+
+.podcast-grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columnas de igual ancho */
+    gap: 40px; /* Espacio entre las tarjetas */
+    justify-content: center;
+    align-items: center;
+}
+
+.podcast-card {
+    cursor: pointer;
+    background-color: var(--naranja);
+    border-radius: 10px;
+    width: 250px;
+    height: 300px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.podcast-card:hover {
+    transform: scale(1.05);
+}
+
+.podcast-video-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px; /* Altura del video */
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.podcast-video-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.podcast-video-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); /* Overlay oscuro para que el botón se vea mejor */
+    transition: background-color 0.3s ease;
+}
+
+.podcast-card:hover .podcast-video-wrapper::before {
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+.play-button {
+    position: absolute;
+    z-index: 2;
+}
+
+.podcast-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.podcast-content h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+    font-weight: 600;
+    color: var(--negro);
+    margin: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Footer General --- */
+.footer {
+    width: 100%;
+}
+
+.footer-top {
+    background-image: url(../img/nosotros/footer-n1.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
+    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    position: relative;
+    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+}
+
+/* Enlace del logo */
+.footer-logo {
+    display: flex;
+    align-items: middle;
+    justify-content: center;
+    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    height: 150px;
+    position: relative; /* Para posicionar la imagen dentro de él */
+}
+
+.footer-logo a {
+    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Asegura que no haya subrayado */
+}
+
+.footer-logo-image {
+    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
+    left: 100px; /* Mantiene tu posición original */
+    width: 150px;
+    max-height: 100%;
+    display: block; /* Para evitar espacios extra */
+    transition: transform 0.3s ease; /* Efecto hover */
+}
+
+.footer-logo-image:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+
+.footer-links {
+    display: flex;
+    gap: 100px; /* Espacio entre las columnas de enlaces */
+    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
+    margin-top: -2%; /* Ajuste vertical que tenías */
+}
+
+.link-column h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--negro); /* Títulos de columna oscuros */
+}
+
+.link-column ul {
+    list-style: none; /* Elimina los bullet points por defecto */
+    padding: 0;
+    margin: 0;
+}
+
+.link-column li {
+    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+}
+
+.link-column li a {
+    font-size: 0.95em;
+    color: var(--negro); /* Color de los enlaces */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    transition: color 0.3s ease;
+}
+
+.link-column li a:hover {
+    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
+    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+}
+
+.footer-social-media {
+    background-image: url(../img/nosotros/footer-n2.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--negro);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: var(--naranja); /* Color de los íconos */
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Efecto hover para iconos --- */
+.social-icon:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* --- Sección Inferior de Derechos de Autor --- */
+.footer-bottom {
+    background-image: url(../img/nosotros/footer-n3.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 20px 5%;
+    color: var(--negro);
+    font-size: 0.9em;
+}
+

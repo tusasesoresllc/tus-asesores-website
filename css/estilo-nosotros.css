@@ -1,0 +1,732 @@
+:root {
+    --negro: #000000; 
+    --amarillo: #f3ce37; 
+    --blanco: #ffffff;
+    --naranja: #f8b133; 
+    --gris: #ede6d9; 
+}
+
+html {
+    scroll-behavior: smooth; 
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    line-height: 1.6;
+    color: var(--blanco);
+    background-color: var(--naranja);
+    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px; /* Padding for left/right */
+}
+
+a {
+    text-decoration: none;
+    color: var(--amarillo);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: -10%;
+}
+
+.navbar .logo img {
+    height: 35px;
+    margin-right: 10px;
+    filter: brightness(1.2);
+}
+
+.navbar nav ul {
+    display: flex;
+    align-items: center;
+}
+
+.navbar nav ul li {
+    margin-left: 30px;
+}
+
+.navbar nav ul li a {
+    color: var(--blanco);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar nav ul li a:hover {
+    color: var(--amarillo);
+}
+
+.navbar .btn-nav {
+    background-color: var(--naranja);
+    color: var(--negro);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.navbar .btn-nav:hover {
+    background-color: var(--blanco);
+    transform: translateY(-1px);
+}
+
+
+/* Hero Section */
+.hero-section {
+    background-image: url(../img/nosotros/portada-nosotros.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
+    background-size: cover; /* Cubrirá todo el espacio */
+    background-position: center; /* Centrar la imagen */
+    background-repeat: no-repeat;
+    color: var(--naranja);
+    text-align: center;
+    padding: 150px 20px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section::before {
+    left: -20vw;
+    transform: skewX(-20deg);
+}
+
+.hero-section::after {
+    right: -20vw;
+    transform: skewX(20deg);
+}
+
+/* Adjust overlay and central light if needed */
+.hero-section .container {
+    position: relative;
+    z-index: 2; /* Content above background elements and overlay */
+    max-width: 900px;
+}
+
+.hero-section h1 {
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    color: var(--accent-gold);
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: var(--blanco);
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- NUEVA SECCIÓN: MISIÓN Y VISIÓN --- */
+.mision-vision-section {
+    background-image: url(../img/nosotros/fondo-mv.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    padding: 80px 0; /* Espacio vertical */
+    position: relative;
+    overflow: hidden;
+    color: var(--blanco);
+}
+
+.mision-vision-top-line,
+.mision-vision-bottom-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.mision-vision-top-line {
+    top: 0;
+}
+
+.mision-vision-bottom-line {
+    bottom: 0;
+}
+
+.mision-vision-content {
+    display: flex;
+    flex-direction: column;
+    gap: 60px; /* Espacio entre el bloque de Misión y el de Visión */
+    margin: 0 auto;
+}
+
+.mision-block,
+.vision-block {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.mision-vision-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Espacio entre la barra vertical y el título */
+    margin-bottom: 20px;
+}
+
+.vertical-bar {
+    width: 10px; /* Ancho de la barra vertical */
+    height: 70px; /* Altura de la barra vertical */
+    background-color: var(--naranja); /* Color de la barra */
+}
+
+.mision-block h2,
+.vision-block h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.0em; /* Tamaño grande para los títulos */
+    font-weight: 800;
+    color: var(--blanco);
+    margin: 0;
+    line-height: 1;
+}
+
+.mision-block p,
+.vision-block p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8;
+    color: var(--blanco);
+    padding-left: 28px; /* Ajusta este valor si necesitas que el texto se alinee con la barra */
+}
+
+/* --- NUEVA SECCIÓN: VALORES --- */
+.valores-section {
+    background-image: url(../img/nosotros/fondo-valores.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.valores-bottom-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.valores-list hr{
+    border: var(--naranja) solid 1px;
+    margin-top: -20px;
+    margin-bottom: -20px;
+}
+
+.valores-top-line {
+    top: 0;
+}
+
+.valores-bottom-line {
+    bottom: 0;
+}
+
+.valores-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.valores-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--naranja);
+    position: relative;
+    display: inline-block;
+}
+
+.valores-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas de igual ancho */
+    gap: 10px; /* Espacio entre las columnas */
+    align-items: flex-start;
+}
+
+.valores-about-us {
+    display: flex;
+    flex-direction: column;
+    padding-right: 20px;
+}
+
+.valores-about-us h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--naranja);
+    margin-bottom: 20px;
+}
+
+.valores-about-us p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85em;
+    line-height: 1.8;
+    color: var(--blanco);
+    margin-bottom: 20px;
+}
+
+.valores-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Para la superposición del logo si es necesario */
+    padding: 40px;
+}
+
+.valores-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: none; 
+}
+
+.valores-list {
+    display: flex;
+    flex-direction: column;
+    gap: 30px; /* Espacio entre los bloques de valores */
+    padding-left: 20px;
+}
+
+.valor-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.valor-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: var(--naranja);
+    margin-bottom: 10px;
+}
+
+.valor-item p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.8em;
+    line-height: 1.6;
+    color: var(--blanco);
+}
+
+/* --- NUEVA SECCIÓN: CONOCE A NUESTRO EQUIPO (Versión 2) --- */
+.equipo-section {
+    background-image: url(../img/nosotros/fondos-eq.png); /* La imagen de fondo con las líneas doradas */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--naranja); /* Color de texto oscuro */
+}
+
+.equipo-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 60px;
+}
+
+.equipo-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    color: var(--naranja);
+    margin-bottom: 20px;
+}
+
+.equipo-header p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1em;
+    line-height: 1.7;
+}
+
+.equipo-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    text-align: center;
+}
+
+.equipo-miembro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px; /* Si la tarjeta tuviera padding */
+}
+
+.equipo-imagen-wrapper {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    margin-bottom: 25px;
+    border: none;
+    border-radius: 8px; /* Si tiene un borde redondeado, ajusta el valor */
+    overflow: hidden; /* Oculta lo que se sale del contenedor */
+}
+
+.equipo-imagen-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+    position: absolute;
+}
+
+.equipo-miembro h4 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5em;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.equipo-miembro .rol {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.expand-arrow {
+    font-size: 1.5em;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    border: 2px solid var(--naranja);
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Efecto para rotar la flecha al hacer clic o al desplegar la descripción */
+.expand-arrow.expanded {
+    transform: rotate(180deg);
+}
+
+.member-description {
+    max-height: 0; /* Oculta el contenido por defecto */
+    overflow: hidden; /* Oculta cualquier texto que se salga */
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Animación de despliegue */
+    padding: 0 15px; /* Padding por defecto, será 0 */
+}
+
+/* Estado activo: cuando el texto está desplegado */
+.member-description.expanded {
+    max-height: 700px; /* Altura suficiente para mostrar todo el texto. Ajusta si es necesario */
+    padding: 30px 20px; /* Añade padding para dar espacio al texto */
+}
+
+.member-description p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+    line-height: 1.6;
+}
+
+
+/* --- NUEVA SECCIÓN: NUESTRA METODOLOGÍA DE ÉXITO --- */
+.metodologia-section {
+    background-image: url(../img/nosotros/fondo-mtd.png); /* La imagen de fondo con las líneas doradas */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 100px 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--negro);
+}
+
+.metodologia-top-line,
+.metodologia-bottom-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.metodologia-top-line {
+    top: 0;
+}
+
+.metodologia-bottom-line {
+    bottom: 0;
+}
+
+.metodologia-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.metodologia-header h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5em;
+    font-weight: 800;
+    margin: 0;
+}
+
+.metodologia-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    gap: 50px;
+    align-items: center;
+}
+
+.metodologia-image-container {
+    padding: 20px;
+    border-radius: 10px; /* Esquinas ligeramente redondeadas */
+    position: relative;
+    overflow: hidden;
+}
+
+.metodologia-main-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 40px; /* Un poco menos redondeado para la imagen interna */
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.metodologia-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.metodologia-item hr{
+    border: var(--negro) solid 1px;
+    margin-top: 0;
+    margin-bottom: 20px;
+}
+
+.metodologia-item {
+    border-bottom: 2px solid var(--negro);
+    padding-bottom: 20px;
+}
+
+.metodologia-title-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    cursor: pointer;
+    justify-content: space-between;
+}
+
+.metodologia-item h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.4em;
+    font-weight: 700;
+    margin: 0;
+    flex-grow: 1;
+}
+
+.metodologia-description {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    padding: 0 45px 0 0; /* Ajustamos el padding para el texto */
+    margin-top: 10px; /* Espacio entre el título y la descripción */
+}
+
+.metodologia-description.expanded {
+    max-height: 220px; /* Altura suficiente para el texto. Ajusta si es necesario */
+    padding: 10px 80px 0 0;
+}
+
+.metodologia-item .expand-arrow {
+    transition: transform 0.3s ease;
+    font-size: 1.2em;
+    border: none;
+}
+
+.metodologia-item .expand-arrow.expanded {
+    transform: rotate(180deg);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* --- Footer General --- */
+.footer {
+    width: 100%;
+}
+
+.footer-top {
+    background-image: url(../img/nosotros/footer-n1.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: flex-start;
+    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
+    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    position: relative;
+    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+}
+
+/* Enlace del logo */
+.footer-logo {
+    display: flex;
+    align-items: middle;
+    justify-content: center;
+    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    height: 150px;
+    position: relative; /* Para posicionar la imagen dentro de él */
+}
+
+.footer-logo a {
+    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    width: 100%;
+    height: 100%;
+    text-decoration: none; /* Asegura que no haya subrayado */
+}
+
+.footer-logo-image {
+    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
+    left: 100px; /* Mantiene tu posición original */
+    width: 150px;
+    max-height: 100%;
+    display: block; /* Para evitar espacios extra */
+    transition: transform 0.3s ease; /* Efecto hover */
+}
+
+.footer-logo-image:hover {
+    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+}
+
+
+.footer-links {
+    display: flex;
+    gap: 100px; /* Espacio entre las columnas de enlaces */
+    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
+    margin-top: -2%; /* Ajuste vertical que tenías */
+}
+
+.link-column h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--negro); /* Títulos de columna oscuros */
+}
+
+.link-column ul {
+    list-style: none; /* Elimina los bullet points por defecto */
+    padding: 0;
+    margin: 0;
+}
+
+.link-column li {
+    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+}
+
+.link-column li a {
+    font-size: 0.95em;
+    color: var(--negro); /* Color de los enlaces */
+    text-decoration: none; /* Elimina el subrayado por defecto */
+    transition: color 0.3s ease;
+}
+
+.link-column li a:hover {
+    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
+    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+}
+
+.footer-social-media {
+    background-image: url(../img/nosotros/footer-n2.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: initial;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--negro);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: var(--naranja); /* Color de los íconos */
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* --- Efecto hover para iconos --- */
+.social-icon:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* --- Sección Inferior de Derechos de Autor --- */
+.footer-bottom {
+    background-image: url(../img/nosotros/footer-n3.png); /* Asegúrate de que la ruta sea correcta */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 20px 5%;
+    color: var(--negro);
+    font-size: 0.9em;
+}
+
