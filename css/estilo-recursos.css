@@ -364,7 +364,7 @@ ul {
     background-color: var(--naranja);
     border-radius: 10px;
     width: 250px;
-    height: 300px;
+    height: 270px;
     overflow: hidden;
     transition: transform 0.3s ease;
 }
@@ -417,7 +417,7 @@ ul {
 
 .podcast-content h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2em;
+    font-size: 1.1em;
     font-weight: 600;
     color: var(--negro);
     margin: 0;
