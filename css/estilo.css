@@ -42,7 +42,9 @@ ul {
     list-style: none;
 }
 
-/* Navbar */
+/* ============================================== */
+/* 2. BARRA DE NAVEGACIÓN (NAVBAR) */
+/* ============================================== */
 .navbar {
     background-color: var(--negro);
     color: var(--blanco);
@@ -118,7 +120,9 @@ ul {
     cursor: pointer;
 }
 
-/* Hero Section */
+/* ============================================== */
+/* 3. SECCIÓN HERO */
+/* ============================================== */
 .hero-section {
     background-image: url(../img/home/portada-home.png);
     background-size: cover;
@@ -172,7 +176,7 @@ ul {
 }
 
 /* ============================================== */
-/* Sección: Video Promocional */
+/* 4. SECCIÓN VIDEO PROMOCIONAL */
 /* ============================================== */
 .video-promo-section {
     background-color: var(--negro); 
@@ -211,7 +215,9 @@ ul {
     height: 100%;
 }
 
-/* NEW SECTION: Cards Section (Servicios/Recursos) */
+/* ============================================== */
+/* 5. SECCIÓN DE CARDS */
+/* ============================================== */
 .cards-section {
     background-color: var(--negro);
     padding: 80px 0;
@@ -300,7 +306,9 @@ ul {
     transform: translateY(-2px);
 }
 
-/* SECCIÓN "SOBRE NOSOTROS" */
+/* ============================================== */
+/* 6. SECCIÓN "SOBRE NOSOTROS" */
+/* ============================================== */
 .about-section {
     background-image: url(../img/home/nosotros-fondo-home.png);
     background-size: cover;
@@ -320,9 +328,6 @@ ul {
     height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
     z-index: 1;
-}
-
-.about-section .container::after {
     bottom: 0;
 }
 
@@ -426,7 +431,9 @@ ul {
     transform: translateY(-2px);
 }
 
-/* --- NUEVA SECCIÓN: TESTIMONIOS --- */
+/* ============================================== */
+/* 7. SECCIÓN DE TESTIMONIOS */
+/* ============================================== */
 .testimonials-section {
     background-image: url(../img/home/testimonios-fondo-home.png);
     background-size: cover;
@@ -509,7 +516,10 @@ ul {
     line-height: 1.8;
 }
 
-/* --- Footer General --- */
+
+/* ============================================== */
+/* 8. FOOTER */
+/* ============================================== */
 .footer {
     width: 100%;
 }
@@ -634,7 +644,7 @@ ul {
 }
 
 /* ============================================== */
-/* 2. MEDIA QUERIES PARA RESPONSIVE DESIGN */
+/* 9. MEDIA QUERIES PARA RESPONSIVE DESIGN */
 /* ============================================== */
 
 @media (max-width: 1024px) {
@@ -755,15 +765,18 @@ ul {
     .about-visual-left {
         width: 100%;
         margin-left: 0;
-        height: 300px;
+        min-height: 250px;
+        height: auto;
         justify-content: center;
+        padding: 20px;
     }
     .about-visual-left > img {
         position: static;
-        height: 100%;
-        width: auto;
+        width: 100%;
+        height: auto;
         transform: none;
-        object-fit: contain;
+        object-fit: cover;
+        max-width: 300px;
     }
     .about-yellow-box {
         position: static;
@@ -771,12 +784,12 @@ ul {
         width: auto;
     }
     .about-logo-content img {
-        height: 300px;
+        height: 150px;
         margin-left: 0;
     }
     .about-text-right {
         text-align: center;
-        padding: 0;
+        padding: 20px;
     }
     .about-text-right h2 {
         font-size: 2em;
