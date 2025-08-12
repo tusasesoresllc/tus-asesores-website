@@ -1,13 +1,13 @@
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 * {
@@ -17,17 +17,17 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--blanco);
     background-color: var(--naranja);
-    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding for left/right */
+    padding: 0 20px;
 }
 
 a {
@@ -106,12 +106,21 @@ ul {
     transform: translateY(-1px);
 }
 
+/* Nuevo estilo para el botón del menú de hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: var(--naranja);
+    font-size: 1.5em;
+    cursor: pointer;
+}
 
 /* Hero Section */
 .hero-section {
-    background-image: url(../img/nosotros/portada-nosotros.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-image: url(../img/nosotros/portada-nosotros.png);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     color: var(--naranja);
     text-align: center;
@@ -134,10 +143,9 @@ ul {
     transform: skewX(20deg);
 }
 
-/* Adjust overlay and central light if needed */
 .hero-section .container {
     position: relative;
-    z-index: 2; /* Content above background elements and overlay */
+    z-index: 2;
     max-width: 900px;
 }
 
@@ -163,11 +171,11 @@ ul {
 
 /* --- NUEVA SECCIÓN: MISIÓN Y VISIÓN --- */
 .mision-vision-section {
-    background-image: url(../img/nosotros/fondo-mv.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/fondo-mv.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
-    padding: 80px 0; /* Espacio vertical */
+    padding: 80px 0;
     position: relative;
     overflow: hidden;
     color: var(--blanco);
@@ -194,7 +202,7 @@ ul {
 .mision-vision-content {
     display: flex;
     flex-direction: column;
-    gap: 60px; /* Espacio entre el bloque de Misión y el de Visión */
+    gap: 60px;
     margin: 0 auto;
 }
 
@@ -208,20 +216,20 @@ ul {
 .mision-vision-title-wrapper {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espacio entre la barra vertical y el título */
+    gap: 20px;
     margin-bottom: 20px;
 }
 
 .vertical-bar {
-    width: 10px; /* Ancho de la barra vertical */
-    height: 70px; /* Altura de la barra vertical */
-    background-color: var(--naranja); /* Color de la barra */
+    width: 10px;
+    height: 70px;
+    background-color: var(--naranja);
 }
 
 .mision-block h2,
 .vision-block h2 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 3.0em; /* Tamaño grande para los títulos */
+    font-size: 3.0em;
     font-weight: 800;
     color: var(--blanco);
     margin: 0;
@@ -234,12 +242,12 @@ ul {
     font-size: 1.2em;
     line-height: 1.8;
     color: var(--blanco);
-    padding-left: 28px; /* Ajusta este valor si necesitas que el texto se alinee con la barra */
+    padding-left: 28px;
 }
 
 /* --- NUEVA SECCIÓN: VALORES --- */
 .valores-section {
-    background-image: url(../img/nosotros/fondo-valores.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/fondo-valores.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
@@ -287,8 +295,8 @@ ul {
 
 .valores-content {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr; /* Tres columnas de igual ancho */
-    gap: 10px; /* Espacio entre las columnas */
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
     align-items: flex-start;
 }
 
@@ -318,20 +326,20 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative; /* Para la superposición del logo si es necesario */
+    position: relative;
     padding: 40px;
 }
 
 .valores-image img {
     max-width: 100%;
     height: auto;
-    border-radius: none; 
+    border-radius: none;
 }
 
 .valores-list {
     display: flex;
     flex-direction: column;
-    gap: 30px; /* Espacio entre los bloques de valores */
+    gap: 30px;
     padding-left: 20px;
 }
 
@@ -357,14 +365,14 @@ ul {
 
 /* --- NUEVA SECCIÓN: CONOCE A NUESTRO EQUIPO (Versión 2) --- */
 .equipo-section {
-    background-image: url(../img/nosotros/fondos-eq.png); /* La imagen de fondo con las líneas doradas */
+    background-image: url(../img/nosotros/fondos-eq.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     padding: 100px 0;
     position: relative;
     overflow: hidden;
-    color: var(--naranja); /* Color de texto oscuro */
+    color: var(--naranja);
 }
 
 .equipo-header {
@@ -398,7 +406,7 @@ ul {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 20px; /* Si la tarjeta tuviera padding */
+    padding: 20px;
 }
 
 .equipo-imagen-wrapper {
@@ -407,8 +415,8 @@ ul {
     position: relative;
     margin-bottom: 25px;
     border: none;
-    border-radius: 8px; /* Si tiene un borde redondeado, ajusta el valor */
-    overflow: hidden; /* Oculta lo que se sale del contenedor */
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .equipo-imagen-wrapper img {
@@ -446,22 +454,20 @@ ul {
     align-items: center;
 }
 
-/* Efecto para rotar la flecha al hacer clic o al desplegar la descripción */
 .expand-arrow.expanded {
     transform: rotate(180deg);
 }
 
 .member-description {
-    max-height: 0; /* Oculta el contenido por defecto */
-    overflow: hidden; /* Oculta cualquier texto que se salga */
-    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out; /* Animación de despliegue */
-    padding: 0 15px; /* Padding por defecto, será 0 */
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+    padding: 0 15px;
 }
 
-/* Estado activo: cuando el texto está desplegado */
 .member-description.expanded {
-    max-height: 700px; /* Altura suficiente para mostrar todo el texto. Ajusta si es necesario */
-    padding: 30px 20px; /* Añade padding para dar espacio al texto */
+    max-height: 700px;
+    padding: 30px 20px;
 }
 
 .member-description p {
@@ -470,10 +476,9 @@ ul {
     line-height: 1.6;
 }
 
-
 /* --- NUEVA SECCIÓN: NUESTRA METODOLOGÍA DE ÉXITO --- */
 .metodologia-section {
-    background-image: url(../img/nosotros/fondo-mtd.png); /* La imagen de fondo con las líneas doradas */
+    background-image: url(../img/nosotros/fondo-mtd.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -515,14 +520,14 @@ ul {
 
 .metodologia-content {
     display: grid;
-    grid-template-columns: 1fr 1fr; /* Dos columnas de igual tamaño */
+    grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
 }
 
 .metodologia-image-container {
     padding: 20px;
-    border-radius: 10px; /* Esquinas ligeramente redondeadas */
+    border-radius: 10px;
     position: relative;
     overflow: hidden;
 }
@@ -531,7 +536,7 @@ ul {
     width: 100%;
     height: auto;
     display: block;
-    border-radius: 40px; /* Un poco menos redondeado para la imagen interna */
+    border-radius: 40px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
@@ -572,12 +577,12 @@ ul {
     max-height: 0;
     overflow: hidden;
     transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
-    padding: 0 45px 0 0; /* Ajustamos el padding para el texto */
-    margin-top: 10px; /* Espacio entre el título y la descripción */
+    padding: 0 45px 0 0;
+    margin-top: 10px;
 }
 
 .metodologia-description.expanded {
-    max-height: 220px; /* Altura suficiente para el texto. Ajusta si es necesario */
+    max-height: 220px;
     padding: 10px 80px 0 0;
 }
 
@@ -591,104 +596,91 @@ ul {
     transform: rotate(180deg);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* --- Footer General --- */
 .footer {
     width: 100%;
 }
 
 .footer-top {
-    background-image: url(../img/nosotros/footer-n1.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/footer-n1.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
     display: flex;
     justify-content: flex-start;
-    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
-    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    padding: 60px 10%;
+    color: var(--negro);
     position: relative;
-    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+    align-items: flex-start;
 }
 
-/* Enlace del logo */
 .footer-logo {
     display: flex;
     align-items: middle;
     justify-content: center;
-    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    width: 100px;
     height: 150px;
-    position: relative; /* Para posicionar la imagen dentro de él */
+    position: relative;
 }
 
 .footer-logo a {
-    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none; /* Asegura que no haya subrayado */
+    text-decoration: none;
 }
 
 .footer-logo-image {
-    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
-    left: 100px; /* Mantiene tu posición original */
+    position: absolute;
+    left: 100px;
     width: 150px;
     max-height: 100%;
-    display: block; /* Para evitar espacios extra */
-    transition: transform 0.3s ease; /* Efecto hover */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo-image:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05);
 }
-
 
 .footer-links {
     display: flex;
-    gap: 100px; /* Espacio entre las columnas de enlaces */
-    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
-    margin-top: -2%; /* Ajuste vertical que tenías */
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
 }
 
 .link-column h4 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro); /* Títulos de columna oscuros */
+    color: var(--negro);
 }
 
 .link-column ul {
-    list-style: none; /* Elimina los bullet points por defecto */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .link-column li {
-    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro); /* Color de los enlaces */
-    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: var(--negro);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .link-column li a:hover {
-    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
-    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+    color: var(--amarillo);
+    cursor: pointer;
 }
 
 .footer-social-media {
-    background-image: url(../img/nosotros/footer-n2.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/footer-n2.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
@@ -706,21 +698,19 @@ ul {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--naranja); /* Color de los íconos */
+    color: var(--naranja);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Efecto hover para iconos --- */
 .social-icon:hover {
     background-color: var(--blanco);
     color: var(--negro);
 }
 
-/* --- Sección Inferior de Derechos de Autor --- */
 .footer-bottom {
-    background-image: url(../img/nosotros/footer-n3.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/footer-n3.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -730,3 +720,192 @@ ul {
     font-size: 0.9em;
 }
 
+/* ---------------------------------------------------- */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* ---------------------------------------------------- */
+
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar .container {
+        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+    }
+    
+    .navbar .logo {
+        margin-left: 0;
+    }
+
+    .navbar .nav-menu {
+        display: none; /* Oculta el menú por defecto */
+        width: 100%;
+        text-align: center;
+        background-color: var(--negro);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .navbar .nav-menu.active {
+        display: block; /* Muestra el menú cuando tiene la clase 'active' */
+        max-height: 300px; /* Altura suficiente para el menú */
+        opacity: 1;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    
+    .navbar nav ul li {
+        margin: 15px 0;
+    }
+    
+    .navbar .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa */
+    }
+
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    /* Misión y Visión */
+    .mision-block h2,
+    .vision-block h2 {
+        font-size: 2em;
+    }
+
+    .mision-block p,
+    .vision-block p {
+        font-size: 1em;
+        padding-left: 0; /* Elimina el padding para que el texto se alinee */
+    }
+
+    /* Valores */
+    .valores-header h2 {
+        font-size: 2.5em;
+    }
+
+    .valores-content {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+
+    .valores-about-us {
+        padding-right: 0;
+        text-align: center;
+    }
+    
+    .valores-image {
+        padding: 20px;
+    }
+    
+    .valores-list {
+        padding-left: 0;
+        text-align: center;
+    }
+    
+    /* Equipo */
+    .equipo-header h2 {
+        font-size: 2.5em;
+    }
+
+    .equipo-grid {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 30px;
+    }
+
+    .equipo-imagen-wrapper {
+        width: 250px;
+        height: 250px;
+        margin-bottom: 15px;
+    }
+
+    /* Metodología */
+    .metodologia-header h2 {
+        font-size: 2.5em;
+    }
+    
+    .metodologia-content {
+        grid-template-columns: 1fr; /* Una sola columna */
+    }
+    
+    .metodologia-image-container {
+        padding: 0; /* Reducir padding de la imagen */
+    }
+    
+    .metodologia-description.expanded {
+        padding: 10px 0 0 0; /* Ajustar padding para móviles */
+    }
+    
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 5%;
+    }
+    
+    .footer-logo {
+        height: 100px;
+    }
+
+    .footer-logo-image {
+        position: static; /* Restablecer la posición */
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .link-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-social-media {
+        padding: 15px 0;
+    }
+}
+
+/* Media Query para pantallas más pequeñas, como móviles estrechos */
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+
+    .mision-block h2,
+    .vision-block h2 {
+        font-size: 1.8em;
+    }
+
+    .vertical-bar {
+        height: 50px;
+    }
+    
+    .valores-header h2,
+    .equipo-header h2,
+    .metodologia-header h2 {
+        font-size: 2em;
+    }
+    
+    .equipo-imagen-wrapper {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .metodologia-item h3 {
+        font-size: 1.2em;
+    }
+}

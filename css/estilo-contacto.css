@@ -17,17 +17,17 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--blanco);
     background-color: var(--naranja);
-    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding for left/right */
+    padding: 0 20px;
 }
 
 a {
@@ -106,6 +106,15 @@ ul {
     transform: translateY(-1px);
 }
 
+/* Nuevo estilo para el botón del menú de hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: var(--naranja);
+    font-size: 1.5em;
+    cursor: pointer;
+}
 
 /* Hero Section */
 .hero-section {
@@ -160,7 +169,6 @@ ul {
     margin-right: auto;
 }
 
-
 /* --- SECCIÓN DE CONTACTO --- */
 .contact-section {
     position: relative;
@@ -177,7 +185,6 @@ ul {
     background-repeat: no-repeat;
 }
 
-/* Nuevas líneas decorativas */
 .contact-top-line,
 .contact-bottom-line {
     position: absolute;
@@ -484,4 +491,142 @@ ul {
     padding: 20px 5%;
     color: var(--negro);
     font-size: 0.9em;
+}
+
+/* ---------------------------------------------------- */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    
+    .navbar .logo {
+        margin-left: 0;
+    }
+    
+    .navbar .nav-menu {
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: var(--negro);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .navbar .nav-menu.active {
+        display: block;
+        max-height: 300px;
+        opacity: 1;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    
+    .navbar nav ul li {
+        margin: 15px 0;
+    }
+    
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    /* Hero Section */
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    /* Contacto Section */
+    .contact-section {
+        padding: 60px 0;
+    }
+
+    .contact-form-wrapper {
+        grid-template-columns: 1fr; /* Apila las columnas */
+        padding: 30px;
+        gap: 40px;
+    }
+    
+    .contact-form h2 {
+        font-size: 2.5em;
+    }
+    
+    .form-row {
+        flex-basis: 100%; /* Asegura que los campos del formulario ocupen el 100% del ancho */
+        min-width: unset;
+    }
+    
+    .info-card h4 {
+        font-size: 1.1em;
+    }
+    
+    .info-card a {
+        font-size: 0.9em;
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 5%;
+    }
+    
+    .footer-logo-image {
+        position: static;
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .link-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-social-media {
+        padding: 15px 0;
+    }
+}
+
+/* Media Query para pantallas más pequeñas, como móviles estrechos */
+@media (max-width: 480px) {
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    
+    .contact-form h2 {
+        font-size: 2em;
+    }
+    
+    .contact-form p {
+        font-size: 0.9em;
+    }
+    
+    .info-card i {
+        font-size: 2.5em;
+    }
+    
+    .submit-btn {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
 }

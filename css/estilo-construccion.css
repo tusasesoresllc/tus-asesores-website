@@ -107,6 +107,16 @@ ul {
     transform: translateY(-1px);
 }
 
+/* Nuevo estilo para el botón del menú de hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: var(--naranja);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
 /* --- ESTILOS DE LA PÁGINA "EN CONSTRUCCIÓN" --- */
 .construction-page {
     display: flex;
@@ -137,11 +147,12 @@ ul {
     max-width: 800px;
     padding: 20px;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
-    align-items: center;    /* Centra los elementos horizontalmente */
+    flex-direction: column;
+    align-items: center;
 }
 
 .main-title {
+    font-family: 'Bebas Neue', sans-serif;
     font-size: 4em;
     font-weight: 900;
     color: var(--naranja);
@@ -154,10 +165,11 @@ ul {
     max-width: 600px;
     height: auto;
     margin-top: 20px;
-    display: block; /* Asegura que la imagen sea un bloque */
+    display: block;
 }
 
 .construction-content p {
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     margin: 30px 0;
 }
@@ -168,6 +180,7 @@ ul {
     color: var(--negro);
     padding: 15px 30px;
     border-radius: 20px;
+    font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     font-weight: 700;
     text-transform: uppercase;
@@ -186,87 +199,85 @@ ul {
 }
 
 .footer-top {
-    background-image: url(../img/nosotros/footer-n1.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/footer-n1.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
     display: flex;
     justify-content: flex-start;
-    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
-    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    padding: 60px 10%;
+    color: var(--negro);
     position: relative;
-    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+    align-items: flex-start;
 }
 
-/* Enlace del logo */
 .footer-logo {
     display: flex;
     align-items: middle;
     justify-content: center;
-    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    width: 100px;
     height: 150px;
-    position: relative; /* Para posicionar la imagen dentro de él */
+    position: relative;
 }
 
 .footer-logo a {
-    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none; /* Asegura que no haya subrayado */
+    text-decoration: none;
 }
 
 .footer-logo-image {
-    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
-    left: 100px; /* Mantiene tu posición original */
+    position: absolute;
+    left: 100px;
     width: 150px;
     max-height: 100%;
-    display: block; /* Para evitar espacios extra */
-    transition: transform 0.3s ease; /* Efecto hover */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo-image:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05);
 }
-
 
 .footer-links {
     display: flex;
-    gap: 100px; /* Espacio entre las columnas de enlaces */
-    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
-    margin-top: -2%; /* Ajuste vertical que tenías */
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
 }
 
 .link-column h4 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro); /* Títulos de columna oscuros */
+    color: var(--negro);
 }
 
 .link-column ul {
-    list-style: none; /* Elimina los bullet points por defecto */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .link-column li {
-    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro); /* Color de los enlaces */
-    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: var(--negro);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .link-column li a:hover {
-    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
-    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+    color: var(--amarillo);
+    cursor: pointer;
 }
 
 .footer-social-media {
-    background-image: url(../img/nosotros/footer-n2.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/nosotros/footer-n2.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
@@ -284,19 +295,17 @@ ul {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--naranja); /* Color de los íconos */
+    color: var(--naranja);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Efecto hover para iconos --- */
 .social-icon:hover {
     background-color: var(--blanco);
     color: var(--negro);
 }
 
-/* --- Sección Inferior de Derechos de Autor --- */
 .footer-bottom {
     background: var(--negro);
     text-align: center;
@@ -305,3 +314,110 @@ ul {
     font-size: 0.9em;
 }
 
+/* ---------------------------------------------------- */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    
+    .navbar .logo {
+        margin-left: 0; /* Eliminar el margen negativo en pantallas pequeñas */
+    }
+    
+    .navbar .nav-menu {
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: var(--negro);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .navbar .nav-menu.active {
+        display: block;
+        max-height: 300px;
+        opacity: 1;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    
+    .navbar nav ul li {
+        margin: 15px 0;
+    }
+    
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    /* Contenido "En Construcción" */
+    .main-title {
+        font-size: 2.5em; /* Reducir el tamaño del título principal */
+        letter-spacing: 2px;
+    }
+    
+    .construction-content p {
+        font-size: 1em; /* Reducir el tamaño del párrafo */
+        margin: 20px 0;
+    }
+    
+    .back-home-btn {
+        font-size: 1em; /* Reducir el tamaño del botón */
+        padding: 12px 25px;
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 5%;
+    }
+    
+    .footer-logo-image {
+        position: static;
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .link-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-social-media {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-title {
+        font-size: 2em;
+    }
+    
+    .construction-content p {
+        font-size: 0.9em;
+    }
+    
+    .back-home-btn {
+        font-size: 0.9em;
+        padding: 10px 20px;
+    }
+}

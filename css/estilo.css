@@ -1,13 +1,17 @@
+/* ============================================== */
+/* 1. VARIABLES Y ESTILOS BASE (TU CÓDIGO ORIGINAL) */
+/* ============================================== */
+
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 * {
@@ -17,17 +21,17 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--blanco);
     background-color: var(--naranja);
-    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding for left/right */
+    padding: 0 20px;
 }
 
 a {
@@ -106,12 +110,11 @@ ul {
     transform: translateY(-1px);
 }
 
-
 /* Hero Section */
 .hero-section {
-    background-image: url(../img/home/portada-home.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-image: url(../img/home/portada-home.png);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     color: var(--naranja);
     text-align: center;
@@ -134,20 +137,19 @@ ul {
     transform: skewX(20deg);
 }
 
-/* Adjust overlay and central light if needed */
 .hero-section .container {
     position: relative;
-    z-index: 2; /* Content above background elements and overlay */
+    z-index: 2;
     max-width: 900px;
 }
 
 .hero-section h1 {
     font-size: 3.8em;
     margin-bottom: 25px;
-    color: var(--accent-gold);
+    color: var(--naranja); /* Corregido a naranja */
     font-weight: 800;
     line-height: 1.15;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    text-shadow: 0 0 10px rgba(248, 177, 51, 0.2); /* Sombra en naranja */
 }
 
 .hero-section p {
@@ -161,24 +163,19 @@ ul {
     margin-right: auto;
 }
 
-
-
-/* ============================================== */
 /* Sección: Video Promocional */
-/* ============================================== */
 .video-promo-section {
-    background-color: var(--negro); 
+    background-color: var(--negro);
     padding: 80px 0;
     text-align: center;
-    position: relative; /* Asegura que la línea se posicione correctamente */
+    position: relative;
     overflow: hidden;
 }
 
-/* Estilos para la línea superior */
 .video-promo-top-line {
     position: absolute;
     left: 0;
-    top: 0; /* Coloca la línea en la parte superior */
+    top: 0;
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
@@ -187,7 +184,7 @@ ul {
 
 .video-wrapper {
     position: relative;
-    padding-bottom: 56.25%; /* Relación de aspecto 16:9 */
+    padding-bottom: 56.25%;
     height: 0;
     overflow: hidden;
     max-width: 9000px;
@@ -206,21 +203,19 @@ ul {
 
 /* NEW SECTION: Cards Section (Servicios/Recursos) */
 .cards-section {
-    background-color: var(--negro); /* Fondo oscuro como en la imagen */
-    padding: 80px 0; /* Padding vertical */
+    background-color: var(--negro);
+    padding: 80px 0;
     position: relative;
     overflow: hidden;
 }
 
-/* Optional: Subtle golden glow lines top and bottom of cards section, like in the image */
 .cards-section::before, .cards-section::after {
     content: '';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px; /* Thickness of the line */
+    height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
-    opacity: 0.5; /* Subtle visibility */
 }
 
 .cards-section::before {
@@ -231,67 +226,66 @@ ul {
     bottom: 0;
 }
 
-
 .card-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Responsive grid */
-    gap: 30px; /* Space between cards */
-    justify-content: center; /* Center cards horizontally */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    justify-content: center;
 }
 
 .card-item {
-    background-color: var(--naranja); /* Card background is same as section, for a seamless look */
-    border: none; /* Golden border as in image */
-    padding: 25px; /* Padding inside the card */
+    background-color: var(--naranja);
+    border: none;
+    padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3); /* Subtle shadow */
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex; /* Flexbox for internal alignment */
+    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Pushes button to bottom */
+    justify-content: space-between;
 }
 
 .card-item:hover {
-    transform: translateY(-5px); /* Lift effect on hover */
+    transform: translateY(-5px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.4);
 }
 
 .card-image-container {
     width: 100%;
-    height: 200px; /* Fixed height for image container */
-    overflow: hidden; /* Hide overflowing parts of image */
+    height: 200px;
+    overflow: hidden;
     margin-bottom: 20px;
 }
 
 .card-image-container img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Cover the container, cropping if necessary */
+    object-fit: cover;
     display: block;
 }
 
 .card-item h3 {
-    font-size: 1.0em; /* Card title size */
-    color: var(--negro); /* Title in gold */
-    margin-bottom: 25px; /* Space below title */
+    font-size: 1.0em;
+    color: var(--negro);
+    margin-bottom: 25px;
     font-weight: 700;
 }
 
 .card-btn {
     display: inline-block;
-    background-color: var(--negro); /* Gold background for button */
-    color: var(--naranja); /* Dark text for button */
+    background-color: var(--negro);
+    color: var(--naranja);
     padding: 10px 20px;
     border-radius: 5px;
     font-weight: 600;
     font-family: 'Poppins', sans-serif;
     transition: background-color 0.3s ease, transform 0.2s ease;
-    margin-top: auto; /* Pushes button to the bottom if content varies */
+    margin-top: auto;
 }
 
 .card-btn:hover {
-    background-color: var(--blanco); /* Darker gold on hover */
+    background-color: var(--blanco);
     color: var(--negro);
     transform: translateY(-2px);
 }
@@ -299,43 +293,38 @@ ul {
 /* SECCIÓN "SOBRE NOSOTROS" */
 .about-section {
     background-image: url(../img/home/nosotros-fondo-home.png);
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 80px 0;
     position: relative;
-    overflow: hidden; /* Asegura que no haya barras de desplazamiento no deseadas */
-    color: #CCCCCC; /* Color de texto por defecto */
+    overflow: hidden;
+    color: #CCCCCC;
 }
 
-/* Líneas doradas decorativas en la parte superior e inferior del CONTAINER de la sección */
 .about-section .container::after {
     content: '';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
-    opacity: 0.2;
-    z-index: 1; /* Para que estén por encima del fondo, pero por debajo del contenido principal si hay solapamiento */
+    z-index: 1;
 }
-
 
 .about-section .container::after {
     bottom: 0;
 }
 
-
 .about-content {
     display: grid;
-    grid-template-columns: 45% 55%; /* Columna visual y columna de texto */
+    grid-template-columns: 45% 55%;
     gap: 40px;
     max-width: 1100px;
     margin: 0 auto;
     align-items: center;
-    position: relative; /* Para el posicionamiento de las líneas doradas de los lados */
+    position: relative;
 }
-
 
 .about-content::before {
     left: 0;
@@ -345,60 +334,59 @@ ul {
     right: 0;
 }
 
-
 .about-visual-left {
-    background-color: var(--naranja); /* Color amarillo/dorado */
+    background-color: var(--naranja);
     position: relative;
     margin-left: -20%;
-    width: 140%; /* Ocupa el resto del ancho de la columna */
-    height: 400px; /* Altura del fondo amarillo */
+    width: 140%;
+    height: 400px;
     display: flex;
     align-items: center;
-    justify-content: flex-end; /* Empuja el contenido hacia la derecha */
-    overflow: hidden; /* Esto es clave para que la imagen de la persona "salga" sin generar scrollbar */
+    justify-content: flex-end;
+    overflow: hidden;
 }
 
-.about-visual-left > img { /* La imagen de la persona */
+.about-visual-left > img {
     position: absolute;
-    left: 0; /* Sale del contenedor a la izquierda */
-    bottom: 0; /* Pegado a la parte inferior del contenedor visual */
-    height: 100%; /* La persona ocupa la altura completa del contenedor visual */
-    width: auto; /* Mantiene la proporción */
-    object-fit: contain; /* Asegura que la imagen no se corte y se vea completa */
-    z-index: 2; /* Por encima de todo lo demás en la columna */
-    transform: translateX(-15%); /* Ajusta esta propiedad para el efecto de "salida" deseado */
-    max-width: none; /* Permite que la imagen se extienda fuera de su ancho original */
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    z-index: 2;
+    transform: translateX(-15%);
+    max-width: none;
 }
 
 .about-yellow-box {
     position: absolute;
-    top: 50%; /* Centrar verticalmente */
-    left: 45%; /* Posiciona el inicio del fondo amarillo */
+    top: 50%;
+    left: 45%;
     transform: translateY(-50%);
-    z-index: 1; /* Por debajo de la persona y el contenido del logo */
-    display: flex; /* Para centrar el contenido del logo */
+    z-index: 1;
+    display: flex;
     align-items: center;
     justify-content: center;
 }
 
-.about-logo-content { /* Contenido del logo dentro del cuadro amarillo */
+.about-logo-content {
     display: flex;
-    flex-direction: column; /* Logo y texto apilados verticalmente */
-    align-items: center; /* Centrar horizontalmente */
+    flex-direction: column;
+    align-items: center;
     padding: 20px;
 }
 
 .about-logo-content img {
-    height: 400px; /* Tamaño del logo */
+    height: 400px;
     margin-left: -50%;
     width: auto;
     object-fit: contain;
-    margin-bottom: 0; /* Espacio entre logo y texto */
+    margin-bottom: 0;
 }
 
 .about-text-right {
     text-align: center;
-    padding-left: 120px; /* Espacio si el texto comienza muy pegado */
+    padding-left: 120px;
     padding-right: 0;
 }
 
@@ -436,29 +424,24 @@ ul {
     transform: translateY(-2px);
 }
 
-
 /* --- NUEVA SECCIÓN: TESTIMONIOS --- */
 .testimonials-section {
     background-image: url(../img/home/testimonios-fondo-home.png);
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: initial; /* Centrar la imagen */
+    background-size: cover;
+    background-position: initial;
     background-repeat: no-repeat;
     padding: 80px 0;
     position: relative;
     overflow: hidden;
 }
 
-/* Líneas doradas en la parte superior e inferior del contenedor de testimonios */
-.testimonials-section .container::before,
 .testimonials-section .container::after {
     content: '';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px;
-    /* Gradiente inverso para que el dorado sea más visible en el fondo claro */
-    background: linear-gradient(to right, transparent, var(--accent-gold) 20%, var(--accent-gold) 80%, transparent);
-    opacity: 0.3; /* Un poco más de opacidad para que se note */
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
     z-index: 1;
 }
 
@@ -474,28 +457,28 @@ ul {
     font-family: 'Montserrat', sans-serif;
     font-size: 3em;
     font-weight: 700;
-    color: var(--blanco); /* Título oscuro */
+    color: var(--blanco);
     text-align: center;
     margin-bottom: 60px;
 }
 
 .testimonial-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* 3 columnas en desktop */
-    gap: 30px; /* Espacio entre las tarjetas */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
     justify-content: center;
 }
 
 .testimonial-card {
-    background-color: var(--gris); /* Fondo blanco/gris claro para la tarjeta */
-    border: none; /* Borde dorado */
-    border-radius: 8px; /* Bordes ligeramente redondeados */
+    background-color: var(--gris);
+    border: none;
+    border-radius: 8px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1); /* Sombra suave */
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     display: flex;
     flex-direction: column;
     text-align: left;
-    color: var(--negro); /* Color de texto oscuro para el contenido */
+    color: var(--negro);
 }
 
 .testimonial-header {
@@ -505,17 +488,16 @@ ul {
 }
 
 .testimonial-header img {
-    height: 40px; /* Tamaño del logo/icono en la tarjeta */
+    height: 40px;
     width: auto;
     margin-right: 15px;
-    /* Para tu logo actual, podrías necesitar una imagen SVG o un filtro diferente */
 }
 
 .testimonial-header h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
     font-weight: 700;
-    color: var(--negro); /* Color del nombre oscuro */
+    color: var(--negro);
 }
 
 .testimonial-card p {
@@ -525,94 +507,91 @@ ul {
     line-height: 1.8;
 }
 
-
 /* --- Footer General --- */
 .footer {
     width: 100%;
 }
 
 .footer-top {
-    background-image: url(../img/home/footer01.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/home/footer01.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
     display: flex;
     justify-content: flex-start;
-    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
-    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    padding: 60px 10%;
+    color: var(--negro);
     position: relative;
-    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+    align-items: flex-start;
 }
 
-/* Enlace del logo */
 .footer-logo {
     display: flex;
     align-items: middle;
     justify-content: center;
-    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    width: 100px;
     height: 150px;
-    position: relative; /* Para posicionar la imagen dentro de él */
+    position: relative;
 }
 
 .footer-logo a {
-    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none; /* Asegura que no haya subrayado */
+    text-decoration: none;
 }
 
 .footer-logo-image {
-    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
-    left: 100px; /* Mantiene tu posición original */
+    position: absolute;
+    left: 100px;
     width: 150px;
     max-height: 100%;
-    display: block; /* Para evitar espacios extra */
-    transition: transform 0.3s ease; /* Efecto hover */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo-image:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05);
 }
-
 
 .footer-links {
     display: flex;
-    gap: 100px; /* Espacio entre las columnas de enlaces */
-    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
-    margin-top: -2%; /* Ajuste vertical que tenías */
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
 }
 
 .link-column h4 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro); /* Títulos de columna oscuros */
+    color: var(--negro);
 }
 
 .link-column ul {
-    list-style: none; /* Elimina los bullet points por defecto */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .link-column li {
-    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro); /* Color de los enlaces */
-    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: var(--negro);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .link-column li a:hover {
-    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
-    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+    color: var(--amarillo);
+    cursor: pointer;
 }
 
 .footer-social-media {
-    background-image: url(../img/home/footer02.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/home/footer02.png);
     background-size: cover;
     background-position: initial;
     background-repeat: no-repeat;
@@ -630,21 +609,19 @@ ul {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--naranja); /* Color de los íconos */
+    color: var(--naranja);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Efecto hover para iconos --- */
 .social-icon:hover {
     background-color: var(--blanco);
     color: var(--negro);
 }
 
-/* --- Sección Inferior de Derechos de Autor --- */
 .footer-bottom {
-    background-image: url(../img/home/footer03.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/home/footer03.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -654,3 +631,195 @@ ul {
     font-size: 0.9em;
 }
 
+/* ============================================== */
+/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* ============================================== */
+
+/* Estilos para el menú responsivo (añadido para móviles) */
+
+.navbar .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
+    .container {
+        padding: 0 15px; /* Reducimos el padding general */
+    }
+
+    .navbar .logo {
+        margin-left: 0; /* Centramos el logo */
+    }
+    .navbar nav ul li {
+        margin-left: 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 3em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    .about-content {
+        gap: 20px;
+    }
+    .about-visual-left {
+        height: 350px;
+        margin-left: -10%;
+    }
+    .about-text-right {
+        padding-left: 50px;
+    }
+    .about-logo-content img {
+        height: 300px;
+    }
+
+    .footer-top {
+        padding: 50px 5%;
+    }
+    .footer-logo-image {
+        left: 50px;
+    }
+    .footer-links {
+        margin-left: 150px;
+        gap: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Estilos para móviles (teléfonos) */
+    .navbar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .navbar .nav-menu {
+        display: none; /* Oculta el menú por defecto */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .navbar .nav-menu.active {
+        display: flex; /* Muestra el menú cuando tiene la clase 'active' */
+    }
+
+    .navbar .menu-toggle {
+        display: block; /* Muestra el botón de menú */
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .navbar nav ul li {
+        margin: 0;
+    }
+
+    .navbar .logo {
+        margin: 0;
+    }
+    .navbar .btn-nav {
+        margin-top: 10px;
+    }
+
+    .hero-section {
+        padding: 100px 10px;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    .cards-section {
+        padding: 40px 0;
+    }
+    .card-grid {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+    }
+    .card-item {
+        padding: 20px;
+    }
+
+    .about-content {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+        text-align: center;
+    }
+    .about-visual-left {
+        width: 100%;
+        margin-left: 0;
+        height: 300px;
+    }
+    .about-visual-left > img {
+        position: static;
+        transform: none;
+        height: 100%;
+        object-fit: contain;
+    }
+    .about-yellow-box {
+        display: none; /* Ocultamos la caja del logo en móviles */
+    }
+    .about-text-right {
+        padding-left: 0;
+    }
+    .about-text-right h2 {
+        font-size: 2em;
+    }
+    .about-text-right p {
+        font-size: 1em;
+    }
+
+    .testimonials-section h2 {
+        font-size: 2em;
+        margin-bottom: 30px;
+    }
+    .testimonial-grid {
+        grid-template-columns: 1fr; /* Una columna para móviles */
+    }
+
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 10%;
+    }
+    .footer-logo {
+        position: static;
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .footer-logo-image {
+        position: static;
+        width: 100px;
+        max-height: none;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        margin-left: 0;
+    }
+}

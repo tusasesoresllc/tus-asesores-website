@@ -1,3 +1,7 @@
+/* ============================================== */
+/* 1. VARIABLES Y ESTILOS BASE (TU CÓDIGO ORIGINAL) */
+/* ============================================== */
+
 :root {
     --negro: #000000; 
     --amarillo: #f3ce37; 
@@ -17,17 +21,17 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Primary font for headings */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--blanco);
     background-color: var(--naranja);
-    overflow-x: hidden; /* Prevent horizontal scroll from hero background */
+    overflow-x: hidden;
 }
 
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 20px; /* Padding for left/right */
+    padding: 0 20px;
 }
 
 a {
@@ -106,12 +110,11 @@ ul {
     transform: translateY(-1px);
 }
 
-
 /* Hero Section */
 .hero-section {
-    background-image: url(../img/servicios/fondo-servicios.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-image: url(../img/servicios/fondo-servicios.png);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     color: var(--naranja);
     text-align: center;
@@ -134,20 +137,19 @@ ul {
     transform: skewX(20deg);
 }
 
-/* Adjust overlay and central light if needed */
 .hero-section .container {
     position: relative;
-    z-index: 2; /* Content above background elements and overlay */
+    z-index: 2;
     max-width: 900px;
 }
 
 .hero-section h1 {
     font-size: 3.8em;
     margin-bottom: 25px;
-    color: var(--accent-gold);
+    color: var(--naranja); /* Corregido */
     font-weight: 800;
     line-height: 1.15;
-    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+    text-shadow: 0 0 10px rgba(248, 177, 51, 0.2); /* Corregido */
 }
 
 .hero-section p {
@@ -161,22 +163,19 @@ ul {
     margin-right: auto;
 }
 
-
-
 /* ============================================== */
 /* Sección: Nuestros Servicios */
 /* ============================================== */
 .servicios-section {
-    background-image: url(../img/servicios/fondo-S2.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-image: url(../img/servicios/fondo-S2.png);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 100px 0;
     position: relative;
     overflow: hidden;
 }
 
-/* MODIFICACIONES: Líneas decorativas doradas en el borde de la sección */
 .servicios-top-line,
 .servicios-bottom-line {
     position: absolute;
@@ -195,16 +194,14 @@ ul {
     bottom: 0;
 }
 
-/* MODIFICACIONES: Contenedor principal de las tarjetas (GRID) */
 .servicios-grid-container {
     display: grid;
     grid-template-columns: repeat(4, 1fr); 
-    gap: 40px; /* Espacio entre las tarjetas */
+    gap: 40px;
     justify-content: center;
     align-items: center;
 }
 
-/* MODIFICACIONES: Estilos generales de las tarjetas */
 .servicio-card {
     cursor: pointer;
     width: 300px;
@@ -213,7 +210,6 @@ ul {
     position: relative;
 }
 
-/* MODIFICACIONES: Estilos para la tarjeta ACTIVA (cuando se hace clic) */
 .servicio-card.active {
     width: 400px;
     height: 400px;
@@ -221,32 +217,28 @@ ul {
     z-index: 2;
 }
 
-/* MODIFICACIONES: Contenido interno de la tarjeta */
 .servicio-card-inner {
     padding: 20px;
     background-color: var(--naranja);
-    border-radius: 40px; /* Radio de las esquinas de la tarjeta */
+    border-radius: 40px;
     position: relative;
     overflow: hidden;
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    /* Ajusta la duración y la función de transición para el resplandor */
     transition: all 0.6s cubic-bezier(0.68, -0.6, 0.32, 1.6);
     border: 2px solid transparent;
 }
 
-/* MODIFICACIONES: Borde y resplandor de la tarjeta ACTIVA */
 .servicio-card.active .servicio-card-inner {
-    border: 2px solid var(--naranja); /* Color del borde activo */
-    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Resplandor */
+    border: 2px solid var(--naranja);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.4);
 }
 
-/* MODIFICACIONES: Estilos del contenedor de la imagen */
 .servicio-card-image-wrapper {
     width: calc(100% + 40px);
-    height: 180px; /* Altura de la imagen en las tarjetas */
+    height: 180px;
     position: relative;
     overflow: hidden;
     margin: -20px -20px 20px -20px;
@@ -262,19 +254,17 @@ ul {
     z-index: 1;
 }
 
-/* MODIFICACIONES: Efecto de degradado sobre la imagen */
 .servicio-card-image-wrapper::after {
     content: '';
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 50%; /* Altura del degradado */
+    height: 50%;
     background: linear-gradient(to top, var(--naranja) 0%, rgba(0,0,0,0) 100%);
     z-index: 2;
 }
 
-/* MODIFICACIONES: Contenido de la tarjeta */
 .servicio-card-content {
     text-align: center;
     display: flex;
@@ -285,7 +275,7 @@ ul {
 
 .servicio-card-content h3 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.3em; /* Tamaño del título del servicio */
+    font-size: 1.3em;
     font-weight: 700;
     color: var(--negro);
     margin: 0;
@@ -294,7 +284,6 @@ ul {
     text-overflow: ellipsis;
 }
 
-/* MODIFICACIONES: Ocultar descripción y botón por defecto */
 .card-description,
 .ver-mas-btn {
     opacity: 0;
@@ -303,7 +292,6 @@ ul {
     transition: opacity 0.6s ease-in-out, height 0.6s ease-in-out;
 }
 
-/* MODIFICACIONES: Mostrar descripción y botón en la tarjeta activa */
 .servicio-card.active .card-description,
 .servicio-card.active .ver-mas-btn {
     opacity: 1;
@@ -329,15 +317,13 @@ ul {
     color: var(--blanco);
 }
 
-
-
 /* ============================================== */
 /* Sección: Servicios Detallados */
 /* ============================================== */
 .servicios-detallados-section {
-    background-image: url(../img/servicios/fondo-S3.png); /* ¡IMPORTANTE: REEMPLAZA ESTA RUTA! */
-    background-size: cover; /* Cubrirá todo el espacio */
-    background-position: center; /* Centrar la imagen */
+    background-image: url(../img/servicios/fondo-S3.png);
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 100px 0;
     position: relative;
@@ -445,21 +431,10 @@ ul {
     color: var(--negro);
 }
 
-
-
-
-
-
-
-
-
-
-
-
 /* --- Footer General --- */
 .footer {
     width: 100%;
-    background-image: url(../img/servicios/footer.png); /* Asegúrate de que la ruta sea correcta */
+    background-image: url(../img/servicios/footer.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -468,77 +443,75 @@ ul {
 .footer-top {
     display: flex;
     justify-content: flex-start;
-    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
-    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    padding: 60px 10%;
+    color: var(--negro);
     position: relative;
-    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+    align-items: flex-start;
 }
 
-/* Enlace del logo */
 .footer-logo {
     display: flex;
     align-items: middle;
     justify-content: center;
-    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    width: 100px;
     height: 150px;
-    position: relative; /* Para posicionar la imagen dentro de él */
+    position: relative;
 }
 
 .footer-logo a {
-    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none; /* Asegura que no haya subrayado */
+    text-decoration: none;
 }
 
 .footer-logo-image {
-    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
-    left: 100px; /* Mantiene tu posición original */
+    position: absolute;
+    left: 100px;
     width: 150px;
     max-height: 100%;
-    display: block; /* Para evitar espacios extra */
-    transition: transform 0.3s ease; /* Efecto hover */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo-image:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05);
 }
-
 
 .footer-links {
     display: flex;
-    gap: 100px; /* Espacio entre las columnas de enlaces */
-    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
-    margin-top: -2%; /* Ajuste vertical que tenías */
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
 }
 
 .link-column h4 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro); /* Títulos de columna oscuros */
+    color: var(--negro);
 }
 
 .link-column ul {
-    list-style: none; /* Elimina los bullet points por defecto */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .link-column li {
-    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro); /* Color de los enlaces */
-    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: var(--negro);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .link-column li a:hover {
-    color: var(--amarillo); /* Color dorado/amarillo al pasar el ratón */
-    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+    color: var(--amarillo);
+    cursor: pointer;
 }
 
 .footer-social-media {
@@ -556,19 +529,17 @@ ul {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--naranja); /* Color de los íconos */
+    color: var(--naranja);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Efecto hover para iconos --- */
 .social-icon:hover {
     background-color: var(--blanco);
     color: var(--negro);
 }
 
-/* --- Sección Inferior de Derechos de Autor --- */
 .footer-bottom {
     text-align: center;
     padding: 20px 5%;
@@ -576,3 +547,255 @@ ul {
     font-size: 0.9em;
 }
 
+/* ============================================== */
+/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* ============================================== */
+
+/* Estilos para el menú responsivo (añadido para móviles) */
+
+.navbar .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 1024px) {
+    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
+    .container {
+        padding: 0 15px;
+    }
+
+    .navbar .logo {
+        margin-left: 0;
+    }
+    .navbar nav ul li {
+        margin-left: 20px;
+    }
+    
+    .hero-section {
+        padding: 120px 10px;
+        min-height: 50vh;
+    }
+    .hero-section h1 {
+        font-size: 3em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    /* Sección de Servicios */
+    .servicios-section {
+        padding: 80px 0;
+    }
+    .servicios-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+    .servicio-card {
+        width: auto;
+        height: auto;
+    }
+    .servicio-card.active {
+        width: auto;
+        height: auto;
+        transform: scale(1.05);
+    }
+    .servicio-card-inner {
+        padding: 15px;
+        border-radius: 20px;
+    }
+    .servicio-card-image-wrapper {
+        width: calc(100% + 30px);
+        margin: -15px -15px 15px -15px;
+    }
+    .servicio-card-content h3 {
+        font-size: 1.1em;
+    }
+    .card-description {
+        font-size: 0.9em;
+    }
+
+    /* Sección de Servicios Detallados */
+    .servicios-detallados-section {
+        padding: 80px 0;
+    }
+    .servicio-detalle-title {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
+    .servicio-detalle-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .servicio-detalle-column {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+    }
+    .servicio-detalle-column h3 {
+        font-size: 1.3em;
+    }
+    .solicitar-btn {
+        margin-top: 30px;
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 10%;
+    }
+    .footer-logo {
+        position: static;
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+    .footer-logo-image {
+        position: static;
+        width: 100px;
+        max-height: none;
+    }
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Estilos para móviles (teléfonos) */
+    .navbar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .navbar .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        flex-direction: column;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+    
+    .navbar .nav-menu.active {
+        display: flex;
+    }
+    
+    .navbar .menu-toggle {
+        display: block;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        width: 100%;
+        text-align: center;
+        gap: 15px;
+    }
+    
+    .navbar nav ul li {
+        margin: 0;
+    }
+    
+    .navbar .logo {
+        margin: 0;
+    }
+    .navbar .btn-nav {
+        margin-top: 10px;
+    }
+
+    .hero-section {
+        padding: 80px 10px;
+    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    /* Sección de Servicios */
+    .servicios-section {
+        padding: 40px 0;
+    }
+    .servicios-grid-container {
+        grid-template-columns: 1fr;
+    }
+    .servicio-card {
+        width: 100%;
+    }
+    .servicio-card.active {
+        width: 100%;
+        transform: scale(1);
+    }
+    .servicio-card-inner {
+        padding: 10px;
+        border-radius: 15px;
+    }
+    .servicio-card-image-wrapper {
+        width: calc(100% + 20px);
+        margin: -10px -10px 10px -10px;
+    }
+    .servicio-card-content h3 {
+        font-size: 1em;
+    }
+    .card-description {
+        font-size: 0.8em;
+    }
+    .servicio-card.active .card-description,
+    .servicio-card.active .ver-mas-btn {
+        margin-top: 10px;
+    }
+
+    /* Sección de Servicios Detallados */
+    .servicios-detallados-section {
+        padding: 40px 0;
+    }
+    .servicio-detalle-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
+    .servicio-detalle-content-wrapper {
+        gap: 15px;
+    }
+    .servicio-detalle-column {
+        padding: 15px;
+        border-radius: 15px;
+    }
+    .servicio-detalle-column h3 {
+        font-size: 1.1em;
+    }
+    .solicitar-btn {
+        margin-top: 20px;
+    }
+
+    /* Footer */
+    .footer-top {
+        padding: 30px 5%;
+    }
+    .footer-links {
+        gap: 20px;
+    }
+    .link-column h4 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
+    .link-column li a {
+        font-size: 0.9em;
+    }
+}

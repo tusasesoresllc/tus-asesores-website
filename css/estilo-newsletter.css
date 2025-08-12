@@ -21,28 +21,28 @@ html {
 }
 
 body {
-    font-family: 'Montserrat', sans-serif; /* Fuente principal */
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
-    color: var(--blanco); /* Color de texto por defecto para elementos específicos, se sobrescribe */
-    background-color: var(--fondo-general); /* Fondo general del sitio */
-    overflow-x: hidden; /* Evita el scroll horizontal */
-    display: flex; /* Para centrar el contenedor del formulario */
-    flex-direction: column; /* Organiza los elementos en columna */
-    justify-content: flex-start; /* Alinea los elementos al inicio de la columna */
-    align-items: center; /* Centra horizontalmente los elementos hijos */
-    min-height: 100vh; /* Asegura que el body ocupe al menos toda la altura de la vista */
+    color: var(--blanco);
+    background-color: var(--fondo-general);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
 }
 
 .container {
     max-width: 1500px;
     margin: 0 auto;
-    padding: 0 20px; /* Espaciado lateral */
-    width: 100%; /* Asegura que el contenedor use el 100% del ancho disponible dentro del body */
+    padding: 0 20px;
+    width: 100%;
 }
 
 a {
     text-decoration: none;
-    color: var(--amarillo); /* Color por defecto para enlaces, sobrescrito en navbar y footer */
+    color: var(--amarillo);
 }
 
 ul {
@@ -51,14 +51,14 @@ ul {
 
 /* Navbar */
 .navbar {
-    background-color: var(--fondo-general); /* Fondo del navbar */
-    color: var(--negro); /* Color del texto general del navbar */
+    background-color: var(--fondo-general);
+    color: var(--negro);
     padding: 15px 0;
-    position: absolute; /* Posiciona el navbar al inicio de la página */
+    position: absolute;
     top: 0;
     left: 0;
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    width: 100%; /* Ocupa todo el ancho */
+    z-index: 1000;
+    width: 100%;
 }
 
 .navbar .container {
@@ -71,13 +71,13 @@ ul {
     display: flex;
     align-items: center;
     margin-right: 20px;
-    margin-left: 1%; /* Ajuste para la posición del logo */
+    margin-left: 1%;
 }
 
 .navbar .logo img {
     height: 35px;
     margin-right: 10px;
-    filter: brightness(1.2); /* Para ajustar el brillo del logo */
+    filter: brightness(1.2);
 }
 
 .navbar nav ul {
@@ -90,9 +90,9 @@ ul {
 }
 
 .navbar nav ul li a {
-    color: var(--negro); /* Color de los enlaces del navbar */
+    color: var(--negro);
     font-weight: 500;
-    font-family: 'Poppins', sans-serif; /* Fuente específica para el navbar */
+    font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
 }
 
@@ -102,7 +102,7 @@ ul {
 
 .navbar .btn-nav {
     background-color: var(--negro);
-    color: var(--fondo-general); /* Color del texto del botón del navbar */
+    color: var(--fondo-general);
     padding: 8px 18px;
     border-radius: 5px;
     font-weight: 600;
@@ -119,15 +119,25 @@ ul {
     transform: translateY(-1px);
 }
 
+/* Nuevo estilo para el botón del menú de hamburguesa */
+.menu-toggle {
+    display: none; /* Oculto por defecto en escritorio */
+    background: none;
+    border: none;
+    color: var(--negro);
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
 /* Contenido Principal (Main Content) */
 .main-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1; /* Permite que el contenido principal ocupe el espacio restante */
+    flex-grow: 1;
     width: 100%;
-    margin-top: 80px; /* Margen superior para dejar espacio al navbar */
-    padding: 20px; /* Padding general para el contenido principal */
+    margin-top: 80px;
+    padding: 20px;
 }
 
 /* Estilos del Formulario (sección .contenedor dentro de .main-content) */
@@ -218,7 +228,7 @@ ul {
 }
 
 button[type="submit"] {
-    background-color: var(--negro); /* Usando la variable para el botón */
+    background-color: var(--negro);
     color: var(--blanco);
     padding: 15px 30px;
     border: none;
@@ -226,20 +236,16 @@ button[type="submit"] {
     cursor: pointer;
     font-size: 1.1em;
     transition: background-color 0.3s ease;
-    width: auto; /* El botón se ajusta al contenido */
-    display: block; /* Sigue siendo un elemento de bloque */
+    width: auto;
+    display: block;
     margin-top: 30px;
-    /* Las nuevas propiedades para centrarlo */
-    margin-left: auto; /* Margen izquierdo automático */
-    margin-right: auto; /* Margen derecho automático */
-    /* O si el contenedor padre (panel-derecho) ya es un flex-direction: column y quieres centrar sus items */
-    /* align-self: center; */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 button[type="submit"]:hover {
     background-color: var(--detalles);
 }
-
 
 /* --- Footer General --- */
 .footer {
@@ -249,10 +255,10 @@ button[type="submit"]:hover {
 .footer-top {
     display: flex;
     justify-content: flex-start;
-    padding: 60px 10%; /* Ajusta el padding si necesitas más espacio superior/inferior */
-    color: var(--negro); /* Color de texto por defecto para esta sección del footer */
+    padding: 60px 10%;
+    color: var(--negro);
     position: relative;
-    align-items: flex-start; /* Asegura que los elementos se alineen al inicio de su fila */
+    align-items: flex-start;
 }
 
 /* Enlace del logo */
@@ -260,66 +266,66 @@ button[type="submit"]:hover {
     display: flex;
     align-items: middle;
     justify-content: center;
-    width: 100px; /* Tamaño del contenedor, el img es el que se posiciona */
+    width: 100px;
     height: 150px;
-    position: relative; /* Para posicionar la imagen dentro de él */
+    position: relative;
 }
 
 .footer-logo a {
-    display: block; /* Hace que el enlace ocupe todo el espacio del logo */
+    display: block;
     width: 100%;
     height: 100%;
-    text-decoration: none; /* Asegura que no haya subrayado */
+    text-decoration: none;
 }
 
 .footer-logo-image {
-    position: absolute; /* Para posicionarla de forma absoluta dentro de .footer-logo */
-    left: 100px; /* Mantiene tu posición original */
+    position: absolute;
+    left: 100px;
     width: 150px;
     max-height: 100%;
-    display: block; /* Para evitar espacios extra */
-    transition: transform 0.3s ease; /* Efecto hover */
+    display: block;
+    transition: transform 0.3s ease;
 }
 
 .footer-logo-image:hover {
-    transform: scale(1.05); /* Efecto de escala al pasar el ratón */
+    transform: scale(1.05);
 }
 
 
 .footer-links {
     display: flex;
-    gap: 100px; /* Espacio entre las columnas de enlaces */
-    margin-left: 300px; /* Margen para empujar las columnas a la derecha del logo */
-    margin-top: -2%; /* Ajuste vertical que tenías */
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
 }
 
 .link-column h4 {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro); /* Títulos de columna oscuros */
+    color: var(--negro);
 }
 
 .link-column ul {
-    list-style: none; /* Elimina los bullet points por defecto */
+    list-style: none;
     padding: 0;
     margin: 0;
 }
 
 .link-column li {
-    margin-bottom: 8px; /* Espacio entre los elementos de la lista */
+    margin-bottom: 8px;
 }
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro); /* Color de los enlaces */
-    text-decoration: none; /* Elimina el subrayado por defecto */
+    color: var(--negro);
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .link-column li a:hover {
-    color: #d64502; /* Color dorado/amarillo al pasar el ratón */
-    cursor: pointer; /* Aunque ya es un enlace, esto es redundante */
+    color: #d64502;
+    cursor: pointer;
 }
 
 .footer-social-media {
@@ -337,13 +343,12 @@ button[type="submit"]:hover {
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--fondo-general); /* Color de los íconos */
+    color: var(--fondo-general);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-/* --- Efecto hover para iconos --- */
 .social-icon:hover {
     background-color: var(--naranja);
     color: var(--negro);
@@ -357,3 +362,135 @@ button[type="submit"]:hover {
     font-size: 0.9em;
 }
 
+/* ---------------------------------------------------- */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* ---------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Navbar */
+    .navbar .container {
+        flex-wrap: wrap;
+    }
+    
+    .navbar .logo {
+        margin-left: 0;
+    }
+    
+    .navbar .nav-menu {
+        display: none;
+        width: 100%;
+        text-align: center;
+        background-color: var(--fondo-general);
+        position: absolute;
+        top: 100%;
+        left: 0;
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    .navbar .nav-menu.active {
+        display: block;
+        max-height: 300px;
+        opacity: 1;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        padding: 20px 0;
+    }
+    
+    .navbar nav ul li {
+        margin: 15px 0;
+    }
+    
+    .navbar .menu-toggle {
+        display: block;
+    }
+    
+    /* Contenido Principal y Formulario */
+    .contenedor {
+        width: 95%; /* Ajusta el ancho para pantallas pequeñas */
+        flex-direction: column; /* Apila los paneles verticalmente */
+    }
+    
+    .panel-izquierdo, .panel-derecho {
+        padding: 30px; /* Reducir el padding de los paneles */
+    }
+    
+    .panel-izquierdo h1 {
+        font-size: 2em; /* Reducir el tamaño de la fuente del título */
+    }
+    
+    .panel-izquierdo p {
+        font-size: 1em; /* Reducir el tamaño del texto */
+    }
+    
+    .panel-derecho h2 {
+        font-size: 1.8em; /* Reducir el tamaño del título */
+        margin-bottom: 20px;
+    }
+
+    .grupo-formulario {
+        flex-direction: column; /* Apila los campos de entrada */
+        gap: 15px; /* Reducir el espacio entre campos */
+        margin-bottom: 15px;
+    }
+    
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        padding: 40px 5%;
+    }
+    
+    .footer-logo-image {
+        position: static;
+        width: 120px;
+        margin-bottom: 20px;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+        text-align: center;
+    }
+
+    .link-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-social-media {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar .logo img {
+        height: 30px; /* Reducir tamaño del logo en móviles pequeños */
+    }
+    
+    .panel-izquierdo h1 {
+        font-size: 1.8em;
+    }
+    
+    .panel-izquierdo p {
+        font-size: 0.9em;
+    }
+    
+    .panel-derecho h2 {
+        font-size: 1.5em;
+    }
+    
+    .grupo-formulario input {
+        padding: 12px;
+    }
+    
+    button[type="submit"] {
+        padding: 12px 25px;
+        font-size: 1em;
+    }
+}
