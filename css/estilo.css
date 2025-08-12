@@ -224,9 +224,8 @@ ul {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
-    opacity: 0.5;
 }
 
 .cards-section::before {
@@ -318,9 +317,8 @@ ul {
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
-    opacity: 0.2;
     z-index: 1;
 }
 
@@ -439,15 +437,13 @@ ul {
     overflow: hidden;
 }
 
-.testimonials-section .container::before,
 .testimonials-section .container::after {
     content: '';
     position: absolute;
     left: 0;
     width: 100%;
-    height: 6px;
+    height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
-    opacity: 0.3;
     z-index: 1;
 }
 
