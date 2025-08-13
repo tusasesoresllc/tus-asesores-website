@@ -685,29 +685,26 @@ ul {
 @media (max-width: 767px) {
   /* Estilos para móviles (teléfonos) */
   .navbar .container {
-    display: grid;
-    grid-template-columns: auto 1fr auto; /* Logo, botón, menú */
-    gap: 10px; /* Espacio entre los elementos */
+    /* Usamos flexbox para una alineación sencilla */
+    display: flex;
+    justify-content: space-between; /* Distribuye el espacio entre los elementos */
     align-items: center;
-    padding: 0 15px;
+    padding: 0 15px; /* Añade relleno lateral para evitar que los elementos se peguen a los bordes */
   }
 
   .navbar .logo {
-    grid-column: 1; /* El logo va en la primera columna */
-    margin: 0;
+    /* El logo queda a la izquierda por defecto */
+    margin-right: 15px; /* Un pequeño margen a la derecha para separarlo del botón */
   }
   
-  /* Ocultar el menú de escritorio */
+  /* Ocultar el menú de escritorio completo en móvil */
   .navbar .nav-menu {
     display: none;
-    grid-column: 1 / -1; /* Ocupa todo el ancho si se muestra */
   }
 
-  /* Botón de móvil (ahora visible en móvil) */
+  /* Mostrar el botón de registro para móvil */
   .btn-nav-mobile {
     display: block;
-    grid-column: 2; /* El botón va en la segunda columna (centro) */
-    text-align: center;
     background-color: var(--naranja);
     color: var(--negro);
     padding: 8px 18px;
@@ -718,135 +715,19 @@ ul {
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    justify-self: center; /* Centrar el botón dentro de su celda de la grilla */
+    margin: 0 auto; /* Permite centrar el botón en el espacio restante */
+    flex-grow: 1; /* El botón ocupa el espacio flexible entre el logo y el ícono de menú */
+    text-align: center; /* Alinea el texto del botón al centro */
   }
 
-  /* Ícono de hamburguesa (ahora visible en móvil) */
+  /* Mostrar el ícono de hamburguesa */
   .menu-toggle {
     display: block;
-    grid-column: 3; /* El ícono va en la tercera columna */
     background: none;
     border: none;
     color: var(--blanco);
     font-size: 1.5em;
     cursor: pointer;
-    justify-self: end; /* Alinear el ícono a la derecha */
-  }
-  
-  .hero-section {
-    padding: 120px 10px;
-    min-height: 50vh;
-  }
-  .hero-section h1 {
-    font-size: 3em;
-  }
-  .hero-section p {
-    font-size: 1.1em;
-  }
-
-  /* Sección de Recursos */
-  .recursos-section {
-    padding: 80px 0;
-  }
-  .recursos-header {
-    margin-bottom: 40px;
-  }
-  .recursos-header h2 {
-    font-size: 2.5em;
-  }
-  .recurso-card-container {
-    flex-direction: column;
-    align-items: center;
-    padding: 15px;
-  }
-  .recurso-images-column-combined {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  .recurso-main-image {
-    width: 100%;
-    height: 250px;
-  }
-  .recurso-sub-images-column {
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    gap: 5px;
-  }
-  .recurso-image-item {
-    width: 120px;
-    height: 120px;
-  }
-  .recurso-content-column {
-    padding: 15px 0;
-    text-align: center;
-  }
-  .recurso-content-column h3 {
-    font-size: 1.4em;
-  }
-  .recurso-content-column p {
-    font-size: 1em;
-  }
-
-  /* Sección de Podcast */
-  .podcast-section {
-    padding: 80px 0;
-  }
-  .podcast-header {
-    margin-bottom: 40px;
-  }
-  .podcast-header h2 {
-    font-size: 2.5em;
-  }
-  .podcast-grid-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .podcast-card {
-    width: 100%;
-    height: auto;
-  }
-  .podcast-video-wrapper {
-    height: 150px;
-  }
-  .podcast-content {
-    padding: 15px;
-  }
-  .podcast-content h3 {
-    font-size: 1em;
-  }
-
-  /* Footer */
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 10%;
-  }
-  .footer-logo {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  .footer-logo-image {
-    width: 100px;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 20px;
-    margin-left: 0;
-  }
-  .link-column {
-    text-align: center;
-  }
-  .link-column h4 {
-    margin-bottom: 10px;
-  }
-  .footer-social-media {
-    padding: 15px 0;
+    margin-left: 15px; /* Un pequeño margen a la izquierda para separarlo del botón */
   }
 }
