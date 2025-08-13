@@ -58,8 +58,9 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-left: -120px; /* Empuja los otros elementos a la derecha */
-    margin-right: 420px;
+    /* Eliminados los márgenes negativos para escritorio, no son necesarios con la nueva estructura */
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .navbar .logo img {
@@ -70,13 +71,13 @@ ul {
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
+    gap: 30px;
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre los enlaces del menú */
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -104,11 +105,8 @@ ul {
     cursor: pointer;
 }
 
-/* Botón de móvil oculto por defecto */
-.btn-nav-mobile {
-    display: none;
-}
-
+/* Ocultar botones y menú de móvil en versión de escritorio */
+.btn-nav-mobile,
 .menu-toggle {
     display: none;
 }
@@ -264,7 +262,7 @@ ul {
     z-index: 1;
 }
 
-.valores-list hr{
+.valores-list hr {
     border: var(--naranja) solid 1px;
     margin-top: -20px;
     margin-bottom: -20px;
@@ -549,7 +547,7 @@ ul {
     gap: 20px;
 }
 
-.metodologia-item hr{
+.metodologia-item hr {
     border: var(--negro) solid 1px;
     margin-top: 0;
     margin-bottom: 20px;
@@ -842,43 +840,43 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        flex-wrap: nowrap;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .navbar .logo {
+        margin: 0;
+        margin-right: auto;
     }
 
     .navbar .nav-menu {
-        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--negro);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Cambio: Usamos 'height' y 'overflow' para la transición */
         height: 0;
-        overflow: hidden; 
+        overflow: hidden;
         transition: height 0.3s ease-in-out;
+        text-align: center;
+        flex-direction: column;
+        z-index: 999; /* Asegurar que el menú desplegable esté sobre otros elementos */
     }
 
     .navbar .nav-menu.active {
-        /* Ajusta la altura del menú cuando está activo */
-        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
+        height: auto;
+        display: flex;
     }
-
-    .navbar .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-
+    
     .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
         padding: 20px 0;
         gap: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .navbar .nav-menu ul li {
@@ -891,13 +889,20 @@ ul {
         padding: 15px 0;
     }
     
-    /* Ocultar el botón de escritorio en móvil */
-    .navbar .btn-desktop-li {
+    /* Mostrar y estilizar el contenedor de acciones de móvil */
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .navbar .nav-menu .btn-nav {
+        /* Oculta el botón de navegación del menú principal */
         display: none;
     }
     
-    /* Mostrar y estilizar el botón de móvil */
     .btn-nav-mobile {
+        /* Muestra y estiliza el botón de navegación específico para móvil */
         display: block;
         background-color: var(--naranja);
         color: var(--negro);
@@ -910,10 +915,14 @@ ul {
         cursor: pointer;
     }
 
-    .navbar .logo {
-        margin-left: 0;
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
     }
-
 
     /* Hero Section */
     .hero-section {
@@ -943,6 +952,19 @@ ul {
     .vertical-bar {
         height: 50px;
     }
+    .mision-vision-title-wrapper {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+    .vertical-bar {
+        width: 100%;
+        height: 5px;
+        margin-bottom: 10px;
+    }
+    .mision-block p, .vision-block p {
+        text-align: center;
+    }
 
     /* Valores */
     .valores-header h2 {
@@ -951,15 +973,18 @@ ul {
     .valores-content {
         grid-template-columns: 1fr;
     }
-    .valores-about-us {
+    .valores-about-us,
+    .valores-list {
         text-align: center;
+        padding-right: 0;
+        padding-left: 0;
     }
     .valores-image {
-        padding: 20px;
+        padding: 20px 0;
     }
-    .valores-list {
-        padding-left: 0;
-        text-align: center;
+    .valores-about-us h3,
+    .valor-item h3 {
+        font-size: 1.2em;
     }
 
     /* Equipo */
@@ -993,6 +1018,7 @@ ul {
         grid-template-columns: 1fr;
     }
     .metodologia-image-container {
+        order: -1; /* Coloca la imagen arriba en móvil */
         padding: 0;
     }
     .metodologia-description.expanded {
@@ -1004,14 +1030,16 @@ ul {
         flex-direction: column;
         align-items: center;
         padding: 40px 5%;
+        text-align: center;
     }
     .footer-logo {
-        height: 100px;
+        height: auto;
         margin-bottom: 20px;
     }
     .footer-logo-image {
         position: static;
         width: 120px;
+        margin-left: 0;
     }
     .footer-links {
         flex-direction: column;
