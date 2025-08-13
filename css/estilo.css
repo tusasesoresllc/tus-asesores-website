@@ -703,26 +703,23 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        flex-wrap: nowrap;
+        flex-direction: column; /* Cambia a una columna en lugar de una fila */
+        align-items: center; /* Centra los elementos */
     }
 
+    .navbar .logo {
+        margin: 0; /* Elimina márgenes extra */
+        margin-bottom: 10px; /* Agrega un espacio entre el logo y el resto del menú */
+    }
+
+    .navbar .logo img {
+        height: 35px;
+    }
+    
     .navbar .nav-menu {
-        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--negro);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Cambio: Usamos 'height' y 'overflow' para la transición */
-        height: 0;
-        overflow: hidden; 
-        transition: height 0.3s ease-in-out;
-    }
-
-    .navbar .nav-menu.active {
-        /* Ajusta la altura del menú cuando está activo */
-        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
+        display: none; /* Oculta el menú principal por defecto */
+        width: 100%; /* El menú oculto debe ocupar el 100% del ancho */
+        text-align: center;
     }
 
     .navbar .menu-toggle {
@@ -741,7 +738,7 @@ ul {
         gap: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-
+    
     .navbar .nav-menu ul li {
         margin: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -750,29 +747,6 @@ ul {
     .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
-    }
-    
-    /* Ocultar el botón de escritorio en móvil */
-    .navbar .btn-desktop-li {
-        display: none;
-    }
-    
-    /* Mostrar y estilizar el botón de móvil */
-    .btn-nav-mobile {
-        display: block;
-        background-color: var(--naranja);
-        color: var(--negro);
-        padding: 8px 18px;
-        border-radius: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        border: none;
-        cursor: pointer;
-    }
-
-    .navbar .logo {
-        margin-left: 0;
     }
 
     /* Hero Section */
