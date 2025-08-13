@@ -556,295 +556,313 @@ ul {
 }
 
 /* ============================================== */
-/* 7. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
 /* ============================================== */
 
 @media (max-width: 1024px) {
-    .container {
-        padding: 0 15px;
-    }
+    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
+    .container {
+        padding: 0 15px;
+    }
 
-    .navbar .logo {
-        margin-left: 0;
-    }
+    .navbar .logo {
+        margin-left: 0;
+    }
 
-    .navbar .nav-menu {
-        gap: 20px;
-    }
-    
-    .navbar .nav-menu ul {
-        gap: 20px;
-    }
+    /* Ajuste de espaciado en pantallas más pequeñas */
+    .navbar nav {
+        gap: 20px;
+    }
+    
+    .navbar nav ul {
+        gap: 20px;
+    }
 
-    .hero-section {
-        padding: 120px 10px;
-        min-height: 50vh;
-    }
+    .navbar nav ul li a {
+        padding: 10px 0; /* Reduce el espacio vertical si lo necesitas */
+        font-size: 0.5em;
+    }
 
-    .hero-section h1 {
-        font-size: 3em;
-    }
+    .hero-section {
+        padding: 120px 10px;
+        min-height: 50vh;
+    }
 
-    .hero-section p {
-        font-size: 1.1em;
-    }
+    .hero-section h1 {
+        font-size: 3em;
+    }
 
-    .servicios-section {
-        padding: 80px 0;
-    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
 
-    .servicios-grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
+    /* Sección de Servicios */
+    .servicios-section {
+        padding: 80px 0;
+    }
 
-    .servicio-card {
-        width: auto;
-        height: auto;
-    }
+    .servicios-grid-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
 
-    .servicio-card.active {
-        width: auto;
-        height: auto;
-        transform: scale(1.05);
-    }
+    .servicio-card {
+        width: auto;
+        height: auto;
+    }
 
-    .servicio-card-inner {
-        padding: 15px;
-        border-radius: 20px;
-    }
+    .servicio-card.active {
+        width: auto;
+        height: auto;
+        transform: scale(1.05);
+    }
 
-    .servicio-card-image-wrapper {
-        width: calc(100% + 30px);
-        margin: -15px -15px 15px -15px;
-    }
+    .servicio-card-inner {
+        padding: 15px;
+        border-radius: 20px;
+    }
 
-    .servicio-card-content h3 {
-        font-size: 1.1em;
-    }
+    .servicio-card-image-wrapper {
+        width: calc(100% + 30px);
+        margin: -15px -15px 15px -15px;
+    }
 
-    .card-description {
-        font-size: 0.9em;
-    }
+    .servicio-card-content h3 {
+        font-size: 1.1em;
+    }
 
-    .servicios-detallados-section {
-        padding: 80px 0;
-    }
+    .card-description {
+        font-size: 0.9em;
+    }
 
-    .servicio-detalle-title {
-        font-size: 2.5em;
-        margin-bottom: 30px;
-    }
+    /* Sección de Servicios Detallados */
+    .servicios-detallados-section {
+        padding: 80px 0;
+    }
 
-    .servicio-detalle-content-wrapper {
-        flex-direction: column;
-        gap: 20px;
-    }
+    .servicio-detalle-title {
+        font-size: 2.5em;
+        margin-bottom: 30px;
+    }
 
-    .servicio-detalle-column {
-        width: 100%;
-        padding: 20px;
-        border-radius: 20px;
-    }
+    .servicio-detalle-content-wrapper {
+        flex-direction: column;
+        gap: 20px;
+    }
 
-    .servicio-detalle-column h3 {
-        font-size: 1.3em;
-    }
+    .servicio-detalle-column {
+        width: 100%;
+        padding: 20px;
+        border-radius: 20px;
+    }
 
-    .solicitar-btn {
-        margin-top: 30px;
-    }
+    .servicio-detalle-column h3 {
+        font-size: 1.3em;
+    }
 
-    .footer-top {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-        padding: 40px 10%;
-    }
+    .solicitar-btn {
+        margin-top: 30px;
+    }
 
-    .footer-logo {
-        position: static;
-        width: 100px;
-        height: auto;
-        margin-bottom: 20px;
-    }
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 10%;
+    }
 
-    .footer-logo-image {
-        position: static;
-        width: 100px;
-        max-height: none;
-    }
+    .footer-logo {
+        position: static;
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
 
-    .footer-links {
-        flex-direction: column;
-        gap: 30px;
-        margin-left: 0;
-    }
+    .footer-logo-image {
+        position: static;
+        width: 100px;
+        max-height: none;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        gap: 30px;
+        margin-left: 0;
+    }
 }
 
 @media (max-width: 767px) {
-    .navbar .container {
-        flex-wrap: nowrap;
-    }
+    /* Estilos para móviles (teléfonos) */
+    .navbar .container {
+        flex-wrap: nowrap;
+    }
 
-    .navbar .nav-menu {
-        display: block;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--negro);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        height: 0;
-        overflow: hidden; 
-        transition: height 0.3s ease-in-out;
-    }
+    .navbar .nav-menu {
+        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* Cambio: Usamos 'height' y 'overflow' para la transición */
+        height: 0;
+        overflow: hidden; 
+        transition: height 0.3s ease-in-out;
+    }
 
-    .navbar .nav-menu.active {
-        height: 350px;
-    }
+    .navbar .nav-menu.active {
+        /* Ajusta la altura del menú cuando está activo */
+        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
+    }
 
-    .navbar .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
-    }
+    .navbar .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
+    }
 
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-        gap: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-    .navbar .nav-menu ul li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
+    .navbar .nav-menu ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
 
-    .navbar .nav-menu ul li a {
-        display: block;
-        padding: 15px 0;
-    }
-    
-    .navbar .btn-desktop-li {
-        display: none;
-    }
-    
-    .btn-nav-mobile {
-        display: block;
-        background-color: var(--naranja);
-        color: var(--negro);
-        padding: 8px 18px;
-        border-radius: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        border: none;
-        cursor: pointer;
-    }
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+    }
+    
+    /* Ocultar el botón de escritorio en móvil */
+    .navbar .btn-desktop-li {
+        display: none;
+    }
+    
+    /* Mostrar y estilizar el botón de móvil */
+    .btn-nav-mobile {
+        display: block;
+        background-color: var(--naranja);
+        color: var(--negro);
+        padding: 8px 18px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        border: none;
+        cursor: pointer;
+    }
 
-    .navbar .logo {
-        margin-left: 0;
-    }
+    .navbar .logo {
+        margin-left: 0;
+    }
 
 
-    .hero-section {
-        padding: 80px 10px;
-    }
+    .hero-section {
+        padding: 80px 10px;
+    }
 
-    .hero-section h1 {
-        font-size: 2em;
-    }
+    .hero-section h1 {
+        font-size: 2em;
+    }
 
-    .hero-section p {
-        font-size: 1em;
-    }
+    .hero-section p {
+        font-size: 1em;
+    }
 
-    .servicios-section {
-        padding: 40px 0;
-    }
+    /* Sección de Servicios */
+    .servicios-section {
+        padding: 40px 0;
+    }
 
-    .servicios-grid-container {
-        grid-template-columns: 1fr;
-    }
+    .servicios-grid-container {
+        grid-template-columns: 1fr;
+    }
 
-    .servicio-card {
-        width: 100%;
-    }
+    .servicio-card {
+        width: 100%;
+    }
 
-    .servicio-card.active {
-        width: 100%;
-        transform: scale(1);
-    }
+    .servicio-card.active {
+        width: 100%;
+        transform: scale(1);
+    }
 
-    .servicio-card-inner {
-        padding: 10px;
-        border-radius: 15px;
-    }
+    .servicio-card-inner {
+        padding: 10px;
+        border-radius: 15px;
+    }
 
-    .servicio-card-image-wrapper {
-        width: calc(100% + 20px);
-        margin: -10px -10px 10px -10px;
-    }
+    .servicio-card-image-wrapper {
+        width: calc(100% + 20px);
+        margin: -10px -10px 10px -10px;
+    }
 
-    .servicio-card-content h3 {
-        font-size: 1em;
-    }
+    .servicio-card-content h3 {
+        font-size: 1em;
+    }
 
-    .card-description {
-        font-size: 0.8em;
-    }
+    .card-description {
+        font-size: 0.8em;
+    }
 
-    .servicio-card.active .card-description,
-    .servicio-card.active .ver-mas-btn {
-        margin-top: 10px;
-    }
+    .servicio-card.active .card-description,
+    .servicio-card.active .ver-mas-btn {
+        margin-top: 10px;
+    }
 
-    .servicios-detallados-section {
-        padding: 40px 0;
-    }
+    /* Sección de Servicios Detallados */
+    .servicios-detallados-section {
+        padding: 40px 0;
+    }
 
-    .servicio-detalle-title {
-        font-size: 2em;
-        margin-bottom: 20px;
-    }
+    .servicio-detalle-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+    }
 
-    .servicio-detalle-content-wrapper {
-        gap: 15px;
-    }
+    .servicio-detalle-content-wrapper {
+        gap: 15px;
+    }
 
-    .servicio-detalle-column {
-        padding: 15px;
-        border-radius: 15px;
-    }
+    .servicio-detalle-column {
+        padding: 15px;
+        border-radius: 15px;
+    }
 
-    .servicio-detalle-column h3 {
-        font-size: 1.1em;
-    }
+    .servicio-detalle-column h3 {
+        font-size: 1.1em;
+    }
 
-    .solicitar-btn {
-        margin-top: 20px;
-    }
+    .solicitar-btn {
+        margin-top: 20px;
+    }
 
-    .footer-top {
-        padding: 30px 5%;
-    }
+    /* Footer */
+    .footer-top {
+        padding: 30px 5%;
+    }
 
-    .footer-links {
-        gap: 20px;
-    }
+    .footer-links {
+        gap: 20px;
+    }
 
-    .link-column h4 {
-        font-size: 1.1em;
-        margin-bottom: 10px;
-    }
+    .link-column h4 {
+        font-size: 1.1em;
+        margin-bottom: 10px;
+    }
 
-    .link-column li a {
-        font-size: 0.9em;
-    }
+    .link-column li a {
+        font-size: 0.9em;
+    }
 }
