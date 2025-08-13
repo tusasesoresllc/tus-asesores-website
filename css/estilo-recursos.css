@@ -691,12 +691,45 @@ ul {
     padding: 0 15px;
   }
   
-  /* Ocultar el menú de escritorio completo en móvil */
+  .navbar .logo {
+    /* El logo y el texto quedan a la izquierda */
+    flex-grow: 1; /* Permite que ocupe el espacio flexible */
+  }
+
+  /* El menú de escritorio se oculta */
   .navbar .nav-menu {
+    display: none;
+    flex-direction: column; /* Lo prepara para la vista de menú desplegable */
+    width: 100%;
+    position: absolute;
+    top: 65px; /* Ajusta esto según la altura de tu navbar */
+    left: 0;
+    background-color: var(--negro);
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .navbar .nav-menu.active {
+    display: flex;
+  }
+
+  .navbar .nav-menu ul {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .navbar .nav-menu ul li a {
+    color: var(--blanco);
+    padding: 10px 0;
+  }
+
+  /* El botón de registro de escritorio se oculta dentro del menú desplegable */
+  .navbar .nav-menu .btn-nav {
     display: none;
   }
 
-  /* El botón de móvil se muestra */
+  /* El botón de móvil se muestra y se centra */
   .btn-nav-mobile {
     display: block;
     background-color: var(--naranja);
@@ -709,12 +742,12 @@ ul {
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    position: absolute; /* Posicionamiento absoluto para centrarlo */
+    position: absolute;
     left: 70%;
     transform: translateX(-50%);
   }
-
-  /* Ícono de hamburguesa ahora visible en móvil */
+  
+  /* El ícono de hamburguesa se muestra */
   .menu-toggle {
     display: block;
     background: none;
@@ -722,5 +755,6 @@ ul {
     color: var(--blanco);
     font-size: 1.5em;
     cursor: pointer;
+    margin-left: auto; /* Empuja el ícono a la derecha */
   }
 }
