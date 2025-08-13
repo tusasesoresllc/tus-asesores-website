@@ -597,7 +597,7 @@ ul {
 
     .navbar .nav-menu.active {
         /* Ajusta la altura del menú cuando está activo */
-        height: 250px; /* Puedes ajustar este valor si el contenido del menú cambia */
+        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
     }
 
     .navbar .menu-toggle {
