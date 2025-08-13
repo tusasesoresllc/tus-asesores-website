@@ -1,5 +1,5 @@
 /* ============================================== */
-/* 1. VARIABLES Y ESTILOS BASE */
+/* 1. VARIABLES Y ESTILOS GENERALES */
 /* ============================================== */
 :root {
     --negro: #000000;
@@ -706,40 +706,37 @@ ul {
 }
 
 @media (max-width: 767px) {
-    /* Navbar */
+    /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-wrap: nowrap;
     }
 
-    /* Mostrar el botón de hamburguesa en móvil */
-    .navbar .menu-toggle {
-        display: block;
-    }
-
-    /* Ocultar el menú por defecto en móvil */
     .navbar .nav-menu {
-        display: none;
-        width: 100%;
+        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
         position: absolute;
         top: 100%;
         left: 0;
+        width: 100%;
         background-color: var(--negro);
-        flex-direction: column;
-        text-align: center;
-        gap: 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
+        /* Cambio: Usamos 'height' y 'overflow' para la transición */
+        height: 0;
+        overflow: hidden; 
+        transition: height 0.3s ease-in-out;
     }
 
-    /* Clase activa para desplegar el menú */
     .navbar .nav-menu.active {
-        display: flex;
-        max-height: 300px;
-        opacity: 1;
+        /* Ajusta la altura del menú cuando está activo */
+        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
+    }
+
+    .navbar .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
     }
 
     .navbar .nav-menu ul {
@@ -749,43 +746,36 @@ ul {
         gap: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .navbar .nav-menu ul li {
         margin: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .navbar .nav-menu ul li:last-child {
-        border-bottom: none;
-    }
-
     .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
-        color: var(--blanco); /* Aseguramos que el color del texto sea blanco por defecto */
-        font-family: 'Poppins', sans-serif;
     }
     
-    /* CORRECCIÓN: Botón de registro dentro del menú desplegable */
-    .navbar .nav-menu ul li a.btn-nav {
+    /* Ocultar el botón de escritorio en móvil */
+    .navbar .btn-desktop-li {
+        display: none;
+    }
+    
+    /* Mostrar y estilizar el botón de móvil */
+    .btn-nav-mobile {
         display: block;
-        width: calc(100% - 40px); /* Ajusta el ancho para dejar un poco de margen */
-        margin: 15px auto; /* Centra el botón horizontalmente */
-        text-align: center;
         background-color: var(--naranja);
         color: var(--negro);
-        padding: 10px 20px;
+        padding: 8px 18px;
         border-radius: 5px;
         font-weight: 600;
         text-transform: uppercase;
         font-size: 0.9em;
+        border: none;
+        cursor: pointer;
     }
-    
-    .navbar .nav-menu ul li a.btn-nav:hover {
-        background-color: var(--blanco);
-        color: var(--negro);
-    }
-    
+
     .navbar .logo {
         margin-left: 0;
     }
