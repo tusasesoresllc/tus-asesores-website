@@ -1,6 +1,3 @@
-/* ============================================== */
-/* 1. VARIABLES Y ESTILOS GENERALES */
-/* ============================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
@@ -42,16 +39,14 @@ ul {
     list-style: none;
 }
 
-/* ============================================== */
-/* 2. BARRA DE NAVEGACIÓN (NAVBAR) */
-/* ============================================== */
+/* Navbar */
 .navbar {
     background-color: var(--negro);
     color: var(--blanco);
     padding: 15px 0;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .container {
@@ -63,32 +58,24 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-right: 20px;
-    margin-left: -10%;
+    margin-right: auto; /* Empuja los otros elementos a la derecha */
 }
 
 .navbar .logo img {
     height: 35px;
-    margin-right: 10px;
     filter: brightness(1.2);
 }
 
-/* Ocultar el botón de hamburguesa por defecto en escritorio */
-.navbar .menu-toggle {
-    display: none;
-}
-
-/* Estructura de navegación para escritorio */
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* Espacio entre los enlaces del menú */
     margin: 0;
     padding: 0;
 }
@@ -104,7 +91,7 @@ ul {
     color: var(--amarillo);
 }
 
-.navbar .nav-menu .btn-nav {
+.navbar .btn-nav {
     background-color: var(--naranja);
     color: var(--negro);
     padding: 8px 18px;
@@ -112,16 +99,25 @@ ul {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
 }
 
-.navbar .btn-nav:hover {
-    background-color: var(--blanco);
-    color: var(--negro);
-    transform: translateY(-1px);
+/* Botón de móvil oculto por defecto */
+.btn-nav-mobile {
+    display: none;
 }
+
+.menu-toggle {
+    display: none;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
 
 /* ============================================== */
 /* 3. SECCIÓN HERO */
