@@ -695,6 +695,7 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
+        max-width: 767px;
         flex-wrap: nowrap;
     }
 
