@@ -634,7 +634,7 @@ ul {
     flex-direction: column;
     justify-content: space-evenly; /* Distribuye los enlaces uniformemente */
     align-items: center;
-    height: 350px; /* Altura fija para el menú desplegado */
+    height: auto; /* La altura se ajusta dinámicamente al contenido */
     padding-top: 20px;
     padding-bottom: 20px;
   }
