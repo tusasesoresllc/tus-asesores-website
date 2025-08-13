@@ -685,16 +685,10 @@ ul {
 @media (max-width: 767px) {
   /* Estilos para móviles (teléfonos) */
   .navbar .container {
-    /* Usamos flexbox para una alineación sencilla */
     display: flex;
-    justify-content: space-between; /* Distribuye el espacio entre los elementos */
+    justify-content: space-between;
     align-items: center;
-    padding: 0 15px; /* Añade relleno lateral para evitar que los elementos se peguen a los bordes */
-  }
-
-  .navbar .logo {
-    /* El logo queda a la izquierda por defecto */
-    margin-right: 15px; /* Un pequeño margen a la derecha para separarlo del botón */
+    padding: 0 15px;
   }
   
   /* Ocultar el menú de escritorio completo en móvil */
@@ -702,7 +696,7 @@ ul {
     display: none;
   }
 
-  /* Mostrar el botón de registro para móvil */
+  /* El botón de móvil se muestra */
   .btn-nav-mobile {
     display: block;
     background-color: var(--naranja);
@@ -715,12 +709,12 @@ ul {
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    margin: 0 auto; /* Permite centrar el botón en el espacio restante */
-    flex-grow: 1; /* El botón ocupa el espacio flexible entre el logo y el ícono de menú */
-    text-align: center; /* Alinea el texto del botón al centro */
+    position: absolute; /* Posicionamiento absoluto para centrarlo */
+    left: 50%;
+    transform: translateX(-50%);
   }
 
-  /* Mostrar el ícono de hamburguesa */
+  /* Ícono de hamburguesa ahora visible en móvil */
   .menu-toggle {
     display: block;
     background: none;
@@ -728,6 +722,5 @@ ul {
     color: var(--blanco);
     font-size: 1.5em;
     cursor: pointer;
-    margin-left: 15px; /* Un pequeño margen a la izquierda para separarlo del botón */
   }
 }
