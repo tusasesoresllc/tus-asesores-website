@@ -90,6 +90,7 @@ ul {
   color: var(--amarillo);
 }
 
+/* Botón de escritorio (visible por defecto) */
 .navbar .nav-menu .btn-nav {
   background-color: var(--naranja);
   color: var(--negro);
@@ -103,7 +104,12 @@ ul {
   white-space: nowrap;
 }
 
-/* Botón de móvil oculto por defecto */
+/* Botón de móvil (oculto por defecto) */
+.btn-nav-mobile {
+  display: none;
+}
+
+/* Ícono de hamburguesa (oculto por defecto) */
 .menu-toggle {
   display: none;
 }
@@ -678,58 +684,13 @@ ul {
 
 @media (max-width: 767px) {
   /* Estilos para móviles (teléfonos) */
-  .navbar .container {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 
-  .navbar .logo {
-    order: 1;
-    width: 100%;
-    text-align: center;
-  }
-
-  .navbar .menu-toggle {
-    display: block;
-    order: 2;
-  }
-
+  /* Ocultar el menú de escritorio completo en móvil */
   .navbar .nav-menu {
     display: none;
-    order: 3;
-    flex-direction: column;
-    width: 100%;
-    text-align: center;
-    background-color: var(--negro);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-  .navbar .nav-menu.active {
-    display: flex;
-  }
-
-  .navbar .nav-menu ul {
-    flex-direction: column;
-    width: 100%;
-    padding: 20px 0;
-    gap: 0;
-  }
-
-  .navbar .nav-menu ul li {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .navbar .nav-menu ul li a {
-    display: block;
-    padding: 15px 0;
-  }
-  
-  /* Ocultar el botón de escritorio en móvil */
-  .navbar .btn-nav {
-    display: none;
-  }
-  
-  /* Mostrar y estilizar el botón de móvil */
+  /* Mostrar el botón de registro de móvil */
   .btn-nav-mobile {
     display: block;
     background-color: var(--naranja);
@@ -741,122 +702,24 @@ ul {
     font-size: 0.9em;
     border: none;
     cursor: pointer;
+    margin: 0 auto; /* Centrar el botón */
+  }
+
+  /* Mostrar el ícono de hamburguesa */
+  .navbar .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.5em;
+    cursor: pointer;
+    /* Eliminar el margen extra que agregamos */
   }
   
-  .hero-section {
-    padding: 120px 10px;
-    min-height: 50vh;
-  }
-  .hero-section h1 {
-    font-size: 3em;
-  }
-  .hero-section p {
-    font-size: 1.1em;
-  }
-
-  /* Sección de Recursos */
-  .recursos-section {
-    padding: 80px 0;
-  }
-  .recursos-header {
-    margin-bottom: 40px;
-  }
-  .recursos-header h2 {
-    font-size: 2.5em;
-  }
-  .recurso-card-container {
-    flex-direction: column;
+  /* La barra de navegación en sí */
+  .navbar .container {
+    display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 15px;
-  }
-  .recurso-images-column-combined {
-    flex-direction: column;
-    width: 100%;
-    padding: 0;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-  }
-  .recurso-main-image {
-    width: 100%;
-    height: 250px;
-  }
-  .recurso-sub-images-column {
-    flex-direction: row;
-    width: 100%;
-    height: auto;
-    justify-content: center;
-    gap: 5px;
-  }
-  .recurso-image-item {
-    width: 120px;
-    height: 120px;
-  }
-  .recurso-content-column {
-    padding: 15px 0;
-    text-align: center;
-  }
-  .recurso-content-column h3 {
-    font-size: 1.4em;
-  }
-  .recurso-content-column p {
-    font-size: 1em;
-  }
-
-  /* Sección de Podcast */
-  .podcast-section {
-    padding: 80px 0;
-  }
-  .podcast-header {
-    margin-bottom: 40px;
-  }
-  .podcast-header h2 {
-    font-size: 2.5em;
-  }
-  .podcast-grid-container {
-    grid-template-columns: 1fr;
-    gap: 20px;
-  }
-  .podcast-card {
-    width: 100%;
-    height: auto;
-  }
-  .podcast-video-wrapper {
-    height: 150px;
-  }
-  .podcast-content {
-    padding: 15px;
-  }
-  .podcast-content h3 {
-    font-size: 1em;
-  }
-
-  /* Footer */
-  .footer-top {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 10%;
-  }
-  .footer-logo {
-    width: 100px;
-    margin-bottom: 20px;
-  }
-  .footer-logo-image {
-    width: 100px;
-  }
-  .footer-links {
-    flex-direction: column;
-    gap: 20px;
-    margin-left: 0;
-  }
-  .link-column {
-    text-align: center;
-  }
-  .link-column h4 {
-    margin-bottom: 10px;
-  }
-  .footer-social-media {
-    padding: 15px 0;
   }
 }
