@@ -655,7 +655,7 @@ ul {
         margin-left: 0;
     }
     
-    .navbar nav ul {
+    .navbar .nav-menu ul {
         gap: 20px;
     }
 
@@ -719,7 +719,7 @@ ul {
     }
 
     /* Ocultar el menú por defecto en móvil */
-    .navbar nav {
+    .navbar .nav-menu {
         display: none;
         width: 100%;
         position: absolute;
@@ -737,13 +737,13 @@ ul {
     }
 
     /* Clase activa para desplegar el menú */
-    .navbar nav.active {
+    .navbar .nav-menu.active {
         display: flex;
         max-height: 300px;
         opacity: 1;
     }
 
-    .navbar nav ul {
+    .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
         padding: 20px 0;
@@ -751,26 +751,38 @@ ul {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
-    .navbar nav ul li {
+    .navbar .nav-menu ul li {
         margin: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .navbar nav ul li:last-child {
+    .navbar .nav-menu ul li:last-child {
         border-bottom: none;
     }
 
-    .navbar nav ul li a {
+    .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
     }
 
-    /* Botón de registro dentro del menú desplegable */
-    .navbar .btn-nav {
+    /* CORRECCIÓN: Botón de registro dentro del menú desplegable */
+    .navbar .nav-menu ul li .btn-nav {
         display: block;
         width: calc(100% - 40px);
         margin: 15px auto;
         text-align: center;
+        background-color: var(--naranja);
+        color: var(--negro);
+        padding: 10px 20px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+    }
+
+    .navbar .nav-menu ul li .btn-nav:hover {
+        background-color: var(--blanco);
+        color: var(--negro);
     }
 
     .navbar .logo {
@@ -809,17 +821,13 @@ ul {
         padding: 20px;
     }
 
-    /* CORRECCIÓN Y ADAPTACIÓN: Estilo para la imagen del div en móvil */
     .about-visual-left .about-image-container {
         position: static;
         width: 100%;
         height: auto;
-        transform: none;
-        background-image: url(../img/home/ricardo-home-tlf.png); /* Se usa la imagen para móvil */
-        background-size: cover;
-        background-position: center;
+        transform: none;;
         max-width: 300px;
-        margin: 0 auto; /* Para centrar la imagen */
+        margin: 0 auto;
     }
 
     .about-yellow-box {
