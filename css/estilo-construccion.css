@@ -605,15 +605,7 @@ ul {
     padding: 15px 20px;
   }
 
-  .navbar .logo {
-    margin-left: 0;
-  }
-
-  .navbar .logo img {
-    height: 35px;
-  }
-
-  /* El menú de escritorio se oculta */
+  /* Ocultamos el menú de escritorio */
   .navbar .nav-menu {
     display: none;
     flex-direction: column;
@@ -640,6 +632,7 @@ ul {
   }
 
   .navbar .nav-menu ul {
+    /* El botón de registro no está en este ul */
     flex-direction: column;
     align-items: center;
     gap: 30px; /* Espacio entre los enlaces del menú */
@@ -671,6 +664,11 @@ ul {
     border: none;
     cursor: pointer;
     white-space: nowrap;
+  }
+
+  /* El botón de registro de escritorio se oculta */
+  .navbar .nav-menu .btn-nav {
+    display: none;
   }
 
   /* Se muestra el ícono de hamburguesa */
