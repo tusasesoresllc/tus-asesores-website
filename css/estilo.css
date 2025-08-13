@@ -1,3 +1,6 @@
+/* ============================================== */
+/* 1. VARIABLES Y ESTILOS GENERALES */
+/* ============================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
@@ -714,35 +717,32 @@ ul {
         display: block;
     }
 
-    /* Ocultar el menú por defecto en móvil */
+    /* Ocultar el menú y el botón por defecto en móvil */
     .navbar .nav-menu {
-        /* Corrección: Usa 'block' para ocupar el ancho completo y 'height' para la transición. */
-        display: block;
+        display: flex;
+        flex-direction: column;
         width: 100%;
         position: absolute;
         top: 100%;
         left: 0;
         background-color: var(--negro);
-        flex-direction: column;
-        text-align: center;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Corregido: Usa 'height' y 'overflow' para evitar el desbordamiento */
-        height: 0; 
+        padding: 0;
+        max-height: 0;
         overflow: hidden;
-        transition: height 0.3s ease-in-out;
+        transition: max-height 0.3s ease-in-out;
     }
 
     /* Clase activa para desplegar el menú */
     .navbar .nav-menu.active {
-        /* Corregido: Define una altura fija para la transición */
-        height: 350px; /* Ajusta este valor si es necesario */
+        max-height: 350px; /* Ajusta este valor si es necesario */
+        padding: 20px 0;
     }
 
+    /* Estilos de los enlaces de la lista */
     .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
-        padding: 20px 0;
-        gap: 0;
+        padding: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
@@ -751,35 +751,37 @@ ul {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .navbar .nav-menu ul li:last-child {
-        border-bottom: none;
-    }
-
     .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
         color: var(--blanco);
         font-family: 'Poppins', sans-serif;
-    }
-    
-    /* CORRECCIÓN: Botón de registro dentro del menú desplegable */
-    .navbar .nav-menu ul li a.btn-nav {
-        display: block;
-        width: calc(100% - 40px);
-        margin: 15px auto;
         text-align: center;
+    }
+
+    /* Ocultar el botón de escritorio y mostrar el de móvil */
+    .navbar .nav-menu .btn-nav {
+        display: none;
+    }
+
+    .navbar .container > a.btn-nav {
+        display: block;
         background-color: var(--naranja);
         color: var(--negro);
-        padding: 10px 20px;
+        padding: 8px 18px;
         border-radius: 5px;
         font-weight: 600;
         text-transform: uppercase;
         font-size: 0.9em;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        border: none;
+        cursor: pointer;
     }
-    
-    .navbar .nav-menu ul li a.btn-nav:hover {
+
+    .navbar .container > a.btn-nav:hover {
         background-color: var(--blanco);
         color: var(--negro);
+        transform: translateY(-1px);
     }
     
     .navbar .logo {
