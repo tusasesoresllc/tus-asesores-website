@@ -1,3 +1,6 @@
+/* ============================================== */
+/* 1. VARIABLES Y ESTILOS GENERALES */
+/* ============================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
@@ -39,7 +42,9 @@ ul {
     list-style: none;
 }
 
-/* Navbar */
+/* ============================================== */
+/* 2. NAVBAR (VERSIÓN DE ESCRITORIO) */
+/* ============================================== */
 .navbar {
     background-color: var(--negro);
     color: var(--blanco);
@@ -58,8 +63,6 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-left: -120px; /* Empuja los otros elementos a la derecha */
-    margin-right: 420px;
 }
 
 .navbar .logo img {
@@ -70,13 +73,13 @@ ul {
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
+    gap: 30px;
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre los enlaces del menú */
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -104,22 +107,14 @@ ul {
     cursor: pointer;
 }
 
-/* Botón de móvil oculto por defecto */
-.btn-nav-mobile {
+/* Ocultar elementos de móvil por defecto en escritorio */
+.btn-nav-mobile, .menu-toggle {
     display: none;
 }
 
-.menu-toggle {
-    display: none;
-}
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* Hero Section */
+/* ============================================== */
+/* 3. SECCIÓN HERO */
+/* ============================================== */
 .hero-section {
     background-image: url(../img/recursos/fondo-recursos.png);
     background-size: cover;
@@ -134,6 +129,17 @@ ul {
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    width: 100vw;
+    height: 100%;
+    background-color: var(--negro);
+    opacity: 0.2;
+    z-index: 1;
 }
 
 .hero-section::before {
@@ -173,7 +179,7 @@ ul {
 }
 
 /* ============================================== */
-/* Sección: Recursos */
+/* 4. SECCIÓN RECURSOS */
 /* ============================================== */
 .recursos-section {
     background-image: url(../img/recursos/fondo-R2.png);
@@ -189,7 +195,6 @@ ul {
 .recursos-bottom-line {
     position: absolute;
     left: 0;
-    margin-top: 40px;
     width: 100%;
     height: 2px;
     background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
@@ -313,7 +318,7 @@ ul {
 }
 
 /* ============================================== */
-/* Sección: Podcast */
+/* 5. SECCIÓN PODCAST */
 /* ============================================== */
 .podcast-section {
     background-image: url(../img/recursos/fondo-R3.png);
@@ -428,7 +433,9 @@ ul {
     margin: 0;
 }
 
-/* --- Footer General --- */
+/* ============================================== */
+/* 6. FOOTER */
+/* ============================================== */
 .footer {
     width: 100%;
 }
@@ -448,7 +455,7 @@ ul {
 
 .footer-logo {
     display: flex;
-    align-items: middle;
+    align-items: center;
     justify-content: center;
     width: 100px;
     height: 150px;
@@ -553,42 +560,25 @@ ul {
 }
 
 /* ============================================== */
-/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* 7. MEDIA QUERIES (RESPONSIVE DESIGN) */
 /* ============================================== */
 
-/* Estilos del menú de hamburguesa */
-.navbar .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--blanco);
-    font-size: 1.5em;
-    cursor: pointer;
-    z-index: 1001;
-}
-
+/* Estilos para pantallas medianas (Tablets) */
 @media (max-width: 1024px) {
-    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
     .container {
         padding: 0 15px;
     }
 
     .navbar .logo {
-        margin-left: 0;
+        margin-right: 20px;
     }
 
-    /* Ajuste de espaciado en pantallas más pequeñas */
-    .navbar nav {
-        gap: 20px;
-    }
-    
-    .navbar nav ul {
+    .navbar .nav-menu {
         gap: 20px;
     }
 
-    .navbar nav ul li a {
-        padding: 10px 0; /* Reduce el espacio vertical si lo necesitas */
-        font-size: 0.5em;
+    .navbar .nav-menu ul {
+        gap: 20px;
     }
 
     .hero-section {
@@ -596,168 +586,47 @@ ul {
         min-height: 40vh;
     }
     .hero-section h1 {
-        font-size: 2em;
+        font-size: 2.5em;
     }
     .hero-section p {
         font-size: 1em;
     }
-
-    /* Sección de Recursos */
-    .recursos-section {
-        padding: 40px 0;
-    }
-    .recursos-header {
-        margin-bottom: 20px;
-    }
-    .recursos-header h2 {
-        font-size: 2em;
-    }
-    .recurso-card-container {
-        flex-direction: column;
-        align-items: center;
-    }
-    .recurso-images-column-combined {
-        flex-direction: column;
-        width: 100%;
-        padding: 15px;
-        height: auto;
-    }
-    .recurso-main-image {
-        width: 100%;
-        height: 250px;
-    }
-    .recurso-sub-images-column {
-        flex-direction: row;
-        width: 100%;
-        height: auto;
-        justify-content: center;
-        margin-top: 10px;
-        gap: 5px;
-    }
-    .recurso-image-item {
-        width: 120px;
-        height: 120px;
-    }
-    .recurso-content-column {
-        padding: 15px 10px;
-    }
-    .recurso-content-column h3 {
-        font-size: 1.2em;
-    }
-    .recurso-content-column p {
-        font-size: 0.9em;
-    }
-    .ver-mas-btn {
-        text-align: center;
-    }
-
-    /* Sección de Podcast */
-    .podcast-section {
-        padding: 40px 0;
-    }
-    .podcast-header {
-        margin-bottom: 20px;
-    }
-    .podcast-header h2 {
-        font-size: 2em;
-    }
-    .podcast-grid-container {
-        grid-template-columns: 1fr;
-        gap: 15px;
-    }
-    .podcast-card {
-        width: 100%;
-    }
-    .podcast-video-wrapper {
-        height: 200px;
-    }
-    .podcast-content {
-        padding: 15px;
-    }
-    .podcast-content h3 {
-        font-size: 1em;
-    }
-    
-    /* Footer */
-    .footer-top {
-        padding: 30px 5%;
-    }
-    .footer-links {
-        gap: 20px;
-    }
-    .link-column h4 {
-        font-size: 1.1em;
-        margin-bottom: 10px;
-    }
-    .link-column li a {
-        font-size: 0.9em;
-    }
-    .footer-social-media {
-        gap: 15px;
-        padding: 10px 0;
-    }
 }
 
+/* Estilos para pantallas pequeñas (Móviles) */
 @media (max-width: 767px) {
-    /* Estilos para móviles (teléfonos) */
+    /* Navbar */
     .navbar .container {
-        flex-wrap: nowrap;
-    }
-
-    .navbar .nav-menu {
-        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--negro);
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Cambio: Usamos 'height' y 'overflow' para la transición */
-        height: 0;
-        overflow: hidden; 
-        transition: height 0.3s ease-in-out;
-    }
-
-    .navbar .nav-menu.active {
-        /* Ajusta la altura del menú cuando está activo */
-        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
-    }
-
-    .navbar .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
-    }
-
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-        gap: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar .nav-menu ul li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar .nav-menu ul li a {
-        display: block;
-        padding: 15px 0;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 20px;
     }
     
-    /* Ocultar el botón de escritorio en móvil */
-    .navbar .btn-desktop-li {
+    .navbar .logo {
+        margin-left: 0;
+        margin-right: 0;
+    }
+    
+    /* Ocultamos la versión de escritorio del menú */
+    .navbar .nav-menu {
         display: none;
     }
     
-    /* Mostrar y estilizar el botón de móvil */
+    /* Ocultamos el botón de registro de escritorio */
+    .navbar .nav-menu .btn-nav {
+        display: none;
+    }
+    
+    /* Mostramos y organizamos los elementos móviles */
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    /* Estilo para el botón de registro móvil */
     .btn-nav-mobile {
-        display: block;
+        display: block; /* Muestra el botón solo en móvil */
         background-color: var(--naranja);
         color: var(--negro);
         padding: 8px 18px;
@@ -768,126 +637,88 @@ ul {
         border: none;
         cursor: pointer;
     }
-
-    .navbar .logo {
-        margin-left: 0;
+    
+    /* Estilo para el botón de hamburguesa */
+    .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa solo en móvil */
+        font-size: 1.5em;
+        color: var(--blanco);
+        cursor: pointer;
+        z-index: 1001;
     }
 
-    
+    /* Hero Section */
     .hero-section {
-        padding: 120px 10px;
-        min-height: 50vh;
+        padding: 80px 20px;
+        min-height: 40vh;
     }
     .hero-section h1 {
-        font-size: 3em;
-    }
-    .hero-section p {
-        font-size: 1.1em;
-    }
-
-    /* Sección de Recursos */
-    .recursos-section {
-        padding: 80px 0;
-    }
-    .recursos-header {
-        margin-bottom: 40px;
-    }
-    .recursos-header h2 {
         font-size: 2.5em;
     }
-    .recurso-card-container {
-        flex-direction: row;
-        align-items: center;
-        padding: 15px;
+    .hero-section p {
+        font-size: 1em;
     }
+    
+    /* Sección de Recursos */
+    .recursos-card-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    
     .recurso-images-column-combined {
         flex-direction: row;
-        width: auto;
-        padding: 0;
+        width: 100%;
         justify-content: center;
-        align-items: center;
+        padding: 0;
         gap: 10px;
     }
-    .recurso-main-image {
+    
+    .recurso-main-image,
+    .recurso-sub-images-column {
         width: 150px;
         height: 200px;
     }
+    
     .recurso-sub-images-column {
         flex-direction: column;
-        width: 130px;
-        height: 200px;
     }
+    
     .recurso-content-column {
-        padding: 15px 0;
-        text-align: left;
+        text-align: center;
+        padding: 15px;
     }
-    .recurso-content-column h3 {
-        font-size: 1.4em;
-    }
-    .recurso-content-column p {
-        font-size: 1em;
-    }
-
+    
     /* Sección de Podcast */
-    .podcast-section {
-        padding: 80px 0;
-    }
-    .podcast-header {
-        margin-bottom: 40px;
-    }
-    .podcast-header h2 {
-        font-size: 2.5em;
-    }
     .podcast-grid-container {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
+        grid-template-columns: 1fr;
     }
     .podcast-card {
         width: 100%;
-        height: auto;
     }
-    .podcast-video-wrapper {
-        height: 150px;
-    }
-    .podcast-content {
-        padding: 15px;
-    }
-    .podcast-content h3 {
-        font-size: 1em;
-    }
-
+    
     /* Footer */
     .footer-top {
         flex-direction: column;
         align-items: center;
         text-align: center;
-        padding: 40px 10%;
     }
     .footer-logo {
         position: static;
-        width: 100px;
-        height: auto;
         margin-bottom: 20px;
+        display: block;
     }
     .footer-logo-image {
         position: static;
-        width: 100px;
-        max-height: none;
+        width: 150px;
+        height: auto;
     }
     .footer-links {
-        flex-direction: row;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 30px;
+        flex-direction: column;
+        gap: 20px;
         margin-left: 0;
+        margin-top: 0;
     }
     .link-column {
-        text-align: left;
-    }
-    .link-column h4 {
-        margin-bottom: 10px;
-    }
-    .footer-social-media {
-        padding: 15px 0;
+        text-align: center;
     }
 }
