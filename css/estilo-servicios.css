@@ -1,17 +1,17 @@
 /* ============================================== */
-/* 1. VARIABLES Y ESTILOS BASE (TU CÓDIGO ORIGINAL) */
+/* 1. VARIABLES Y ESTILOS BASE */
 /* ============================================== */
 
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 * {
@@ -43,7 +43,10 @@ ul {
     list-style: none;
 }
 
-/* Navbar */
+/* ============================================== */
+/* 2. BARRA DE NAVEGACIÓN (NAVBAR) */
+/* ============================================== */
+
 .navbar {
     background-color: var(--negro);
     color: var(--blanco);
@@ -70,6 +73,11 @@ ul {
     height: 35px;
     margin-right: 10px;
     filter: brightness(1.2);
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
 }
 
 .navbar nav ul {
@@ -110,7 +118,41 @@ ul {
     transform: translateY(-1px);
 }
 
-/* Hero Section */
+.menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.5em;
+    cursor: pointer;
+    z-index: 1001;
+    padding: 5px;
+}
+/* Estilos para el ícono de hamburguesa */
+.menu-toggle .bar {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: var(--naranja);
+    margin: 5px auto;
+    transition: all 0.3s ease-in-out;
+}
+/* Estado activo del ícono (opcional) */
+.menu-toggle.active .bar:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+}
+.menu-toggle.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+}
+
+
+/* ============================================== */
+/* 3. SECCIÓN HERO */
+/* ============================================== */
+
 .hero-section {
     background-image: url(../img/servicios/fondo-servicios.png);
     background-size: cover;
@@ -125,6 +167,17 @@ ul {
     justify-content: center;
     position: relative;
     overflow: hidden;
+}
+
+.hero-section::before,
+.hero-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 20%;
+    background-color: rgba(0,0,0,0.4);
+    pointer-events: none;
 }
 
 .hero-section::before {
@@ -146,10 +199,10 @@ ul {
 .hero-section h1 {
     font-size: 3.8em;
     margin-bottom: 25px;
-    color: var(--naranja); /* Corregido */
+    color: var(--naranja);
     font-weight: 800;
     line-height: 1.15;
-    text-shadow: 0 0 10px rgba(248, 177, 51, 0.2); /* Corregido */
+    text-shadow: 0 0 10px rgba(248, 177, 51, 0.2);
 }
 
 .hero-section p {
@@ -164,7 +217,7 @@ ul {
 }
 
 /* ============================================== */
-/* Sección: Nuestros Servicios */
+/* 4. SECCIÓN: NUESTROS SERVICIOS */
 /* ============================================== */
 .servicios-section {
     background-image: url(../img/servicios/fondo-S2.png);
@@ -196,7 +249,7 @@ ul {
 
 .servicios-grid-container {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); 
+    grid-template-columns: repeat(4, 1fr);
     gap: 40px;
     justify-content: center;
     align-items: center;
@@ -318,7 +371,7 @@ ul {
 }
 
 /* ============================================== */
-/* Sección: Servicios Detallados */
+/* 5. SECCIÓN: SERVICIOS DETALLADOS */
 /* ============================================== */
 .servicios-detallados-section {
     background-image: url(../img/servicios/fondo-S3.png);
@@ -431,16 +484,19 @@ ul {
     color: var(--negro);
 }
 
-/* --- Footer General --- */
+/* ============================================== */
+/* 6. FOOTER */
+/* ============================================== */
+
 .footer {
     width: 100%;
+}
+
+.footer-top {
     background-image: url(../img/servicios/footer.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-}
-
-.footer-top {
     display: flex;
     justify-content: flex-start;
     padding: 60px 10%;
@@ -548,39 +604,25 @@ ul {
 }
 
 /* ============================================== */
-/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* 7. MEDIA QUERIES PARA RESPONSIVE DESIGN */
 /* ============================================== */
 
-/* Estilos para el menú responsivo (añadido para móviles) */
-
-.navbar .menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--blanco);
-    font-size: 1.5em;
-    cursor: pointer;
-    z-index: 1001;
-}
-
-.navbar .nav-menu {
-    display: flex;
-    align-items: center;
-}
-
 @media (max-width: 1024px) {
-    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
-    .container {
-        padding: 0 15px;
-    }
-
+    /* Navbar */
     .navbar .logo {
         margin-left: 0;
+    }
+    .navbar .nav-menu {
+        margin-left: 20px;
     }
     .navbar nav ul li {
         margin-left: 20px;
     }
-    
+    .navbar .btn-nav {
+        display: none; /* Oculta el botón de "Regístrate" en pantallas más pequeñas */
+    }
+
+    /* Hero Section */
     .hero-section {
         padding: 120px 10px;
         min-height: 50vh;
@@ -668,6 +710,7 @@ ul {
     }
     .footer-links {
         flex-direction: column;
+        align-items: center;
         gap: 30px;
         margin-left: 0;
     }
@@ -676,49 +719,49 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+        flex-wrap: wrap;
     }
-    
     .navbar .nav-menu {
-        display: none;
+        display: none; /* Se oculta el menú por defecto */
+        width: 100%;
+        background-color: var(--negro);
         position: absolute;
         top: 100%;
         left: 0;
-        width: 100%;
-        background-color: var(--negro);
-        flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+        transition: max-height 0.5s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
     }
-    
     .navbar .nav-menu.active {
-        display: flex;
+        display: block; /* Se muestra cuando tiene la clase 'active' */
+        max-height: 300px;
+        opacity: 1;
     }
-    
-    .navbar .menu-toggle {
-        display: block;
-    }
-    
     .navbar nav ul {
         flex-direction: column;
         width: 100%;
         text-align: center;
+        padding: 20px 0;
         gap: 15px;
     }
-    
     .navbar nav ul li {
         margin: 0;
     }
-    
+    .navbar .menu-toggle {
+        display: block; /* Muestra el botón de hamburguesa en móviles */
+    }
+    .navbar .btn-nav {
+        display: none;
+    }
     .navbar .logo {
         margin: 0;
     }
     .navbar .btn-nav {
-        margin-top: 10px;
+        display: none; /* Oculta el botón de "Regístrate" en móviles */
     }
 
+    /* Hero Section */
     .hero-section {
         padding: 80px 10px;
     }
