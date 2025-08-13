@@ -58,8 +58,6 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    /* Eliminados los márgenes negativos para escritorio, no son necesarios con la nueva estructura */
-    margin-left: 0; 
     margin-right: auto;
 }
 
@@ -105,21 +103,14 @@ ul {
     cursor: pointer;
 }
 
-/* Ocultar botones y menú de móvil en versión de escritorio */
-.btn-nav-mobile,
-.menu-toggle {
+/* El menú de móvil y el botón están ocultos por defecto en escritorio */
+.navbar .menu-toggle {
     display: none;
 }
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
+/* === SECTIONS === */
 
-/* ==================================================== */
 /* Hero Section */
-/* ==================================================== */
 .hero-section {
     background-image: url(../img/nosotros/portada-nosotros.png);
     background-size: cover;
@@ -162,9 +153,7 @@ ul {
     margin-right: auto;
 }
 
-/* ==================================================== */
 /* Misión y Visión Section */
-/* ==================================================== */
 .mision-vision-section {
     background-image: url(../img/nosotros/fondo-mv.png);
     background-size: cover;
@@ -240,9 +229,7 @@ ul {
     padding-left: 28px;
 }
 
-/* ==================================================== */
 /* Valores Section */
-/* ==================================================== */
 .valores-section {
     background-image: url(../img/nosotros/fondo-valores.png);
     background-size: cover;
@@ -360,9 +347,7 @@ ul {
     color: var(--blanco);
 }
 
-/* ==================================================== */
 /* Equipo Section */
-/* ==================================================== */
 .equipo-section {
     background-image: url(../img/nosotros/fondos-eq.png);
     background-size: cover;
@@ -475,9 +460,7 @@ ul {
     line-height: 1.6;
 }
 
-/* ==================================================== */
 /* Metodología Section */
-/* ==================================================== */
 .metodologia-section {
     background-image: url(../img/nosotros/fondo-mtd.png);
     background-size: cover;
@@ -597,9 +580,7 @@ ul {
     transform: rotate(180deg);
 }
 
-/* ==================================================== */
 /* Footer */
-/* ==================================================== */
 .footer {
     width: 100%;
 }
@@ -843,14 +824,14 @@ ul {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
 
     .navbar .logo {
         margin: 0;
         margin-right: auto;
     }
-
+    
     .navbar .nav-menu {
         display: none;
         position: absolute;
@@ -864,14 +845,14 @@ ul {
         transition: height 0.3s ease-in-out;
         text-align: center;
         flex-direction: column;
-        z-index: 999; /* Asegurar que el menú desplegable esté sobre otros elementos */
+        z-index: 999;
     }
 
     .navbar .nav-menu.active {
         height: auto;
         display: flex;
     }
-    
+
     .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
@@ -884,44 +865,51 @@ ul {
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .navbar .nav-menu ul li a {
+    .navbar .nav-menu ul li a,
+    .navbar .nav-menu ul li .btn-nav { /* Se ajusta el botón para que se vea como un enlace de menú */
         display: block;
         padding: 15px 0;
+        color: var(--blanco);
+        border-radius: 0;
+        font-weight: 500;
+        text-transform: none;
+        background-color: transparent;
+        transition: color 0.3s ease;
     }
     
-    /* Mostrar y estilizar el contenedor de acciones de móvil */
-    .navbar-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .navbar .nav-menu .btn-nav {
-        /* Oculta el botón de navegación del menú principal */
-        display: none;
+    .navbar .nav-menu ul li .btn-nav:hover {
+        background-color: transparent;
+        color: var(--amarillo);
     }
     
-    .btn-nav-mobile {
-        /* Muestra y estiliza el botón de navegación específico para móvil */
-        display: block;
-        background-color: var(--naranja);
-        color: var(--negro);
-        padding: 8px 18px;
+    .navbar .nav-menu ul li:last-child .btn-nav {
+        /* Se añade un estilo para el botón si está al final del menú */
+        padding: 15px 0;
+        margin: 10px auto;
+        width: 80%;
         border-radius: 5px;
         font-weight: 600;
         text-transform: uppercase;
-        font-size: 0.9em;
-        border: none;
-        cursor: pointer;
+        background-color: var(--naranja);
+        color: var(--negro);
     }
-
-    .menu-toggle {
+    
+    .navbar .menu-toggle {
         display: block;
         background: none;
         border: none;
         color: var(--blanco);
         font-size: 1.5em;
         cursor: pointer;
+    }
+    
+    .navbar .nav-menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    /* Ocultar el botón de escritorio que ya está en el menú */
+    .navbar .btn-desktop-li {
+        display: none;
     }
 
     /* Hero Section */
@@ -948,6 +936,7 @@ ul {
     .vision-block p {
         font-size: 1em;
         padding-left: 0;
+        text-align: center;
     }
     .vertical-bar {
         height: 50px;
@@ -961,9 +950,6 @@ ul {
         width: 100%;
         height: 5px;
         margin-bottom: 10px;
-    }
-    .mision-block p, .vision-block p {
-        text-align: center;
     }
 
     /* Valores */
@@ -1018,7 +1004,7 @@ ul {
         grid-template-columns: 1fr;
     }
     .metodologia-image-container {
-        order: -1; /* Coloca la imagen arriba en móvil */
+        order: -1;
         padding: 0;
     }
     .metodologia-description.expanded {
