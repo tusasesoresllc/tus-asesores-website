@@ -108,7 +108,8 @@ ul {
 }
 
 /* Ocultar elementos de móvil por defecto en escritorio */
-.btn-nav-mobile, .menu-toggle {
+.btn-nav-mobile,
+.menu-toggle {
     display: none;
 }
 
@@ -569,10 +570,6 @@ ul {
         padding: 0 15px;
     }
 
-    .navbar .logo {
-        margin-right: 20px;
-    }
-
     .navbar .nav-menu {
         gap: 20px;
     }
@@ -603,30 +600,59 @@ ul {
     }
     
     .navbar .logo {
-        margin-left: 0;
-        margin-right: 0;
+        margin: 0;
     }
     
-    /* Ocultamos la versión de escritorio del menú */
     .navbar .nav-menu {
-        display: none;
+        display: none; /* Oculto por defecto */
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        flex-direction: column;
+        padding: 0;
+        text-align: center;
+        transition: height 0.3s ease-in-out;
+        height: 0;
+        overflow: hidden;
     }
     
-    /* Ocultamos el botón de registro de escritorio */
+    .navbar .nav-menu.active {
+        display: flex; /* Muestra el menú con la clase .active */
+        height: 250px; /* Ajusta este valor si necesitas más espacio */
+    }
+
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+    }
+
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 20px;
+        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Ocultamos el botón de escritorio en móvil */
     .navbar .nav-menu .btn-nav {
         display: none;
     }
     
-    /* Mostramos y organizamos los elementos móviles */
+    /* Contenedor del botón de registro y el menú de hamburguesa */
     .navbar-right {
         display: flex;
         align-items: center;
         gap: 15px;
     }
-    
+
     /* Estilo para el botón de registro móvil */
     .btn-nav-mobile {
-        display: block; /* Muestra el botón solo en móvil */
+        display: block;
         background-color: var(--naranja);
         color: var(--negro);
         padding: 8px 18px;
@@ -640,13 +666,13 @@ ul {
     
     /* Estilo para el botón de hamburguesa */
     .menu-toggle {
-        display: block; /* Muestra el botón de hamburguesa solo en móvil */
-        font-size: 1.5em;
+        display: block;
+        font-size: 2em;
         color: var(--blanco);
         cursor: pointer;
         z-index: 1001;
     }
-
+    
     /* Hero Section */
     .hero-section {
         padding: 80px 20px;
@@ -660,35 +686,56 @@ ul {
     }
     
     /* Sección de Recursos */
-    .recursos-card-container {
+    .recursos-section {
+        padding: 40px 0;
+    }
+    .recursos-header {
+        margin-bottom: 20px;
+    }
+    .recursos-header h2 {
+        font-size: 2.5em;
+    }
+    .recurso-card-container {
         flex-direction: column;
         align-items: center;
     }
-    
     .recurso-images-column-combined {
+        flex-direction: column;
+        width: 100%;
+        padding: 15px;
+        height: auto;
+    }
+    .recurso-main-image {
+        width: 100%;
+        height: 250px;
+    }
+    .recurso-sub-images-column {
         flex-direction: row;
         width: 100%;
+        height: auto;
         justify-content: center;
-        padding: 0;
-        gap: 10px;
+        margin-top: 10px;
+        gap: 5px;
     }
-    
-    .recurso-main-image,
-    .recurso-sub-images-column {
-        width: 150px;
-        height: 200px;
+    .recurso-image-item {
+        width: 120px;
+        height: 120px;
     }
-    
-    .recurso-sub-images-column {
-        flex-direction: column;
-    }
-    
     .recurso-content-column {
         text-align: center;
         padding: 15px;
     }
     
     /* Sección de Podcast */
+    .podcast-section {
+        padding: 40px 0;
+    }
+    .podcast-header {
+        margin-bottom: 20px;
+    }
+    .podcast-header h2 {
+        font-size: 2.5em;
+    }
     .podcast-grid-container {
         grid-template-columns: 1fr;
     }
@@ -701,6 +748,7 @@ ul {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        padding: 40px 10%;
     }
     .footer-logo {
         position: static;
