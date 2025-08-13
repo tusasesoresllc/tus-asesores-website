@@ -79,13 +79,13 @@ ul {
 }
 
 /* Estructura de navegación para escritorio */
-.navbar nav {
+.navbar .nav-menu {
     display: flex;
     align-items: center;
     gap: 30px;
 }
 
-.navbar nav ul {
+.navbar .nav-menu ul {
     display: flex;
     align-items: center;
     gap: 30px;
@@ -93,14 +93,14 @@ ul {
     padding: 0;
 }
 
-.navbar nav ul li a {
+.navbar .nav-menu ul li a {
     color: var(--blanco);
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
 }
 
-.navbar nav ul li a:hover {
+.navbar .nav-menu ul li a:hover {
     color: var(--amarillo);
 }
 
@@ -119,7 +119,7 @@ ul {
 
 .navbar .btn-nav:hover {
     background-color: var(--blanco);
-    color: var(--negro); /* CORRECCIÓN: Se añade el color del texto en el hover */
+    color: var(--negro);
     transform: translateY(-1px);
 }
 
@@ -356,7 +356,6 @@ ul {
     overflow: hidden;
 }
 
-/* NUEVO: Estilo para la imagen de escritorio (por defecto) en el div */
 .about-visual-left .about-image-container {
     position: absolute;
     left: 0;
@@ -763,13 +762,15 @@ ul {
     .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
+        color: var(--blanco); /* Aseguramos que el color del texto sea blanco por defecto */
+        font-family: 'Poppins', sans-serif;
     }
-
+    
     /* CORRECCIÓN: Botón de registro dentro del menú desplegable */
-    .navbar .nav-menu ul li .btn-nav {
+    .navbar .nav-menu ul li a.btn-nav {
         display: block;
-        width: calc(100% - 40px);
-        margin: 15px auto;
+        width: calc(100% - 40px); /* Ajusta el ancho para dejar un poco de margen */
+        margin: 15px auto; /* Centra el botón horizontalmente */
         text-align: center;
         background-color: var(--naranja);
         color: var(--negro);
@@ -779,12 +780,12 @@ ul {
         text-transform: uppercase;
         font-size: 0.9em;
     }
-
-    .navbar .nav-menu ul li .btn-nav:hover {
+    
+    .navbar .nav-menu ul li a.btn-nav:hover {
         background-color: var(--blanco);
         color: var(--negro);
     }
-
+    
     .navbar .logo {
         margin-left: 0;
     }
@@ -825,7 +826,7 @@ ul {
         position: static;
         width: 100%;
         height: auto;
-        transform: none;;
+        transform: none;
         max-width: 300px;
         margin: 0 auto;
     }
@@ -837,7 +838,7 @@ ul {
     }
 
     .about-logo-content img {
-        height: 150px;
+        height: 250px;
         margin-left: 0;
     }
     .about-text-right {
