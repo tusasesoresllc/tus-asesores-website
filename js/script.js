@@ -41,4 +41,5 @@ document.addEventListener('DOMContentLoaded', () => {
         menuToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
     });
+
 });

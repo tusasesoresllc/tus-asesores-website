@@ -2,15 +2,15 @@
 /* 1. VARIABLES Y ESTILOS BASE */
 /* ============================================== */
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 * {
@@ -73,13 +73,24 @@ ul {
     filter: brightness(1.2);
 }
 
+/* Ocultar el botón de hamburguesa por defecto en escritorio */
+.navbar .menu-toggle {
+    display: none;
+}
+
+/* Estructura de navegación para escritorio */
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
 .navbar nav ul {
     display: flex;
     align-items: center;
-}
-
-.navbar nav ul li {
-    margin-left: 30px;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
 }
 
 .navbar nav ul li a {
@@ -108,16 +119,8 @@ ul {
 
 .navbar .btn-nav:hover {
     background-color: var(--blanco);
+    color: var(--negro); /* CORRECCIÓN: Se añade el color del texto en el hover */
     transform: translateY(-1px);
-}
-
-.menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    color: var(--naranja);
-    font-size: 1.5em;
-    cursor: pointer;
 }
 
 /* ============================================== */
@@ -179,7 +182,7 @@ ul {
 /* 4. SECCIÓN VIDEO PROMOCIONAL */
 /* ============================================== */
 .video-promo-section {
-    background-color: var(--negro); 
+    background-color: var(--negro);
     padding: 80px 0;
     text-align: center;
     position: relative;
@@ -353,22 +356,21 @@ ul {
     overflow: hidden;
 }
 
-.about-visual-left > img {
+/* NUEVO: Estilo para la imagen de escritorio (por defecto) en el div */
+.about-visual-left .about-image-container {
     position: absolute;
     left: 0;
     bottom: 0;
     height: 100%;
     width: auto;
-    object-fit: contain;
     z-index: 2;
     transform: translateX(-15%);
-    max-width: none;
 }
 
 .about-yellow-box {
     position: absolute;
     top: 50%;
-    left: 45%;
+    left: 22%;
     transform: translateY(-50%);
     z-index: 1;
     display: flex;
@@ -652,10 +654,11 @@ ul {
     .navbar .logo {
         margin-left: 0;
     }
-    .navbar nav ul li {
-        margin-left: 20px;
-    }
     
+    .navbar nav ul {
+        gap: 20px;
+    }
+
     /* Hero Section */
     .hero-section {
         padding: 120px 10px;
@@ -673,7 +676,7 @@ ul {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
         gap: 20px;
     }
-    
+
     /* Sobre Nosotros */
     .about-content {
         gap: 20px;
@@ -687,7 +690,7 @@ ul {
     .about-logo-content img {
         height: 350px;
     }
-    
+
     /* Testimonios */
     .testimonial-grid {
         grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
@@ -703,41 +706,75 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
     /* Navbar */
     .navbar .container {
         flex-wrap: wrap;
+        justify-content: space-between;
     }
-    .navbar .nav-menu {
+
+    /* Mostrar el botón de hamburguesa en móvil */
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar el menú por defecto en móvil */
+    .navbar nav {
         display: none;
         width: 100%;
-        text-align: center;
-        background-color: var(--negro);
         position: absolute;
         top: 100%;
         left: 0;
+        background-color: var(--negro);
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
         transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
     }
-    .navbar .nav-menu.active {
-        display: block;
+
+    /* Clase activa para desplegar el menú */
+    .navbar nav.active {
+        display: flex;
         max-height: 300px;
         opacity: 1;
     }
+
     .navbar nav ul {
         flex-direction: column;
+        width: 100%;
         padding: 20px 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
+    
     .navbar nav ul li {
-        margin: 15px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    .navbar .menu-toggle {
+
+    .navbar nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .navbar nav ul li a {
         display: block;
+        padding: 15px 0;
     }
+
+    /* Botón de registro dentro del menú desplegable */
     .navbar .btn-nav {
-        display: none;
+        display: block;
+        width: calc(100% - 40px);
+        margin: 15px auto;
+        text-align: center;
+    }
+
+    .navbar .logo {
+        margin-left: 0;
     }
 
     /* Hero Section */
@@ -762,6 +799,7 @@ ul {
     .about-content {
         grid-template-columns: 1fr;
     }
+
     .about-visual-left {
         width: 100%;
         margin-left: 0;
@@ -770,19 +808,26 @@ ul {
         justify-content: center;
         padding: 20px;
     }
-    .about-visual-left > img {
+
+    /* CORRECCIÓN Y ADAPTACIÓN: Estilo para la imagen del div en móvil */
+    .about-visual-left .about-image-container {
         position: static;
         width: 100%;
         height: auto;
         transform: none;
-        object-fit: cover;
+        background-image: url(../img/home/ricardo-home-tlf.png); /* Se usa la imagen para móvil */
+        background-size: cover;
+        background-position: center;
         max-width: 300px;
+        margin: 0 auto; /* Para centrar la imagen */
     }
+
     .about-yellow-box {
         position: static;
         transform: none;
         width: auto;
     }
+
     .about-logo-content img {
         height: 150px;
         margin-left: 0;

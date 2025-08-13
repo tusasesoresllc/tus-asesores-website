@@ -1,27 +1,32 @@
+/* ============================================== */
 /* --- VARIABLES Y ESTILOS GENERALES --- */
+/* ============================================== */
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
+
+    /* Variables para tipografías */
+    --Bebas: 'Bebas Neue', sans-serif;
+    --font-body: 'Poppins', sans-serif;
+    --font-alt: 'Montserrat', sans-serif;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
-* {
+*, *::before, *::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--Bebas);
     line-height: 1.6;
-    color: var(--blanco);
-    background-color: var(--naranja);
     overflow-x: hidden;
 }
 
@@ -33,17 +38,20 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--amarillo);
+    color: inherit; /* Los enlaces heredan el color del contenedor padre por defecto */
 }
 
 ul {
     list-style: none;
 }
 
-/* --- ESTILOS DE LA BARRA DE NAVEGACIÓN --- */
+
+/* ============================================== */
+/* --- BARRA DE NAVEGACIÓN (NAVBAR) --- */
+/* ============================================== */
 .navbar {
     background-color: var(--negro);
-    color: var(--blanco);
+    color: var(--negro);
     padding: 15px 0;
     position: relative;
     z-index: 1000;
@@ -56,41 +64,43 @@ ul {
     align-items: center;
 }
 
-.navbar .logo {
+.navbar .logo a {
     display: flex;
     align-items: center;
-    margin-right: 20px;
-    margin-left: -10%;
 }
 
 .navbar .logo img {
     height: 35px;
-    margin-right: 10px;
     filter: brightness(1.2);
 }
 
-.navbar nav ul {
+.navbar .nav-menu {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar .nav-menu ul {
     display: flex;
     align-items: center;
 }
 
-.navbar nav ul li {
+.navbar .nav-menu ul li {
     margin-left: 30px;
 }
 
-.navbar nav ul li a {
-    color: var(--blanco);
+.navbar .nav-menu ul li a {
     font-weight: 500;
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--font-body);
+    color: var(--blanco);
     transition: color 0.3s ease;
 }
 
-.navbar nav ul li a:hover {
+.navbar .nav-menu ul li a:hover {
     color: var(--amarillo);
 }
 
 .navbar .btn-nav {
     background-color: var(--naranja);
+    font-family: var(--font-body);
     color: var(--negro);
     padding: 8px 18px;
     border-radius: 5px;
@@ -107,9 +117,8 @@ ul {
     transform: translateY(-1px);
 }
 
-/* Nuevo estilo para el botón del menú de hamburguesa */
 .menu-toggle {
-    display: none; /* Oculto por defecto en escritorio */
+    display: none;
     background: none;
     border: none;
     color: var(--naranja);
@@ -117,7 +126,269 @@ ul {
     cursor: pointer;
 }
 
+
+/* ============================================== */
+/* --- ESTILOS DE LA SECCIÓN HERO --- */
+/* ============================================== */
+.hero-section {
+    position: relative;
+    height: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+}
+
+.background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../img/recursos/hero-recursos.png');
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-family: var(--font-heading);
+    font-size: 4em;
+    margin-bottom: 10px;
+}
+
+.hero-section p {
+    font-family: var(--font-body);
+    font-size: 1.2em;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+/* ============================================== */
+/* --- SECCIÓN RECURSOS --- */
+/* ============================================== */
+.recursos-section {
+    background-color: var(--negro);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.recursos-top-line,
+.recursos-bottom-line {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: var(--naranja);
+    z-index: 1;
+}
+
+.recursos-top-line {
+    top: 0;
+}
+
+.recursos-bottom-line {
+    bottom: 0;
+}
+
+.recursos-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--naranja);
+}
+
+.recursos-header h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    letter-spacing: 2px;
+    line-height: 1.2;
+}
+
+.recursos-content-wrapper {
+    display: grid;
+    gap: 60px;
+}
+
+.recurso-card-container {
+    display: flex;
+    gap: 40px;
+    background-color: #1a1a1a;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recurso-card-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+}
+
+.recurso-images-column-combined {
+    display: flex;
+    gap: 10px;
+    min-width: 280px;
+}
+
+.recurso-main-image {
+    width: 60%;
+}
+
+.recurso-sub-images-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 40%;
+}
+
+.recurso-images-column-combined img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    object-fit: cover;
+}
+
+.recurso-content-column {
+    flex-grow: 1;
+    color: var(--blanco);
+}
+
+.recurso-content-column h3 {
+    font-family: var(--font-heading);
+    font-size: 2em;
+    color: var(--amarillo);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.recurso-content-column p {
+    font-family: var(--font-body);
+    font-size: 1em;
+    margin-bottom: 25px;
+}
+
+.ver-mas-btn {
+    display: inline-block;
+    color: var(--naranja);
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.ver-mas-btn:hover {
+    color: var(--blanco);
+}
+
+
+/* ============================================== */
+/* --- SECCIÓN PODCAST --- */
+/* ============================================== */
+.podcast-section {
+    background-color: var(--gris);
+    padding: 80px 0;
+    position: relative;
+    overflow: hidden;
+    color: var(--negro);
+}
+
+.podcast-top-line,
+.podcast-bottom-line {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    background-color: var(--naranja);
+    z-index: 1;
+}
+
+.podcast-top-line {
+    top: 0;
+}
+
+.podcast-bottom-line {
+    bottom: 0;
+}
+
+.podcast-header {
+    text-align: center;
+    margin-bottom: 60px;
+    color: var(--naranja);
+}
+
+.podcast-header h2 {
+    font-family: var(--font-heading);
+    font-size: 3em;
+    letter-spacing: 2px;
+}
+
+.podcast-grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.podcast-card {
+    background-color: var(--blanco);
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.podcast-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+}
+
+.podcast-video-wrapper {
+    position: relative;
+    padding-top: 56.25%; /* Relación de aspecto 16:9 */
+    overflow: hidden;
+}
+
+.podcast-video-wrapper img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: transform 0.3s ease;
+}
+
+.play-button:hover {
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.podcast-content {
+    padding: 20px;
+    text-align: center;
+}
+
+.podcast-content h3 {
+    font-family: var(--font-heading);
+    font-size: 1.5em;
+    color: var(--negro);
+}
+
+
+/* ============================================== */
 /* --- ESTILOS DE LA PÁGINA "EN CONSTRUCCIÓN" --- */
+/* ============================================== */
 .construction-page {
     display: flex;
     justify-content: center;
@@ -152,7 +423,7 @@ ul {
 }
 
 .main-title {
-    font-family: 'Bebas Neue', sans-serif;
+    font-family: var(--font-heading);
     font-size: 4em;
     font-weight: 900;
     color: var(--naranja);
@@ -169,7 +440,7 @@ ul {
 }
 
 .construction-content p {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-alt);
     font-size: 1.2em;
     margin: 30px 0;
 }
@@ -180,7 +451,7 @@ ul {
     color: var(--negro);
     padding: 15px 30px;
     border-radius: 20px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-alt);
     font-size: 1.2em;
     font-weight: 700;
     text-transform: uppercase;
@@ -193,7 +464,9 @@ ul {
 }
 
 
-/* --- Footer General --- */
+/* ============================================== */
+/* --- FOOTER GENERAL --- */
+/* ============================================== */
 .footer {
     width: 100%;
 }
@@ -201,37 +474,29 @@ ul {
 .footer-top {
     background-image: url(../img/nosotros/footer-n1.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center; /* Se ajustó para mejor adaptabilidad */
     background-repeat: no-repeat;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around; /* Se cambió a 'space-around' para una distribución más flexible */
+    align-items: flex-start;
     padding: 60px 10%;
     color: var(--negro);
     position: relative;
-    align-items: flex-start;
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
 }
 
 .footer-logo {
     display: flex;
-    align-items: middle;
+    align-items: center;
     justify-content: center;
-    width: 100px;
-    height: 150px;
-    position: relative;
-}
-
-.footer-logo a {
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-decoration: none;
+    width: 150px; /* Ancho fijo para el contenedor del logo */
+    margin-right: 20px; /* Espacio a la derecha */
 }
 
 .footer-logo-image {
-    position: absolute;
-    left: 100px;
-    width: 150px;
-    max-height: 100%;
+    position: static; /* Se eliminó el 'position: absolute' */
+    width: 100%; /* Ajuste al 100% del contenedor padre */
+    height: auto;
     display: block;
     transition: transform 0.3s ease;
 }
@@ -242,12 +507,15 @@ ul {
 
 .footer-links {
     display: flex;
-    gap: 100px;
-    margin-left: 300px;
-    margin-top: -2%;
+    gap: 80px; /* Reducción del gap para más flexibilidad */
+    margin-left: 0; /* Se eliminó el margin-left fijo */
+    margin-top: 0; /* Se eliminó el margin-top fijo */
+    flex-wrap: wrap;
+    justify-content: flex-start;
 }
 
 .link-column h4 {
+    font-family: var(--font-heading);
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
@@ -265,6 +533,7 @@ ul {
 }
 
 .link-column li a {
+    font-family: var(--font-body);
     font-size: 0.95em;
     color: var(--negro);
     text-decoration: none;
@@ -279,7 +548,7 @@ ul {
 .footer-social-media {
     background-image: url(../img/nosotros/footer-n2.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center; /* Se ajustó para mejor adaptabilidad */
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -312,68 +581,68 @@ ul {
     padding: 20px 5%;
     color: var(--naranja);
     font-size: 0.9em;
+    font-family: var(--font-body);
 }
 
-/* ---------------------------------------------------- */
-/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
-/* ---------------------------------------------------- */
+/* ============================================== */
+/* --- MEDIA QUERIES PARA RESPONSIVE DESIGN --- */
+/* ============================================== */
+@media (max-width: 992px) {
+    .recurso-card-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .recurso-images-column-combined {
+        width: 100%;
+        min-width: unset;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     /* Navbar */
     .navbar .container {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
     }
-    
-    .navbar .logo {
-        margin-left: 0; /* Eliminar el margen negativo en pantallas pequeñas */
-    }
-    
+
     .navbar .nav-menu {
-        display: none;
-        width: 100%;
-        text-align: center;
-        background-color: var(--negro);
         position: absolute;
         top: 100%;
         left: 0;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        width: 100%;
+        background-color: var(--negro);
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        text-align: center;
         max-height: 0;
         opacity: 0;
         overflow: hidden;
+        visibility: hidden;
+        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
     }
-    
+
     .navbar .nav-menu.active {
-        display: block;
         max-height: 300px;
         opacity: 1;
+        visibility: visible;
+        transition: max-height 0.3s ease, opacity 0.3s ease;
     }
-    
-    .navbar nav ul {
+
+    .navbar .nav-menu ul {
         flex-direction: column;
         padding: 20px 0;
     }
-    
-    .navbar nav ul li {
+
+    .navbar .nav-menu ul li {
         margin: 15px 0;
     }
-    
-    .navbar .menu-toggle {
-        display: block;
+
+    .navbar .btn-nav {
+        display: none;
     }
 
-    /* Contenido "En Construcción" */
-    .main-title {
-        font-size: 2.5em; /* Reducir el tamaño del título principal */
-        letter-spacing: 2px;
-    }
-    
-    .construction-content p {
-        font-size: 1em; /* Reducir el tamaño del párrafo */
-        margin: 20px 0;
-    }
-    
-    .back-home-btn {
-        font-size: 1em; /* Reducir el tamaño del botón */
-        padding: 12px 25px;
+    .navbar .menu-toggle {
+        display: block;
     }
 
     /* Footer */
@@ -381,29 +650,18 @@ ul {
         flex-direction: column;
         align-items: center;
         padding: 40px 5%;
+        gap: 30px;
+        text-align: center;
     }
-    
-    .footer-logo-image {
-        position: static;
-        width: 120px;
-        margin-bottom: 20px;
+
+    .footer-logo {
+        margin-right: 0;
     }
 
     .footer-links {
         flex-direction: column;
         align-items: center;
         gap: 30px;
-        margin-left: 0;
-        margin-top: 20px;
-        text-align: center;
-    }
-
-    .link-column h4 {
-        margin-bottom: 10px;
-    }
-
-    .footer-social-media {
-        padding: 15px 0;
     }
 }
 
@@ -411,13 +669,21 @@ ul {
     .main-title {
         font-size: 2em;
     }
-    
+
     .construction-content p {
         font-size: 0.9em;
     }
-    
+
     .back-home-btn {
         font-size: 0.9em;
         padding: 10px 20px;
+    }
+
+    .hero-section h1 {
+        font-size: 2.5em;
+    }
+
+    .recursos-header h2 {
+        font-size: 2em;
     }
 }

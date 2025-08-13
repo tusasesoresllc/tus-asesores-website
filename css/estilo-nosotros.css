@@ -68,23 +68,30 @@ ul {
     filter: brightness(1.2);
 }
 
-.navbar nav ul {
+.navbar .nav-menu {
     display: flex;
     align-items: center;
 }
 
-.navbar nav ul li {
+.navbar .nav-menu ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-menu ul li {
     margin-left: 30px;
 }
 
-.navbar nav ul li a {
+.navbar .nav-menu ul li a {
     color: var(--blanco);
     font-weight: 500;
     font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
 }
 
-.navbar nav ul li a:hover {
+.navbar .nav-menu ul li a:hover {
     color: var(--amarillo);
 }
 
@@ -99,6 +106,7 @@ ul {
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
+    margin-left: 30px;
 }
 
 .navbar .btn-nav:hover {
@@ -616,7 +624,7 @@ ul {
 
 .footer-logo {
     display: flex;
-    align-items: middle;
+    align-items: center;
     justify-content: center;
     width: 100px;
     height: 150px;
@@ -721,52 +729,60 @@ ul {
 }
 
 /* ---------------------------------------------------- */
-/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN              */
 /* ---------------------------------------------------- */
 
 @media (max-width: 768px) {
     /* Navbar */
     .navbar .container {
-        flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+        flex-wrap: wrap;
     }
     
     .navbar .logo {
         margin-left: 0;
     }
 
+    /* Oculta el menú por defecto y prepara la transición */
     .navbar .nav-menu {
-        display: none; /* Oculta el menú por defecto */
+        flex-direction: column;
         width: 100%;
-        text-align: center;
-        background-color: var(--negro);
         position: absolute;
         top: 100%;
         left: 0;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        background-color: var(--negro);
+        padding: 0;
         max-height: 0;
-        opacity: 0;
         overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
     }
-    
+
+    /* Muestra el menú cuando tiene la clase 'active' */
     .navbar .nav-menu.active {
-        display: block; /* Muestra el menú cuando tiene la clase 'active' */
         max-height: 300px; /* Altura suficiente para el menú */
-        opacity: 1;
-    }
-    
-    .navbar nav ul {
-        flex-direction: column;
         padding: 20px 0;
     }
     
-    .navbar nav ul li {
-        margin: 15px 0;
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 0;
     }
     
-    .navbar .menu-toggle {
-        display: block; /* Muestra el botón de hamburguesa */
+    .navbar .nav-menu ul li {
+        margin: 15px 0;
     }
 
+    .navbar .btn-nav {
+        margin: 15px 0;
+        width: 80%; /* Para que el botón ocupe casi todo el ancho */
+        text-align: center;
+    }
+
+    /* Muestra el botón de hamburguesa */
+    .navbar .menu-toggle {
+        display: block;
+    }
+    
     /* Hero Section */
     .hero-section h1 {
         font-size: 2.5em;

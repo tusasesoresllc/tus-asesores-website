@@ -1,13 +1,13 @@
 :root {
-    --negro: #000000; 
-    --amarillo: #f3ce37; 
+    --negro: #000000;
+    --amarillo: #f3ce37;
     --blanco: #ffffff;
-    --naranja: #f8b133; 
-    --gris: #ede6d9; 
+    --naranja: #f8b133;
+    --gris: #ede6d9;
 }
 
 html {
-    scroll-behavior: smooth; 
+    scroll-behavior: smooth;
 }
 
 * {
@@ -46,7 +46,7 @@ ul {
     padding: 15px 0;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .container {
@@ -68,13 +68,24 @@ ul {
     filter: brightness(1.2);
 }
 
+/* Ocultar el botón de hamburguesa por defecto en escritorio */
+.navbar .menu-toggle {
+    display: none;
+}
+
+/* Modificación para una estructura de navegación más limpia */
+.navbar nav {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
+}
+
 .navbar nav ul {
     display: flex;
     align-items: center;
-}
-
-.navbar nav ul li {
-    margin-left: 30px;
+    gap: 30px; /* Espacio entre los enlaces del menú */
+    margin: 0;
+    padding: 0;
 }
 
 .navbar nav ul li a {
@@ -104,16 +115,6 @@ ul {
 .navbar .btn-nav:hover {
     background-color: var(--blanco);
     transform: translateY(-1px);
-}
-
-/* Nuevo estilo para el botón del menú de hamburguesa */
-.menu-toggle {
-    display: none; /* Oculto por defecto en escritorio */
-    background: none;
-    border: none;
-    color: var(--naranja);
-    font-size: 1.5em;
-    cursor: pointer;
 }
 
 /* Hero Section */
@@ -494,65 +495,42 @@ ul {
 }
 
 /* ---------------------------------------------------- */
-/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
+/* MEDIAS QUERIES PARA RESPONSIVE DESIGN      */
 /* ---------------------------------------------------- */
-@media (max-width: 768px) {
-    /* Navbar */
-    .navbar .container {
-        flex-wrap: wrap;
+
+@media (max-width: 1024px) {
+    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
+    .container {
+        padding: 0 15px;
     }
-    
+
     .navbar .logo {
         margin-left: 0;
     }
-    
-    .navbar .nav-menu {
-        display: none;
-        width: 100%;
-        text-align: center;
-        background-color: var(--negro);
-        position: absolute;
-        top: 100%;
-        left: 0;
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-    }
-    
-    .navbar .nav-menu.active {
-        display: block;
-        max-height: 300px;
-        opacity: 1;
+
+    /* Ajuste de espaciado en pantallas más pequeñas */
+    .navbar nav {
+        gap: 20px;
     }
     
     .navbar nav ul {
-        flex-direction: column;
-        padding: 20px 0;
+        gap: 20px;
     }
     
-    .navbar nav ul li {
-        margin: 15px 0;
-    }
-    
-    .navbar .menu-toggle {
-        display: block;
+    .hero-section {
+        padding: 120px 10px;
+        min-height: 50vh;
     }
 
-    /* Hero Section */
     .hero-section h1 {
-        font-size: 2.5em;
+        font-size: 3em;
     }
 
     .hero-section p {
-        font-size: 1em;
+        font-size: 1.1em;
     }
-
+    
     /* Contacto Section */
-    .contact-section {
-        padding: 60px 0;
-    }
-
     .contact-form-wrapper {
         grid-template-columns: 1fr; /* Apila las columnas */
         padding: 30px;
@@ -564,8 +542,147 @@ ul {
     }
     
     .form-row {
-        flex-basis: 100%; /* Asegura que los campos del formulario ocupen el 100% del ancho */
+        flex-basis: 100%;
         min-width: unset;
+    }
+
+    /* Footer */
+    .footer-top {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        padding: 40px 10%;
+    }
+
+    .footer-logo {
+        position: static;
+        width: 100px;
+        height: auto;
+        margin-bottom: 20px;
+    }
+
+    .footer-logo-image {
+        position: static;
+        width: 100px;
+        max-height: none;
+    }
+
+    .footer-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        margin-left: 0;
+        margin-top: 20px;
+    }
+
+    .link-column h4 {
+        margin-bottom: 10px;
+    }
+
+    .footer-social-media {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Estilos para móviles (teléfonos) */
+    .navbar .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+    
+    /* Mostrar el botón de hamburguesa en móvil */
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    /* Ocultar el menú por defecto en móvil */
+    .navbar nav {
+        display: none;
+        width: 100%;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--negro);
+        flex-direction: column;
+        text-align: center;
+        gap: 0;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
+        max-height: 0;
+        opacity: 0;
+        overflow: hidden;
+    }
+    
+    /* Clase activa para desplegar el menú */
+    .navbar nav.active {
+        display: flex; /* Mostrar el contenedor nav */
+        max-height: 300px;
+        opacity: 1;
+    }
+    
+    .navbar nav ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    
+    .navbar nav ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar nav ul li:last-child {
+        border-bottom: none;
+    }
+
+    .navbar nav ul li a {
+        display: block;
+        padding: 15px 0;
+    }
+
+    /* Botón de registro dentro del menú desplegable */
+    .navbar .btn-nav {
+        display: block;
+        width: calc(100% - 40px);
+        margin: 15px auto;
+        text-align: center;
+    }
+
+    .navbar .logo {
+        margin-left: 0;
+    }
+
+    .hero-section {
+        padding: 80px 10px;
+    }
+
+    .hero-section h1 {
+        font-size: 2em;
+    }
+
+    .hero-section p {
+        font-size: 1em;
+    }
+
+    /* Contacto Section */
+    .contact-section {
+        padding: 40px 0;
+    }
+
+    .contact-form-wrapper {
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 2em;
+    }
+    
+    .form-row {
+        flex-basis: 100%;
     }
     
     .info-card h4 {
@@ -578,28 +695,15 @@ ul {
 
     /* Footer */
     .footer-top {
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 5%;
-    }
-    
-    .footer-logo-image {
-        position: static;
-        width: 120px;
-        margin-bottom: 20px;
+        padding: 30px 5%;
     }
 
     .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin-left: 0;
-        margin-top: 20px;
-        text-align: center;
+        gap: 20px;
     }
 
     .link-column h4 {
-        margin-bottom: 10px;
+        font-size: 1.1em;
     }
 
     .footer-social-media {

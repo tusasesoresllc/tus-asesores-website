@@ -146,7 +146,7 @@ ul {
     width: 80%;
     max-width: 1200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
+    border-radius: 10px;
     overflow: hidden;
 }
 
@@ -411,6 +411,7 @@ button[type="submit"]:hover {
     /* Contenido Principal y Formulario */
     .contenedor {
         width: 95%; /* Ajusta el ancho para pantallas pequeñas */
+        border-radius: 10px;
         flex-direction: column; /* Apila los paneles verticalmente */
     }
     

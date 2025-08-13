@@ -6,8 +6,8 @@
     <title>Home</title>
     <link rel="stylesheet" href="css/estilo.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link rel="icon" type="image/png" href="img/Isotipo Principal.png"> 
-    </head>
+    <link rel="icon" type="image/png" href="img/Isotipo Principal.png">
+</head>
 <body>
 
     <header id="home" class="navbar">
@@ -15,36 +15,42 @@
             <div class="logo">
                 <img src="img/Logo Naranja.png" alt="Tus Asesores, LLC Logo">
             </div>
-            <nav>
+
+            <button class="menu-toggle" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <nav class="nav-menu">
                 <ul>
                     <li><a href="index.html">Home</a></li>
                     <li><a href="html/sobrenosotros.html">Sobre Nosotros</a></li>
                     <li><a href="html/servicios.html">Servicios</a></li>
                     <li><a href="html/recursos.html">Recursos</a></li>
                     <li><a href="html/contacto.html">Contacto</a></li>
-                    <li><a href="html/newsletter.html" class="btn-nav">Regístrate</a></li>
                 </ul>
+                <a href="html/newsletter.html" class="btn-nav">Regístrate</a>
             </nav>
         </div>
     </header>
 
     <section id="hero" class="hero-section">
-        <div class="background-overlay"></div> <div class="container">
+        <div class="background-overlay"></div>
+        <div class="container">
             <h1>Tu Empresa en EE.UU.: Cumplimiento y Crecimiento Asegurados.</h1>
             <p>Asesoría contable y fiscal bilingüe para proteger y expandir tu negocio.</p>
         </div>
     </section>
 
     <section id="video-promo" class="video-promo-section">
-    <div class="video-promo-top-line"></div>
-    <div class="container">
-        <div class="video-wrapper">
-            <video controls poster="img/home/video-portada.png">
-                <source src="mp4/video-home.mp4" type="video/mp4">
-                Tu navegador no soporta la etiqueta de video.
-            </video>
+        <div class="video-promo-top-line"></div>
+        <div class="container">
+            <div class="video-wrapper">
+                <video controls loop autoplay muted poster="img/home/video-portada.png">
+                    <source src="mp4/video-home.mp4" type="video/mp4">
+                    Tu navegador no soporta la etiqueta de video.
+                </video>
+            </div>
         </div>
-    </div>
     </section>
 
     <section id="services" class="cards-section">
@@ -52,39 +58,44 @@
             <div class="card-grid">
                 <div class="card-item">
                     <div class="card-image-container">
-                        <img src="img/home/asesoria-home.png" alt="Asesoría Financiera"> </div>
+                        <img src="img/home/asesoria-home.png" alt="Asesoría Financiera">
+                    </div>
                     <h3>Asesoría Financiera</h3>
-                    <a href="html/servicios.html#servicios" class="card-btn">Ver más &gt;</a>
+                    <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
                 </div>
                 <div class="card-item">
                     <div class="card-image-container">
-                        <img src="img/home/contabilidad-home.png" alt="Contabilidad"> </div>
+                        <img src="img/home/contabilidad-home.png" alt="Contabilidad">
+                    </div>
                     <h3>Contabilidad</h3>
-                    <a href="html/servicios.html#servicios" class="card-btn">Ver más &gt;</a>
+                    <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
                 </div>
                 <div class="card-item">
                     <div class="card-image-container">
-                        <img src="img/home/taxes-home.png" alt="Taxes"> </div>
+                        <img src="img/home/taxes-home.png" alt="Taxes">
+                    </div>
                     <h3>Taxes</h3>
-                    <a href="html/servicios.html#servicios" class="card-btn">Ver más &gt;</a>
+                    <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
                 </div>
                 <div class="card-item">
                     <div class="card-image-container">
-                        <img src="img/home/LLC-home.png" alt="Nueva Empresa en USA"> </div>
+                        <img src="img/home/LLC-home.png" alt="Nueva Empresa en USA">
+                    </div>
                     <h3>Nueva Empresa en USA</h3>
-                    <a href="html/servicios.html#servicios" class="card-btn">Ver más &gt;</a>
+                    <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
                 </div>
             </div>
         </div>
     </section>
 
-<section id="about" class="about-section">
+    <section id="about" class="about-section">
         <div class="container">
             <div class="about-content">
                 <div class="about-visual-left">
-                    <img src="img/home/ricardo-home.png" alt="Imagen de Persona"> <div class="about-yellow-box">
+                    <div class="about-image-container"></div>
+                    <div class="about-yellow-box">
                         <div class="about-logo-content">
-                            <img src="img/home/logo-nosotros.png" alt="Logo Tus Asesores, LLC">
+                            <img src="img/home/ricardo-home.png" alt="Logo Tus Asesores, LLC">
                         </div>
                     </div>
                 </div>
@@ -92,7 +103,7 @@
                     <h2>Sobre Nosotros</h2>
                     <p>Somos tu socio estratégico para la gestión contable, fiscal y financiera de tu empresa en Estados Unidos. Sabemos los desafíos que enfrentas, desde el desconocimiento contable hasta la necesidad de cumplir con la ley y proteger tu capital de la inflación.</p>
                     <p>Por eso, brindamos asesoría y herramientas efectivas para que tu administración sea transparente, evites multas y logres un crecimiento financiero sólido. Con nosotros, tu información siempre estará al día, permitiéndote concentrarte en tus metas empresariales.</p>
-                    <a href="html/sobrenosotros.html" class="about-button">Ver más &gt;</a>
+                    <a href="html/sobrenosotros.html" class="about-button">Ver más ></a>
                 </div>
             </div>
         </div>
@@ -104,45 +115,40 @@
             <div class="testimonial-grid">
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño"> <h3>Patricia Rodriguez</h3>
+                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño">
+                        <h3>Patricia Rodriguez</h3>
                     </div>
-                    <p>Manejar la contabilidad y los taxes de mi empresa en EE.UU con ustedes, 
-                    no solo tengo la tranquilidad de estar 100% en cumplimiento, sino que su asesoría 
-                    financiera me ha permitido proteger mi dinero de la inflación y tomar decisiones 
-                    mucho más inteligentes.</p>
+                    <p>Manejar la contabilidad y los taxes de mi empresa en EE.UU con ustedes, no solo tengo la tranquilidad de estar 100% en cumplimiento, sino que su asesoría financiera me ha permitido proteger mi dinero de la inflación y tomar decisiones mucho más inteligentes.</p>
                     <p>¡Su servicio y su claridad son invaluables!</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño"> <h3>Daniel Montes</h3>
+                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño">
+                        <h3>Daniel Montes</h3>
                     </div>
-                    <p>La preparación de taxes en EE.UU. me generaba mucho estrés, especialmente por el desconocimiento. 
-                    Tus Asesores no solo gestionaron mis impuestos de manera impecable, sino que también me brindaron 
-                    asesoría financiera práctica para entender cómo optimizar mis recursos.</p>
+                    <p>La preparación de taxes en EE.UU. me generaba mucho estrés, especialmente por el desconocimiento. Tus Asesores no solo gestionaron mis impuestos de manera impecable, sino que también me brindaron asesoría financiera práctica para entender cómo optimizar mis recursos.</p>
                     <p>Su compromiso es excepcional y me siento realmente respaldado!</p>
                 </div>
                 <div class="testimonial-card">
                     <div class="testimonial-header">
-                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño"> <h3>Carlos Perdomo</h3>
+                        <img src="img/Isotipo Principal.png" alt="Logo Pequeño">
+                        <h3>Carlos Perdomo</h3>
                     </div>
-                    <p>Necesitaba un socio confiable para las finanzas de mi empresa y la asesoría contable constante. 
-                    Y ustedes superaron mis expectativas. Su equipo es transparente, eficiente y siempre está al tanto 
-                    de las últimas regulaciones de taxes.</p>
+                    <p>Necesitaba un socio confiable para las finanzas de mi empresa y la asesoría contable constante. Y ustedes superaron mis expectativas. Su equipo es transparente, eficiente y siempre está al tanto de las últimas regulaciones de taxes.</p>
                     <p>Gracias a ello, mi negocio está creciendo de forma sostenible y con una base financiera sólida.</p>
                 </div>
             </div>
         </div>
     </section>
-    
 
-   <footer class="footer">
+    <footer class="footer">
         <div class="footer-top">
             <div class="footer-logo">
                 <a href="#home">
                     <img src="img/Isotipo Negro.png" alt="Tus Asesores Logo" class="footer-logo-image">
                 </a>
             </div>
-            
+
             <div class="footer-links">
                 <div class="link-column">
                     <h4>Servicios</h4>
@@ -153,7 +159,7 @@
                         <li><a href="html/servicios.html#asesoria">● Asesoría Financiera</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="link-column">
                     <h4>De interés</h4>
                     <ul>
@@ -162,7 +168,7 @@
                         <li><a href="html/newsletter.html">● Boletín Semanal</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="link-column">
                     <h4>Contacto</h4>
                     <ul>
@@ -188,5 +194,6 @@
         </div>
     </footer>
 
+    <script src="../js/script.js"></script>
 </body>
 </html>
