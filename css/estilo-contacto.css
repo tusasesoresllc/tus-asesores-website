@@ -52,13 +52,13 @@ ul {
 .navbar .container {
     display: flex;
     justify-content: space-between;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .navbar .logo {
     display: flex;
-    align-items: flex-start;
-    margin-left: -120px; /* Empuja los otros elementos a la derecha */
+    align-items: center;
+    margin-right: auto; /* Empuja los otros elementos a la derecha */
 }
 
 .navbar .logo img {
@@ -67,16 +67,15 @@ ul {
 }
 
 .navbar .nav-menu {
-    margin-left: 200px;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     gap: 30px; /* Espacio entre la lista de enlaces y el botón */
 }
 
 .navbar .nav-menu ul {
     display: flex;
-    align-items: flex-end;
-    gap: 40px; /* Espacio entre los enlaces del menú */
+    align-items: center;
+    gap: 30px; /* Espacio entre los enlaces del menú */
     margin: 0;
     padding: 0;
 }
@@ -92,7 +91,7 @@ ul {
     color: var(--amarillo);
 }
 
-.navbar .nav-menu .btn-nav {
+.navbar .btn-nav {
     background-color: var(--naranja);
     color: var(--negro);
     padding: 8px 18px;
@@ -583,26 +582,22 @@ ul {
     }
 
     .navbar .nav-menu {
-        display: none;
-        width: 100%;
+        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
         position: absolute;
         top: 100%;
         left: 0;
+        width: 100%;
         background-color: var(--negro);
-        flex-direction: column;
-        text-align: center;
-        gap: 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
+        /* Cambio: Usamos 'height' y 'overflow' para la transición */
+        height: 0;
+        overflow: hidden; 
+        transition: height 0.3s ease-in-out;
     }
 
     .navbar .nav-menu.active {
-        display: flex;
-        max-height: 300px;
-        opacity: 1;
+        /* Ajusta la altura del menú cuando está activo */
+        height: 250px; /* Puedes ajustar este valor si el contenido del menú cambia */
     }
 
     .navbar .menu-toggle {
