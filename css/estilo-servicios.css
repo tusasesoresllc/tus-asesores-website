@@ -67,6 +67,14 @@ ul {
     filter: brightness(1.2);
 }
 
+/* Oculta los elementos de móvil en escritorio */
+.btn-nav-mobile,
+.navbar-right,
+.menu-toggle {
+    display: none;
+}
+
+/* El menú de navegación principal para escritorio */
 .navbar .nav-menu {
     display: flex;
     align-items: center;
@@ -103,18 +111,6 @@ ul {
     border: none;
     cursor: pointer;
 }
-
-/* Oculta los elementos de móvil en escritorio */
-.btn-nav-mobile {
-    display: none;
-}
-.menu-toggle {
-    display: none;
-}
-.navbar-right {
-    display: none;
-}
-/* Se mantiene el resto del código de escritorio como está */
 
 /* ============================================== */
 /* Sección: Hero */
@@ -550,120 +546,95 @@ ul {
 /* ============================================== */
 
 @media (max-width: 1024px) {
-    /* ... (El resto del código para tablet se mantiene sin cambios) ... */
-    
     .container {
         padding: 0 15px;
     }
-
     .navbar .logo {
         margin-left: 0;
         margin-right: auto;
     }
-    
     .navbar .nav-menu {
         gap: 20px;
     }
-
     .hero-section {
         padding: 120px 10px;
         min-height: 50vh;
     }
-    
     .hero-section h1 {
         font-size: 3em;
     }
-
     .hero-section p {
         font-size: 1.1em;
     }
-    
     .servicios-section {
         padding: 80px 0;
     }
-    
     .servicios-grid-container {
         grid-template-columns: repeat(2, 1fr);
         gap: 20px;
     }
-    
     .servicio-card {
         width: auto;
         height: auto;
     }
-    
     .servicio-card.active {
         width: auto;
         height: auto;
         transform: scale(1.05);
     }
-    
     .servicio-card-inner {
         padding: 15px;
         border-radius: 20px;
     }
-    
     .servicio-card-image-wrapper {
         width: calc(100% + 30px);
         margin: -15px -15px 15px -15px;
     }
-    
     .servicio-card-content h3 {
         font-size: 1.1em;
     }
-    
     .card-description {
         font-size: 0.9em;
     }
-    
     .servicios-detallados-section {
         padding: 80px 0;
     }
-    
     .servicio-detalle-title {
         font-size: 2.5em;
         margin-bottom: 30px;
     }
-    
     .servicio-detalle-content-wrapper {
         flex-direction: column;
         gap: 20px;
     }
-    
     .servicio-detalle-column {
         width: 100%;
         padding: 20px;
         border-radius: 20px;
     }
-    
     .servicio-detalle-column h3 {
         font-size: 1.3em;
     }
-    
     .solicitar-btn {
         margin-top: 30px;
     }
-    
     .footer-top {
         flex-direction: column;
         align-items: center;
         text-align: center;
         padding: 40px 10%;
     }
-    
     .footer-logo {
         position: static;
         width: 100px;
         height: auto;
         margin-bottom: 20px;
     }
-    
     .footer-logo-image {
         position: static;
         width: 100px;
         max-height: none;
     }
-    
     .footer-links {
         flex-direction: column;
         gap: 30px;
@@ -673,18 +644,52 @@ ul {
 
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
-    .navbar .container {
-        /* Se asegura que los elementos se distribuyan correctamente. */
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
+    
+    /* Muestra los elementos del menú móvil */
+    .btn-nav-mobile,
+    .navbar-right,
+    .menu-toggle {
+        display: block;
     }
 
-    /* Oculta el menú de navegación principal en móviles */
+    /* Oculta el menú de navegación principal en móviles por defecto */
     .navbar .nav-menu {
         display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* Propiedades para la transición suave al abrir/cerrar */
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
     }
     
+    /* Clase que se activa con el JS para mostrar el menú */
+    .navbar .nav-menu.active {
+        display: block;
+        max-height: 500px; /* Un valor lo suficientemente grande para mostrar todo el contenido */
+    }
+
+    /* Ajustes de layout para el menú desplegable */
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+    }
+
+    .navbar .nav-menu ul li {
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+        text-align: center;
+    }
+
     /* Muestra y agrupa los elementos de la derecha (botón y menú toggle) */
     .navbar-right {
         display: flex;
@@ -692,9 +697,8 @@ ul {
         gap: 15px;
     }
 
-    /* Muestra el botón de registro móvil y le da estilo */
+    /* Estilo para el botón de registro móvil */
     .btn-nav-mobile {
-        display: block;
         background-color: var(--naranja);
         color: var(--negro);
         padding: 8px 18px;
@@ -706,112 +710,87 @@ ul {
         cursor: pointer;
     }
     
-    /* Muestra el ícono del menú de hamburguesas */
+    /* Estilo para el ícono del menú de hamburguesas */
     .menu-toggle {
-        display: block;
         background: none;
         border: none;
         color: var(--blanco);
         font-size: 1.5em;
         cursor: pointer;
     }
-
-    /* Se mantiene el resto del código de media query para móvil sin cambios */
+    
+    /* El resto del código de media query para móvil se mantiene sin cambios */
 
     .hero-section {
         padding: 80px 10px;
     }
-
     .hero-section h1 {
         font-size: 2em;
     }
-
     .hero-section p {
         font-size: 1em;
     }
-
-    /* Sección de Servicios */
     .servicios-section {
         padding: 40px 0;
     }
-
     .servicios-grid-container {
         grid-template-columns: 1fr;
     }
-
     .servicio-card {
         width: 100%;
     }
-
     .servicio-card.active {
         width: 100%;
         transform: scale(1);
     }
-
     .servicio-card-inner {
         padding: 10px;
         border-radius: 15px;
     }
-
     .servicio-card-image-wrapper {
         width: calc(100% + 20px);
         margin: -10px -10px 10px -10px;
     }
-
     .servicio-card-content h3 {
         font-size: 1em;
     }
-
     .card-description {
         font-size: 0.8em;
     }
-
     .servicio-card.active .card-description,
     .servicio-card.active .ver-mas-btn {
         margin-top: 10px;
     }
-
-    /* Sección de Servicios Detallados */
     .servicios-detallados-section {
         padding: 40px 0;
     }
-
     .servicio-detalle-title {
         font-size: 2em;
         margin-bottom: 20px;
     }
-
     .servicio-detalle-content-wrapper {
         gap: 15px;
     }
-
     .servicio-detalle-column {
         padding: 15px;
         border-radius: 15px;
     }
-
     .servicio-detalle-column h3 {
         font-size: 1.1em;
     }
-
     .solicitar-btn {
         margin-top: 20px;
     }
-
-    /* Footer */
     .footer-top {
         padding: 30px 5%;
     }
-
     .footer-links {
         gap: 20px;
     }
-
     .link-column h4 {
         font-size: 1.1em;
         margin-bottom: 10px;
     }
-
     .link-column li a {
         font-size: 0.9em;
     }
