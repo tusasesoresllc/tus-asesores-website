@@ -598,7 +598,6 @@ ul {
 @media (max-width: 767px) {
   /* Estilos para móviles (teléfonos) */
   .navbar .container {
-    /* Usamos Flexbox para la alineación horizontal */
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -608,7 +607,6 @@ ul {
   /* Ocultamos el menú de escritorio */
   .navbar .nav-menu {
     display: none;
-    /* Estilos para el menú desplegable cuando esté visible */
     flex-direction: column;
     width: 100%;
     position: absolute;
@@ -622,32 +620,46 @@ ul {
   }
 
   .navbar .nav-menu.active {
-    display: flex; /* Muestra el menú cuando tiene la clase 'active' */
-    height: 350px; /* La altura que tendrá el menú desplegado */
+    display: flex;
+    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    justify-content: space-evenly; /* Distribuye el espacio uniformemente */
+    align-items: center; /* Centra los elementos horizontalmente */
+    height: 350px;
+    padding-top: 20px; /* Agrega un poco de padding en la parte superior */
+    padding-bottom: 20px; /* Y en la parte inferior */
   }
 
+  .navbar .nav-menu ul {
+    flex-direction: column; /* Asegura que los li se apilen verticalmente */
+    align-items: center; /* Centra los li */
+    gap: 20px; /* Espacio entre los enlaces del menú */
+  }
+
+  .navbar .nav-menu ul li a {
+    font-size: 1.2em; /* Hace los enlaces más grandes y legibles */
+    color: var(--blanco); /* Mantiene el color del enlace */
+    text-align: center; /* Centra el texto del enlace */
+    display: block; /* Ocupa todo el ancho disponible */
+    padding: 10px 0; /* Aumenta el área de clic */
+    transition: color 0.3s ease;
+  }
+
+  /* Ocultamos el botón de escritorio en móvil */
+  .navbar .nav-menu .btn-nav {
+    display: none;
+  }
+  
   /* El logo en móvil */
   .navbar .logo {
     margin-left: 0;
     flex-grow: 1; /* Permite que el logo ocupe el espacio a la izquierda */
   }
-
-  /* Ocultar el botón de escritorio en móvil */
-  .navbar .nav-menu .btn-nav {
-    display: none;
+  
+  .navbar .logo img {
+    height: 40px; /* Ajusta el tamaño del logo si es necesario */
   }
 
-  /* Ícono de hamburguesa ahora visible */
-  .menu-toggle {
-    display: block;
-    background: none;
-    border: none;
-    color: var(--blanco);
-    font-size: 1.5em;
-    cursor: pointer;
-  }
-
-  /* Mostrar y centrar el botón de registro móvil */
+  /* El botón de registro para móvil, movido al contenedor principal del navbar */
   .btn-nav-mobile {
     display: block;
     background-color: var(--naranja);
@@ -660,9 +672,18 @@ ul {
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    position: absolute; /* Posicionamiento absoluto para centrarlo */
-    left: 50%;
-    transform: translateX(-50%);
+    /* Quitamos el posicionamiento absoluto para que se comporte como un elemento más del flexbox */
+  }
+
+  /* Ícono de hamburguesa ahora visible */
+  .menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    color: var(--blanco);
+    font-size: 1.5em;
+    cursor: pointer;
+    margin-left: 10px; /* Pequeño margen para separar del botón de registro */
   }
 
   /* Footer */
