@@ -596,24 +596,24 @@ ul {
 }
 
 @media (max-width: 767px) {
-  /* Estilos para móviles (teléfonos) */
+  /* Estilos para la barra de navegación cerrada (vista de teléfono) */
   .navbar .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: nowrap;
-    padding: 10px 20px;
+    padding: 15px 20px;
   }
 
   .navbar .logo {
     margin-left: 0;
-    margin-right: 20px; /* Agrega espacio a la derecha del logo */
   }
 
   .navbar .logo img {
-    height: 30px; /* Ajusta la altura del logo */
+    height: 35px;
   }
 
+  /* El menú de escritorio se oculta */
   .navbar .nav-menu {
     display: none;
     flex-direction: column;
@@ -626,59 +626,54 @@ ul {
     height: 0;
     overflow: hidden;
     transition: height 0.3s ease-in-out;
-    padding-top: 10px;
   }
 
+  /* Estilos para el menú desplegable (activo) */
   .navbar .nav-menu.active {
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-evenly; /* Distribuye los enlaces uniformemente */
     align-items: center;
-    height: auto;
+    height: 350px; /* Altura fija para el menú desplegado */
+    padding-top: 20px;
     padding-bottom: 20px;
   }
 
   .navbar .nav-menu ul {
     flex-direction: column;
     align-items: center;
-    gap: 15px;
+    gap: 30px; /* Espacio entre los enlaces del menú */
     width: 100%;
   }
 
   .navbar .nav-menu ul li a {
-    font-size: 1em;
+    font-size: 1.2em; /* Hace los enlaces más grandes */
     color: var(--blanco);
     text-align: center;
     display: block;
     padding: 10px 0;
-    transition: color 0.3s ease;
-    width: 80%;
-    border-bottom: 1px solid #222;
   }
 
   .navbar .nav-menu ul li:last-child a {
     border-bottom: none;
   }
-
-  .navbar .nav-menu .btn-nav {
-    display: none;
-  }
-
+  
+  /* Se muestra el botón de registro móvil en la barra de navegación */
   .btn-nav-mobile {
+    display: block;
     background-color: var(--naranja);
     color: var(--negro);
     padding: 8px 18px;
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
-    font-size: 0.8em;
+    font-size: 0.9em;
     border: none;
     cursor: pointer;
     white-space: nowrap;
-    margin-left: auto;
-    margin-right: 15px;
   }
 
+  /* Se muestra el ícono de hamburguesa */
   .menu-toggle {
     display: block;
     background: none;
