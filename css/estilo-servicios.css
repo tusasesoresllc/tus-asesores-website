@@ -58,13 +58,20 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-left: 0;
+    margin-left: 0; 
     margin-right: auto;
 }
 
 .navbar .logo img {
     height: 35px;
     filter: brightness(1.2);
+}
+
+/* Oculta los elementos de móvil en escritorio */
+.btn-nav-mobile,
+.navbar-right,
+.menu-toggle {
+    display: none;
 }
 
 /* El menú de navegación principal para escritorio */
@@ -93,24 +100,10 @@ ul {
     color: var(--amarillo);
 }
 
+/* Oculta el botón que estaba dentro del menú de navegación */
 .navbar .nav-menu .btn-nav {
-    background-color: var(--naranja);
-    color: var(--negro);
-    padding: 8px 18px;
-    border-radius: 5px;
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    border: none;
-    cursor: pointer;
-}
-
-/* Oculta el ícono del menú de hamburguesas en escritorio */
-.menu-toggle {
     display: none;
 }
-
-/* Se mantiene el resto del código de escritorio como está */
 
 /* ============================================== */
 /* Sección: Hero */
@@ -546,8 +539,6 @@ ul {
 /* ============================================== */
 
 @media (max-width: 1024px) {
-    /* ... (Estilos para tablet) ... */
-    
     .container {
         padding: 0 15px;
     }
@@ -647,38 +638,32 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     
-    /* Muestra solo el ícono del menú de hamburguesas */
+    /* Muestra los elementos del menú móvil */
+    .btn-nav-mobile,
+    .navbar-right,
     .menu-toggle {
         display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
     }
 
-    /* Oculta los elementos que ahora están dentro del menú */
-    .btn-nav-mobile,
-    .navbar-right {
-        display: none;
-    }
-
-    /* Estilos del menú que se despliega */
+    /* Oculta el menú de navegación principal en móviles por defecto */
     .navbar .nav-menu {
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--negro);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        max-height: 0; /* Oculto por defecto */
+        /* Propiedades para la transición suave al abrir/cerrar */
+        max-height: 0;
         overflow: hidden;
         transition: max-height 0.3s ease-in-out;
     }
     
     /* Clase que se activa con el JS para mostrar el menú */
     .navbar .nav-menu.active {
-        max-height: 500px; /* Valor suficiente para mostrar todo el contenido */
+        display: block;
+        max-height: 500px; /* Un valor lo suficientemente grande para mostrar todo el contenido */
     }
 
     /* Ajustes de layout para el menú desplegable */
@@ -687,25 +672,46 @@ ul {
         width: 100%;
         padding: 20px 0;
     }
-    
+
     .navbar .nav-menu ul li {
-        width: 100%;
-        text-align: center;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
-    .navbar .nav-menu ul li a,
-    .navbar .nav-menu .btn-nav {
+
+    .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
         text-align: center;
-        width: 80%; /* Ancho del botón dentro del menú */
-        margin: 10px auto; /* Centrar el botón */
-    }
-    
-    .navbar .nav-menu .btn-nav {
-        color: var(--negro);
     }
 
+    /* Muestra y agrupa los elementos de la derecha (botón y menú toggle) */
+    .navbar-right {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+    }
+
+    /* Estilo para el botón de registro móvil */
+    .btn-nav-mobile {
+        background-color: var(--naranja);
+        color: var(--negro);
+        padding: 8px 18px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        border: none;
+        cursor: pointer;
+    }
+    
+    /* Estilo para el ícono del menú de hamburguesas */
+    .menu-toggle {
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+    
     /* El resto del código de media query para móvil se mantiene sin cambios */
 
     .hero-section {
