@@ -58,8 +58,6 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-left: -120px; /* Empuja los otros elementos a la derecha */
-    margin-right: 420px;
 }
 
 .navbar .logo img {
@@ -70,13 +68,13 @@ ul {
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
+    gap: 30px;
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre los enlaces del menú */
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -104,23 +102,14 @@ ul {
     cursor: pointer;
 }
 
-/* Botón de móvil oculto por defecto */
-.btn-nav-mobile {
+/* Botones y menú para móvil (ocultos por defecto en escritorio) */
+.btn-nav-mobile,
+.menu-toggle,
+.navbar-actions {
     display: none;
 }
 
-.menu-toggle {
-    display: none;
-}
-
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-/* ============================================== */
-/* 3. SECCIÓN HERO */
-/* ============================================== */
+/* Hero Section */
 .hero-section {
     background-image: url(../img/home/portada-home.png);
     background-size: cover;
@@ -173,9 +162,7 @@ ul {
     margin-right: auto;
 }
 
-/* ============================================== */
-/* 4. SECCIÓN VIDEO PROMOCIONAL */
-/* ============================================== */
+/* Video Promocional */
 .video-promo-section {
     background-color: var(--negro);
     padding: 80px 0;
@@ -213,9 +200,7 @@ ul {
     height: 100%;
 }
 
-/* ============================================== */
-/* 5. SECCIÓN DE CARDS */
-/* ============================================== */
+/* Sección de Cards */
 .cards-section {
     background-color: var(--negro);
     padding: 80px 0;
@@ -223,7 +208,8 @@ ul {
     overflow: hidden;
 }
 
-.cards-section::before, .cards-section::after {
+.cards-section::before,
+.cards-section::after {
     content: '';
     position: absolute;
     left: 0;
@@ -252,7 +238,7 @@ ul {
     border: none;
     padding: 25px;
     text-align: center;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     display: flex;
     flex-direction: column;
@@ -262,7 +248,7 @@ ul {
 
 .card-item:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
 }
 
 .card-image-container {
@@ -304,9 +290,7 @@ ul {
     transform: translateY(-2px);
 }
 
-/* ============================================== */
-/* 6. SECCIÓN "SOBRE NOSOTROS" */
-/* ============================================== */
+/* Sección "Sobre Nosotros" */
 .about-section {
     background-image: url(../img/home/nosotros-fondo-home.png);
     background-size: cover;
@@ -427,9 +411,7 @@ ul {
     transform: translateY(-2px);
 }
 
-/* ============================================== */
-/* 7. SECCIÓN DE TESTIMONIOS */
-/* ============================================== */
+/* Sección de Testimonios */
 .testimonials-section {
     background-image: url(../img/home/testimonios-fondo-home.png);
     background-size: cover;
@@ -479,7 +461,7 @@ ul {
     border: none;
     border-radius: 8px;
     padding: 30px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
     text-align: left;
@@ -513,9 +495,7 @@ ul {
 }
 
 
-/* ============================================== */
-/* 8. FOOTER */
-/* ============================================== */
+/* Footer */
 .footer {
     width: 100%;
 }
@@ -639,16 +619,13 @@ ul {
     font-size: 0.9em;
 }
 
-/* ============================================== */
-/* 9. MEDIA QUERIES PARA RESPONSIVE DESIGN */
-/* ============================================== */
-
+/* Media Queries para Responsive Design */
 @media (max-width: 1024px) {
     /* Navbar */
     .navbar .logo {
         margin-left: 0;
     }
-    
+
     .navbar .nav-menu ul {
         gap: 20px;
     }
@@ -658,9 +635,11 @@ ul {
         padding: 120px 10px;
         min-height: 50vh;
     }
+
     .hero-section h1 {
         font-size: 3em;
     }
+
     .hero-section p {
         font-size: 1.1em;
     }
@@ -675,12 +654,15 @@ ul {
     .about-content {
         gap: 20px;
     }
+
     .about-text-right {
         padding-left: 50px;
     }
+
     .about-visual-left {
         height: 350px;
     }
+
     .about-logo-content img {
         height: 350px;
     }
@@ -695,50 +677,55 @@ ul {
     .footer-top {
         padding: 40px 5%;
     }
+
     .footer-links {
         gap: 50px;
     }
 }
 
 @media (max-width: 767px) {
-    /* Estilos para móviles (teléfonos) */
+    /* Navbar */
     .navbar .container {
-        flex-direction: column; /* Cambia a una columna en lugar de una fila */
-        align-items: center; /* Centra los elementos */
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap; /* Permite que los elementos pasen a la siguiente línea si es necesario */
     }
 
     .navbar .logo {
-        margin: 0; /* Elimina márgenes extra */
-        margin-bottom: 10px; /* Agrega un espacio entre el logo y el resto del menú */
+        margin: 0;
+        margin-right: auto; /* Empuja el logo a la izquierda */
     }
 
-    .navbar .logo img {
-        height: 35px;
-    }
-    
+    /* Ocultar el menú de escritorio */
     .navbar .nav-menu {
-        display: none; /* Oculta el menú principal por defecto */
-        width: 100%; /* El menú oculto debe ocupar el 100% del ancho */
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
         text-align: center;
+        flex-direction: column; /* Asegura que el menú desplegable sea vertical */
     }
 
-    .navbar .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
+    .navbar .nav-menu.active {
+        height: auto;
+        display: flex;
     }
 
+    /* Mostrar y estilizar el botón y el menú de móvil */
     .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
         padding: 20px 0;
         gap: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
-    
+
     .navbar .nav-menu ul li {
         margin: 0;
         border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -749,14 +736,36 @@ ul {
         padding: 15px 0;
     }
 
+    .navbar-actions {
+        display: flex;
+        align-items: center;
+        gap: 15px; /* Espacio entre el botón y el icono del menú */
+    }
+
+    .navbar .btn-nav {
+        display: block;
+        padding: 8px 18px;
+    }
+    
+    .menu-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
     /* Hero Section */
     .hero-section {
         padding: 80px 10px;
         min-height: 40vh;
     }
+
     .hero-section h1 {
         font-size: 2.5em;
     }
+
     .hero-section p {
         font-size: 1em;
     }
@@ -801,10 +810,12 @@ ul {
         width: 230px;
         margin-left: 0;
     }
+
     .about-text-right {
         text-align: center;
         padding: 20px;
     }
+
     .about-text-right h2 {
         font-size: 2em;
     }
@@ -813,10 +824,12 @@ ul {
     .testimonials-section h2 {
         font-size: 2.5em;
     }
+
     .testimonial-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
+
     .testimonial-card {
         padding: 20px;
     }
@@ -827,15 +840,18 @@ ul {
         align-items: center;
         padding: 40px 5%;
     }
+
     .footer-logo {
         height: auto;
         margin-bottom: 20px;
     }
+
     .footer-logo-image {
         position: static;
         width: 120px;
         margin-bottom: 20px;
     }
+
     .footer-links {
         flex-direction: column;
         align-items: center;
@@ -844,9 +860,11 @@ ul {
         margin-top: 20px;
         text-align: center;
     }
+
     .link-column h4 {
         margin-bottom: 10px;
     }
+
     .footer-social-media {
         padding: 15px 0;
     }
@@ -857,10 +875,12 @@ ul {
     .hero-section h1 {
         font-size: 2em;
     }
+
     /* Sobre Nosotros */
     .about-text-right h2 {
         font-size: 1.8em;
     }
+
     /* Testimonios */
     .testimonials-section h2 {
         font-size: 2em;
