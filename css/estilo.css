@@ -58,7 +58,8 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-right: auto; /* Empuja los otros elementos a la derecha */
+    margin-left: -120px; /* Empuja los otros elementos a la derecha */
+    margin-right: 420px;
 }
 
 .navbar .logo img {
@@ -91,7 +92,7 @@ ul {
     color: var(--amarillo);
 }
 
-.navbar .btn-nav {
+.navbar .nav-menu .btn-nav {
     background-color: var(--naranja);
     color: var(--negro);
     padding: 8px 18px;
@@ -117,8 +118,6 @@ ul {
     align-items: center;
     gap: 15px;
 }
-
-
 /* ============================================== */
 /* 3. SECCIÓN HERO */
 /* ============================================== */

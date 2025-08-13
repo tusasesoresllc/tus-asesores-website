@@ -1,32 +1,26 @@
-/* ============================================== */
-/* --- VARIABLES Y ESTILOS GENERALES --- */
-/* ============================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
     --blanco: #ffffff;
     --naranja: #f8b133;
     --gris: #ede6d9;
-
-    /* Variables para tipografías */
-    --Bebas: 'Bebas Neue', sans-serif;
-    --font-body: 'Poppins', sans-serif;
-    --font-alt: 'Montserrat', sans-serif;
 }
 
 html {
     scroll-behavior: smooth;
 }
 
-*, *::before, *::after {
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
 body {
-    font-family: var(--Bebas);
+    font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
+    color: var(--blanco);
+    background-color: var(--naranja);
     overflow-x: hidden;
 }
 
@@ -38,24 +32,21 @@ body {
 
 a {
     text-decoration: none;
-    color: inherit; /* Los enlaces heredan el color del contenedor padre por defecto */
+    color: var(--amarillo);
 }
 
 ul {
     list-style: none;
 }
 
-
-/* ============================================== */
-/* --- BARRA DE NAVEGACIÓN (NAVBAR) --- */
-/* ============================================== */
+/* Navbar */
 .navbar {
     background-color: var(--negro);
-    color: var(--negro);
+    color: var(--blanco);
     padding: 15px 0;
     position: relative;
     z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .container {
@@ -64,9 +55,11 @@ ul {
     align-items: center;
 }
 
-.navbar .logo a {
+.navbar .logo {
     display: flex;
     align-items: center;
+    margin-left: -120px; /* Empuja los otros elementos a la derecha */
+    margin-right: 420px;
 }
 
 .navbar .logo img {
@@ -75,22 +68,23 @@ ul {
 }
 
 .navbar .nav-menu {
-    transition: transform 0.3s ease, opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-}
-
-.navbar .nav-menu ul li {
-    margin-left: 30px;
+    gap: 30px; /* Espacio entre los enlaces del menú */
+    margin: 0;
+    padding: 0;
 }
 
 .navbar .nav-menu ul li a {
-    font-weight: 500;
-    font-family: var(--font-body);
     color: var(--blanco);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
     transition: color 0.3s ease;
 }
 
@@ -100,32 +94,30 @@ ul {
 
 .navbar .nav-menu .btn-nav {
     background-color: var(--naranja);
-    font-family: var(--font-body);
     color: var(--negro);
     padding: 8px 18px;
     border-radius: 5px;
     font-weight: 600;
     text-transform: uppercase;
     font-size: 0.9em;
-    transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
 }
 
-.navbar .btn-nav:hover {
-    background-color: var(--blanco);
-    transform: translateY(-1px);
+/* Botón de móvil oculto por defecto */
+.btn-nav-mobile {
+    display: none;
 }
 
 .menu-toggle {
     display: none;
-    background: none;
-    border: none;
-    color: var(--naranja);
-    font-size: 1.5em;
-    cursor: pointer;
 }
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
 
 /* ============================================== */
 /* --- ESTILOS DE LA SECCIÓN HERO --- */
@@ -600,49 +592,79 @@ ul {
     }
 }
 
-@media (max-width: 768px) {
-    /* Navbar */
+@media (max-width: 767px) {
+    /* Estilos para móviles (teléfonos) */
     .navbar .container {
         flex-wrap: nowrap;
     }
 
     .navbar .nav-menu {
+        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--negro);
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        text-align: center;
-        max-height: 0;
-        opacity: 0;
-        overflow: hidden;
-        visibility: hidden;
-        transition: max-height 0.3s ease, opacity 0.3s ease, visibility 0s 0.3s;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* Cambio: Usamos 'height' y 'overflow' para la transición */
+        height: 0;
+        overflow: hidden; 
+        transition: height 0.3s ease-in-out;
     }
 
     .navbar .nav-menu.active {
-        max-height: 300px;
-        opacity: 1;
-        visibility: visible;
-        transition: max-height 0.3s ease, opacity 0.3s ease;
-    }
-
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        padding: 20px 0;
-    }
-
-    .navbar .nav-menu ul li {
-        margin: 15px 0;
-    }
-
-    .navbar .btn-nav {
-        display: none;
+        /* Ajusta la altura del menú cuando está activo */
+        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
     }
 
     .navbar .menu-toggle {
         display: block;
+        background: none;
+        border: none;
+        color: var(--blanco);
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .nav-menu ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+    }
+    
+    /* Ocultar el botón de escritorio en móvil */
+    .navbar .btn-desktop-li {
+        display: none;
+    }
+    
+    /* Mostrar y estilizar el botón de móvil */
+    .btn-nav-mobile {
+        display: block;
+        background-color: var(--naranja);
+        color: var(--negro);
+        padding: 8px 18px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        border: none;
+        cursor: pointer;
+    }
+
+    .navbar .logo {
+        margin-left: 0;
     }
 
     /* Footer */
