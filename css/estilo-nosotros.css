@@ -1,3 +1,6 @@
+/* ==================================================== */
+/* Variables y Estilos Generales */
+/* ==================================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
@@ -20,7 +23,7 @@ body {
     font-family: 'Montserrat', sans-serif;
     line-height: 1.6;
     color: var(--blanco);
-    background-color: var(--naranja);
+    background-color: var(--blanco);
     overflow-x: hidden;
 }
 
@@ -39,7 +42,9 @@ ul {
     list-style: none;
 }
 
+/* ==================================================== */
 /* Navbar */
+/* ==================================================== */
 .navbar {
     background-color: var(--negro);
     color: var(--blanco);
@@ -68,20 +73,24 @@ ul {
     filter: brightness(1.2);
 }
 
+/* Ocultar el botón de hamburguesa por defecto en escritorio */
+.navbar .menu-toggle {
+    display: none;
+}
+
+/* Estructura de navegación para escritorio */
 .navbar .nav-menu {
     display: flex;
     align-items: center;
+    gap: 30px;
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
+    gap: 30px;
     margin: 0;
     padding: 0;
-}
-
-.navbar .nav-menu ul li {
-    margin-left: 30px;
 }
 
 .navbar .nav-menu ul li a {
@@ -106,25 +115,17 @@ ul {
     transition: background-color 0.3s ease, transform 0.2s ease;
     border: none;
     cursor: pointer;
-    margin-left: 30px;
 }
 
 .navbar .btn-nav:hover {
     background-color: var(--blanco);
+    color: var(--negro);
     transform: translateY(-1px);
 }
 
-/* Nuevo estilo para el botón del menú de hamburguesa */
-.menu-toggle {
-    display: none; /* Oculto por defecto en escritorio */
-    background: none;
-    border: none;
-    color: var(--naranja);
-    font-size: 1.5em;
-    cursor: pointer;
-}
-
+/* ==================================================== */
 /* Hero Section */
+/* ==================================================== */
 .hero-section {
     background-image: url(../img/nosotros/portada-nosotros.png);
     background-size: cover;
@@ -141,16 +142,6 @@ ul {
     overflow: hidden;
 }
 
-.hero-section::before {
-    left: -20vw;
-    transform: skewX(-20deg);
-}
-
-.hero-section::after {
-    right: -20vw;
-    transform: skewX(20deg);
-}
-
 .hero-section .container {
     position: relative;
     z-index: 2;
@@ -160,7 +151,7 @@ ul {
 .hero-section h1 {
     font-size: 3.8em;
     margin-bottom: 25px;
-    color: var(--accent-gold);
+    color: var(--amarillo);
     font-weight: 800;
     line-height: 1.15;
     text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
@@ -177,11 +168,13 @@ ul {
     margin-right: auto;
 }
 
-/* --- NUEVA SECCIÓN: MISIÓN Y VISIÓN --- */
+/* ==================================================== */
+/* Misión y Visión Section */
+/* ==================================================== */
 .mision-vision-section {
     background-image: url(../img/nosotros/fondo-mv.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 80px 0;
     position: relative;
@@ -253,11 +246,13 @@ ul {
     padding-left: 28px;
 }
 
-/* --- NUEVA SECCIÓN: VALORES --- */
+/* ==================================================== */
+/* Valores Section */
+/* ==================================================== */
 .valores-section {
     background-image: url(../img/nosotros/fondo-valores.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center;
     background-repeat: no-repeat;
     padding: 80px 0;
     position: relative;
@@ -371,7 +366,9 @@ ul {
     color: var(--blanco);
 }
 
-/* --- NUEVA SECCIÓN: CONOCE A NUESTRO EQUIPO (Versión 2) --- */
+/* ==================================================== */
+/* Equipo Section */
+/* ==================================================== */
 .equipo-section {
     background-image: url(../img/nosotros/fondos-eq.png);
     background-size: cover;
@@ -484,7 +481,9 @@ ul {
     line-height: 1.6;
 }
 
-/* --- NUEVA SECCIÓN: NUESTRA METODOLOGÍA DE ÉXITO --- */
+/* ==================================================== */
+/* Metodología Section */
+/* ==================================================== */
 .metodologia-section {
     background-image: url(../img/nosotros/fondo-mtd.png);
     background-size: cover;
@@ -604,7 +603,9 @@ ul {
     transform: rotate(180deg);
 }
 
-/* --- Footer General --- */
+/* ==================================================== */
+/* Footer */
+/* ==================================================== */
 .footer {
     width: 100%;
 }
@@ -612,7 +613,7 @@ ul {
 .footer-top {
     background-image: url(../img/nosotros/footer-n1.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: flex-start;
@@ -690,7 +691,7 @@ ul {
 .footer-social-media {
     background-image: url(../img/nosotros/footer-n2.png);
     background-size: cover;
-    background-position: initial;
+    background-position: center;
     background-repeat: no-repeat;
     display: flex;
     justify-content: center;
@@ -728,21 +729,133 @@ ul {
     font-size: 0.9em;
 }
 
-/* ---------------------------------------------------- */
-/* MEDIAS QUERIES PARA RESPONSIVE DESIGN              */
-/* ---------------------------------------------------- */
+/* ==================================================== */
+/* Media Queries */
+/* ==================================================== */
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* Navbar */
-    .navbar .container {
-        flex-wrap: wrap;
-    }
-    
     .navbar .logo {
         margin-left: 0;
     }
+    
+    .navbar .nav-menu ul {
+        gap: 20px;
+    }
 
-    /* Oculta el menú por defecto y prepara la transición */
+    /* Hero Section */
+    .hero-section {
+        padding: 120px 10px;
+        min-height: 50vh;
+    }
+    .hero-section h1 {
+        font-size: 3em;
+    }
+    .hero-section p {
+        font-size: 1.1em;
+    }
+
+    /* Misión y Visión */
+    .mision-vision-content {
+        gap: 40px;
+    }
+    .mision-block h2,
+    .vision-block h2 {
+        font-size: 2.5em;
+    }
+    .mision-block p,
+    .vision-block p {
+        font-size: 1.1em;
+    }
+    .vertical-bar {
+        height: 60px;
+    }
+
+    /* Valores */
+    .valores-header h2 {
+        font-size: 3em;
+    }
+    .valores-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    .valores-image {
+        padding: 20px;
+    }
+    .valores-list {
+        padding-left: 0;
+    }
+    .valores-about-us {
+        padding-right: 0;
+    }
+    .valor-item h3 {
+        font-size: 1.2em;
+    }
+    .valor-item p {
+        font-size: 0.9em;
+    }
+
+    /* Equipo */
+    .equipo-header h2 {
+        font-size: 3em;
+    }
+    .equipo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+    .equipo-imagen-wrapper {
+        width: 250px;
+        height: 250px;
+    }
+    .equipo-miembro h4 {
+        font-size: 1.2em;
+    }
+    .equipo-miembro .rol {
+        font-size: 0.9em;
+    }
+
+    /* Metodología */
+    .metodologia-header h2 {
+        font-size: 3em;
+    }
+    .metodologia-content {
+        grid-template-columns: 1fr;
+    }
+    .metodologia-image-container {
+        padding: 0;
+    }
+    .metodologia-list {
+        gap: 15px;
+    }
+    .metodologia-item h3 {
+        font-size: 1.2em;
+    }
+    .metodologia-description.expanded {
+        padding: 10px 0 0 0;
+    }
+
+    /* Footer */
+    .footer-top {
+        padding: 40px 5%;
+    }
+    .footer-links {
+        gap: 50px;
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Navbar */
+    .navbar .container {
+        flex-wrap: wrap;
+        justify-content: space-between;
+    }
+
+    /* Mostrar el botón de hamburguesa en móvil */
+    .navbar .menu-toggle {
+        display: block;
+    }
+
+    /* Estilos del menú desplegable */
     .navbar .nav-menu {
         flex-direction: column;
         width: 100%;
@@ -756,127 +869,143 @@ ul {
         transition: max-height 0.3s ease-in-out;
     }
 
-    /* Muestra el menú cuando tiene la clase 'active' */
+    /* Clase activa para desplegar el menú */
     .navbar .nav-menu.active {
-        max-height: 300px; /* Altura suficiente para el menú */
+        max-height: 350px; /* Ajusta este valor si es necesario */
         padding: 20px 0;
     }
-    
+
+    /* Estilos de los enlaces de la lista */
     .navbar .nav-menu ul {
         flex-direction: column;
         width: 100%;
         padding: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
     
     .navbar .nav-menu ul li {
-        margin: 15px 0;
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    .navbar .btn-nav {
-        margin: 15px 0;
-        width: 80%; /* Para que el botón ocupe casi todo el ancho */
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+        color: var(--blanco);
+        font-family: 'Poppins', sans-serif;
         text-align: center;
     }
 
-    /* Muestra el botón de hamburguesa */
-    .navbar .menu-toggle {
+    /* Botón de registro fuera de la lista de enlaces en móvil */
+    .navbar .btn-nav {
         display: block;
+        width: 80%;
+        margin: 20px auto 0;
+        text-align: center;
     }
-    
+
+    .navbar .logo {
+        margin-left: 0;
+    }
+
     /* Hero Section */
+    .hero-section {
+        padding: 80px 10px;
+        min-height: 40vh;
+    }
     .hero-section h1 {
         font-size: 2.5em;
     }
-
     .hero-section p {
         font-size: 1em;
     }
 
     /* Misión y Visión */
+    .mision-vision-content {
+        gap: 30px;
+    }
     .mision-block h2,
     .vision-block h2 {
         font-size: 2em;
     }
-
     .mision-block p,
     .vision-block p {
         font-size: 1em;
-        padding-left: 0; /* Elimina el padding para que el texto se alinee */
+        padding-left: 0;
+    }
+    .vertical-bar {
+        height: 50px;
     }
 
     /* Valores */
     .valores-header h2 {
         font-size: 2.5em;
     }
-
     .valores-content {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
     }
-
     .valores-about-us {
-        padding-right: 0;
         text-align: center;
     }
-    
     .valores-image {
         padding: 20px;
     }
-    
     .valores-list {
         padding-left: 0;
         text-align: center;
     }
-    
+
     /* Equipo */
     .equipo-header h2 {
         font-size: 2.5em;
     }
-
     .equipo-grid {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
         gap: 30px;
     }
-
     .equipo-imagen-wrapper {
         width: 250px;
         height: 250px;
         margin-bottom: 15px;
+    }
+    .equipo-miembro h4 {
+        font-size: 1.5em;
+    }
+    .equipo-miembro .rol {
+        font-size: 1em;
+    }
+    .member-description.expanded {
+        padding: 20px;
     }
 
     /* Metodología */
     .metodologia-header h2 {
         font-size: 2.5em;
     }
-    
     .metodologia-content {
-        grid-template-columns: 1fr; /* Una sola columna */
+        grid-template-columns: 1fr;
     }
-    
     .metodologia-image-container {
-        padding: 0; /* Reducir padding de la imagen */
+        padding: 0;
     }
-    
     .metodologia-description.expanded {
-        padding: 10px 0 0 0; /* Ajustar padding para móviles */
+        padding: 10px 0 0 0;
     }
-    
+
     /* Footer */
     .footer-top {
         flex-direction: column;
         align-items: center;
         padding: 40px 5%;
     }
-    
     .footer-logo {
         height: 100px;
-    }
-
-    .footer-logo-image {
-        position: static; /* Restablecer la posición */
-        width: 120px;
         margin-bottom: 20px;
     }
-
+    .footer-logo-image {
+        position: static;
+        width: 120px;
+    }
     .footer-links {
         flex-direction: column;
         align-items: center;
@@ -885,31 +1014,33 @@ ul {
         margin-top: 20px;
         text-align: center;
     }
-
     .link-column h4 {
         margin-bottom: 10px;
     }
-
     .footer-social-media {
         padding: 15px 0;
     }
 }
 
-/* Media Query para pantallas más pequeñas, como móviles estrechos */
 @media (max-width: 480px) {
+    /* Hero Section */
     .hero-section h1 {
         font-size: 2em;
     }
+    .hero-section p {
+        font-size: 0.9em;
+    }
 
+    /* Misión y Visión */
     .mision-block h2,
     .vision-block h2 {
         font-size: 1.8em;
     }
-
     .vertical-bar {
-        height: 50px;
+        height: 40px;
     }
     
+    /* Valores */
     .valores-header h2,
     .equipo-header h2,
     .metodologia-header h2 {
@@ -923,5 +1054,10 @@ ul {
     
     .metodologia-item h3 {
         font-size: 1.2em;
+    }
+    
+    /* Footer */
+    .footer-logo-image {
+        width: 100px;
     }
 }

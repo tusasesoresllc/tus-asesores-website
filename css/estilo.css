@@ -1,6 +1,3 @@
-/* ============================================== */
-/* 1. VARIABLES Y ESTILOS BASE */
-/* ============================================== */
 :root {
     --negro: #000000;
     --amarillo: #f3ce37;
@@ -719,7 +716,8 @@ ul {
 
     /* Ocultar el menú por defecto en móvil */
     .navbar .nav-menu {
-        display: none;
+        /* Corrección: Usa 'block' para ocupar el ancho completo y 'height' para la transición. */
+        display: block;
         width: 100%;
         position: absolute;
         top: 100%;
@@ -727,19 +725,17 @@ ul {
         background-color: var(--negro);
         flex-direction: column;
         text-align: center;
-        gap: 0;
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        transition: max-height 0.3s ease-in-out, opacity 0.3s ease-in-out;
-        max-height: 0;
-        opacity: 0;
+        /* Corregido: Usa 'height' y 'overflow' para evitar el desbordamiento */
+        height: 0; 
         overflow: hidden;
+        transition: height 0.3s ease-in-out;
     }
 
     /* Clase activa para desplegar el menú */
     .navbar .nav-menu.active {
-        display: flex;
-        max-height: 300px;
-        opacity: 1;
+        /* Corregido: Define una altura fija para la transición */
+        height: 350px; /* Ajusta este valor si es necesario */
     }
 
     .navbar .nav-menu ul {
@@ -762,15 +758,15 @@ ul {
     .navbar .nav-menu ul li a {
         display: block;
         padding: 15px 0;
-        color: var(--blanco); /* Aseguramos que el color del texto sea blanco por defecto */
+        color: var(--blanco);
         font-family: 'Poppins', sans-serif;
     }
     
     /* CORRECCIÓN: Botón de registro dentro del menú desplegable */
     .navbar .nav-menu ul li a.btn-nav {
         display: block;
-        width: calc(100% - 40px); /* Ajusta el ancho para dejar un poco de margen */
-        margin: 15px auto; /* Centra el botón horizontalmente */
+        width: calc(100% - 40px);
+        margin: 15px auto;
         text-align: center;
         background-color: var(--naranja);
         color: var(--negro);
