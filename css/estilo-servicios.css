@@ -577,6 +577,11 @@ ul {
         gap: 20px;
     }
 
+    .navbar nav ul li a {
+        padding: 10px 0; /* Reduce el espacio vertical si lo necesitas */
+        font-size: 0.5em;
+    }
+
     .hero-section {
         padding: 120px 10px;
         min-height: 50vh;

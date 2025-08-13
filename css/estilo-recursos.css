@@ -99,9 +99,8 @@ ul {
     color: var(--amarillo);
 }
 
-.navbar .btn-nav {
+.navbar .nav-menu .btn-nav {
     background-color: var(--naranja);
-    font-family: 'Montserrat', sans-serif;
     color: var(--negro);
     padding: 8px 18px;
     border-radius: 5px;
@@ -567,52 +566,28 @@ ul {
     z-index: 1001;
 }
 
-/* Móvil (hasta 767px) */
-@media (max-width: 767px) {
-    .navbar .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
+@media (max-width: 1024px) {
+    /* Ajustes para pantallas más pequeñas (Laptops y Tablets) */
+    .container {
+        padding: 0 15px;
     }
-    
-    .navbar .menu-toggle {
-        display: block;
-    }
-    
-    .navbar .nav-menu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: var(--negro);
-        flex-direction: column;
-        padding: 1rem 0;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-    }
-    
-    .navbar .nav-menu.active {
-        display: flex;
-    }
-    
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .navbar .nav-menu ul li {
-        margin: 0;
-    }
-    
-    .navbar .btn-nav {
-        margin-top: 10px;
+
+    .navbar .logo {
         margin-left: 0;
     }
+
+    /* Ajuste de espaciado en pantallas más pequeñas */
+    .navbar nav {
+        gap: 20px;
+    }
     
-    .navbar .logo {
-        margin: 0;
+    .navbar nav ul {
+        gap: 20px;
+    }
+
+    .navbar nav ul li a {
+        padding: 10px 0; /* Reduce el espacio vertical si lo necesitas */
+        font-size: 0.5em;
     }
 
     .hero-section {

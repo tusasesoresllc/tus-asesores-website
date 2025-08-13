@@ -98,7 +98,7 @@ ul {
     color: var(--amarillo);
 }
 
-.navbar .btn-nav {
+.navbar .nav-menu .btn-nav {
     background-color: var(--naranja);
     font-family: var(--font-body);
     color: var(--negro);
