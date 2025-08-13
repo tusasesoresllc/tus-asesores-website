@@ -58,7 +58,8 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-right: auto;
+    margin-left: -120px; /* Empuja los otros elementos a la derecha */
+    margin-right: 420px;
 }
 
 .navbar .logo img {
@@ -69,13 +70,13 @@ ul {
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px;
+    gap: 30px; /* Espacio entre los enlaces del menú */
     margin: 0;
     padding: 0;
 }
@@ -103,14 +104,24 @@ ul {
     cursor: pointer;
 }
 
-/* El menú de móvil y el botón están ocultos por defecto en escritorio */
-.navbar .menu-toggle {
+/* Botón de móvil oculto por defecto */
+.btn-nav-mobile {
     display: none;
 }
 
-/* === SECTIONS === */
+.menu-toggle {
+    display: none;
+}
 
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ==================================================== */
 /* Hero Section */
+/* ==================================================== */
 .hero-section {
     background-image: url(../img/nosotros/portada-nosotros.png);
     background-size: cover;
@@ -153,7 +164,9 @@ ul {
     margin-right: auto;
 }
 
+/* ==================================================== */
 /* Misión y Visión Section */
+/* ==================================================== */
 .mision-vision-section {
     background-image: url(../img/nosotros/fondo-mv.png);
     background-size: cover;
@@ -229,7 +242,9 @@ ul {
     padding-left: 28px;
 }
 
+/* ==================================================== */
 /* Valores Section */
+/* ==================================================== */
 .valores-section {
     background-image: url(../img/nosotros/fondo-valores.png);
     background-size: cover;
@@ -249,7 +264,7 @@ ul {
     z-index: 1;
 }
 
-.valores-list hr {
+.valores-list hr{
     border: var(--naranja) solid 1px;
     margin-top: -20px;
     margin-bottom: -20px;
@@ -347,7 +362,9 @@ ul {
     color: var(--blanco);
 }
 
+/* ==================================================== */
 /* Equipo Section */
+/* ==================================================== */
 .equipo-section {
     background-image: url(../img/nosotros/fondos-eq.png);
     background-size: cover;
@@ -460,7 +477,9 @@ ul {
     line-height: 1.6;
 }
 
+/* ==================================================== */
 /* Metodología Section */
+/* ==================================================== */
 .metodologia-section {
     background-image: url(../img/nosotros/fondo-mtd.png);
     background-size: cover;
@@ -530,7 +549,7 @@ ul {
     gap: 20px;
 }
 
-.metodologia-item hr {
+.metodologia-item hr{
     border: var(--negro) solid 1px;
     margin-top: 0;
     margin-bottom: 20px;
@@ -580,7 +599,9 @@ ul {
     transform: rotate(180deg);
 }
 
+/* ==================================================== */
 /* Footer */
+/* ==================================================== */
 .footer {
     width: 100%;
 }
@@ -821,79 +842,28 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
         flex-wrap: nowrap;
     }
 
-    .navbar .logo {
-        margin: 0;
-        margin-right: auto;
-    }
-    
     .navbar .nav-menu {
-        display: none;
+        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--negro);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        /* Cambio: Usamos 'height' y 'overflow' para la transición */
         height: 0;
-        overflow: hidden;
+        overflow: hidden; 
         transition: height 0.3s ease-in-out;
-        text-align: center;
-        flex-direction: column;
-        z-index: 999;
     }
 
     .navbar .nav-menu.active {
-        height: auto;
-        display: flex;
+        /* Ajusta la altura del menú cuando está activo */
+        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
     }
 
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-        gap: 0;
-    }
-
-    .navbar .nav-menu ul li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar .nav-menu ul li a,
-    .navbar .nav-menu ul li .btn-nav { /* Se ajusta el botón para que se vea como un enlace de menú */
-        display: block;
-        padding: 15px 0;
-        color: var(--blanco);
-        border-radius: 0;
-        font-weight: 500;
-        text-transform: none;
-        background-color: transparent;
-        transition: color 0.3s ease;
-    }
-    
-    .navbar .nav-menu ul li .btn-nav:hover {
-        background-color: transparent;
-        color: var(--amarillo);
-    }
-    
-    .navbar .nav-menu ul li:last-child .btn-nav {
-        /* Se añade un estilo para el botón si está al final del menú */
-        padding: 15px 0;
-        margin: 10px auto;
-        width: 80%;
-        border-radius: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        background-color: var(--naranja);
-        color: var(--negro);
-    }
-    
     .navbar .menu-toggle {
         display: block;
         background: none;
@@ -902,15 +872,48 @@ ul {
         font-size: 1.5em;
         cursor: pointer;
     }
-    
-    .navbar .nav-menu ul li:last-child {
-        border-bottom: none;
+
+    .navbar .nav-menu ul {
+        flex-direction: column;
+        width: 100%;
+        padding: 20px 0;
+        gap: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
-    /* Ocultar el botón de escritorio que ya está en el menú */
+    .navbar .nav-menu ul li {
+        margin: 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .navbar .nav-menu ul li a {
+        display: block;
+        padding: 15px 0;
+    }
+    
+    /* Ocultar el botón de escritorio en móvil */
     .navbar .btn-desktop-li {
         display: none;
     }
+    
+    /* Mostrar y estilizar el botón de móvil */
+    .btn-nav-mobile {
+        display: block;
+        background-color: var(--naranja);
+        color: var(--negro);
+        padding: 8px 18px;
+        border-radius: 5px;
+        font-weight: 600;
+        text-transform: uppercase;
+        font-size: 0.9em;
+        border: none;
+        cursor: pointer;
+    }
+
+    .navbar .logo {
+        margin-left: 0;
+    }
+
 
     /* Hero Section */
     .hero-section {
@@ -936,20 +939,9 @@ ul {
     .vision-block p {
         font-size: 1em;
         padding-left: 0;
-        text-align: center;
     }
     .vertical-bar {
         height: 50px;
-    }
-    .mision-vision-title-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .vertical-bar {
-        width: 100%;
-        height: 5px;
-        margin-bottom: 10px;
     }
 
     /* Valores */
@@ -959,18 +951,15 @@ ul {
     .valores-content {
         grid-template-columns: 1fr;
     }
-    .valores-about-us,
-    .valores-list {
+    .valores-about-us {
         text-align: center;
-        padding-right: 0;
-        padding-left: 0;
     }
     .valores-image {
-        padding: 20px 0;
+        padding: 20px;
     }
-    .valores-about-us h3,
-    .valor-item h3 {
-        font-size: 1.2em;
+    .valores-list {
+        padding-left: 0;
+        text-align: center;
     }
 
     /* Equipo */
@@ -1004,7 +993,6 @@ ul {
         grid-template-columns: 1fr;
     }
     .metodologia-image-container {
-        order: -1;
         padding: 0;
     }
     .metodologia-description.expanded {
@@ -1016,16 +1004,14 @@ ul {
         flex-direction: column;
         align-items: center;
         padding: 40px 5%;
-        text-align: center;
     }
     .footer-logo {
-        height: auto;
+        height: 100px;
         margin-bottom: 20px;
     }
     .footer-logo-image {
         position: static;
         width: 120px;
-        margin-left: 0;
     }
     .footer-links {
         flex-direction: column;
