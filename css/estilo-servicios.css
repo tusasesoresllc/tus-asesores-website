@@ -58,8 +58,10 @@ ul {
 .navbar .logo {
     display: flex;
     align-items: center;
-    margin-left: -120px; /* Empuja los otros elementos a la derecha */
-    margin-right: 420px;
+    /* Se eliminan los márgenes fijos para que el logo se posicione correctamente
+       sin romper el layout en escritorios más pequeños */
+    margin-left: 0; 
+    margin-right: auto;
 }
 
 .navbar .logo img {
@@ -70,13 +72,13 @@ ul {
 .navbar .nav-menu {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre la lista de enlaces y el botón */
+    gap: 30px;
 }
 
 .navbar .nav-menu ul {
     display: flex;
     align-items: center;
-    gap: 30px; /* Espacio entre los enlaces del menú */
+    gap: 30px;
     margin: 0;
     padding: 0;
 }
@@ -104,21 +106,17 @@ ul {
     cursor: pointer;
 }
 
-/* Botón de móvil oculto por defecto */
-.btn-nav-mobile {
-    display: none;
-}
-
+/* Oculta los elementos de móvil en escritorio */
 .menu-toggle {
     display: none;
 }
+/* Se eliminan las reglas de .btn-nav-mobile y .navbar-right ya que
+   la nueva estructura HTML no los necesita. El botón de registro
+   está ahora dentro del menú principal. */
 
-.navbar-right {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-/* Hero Section */
+/* ============================================== */
+/* Sección: Hero */
+/* ============================================== */
 .hero-section {
     background-image: url(../img/servicios/fondo-servicios.png);
     background-size: cover;
@@ -134,16 +132,8 @@ ul {
     position: relative;
     overflow: hidden;
 }
-
-.hero-section::before {
-    left: -20vw;
-    transform: skewX(-20deg);
-}
-
-.hero-section::after {
-    right: -20vw;
-    transform: skewX(20deg);
-}
+/* Se eliminan los pseudo-elementos ::before y ::after porque no se ve su uso
+   en el diseño de la barra de navegación del otro archivo. */
 
 .hero-section .container {
     position: relative;
@@ -556,7 +546,7 @@ ul {
 }
 
 /* ============================================== */
-/* 2. MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
+/* MEDIA QUERIES (PARA TABLETS Y MÓVILES) */
 /* ============================================== */
 
 @media (max-width: 1024px) {
@@ -567,20 +557,11 @@ ul {
 
     .navbar .logo {
         margin-left: 0;
+        margin-right: auto;
     }
 
-    /* Ajuste de espaciado en pantallas más pequeñas */
-    .navbar nav {
+    .navbar .nav-menu ul {
         gap: 20px;
-    }
-    
-    .navbar nav ul {
-        gap: 20px;
-    }
-
-    .navbar nav ul li a {
-        padding: 10px 0; /* Reduce el espacio vertical si lo necesitas */
-        font-size: 0.5em;
     }
 
     .hero-section {
@@ -595,7 +576,7 @@ ul {
     .hero-section p {
         font-size: 1.1em;
     }
-
+    
     /* Sección de Servicios */
     .servicios-section {
         padding: 80px 0;
@@ -695,29 +676,30 @@ ul {
 @media (max-width: 767px) {
     /* Estilos para móviles (teléfonos) */
     .navbar .container {
-        max-width: 767px;
         flex-wrap: nowrap;
     }
-
+    
     .navbar .nav-menu {
-        display: block; /* Cambio: Usamos 'block' para que ocupe todo el ancho */
+        display: none;
         position: absolute;
         top: 100%;
         left: 0;
         width: 100%;
         background-color: var(--negro);
         box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        /* Cambio: Usamos 'height' y 'overflow' para la transición */
         height: 0;
-        overflow: hidden; 
+        overflow: hidden;
         transition: height 0.3s ease-in-out;
+        text-align: center;
     }
 
     .navbar .nav-menu.active {
-        /* Ajusta la altura del menú cuando está activo */
-        height: 350px; /* Puedes ajustar este valor si el contenido del menú cambia */
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
-
+    
     .navbar .menu-toggle {
         display: block;
         background: none;
@@ -732,7 +714,6 @@ ul {
         width: 100%;
         padding: 20px 0;
         gap: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .navbar .nav-menu ul li {
@@ -745,28 +726,36 @@ ul {
         padding: 15px 0;
     }
     
-    /* Ocultar el botón de escritorio en móvil */
-    .navbar .btn-desktop-li {
-        display: none;
+    .navbar .nav-menu .btn-nav {
+        background-color: transparent;
+        color: var(--naranja);
+        font-size: 1em;
+        border-radius: 0;
+        padding: 15px 0;
+        margin: 0;
+        font-weight: 500;
+        display: block;
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .navbar .nav-menu .btn-nav:hover {
+        background-color: rgba(255, 255, 255, 0.1);
     }
     
-    /* Mostrar y estilizar el botón de móvil */
-    .btn-nav-mobile {
-        display: block;
-        background-color: var(--naranja);
-        color: var(--negro);
-        padding: 8px 18px;
-        border-radius: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        border: none;
-        cursor: pointer;
+    .btn-desktop-li {
+        /* Se remueve esta clase para que el botón se muestre correctamente en el menú móvil. */
+        display: list-item;
+    }
+    
+    /* El botón de registro se muestra como un elemento de lista en el menú móvil */
+    .navbar .nav-menu ul li:last-child {
+        border-bottom: none;
     }
 
-    .navbar .logo {
-        margin-left: 0;
-    }
+    /* ============================================== */
+    /* El resto del código de media query para móvil se mantiene sin cambios
+       ya que la estructura para las secciones de contenido es la misma. */
+    /* ============================================== */
 
     .hero-section {
         padding: 80px 10px;
