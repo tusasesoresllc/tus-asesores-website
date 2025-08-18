@@ -166,7 +166,7 @@ ul {
 /* Misión y Visión Section */
 /* ==================================================== */
 .mision-vision-section {
-    background-image: url(../img/nosotros/fondo-mv.png);
+    background-image: url(../img/nosotros/fondo-N1.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -244,7 +244,7 @@ ul {
 /* Valores Section */
 /* ==================================================== */
 .valores-section {
-    background-image: url(../img/nosotros/fondo-valores.png);
+    background-image: url(../img/nosotros/fondo-N2.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -365,7 +365,7 @@ ul {
 /* --- Estilos Generales para el Carrusel --- */
 /* ------------------------------------------- */
 .credentials-section {
-    background-image: url(../img/nosotros/fondo-valores.png);
+    background-image: url(../img/nosotros/fondo-N3.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -570,7 +570,7 @@ ul {
 /* Equipo Section */
 /* ==================================================== */
 .equipo-section {
-    background-image: url(../img/nosotros/fondos-eq.png);
+    background-image: url(../img/nosotros/fondo-N4.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -692,7 +692,7 @@ ul {
 /* Metodología Section */
 /* ==================================================== */
 .metodologia-section {
-    background-image: url(../img/nosotros/fondo-mtd.png);
+    background-image: url(../img/nosotros/fondo-N5.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -815,13 +815,13 @@ ul {
 /* ==================================================== */
 .footer {
     width: 100%;
-}
-
-.footer-top {
-    background-image: url(../img/nosotros/footer-n1.png);
+    background-image: url(../img/nosotros/fondo-N6.png);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+.footer-top {
     display: flex;
     justify-content: flex-start;
     padding: 60px 10%;
@@ -896,10 +896,6 @@ ul {
 }
 
 .footer-social-media {
-    background-image: url(../img/nosotros/footer-n2.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     display: flex;
     justify-content: center;
     gap: 25px;
@@ -926,10 +922,6 @@ ul {
 }
 
 .footer-bottom {
-    background-image: url(../img/nosotros/footer-n3.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
     text-align: center;
     padding: 20px 5%;
     color: var(--negro);
