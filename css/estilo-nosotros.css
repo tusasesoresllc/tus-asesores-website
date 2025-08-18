@@ -571,8 +571,8 @@ ul {
 
     /* Ajustamos el tamaño de cada tarjeta para que se vea bien en la pantalla */
     .credential-card {
-        width: 280px; /* Ajusta este valor si la tarjeta es muy grande */
-        min-height: 400px;
+        width: 260px; /* Ajusta este valor si la tarjeta es muy grande */
+        min-height: 350px;
     }
 }
 /* ==================================================== */
