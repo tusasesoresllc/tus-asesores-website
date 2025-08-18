@@ -559,21 +559,44 @@ ul {
 
 @media (max-width: 960px) {
     /* Mantenemos el carrusel, pero con el ancho correcto */
+    .carousel-container {
+        /* Permite que el contenedor de las flechas y el carrusel se adapte */
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 10px; /* Reduce el padding para pantallas pequeñas */
+    }
+
     .carousel-viewport {
-        width: 100%; /* El ancho del contenedor se ajusta a la pantalla */
-        overflow: hidden; /* Mantenemos el overflow para el carrusel */
+        /* Ocupa el espacio central entre las flechas */
+        width: calc(100% - 80px); /* Ajusta el ancho para dejar espacio a las flechas */
+        overflow-x: scroll; /* Habilita el desplazamiento horizontal */
+        scroll-snap-type: x mandatory; /* Habilita el "snap" para que las tarjetas se ajusten */
+        -webkit-overflow-scrolling: touch; /* Mejora el desplazamiento en iOS */
     }
 
-    /* Aseguramos que el contenedor de las tarjetas no se desborde */
     .card-wrapper {
-        width: max-content; /* Se ajusta al contenido para que el scroll funcione */
+        /* Las tarjetas se mantienen en una sola línea horizontal */
+        flex-wrap: nowrap;
+        gap: 20px; /* Espacio entre cada tarjeta */
+        width: max-content; /* Se ajusta al contenido para el scroll */
+        transition: none; /* Desactivamos cualquier transición para evitar conflictos */
+        transform: none !important;
     }
 
-    /* Ajustamos el tamaño de cada tarjeta para que se vea bien en la pantalla */
     .credential-card {
-        width: 260px; /* Ajusta este valor si la tarjeta es muy grande */
+        /* Ajustamos el tamaño de la tarjeta para que quepa en el viewport */
+        width: 260px;
         min-height: 350px;
+        scroll-snap-align: center; /* Cada tarjeta se ajusta al centro del viewport */
     }
+
+    /* Opcional: Estilo para las flechas en móvil */
+    .carousel-button {
+        display: block; /* Aseguramos que las flechas estén visibles si las quieres */
+        font-size: 2em; /* Las hacemos más pequeñas para que quepan */
+        padding: 0 5px;
+    }
+}
 }
 /* ==================================================== */
 /* Equipo Section */
