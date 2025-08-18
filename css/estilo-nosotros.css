@@ -360,6 +360,212 @@ ul {
     color: var(--blanco);
 }
 
+
+/* ------------------------------------------- */
+/* --- Estilos Generales para el Carrusel --- */
+/* ------------------------------------------- */
+.credentials-section {
+    background-image: url(../img/nosotros/fondo-valores.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 50px 0;
+    text-align: center;
+    color: var(--naranja);
+    position: relative; /* CLAVE para el posicionamiento de las líneas */
+    overflow: hidden; /* Esto también es importante para las líneas */
+}
+
+.credentials-section h2 {
+    color: var(--naranja);
+    font-size: 3em;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+/* ------------------------------------------- */
+/* --- Líneas decorativas (arriba y abajo) --- */
+/* ------------------------------------------- */
+.credentials-top-line,
+.credentials-bottom-line {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(to right, transparent, var(--amarillo) 20%, var(--naranja) 80%, transparent);
+    z-index: 1;
+}
+
+.credentials-top-line {
+    top: 0;
+}
+
+.credentials-bottom-line {
+    bottom: 0;
+}
+
+/* ------------------------------------------- */
+/* --- Contenedor Principal del Carrusel --- */
+/* ------------------------------------------- */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; 
+    margin: 0 auto;
+    position: relative;
+    padding: 0 20px; 
+}
+
+/* ------------------------------------------- */
+/* --- Vista y Contenedor de las Tarjetas --- */
+/* ------------------------------------------- */
+.carousel-viewport {
+    width: 940px; 
+    overflow: hidden; 
+}
+
+.card-wrapper {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+/* ------------------------------------------- */
+/* --- Estilos de cada Tarjeta --- */
+/* ------------------------------------------- */
+.credential-card {
+    background-color: #333;
+    border: 2px solid var(--naranja);
+    border-radius: 10px;
+    width: 300px;
+    min-height: 400px;
+    padding: 20px;
+    box-sizing: border-box;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.credential-card:hover {
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+/* ------------------------------------------- */
+/* --- Estilos de las Flechas --- */
+/* ------------------------------------------- */
+.carousel-button {
+    background-color: transparent;
+    border: none;
+    color: var(--naranja);
+    font-size: 3em;
+    cursor: pointer;
+    padding: 0 10px;
+    z-index: 10;
+    transition: color 0.3s ease;
+}
+
+.carousel-button:hover {
+    color: #fff;
+}
+
+/* ------------------------------------------- */
+/* --- Estilos de la Imagen y Contenido --- */
+/* ------------------------------------------- */
+.card-image {
+    width: 100%;
+    height: 200px; 
+    overflow: hidden;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    display: block;
+}
+
+.card-content {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 25px; 
+}
+
+.card-content h3 {
+    font-size: 1.5em;
+    color: var(--naranja);
+    margin-bottom: 10px;
+}
+
+.short-description {
+    font-size: 0.9em;
+    color: #ccc;
+    line-height: 1.4;
+    text-align: left;
+}
+
+/* ------------------------------------------- */
+/* --- Estilos del Contenido Expandible --- */
+/* ------------------------------------------- */
+.expandable-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease-out;
+    margin-top: 15px;
+    color: #eee;
+    font-size: 0.85em;
+    text-align: left;
+    line-height: 1.6;
+}
+
+.credential-card.expanded .expandable-content {
+    max-height: 300px;
+}
+
+/* ------------------------------------------- */
+/* --- Estilos del Botón de Expansión --- */
+/* ------------------------------------------- */
+.expand-button {
+    background-color: var(--naranja);
+    border: none;
+    color: var(--negro);
+    font-size: 1.4em;
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.expand-button:hover {
+    background-color: rgba(255, 215, 0, 0.1);
+}
+
+.expand-button span {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.credential-card.expanded .expand-button span {
+    transform: rotate(180deg);
+}
+
+/* ------------------------------------------- */
+/* --- Media Queries para Responsividad --- */
+/* ------------------------------------------- */
+@media (max-width: 960px) {
+    .carousel-viewport {
+        width: 100%;
+    }
+}
+
 /* ==================================================== */
 /* Equipo Section */
 /* ==================================================== */
@@ -430,7 +636,14 @@ ul {
     font-family: 'Montserrat', sans-serif;
     font-size: 1.5em;
     font-weight: 700;
-    margin-bottom: 8px;
+    margin-bottom: 0;
+}
+
+.equipo-miembro .titulo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    font-style: normal;
+    margin-bottom: 0;
 }
 
 .equipo-miembro .rol {
