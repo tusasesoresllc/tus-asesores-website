@@ -557,15 +557,24 @@ ul {
     transform: rotate(180deg);
 }
 
-/* ------------------------------------------- */
-/* --- Media Queries para Responsividad --- */
-/* ------------------------------------------- */
 @media (max-width: 960px) {
+    /* Mantenemos el carrusel, pero con el ancho correcto */
     .carousel-viewport {
-        width: 90%;
+        width: 100%; /* El ancho del contenedor se ajusta a la pantalla */
+        overflow: hidden; /* Mantenemos el overflow para el carrusel */
+    }
+
+    /* Aseguramos que el contenedor de las tarjetas no se desborde */
+    .card-wrapper {
+        width: max-content; /* Se ajusta al contenido para que el scroll funcione */
+    }
+
+    /* Ajustamos el tamaño de cada tarjeta para que se vea bien en la pantalla */
+    .credential-card {
+        width: 280px; /* Ajusta este valor si la tarjeta es muy grande */
+        min-height: 400px;
     }
 }
-
 /* ==================================================== */
 /* Equipo Section */
 /* ==================================================== */
