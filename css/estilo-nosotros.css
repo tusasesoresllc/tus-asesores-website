@@ -560,7 +560,7 @@ ul {
 /* ------------------------------------------- */
 /* --- Media Queries para Responsividad --- */
 /* ------------------------------------------- */
-@media (max-width: 960px) {
+@media (max-width: 900px) {
     .carousel-viewport {
         width: 100%;
     }
