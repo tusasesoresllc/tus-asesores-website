@@ -557,55 +557,15 @@ ul {
     transform: rotate(180deg);
 }
 
-/* Media Query para móviles */
-@media (max-width: 767px) {
-    /* ... otros estilos para móviles ... */
-    
-    /* Adaptar el carrusel para móviles */
-    .carousel-container {
-        /* Elimina el flexbox y centrado que usamos para el carrusel */
-        display: block;
-        padding: 0;
-    }
-    
+/* ------------------------------------------- */
+/* --- Media Queries para Responsividad --- */
+/* ------------------------------------------- */
+@media (max-width: 960px) {
     .carousel-viewport {
-        /* Permite que las tarjetas se apilen verticalmente */
-        width: 100%;
-        overflow: visible; /* IMPORTANTE: Muestra todas las tarjetas, no las oculta */
+        width: 90%;
     }
-    
-    .card-wrapper {
-        /* Apilamos las tarjetas una debajo de la otra */
-        flex-direction: column;
-        gap: 30px; /* Aumenta la separación vertical entre tarjetas */
-        transition: none; /* Desactivamos la transición del carrusel */
-        transform: none !important; /* Aseguramos que no haya transformaciones */
-    }
-
-    /* Ocultar las flechas de navegación en móviles */
-    .carousel-button {
-        display: none;
-    }
-
-    /* Ajustar las tarjetas para que ocupen todo el ancho */
-    .credential-card {
-        width: 100%;
-        max-width: 400px; /* Opcional: para que no se vean muy grandes en tabletas pequeñas */
-        margin-left: auto;
-        margin-right: auto;
-    }
-    
-    /* Ajustes menores para los títulos y descripciones en tarjetas */
-    .card-content h3 {
-        font-size: 1.4em;
-    }
-
-    .short-description {
-        font-size: 0.9em;
-    }
-    
-    /* El botón de expansión lo mantendremos para que funcione */
 }
+
 /* ==================================================== */
 /* Equipo Section */
 /* ==================================================== */
