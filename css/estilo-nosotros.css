@@ -590,12 +590,6 @@ ul {
         scroll-snap-align: center; /* Cada tarjeta se ajusta al centro del viewport */
     }
 
-    /* Opcional: Estilo para las flechas en móvil */
-    .carousel-button {
-        display: block; /* Aseguramos que las flechas estén visibles si las quieres */
-        font-size: 2em; /* Las hacemos más pequeñas para que quepan */
-        padding: 0 5px;
-    }
 }
 /* ==================================================== */
 /* Equipo Section */
