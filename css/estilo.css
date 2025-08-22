@@ -268,8 +268,16 @@ ul {
 .card-item h3 {
     font-size: 1.0em;
     color: var(--negro);
-    margin-bottom: 25px;
+    margin-bottom: 5px; /* Ajuste para el nuevo <p> */
     font-weight: 700;
+}
+
+.card-item p {
+    font-size: 0.75em;
+    color: var(--negro);
+    margin-bottom: 25px; /* Ajuste para separar del botón */
+    line-height: 1.2;
+    text-align: center;
 }
 
 .card-btn {
