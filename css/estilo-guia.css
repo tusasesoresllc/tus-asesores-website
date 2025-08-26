@@ -170,14 +170,17 @@ ul {
     color: var(--blanco);
 }
 
+.articulos-container {
+    /* Los artículos se mostrarán uno encima del otro por defecto */
+    display: block; 
+}
 
 .articulo-guia {
-    max-width: 900px;
-    margin: 0 auto;
     padding: 20px;
     background-color: #1a1a1a;
     border-radius: 10px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 50px; /* Espacio entre los artículos */
 }
 
 .articulo-guia h3 {
@@ -262,8 +265,41 @@ ul {
     margin-bottom: 10px;
 }
 
+.btn-expandir {
+    display: block;
+    width: max-content;
+    margin: 20px auto;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 2px solid var(--naranja);
+    color: var(--naranja);
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-expandir:hover {
+    background-color: var(--naranja);
+    color: var(--negro);
+}
+
+.btn-expandir-icono {
+    display: inline-block;
+    margin-left: 10px;
+    transition: transform 0.3s ease;
+}
+
+.articulo-guia.articulo-expandido .btn-expandir-icono {
+    transform: rotate(180deg);
+}
+
 .btn-contacto {
-    display: inline-block; 
+    display: block;
+    width: max-content;
+    margin: 20px auto 0;
     background-color: var(--naranja);
     color: var(--negro);
     padding: 12px 25px;
@@ -271,12 +307,7 @@ ul {
     font-weight: 600;
     text-transform: uppercase;
     font-size: 1em;
-    margin-top: 20px;
     transition: background-color 0.3s ease;
-
-    display: block; 
-    margin: 20px auto 0;
-    width: max-content; 
 }
 
 .btn-contacto:hover {
@@ -284,10 +315,7 @@ ul {
 }
 
 /* Media Queries para la sección de recursos */
-@media (max-width: 767px) {
-    .recursos-header h2 {
-        font-size: 2.5em;
-    }
+@media (max-width: 991px) {
     .articulo-guia h3 {
         font-size: 2em;
     }
@@ -312,7 +340,6 @@ ul {
         flex-direction: column;
     }
 }
-
 
 /* --- Footer General --- */
 .footer {
