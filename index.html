@@ -57,7 +57,7 @@
         <div class="background-overlay"></div>
         <div class="container">
             <h1>Tu LLC en EE.UU.<br>Bajo control, desde cualquier país</h1>
-            <p>Aseguramos el cumplimiento fiscal de tu empresa en EE.UU. para que te dediques a su crecimiento. Asesoría 100% online.</p>
+            <p>Aseguramos el cumplimiento fiscal de tu empresa en EE.UU. para que te dediques a su crecimiento. Asesoría 100% online.</p>
         </div>
     </section>
 
@@ -81,7 +81,7 @@
                     <img src="img/home/asesoria-home.png" alt="Icono de Asesoría Financiera">
                 </div>
                 <h3>Asesoría <br> Fiscal Estratégica</h3>
-                <p>Te ayudamos a estructurar tu negocio para optimizar tu carga tributaria y maximizar beneficios.</p>
+                <p>Te ayudamos a estructurar tu negocio para optimizar tu carga tributaria y maximizar beneficios.</p>
                 <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
             </div>
             <div class="card-item">
@@ -89,7 +89,7 @@
                     <img src="img/home/contabilidad-home.png" alt="Icono de Contabilidad">
                 </div>
                 <h3>Contabilidad <br> Mensual y Anual</h3>
-                <p>Llevamos tus libros al día para que tengas control total de tus finanzas y tomes decisiones inteligentes.</p>
+                <p>Llevamos tus libros al día para que tengas control total de tus finanzas y tomes decisiones inteligentes.</p>
                 <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
             </div>
             <div class="card-item">
@@ -97,7 +97,7 @@
                     <img src="img/home/taxes-home.png" alt="Icono de Taxes">
                 </div>
                 <h3>Declaración de Impuestos (No Residentes)</h3>
-                <p>Preparamos y presentamos tus declaraciones (Form. 1120, 5472 - 1065 - 1040NR) para asegurar tu cumplimiento con el IRS.</p>
+                <p>Preparamos y presentamos tus declaraciones (Form. 1120, 5472 - 1065 - 1040NR) para asegurar tu cumplimiento con el IRS.</p>
                 <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
             </div>
             <div class="card-item">
@@ -105,7 +105,7 @@
                     <img src="img/home/LLC-home.png" alt="Icono de Nueva Empresa en USA">
                 </div>
                 <h3>Creación de LLC <br> para Extranjeros</h3>
-                <p>Registramos tu empresa en EE.UU. de forma 100% remota para que empieces a operar sin complicaciones.</p>
+                <p>Registramos tu empresa en EE.UU. de forma 100% remota para que empieces a operar sin complicaciones.</p>
                 <a href="html/servicios.html#servicios" class="card-btn">Ver más ></a>
             </div>
         </div>
@@ -218,6 +218,57 @@
         </div>
     </footer>
 
+
+    <div id="popup-asesoria" class="popup-overlay">
+        <div class="popup-content">
+            <span class="close-btn">&times;</span>
+            <h2 class="popup-title">¡ESPERA! <br> ¿QUIERES MI ASESORÍA 1 A 1?</h2>
+            <p class="popup-text">
+                Llévate mi nuevo E-book + una Sesión Estratégica de 30 minutos conmigo + un 10% de Dcto. en servicios.
+                <br><br>
+                <span class="popup-price-old">(Valor $160)</span><br> <span class="popup-price-new">OFERTA WEB: Solo $47</span>
+            </p>
+            <a href="https://hotm.art/E_Book_Construye_Tu_Propio_Juego" target="_blank" class="popup-button">
+                ¡SÍ, QUIERO EL PAQUETE!
+            </a>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', (event) => {
+            const popup = document.getElementById('popup-asesoria');
+            const closeBtn = document.querySelector('#popup-asesoria .close-btn');
+            
+            // Función para mostrar el pop-up
+            const showPopup = () => {
+                popup.style.display = 'flex'; 
+                setTimeout(() => {
+                    popup.classList.add('visible');
+                }, 10); 
+            }
+
+            // Configura el "Trigger": Aparece después de 10 segundos
+            const delayInMilliseconds = 10000; // 10 segundos
+            setTimeout(showPopup, delayInMilliseconds);
+
+            // Función para cerrar el pop-up al hacer clic en la 'x'
+            closeBtn.addEventListener('click', () => {
+                popup.classList.remove('visible'); 
+                setTimeout(() => {
+                    popup.style.display = 'none'; 
+                }, 300);
+            });
+
+            // Opcional: Cerrar al hacer clic fuera del contenido
+            popup.addEventListener('click', (e) => {
+                if (e.target === popup) {
+                    popup.classList.remove('visible');
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 300);
+                }
+            });
+        });
+    </script>
     <script src="js/script.js"></script>
     <script type="text/javascript" id="hs-script-loader" async defer src="//js-na2.hs-scripts.com/243763229.js"></script>
 </body>
