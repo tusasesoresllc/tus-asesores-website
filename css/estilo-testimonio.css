@@ -378,17 +378,14 @@ ul {
 /* ==================================================== */
 .footer {
     width: 100%;
-    background-image: url(../img/nosotros/fondo-N6.png);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-color: var(--negro);
 }
 
 .footer-top {
     display: flex;
     justify-content: flex-start;
     padding: 60px 10%;
-    color: var(--negro);
+    color: var(--naranja);
     position: relative;
     align-items: flex-start;
 }
@@ -433,7 +430,7 @@ ul {
     font-size: 1.2em;
     font-weight: bold;
     margin-bottom: 20px;
-    color: var(--negro);
+    color: var(--naranja);
 }
 
 .link-column ul {
@@ -448,7 +445,7 @@ ul {
 
 .link-column li a {
     font-size: 0.95em;
-    color: var(--negro);
+    color: var(--naranja);
     text-decoration: none;
     transition: color 0.3s ease;
 }
@@ -469,11 +466,11 @@ ul {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--negro);
+    background-color: var(--naranja);
     border-radius: 50%;
     width: 40px;
     height: 40px;
-    color: var(--naranja);
+    color: var(--negro);
     font-size: 1.5em;
     text-decoration: none;
     transition: background-color 0.3s ease, color 0.3s ease;
@@ -481,13 +478,13 @@ ul {
 
 .social-icon:hover {
     background-color: var(--blanco);
-    color: var(--negro);
+    color: var(--naranja);
 }
 
 .footer-bottom {
     text-align: center;
     padding: 20px 5%;
-    color: var(--negro);
+    color: var(--naranja);
     font-size: 0.9em;
 }
 
