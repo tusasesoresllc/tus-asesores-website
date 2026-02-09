@@ -958,113 +958,24 @@ ul {
 }
 
 /* ==================================================== */
-/* Media Queries */
+/* Media Queries - Unificados para Testimonios */
 /* ==================================================== */
 
 @media (max-width: 1024px) {
     /* Navbar */
-    .navbar .logo {
-        margin-left: 0;
-    }
-    
-    .navbar .nav-menu ul {
-        gap: 20px;
-    }
+    .navbar .logo { margin-left: 0; }
+    .navbar .nav-menu ul { gap: 20px; }
 
     /* Hero Section */
     .hero-section {
         padding: 120px 10px;
         min-height: 50vh;
     }
-    .hero-section h1 {
-        font-size: 3em;
-    }
-    .hero-section p {
-        font-size: 1.1em;
-    }
-
-    /* Misión y Visión */
-    .mision-vision-content {
-        gap: 40px;
-    }
-    .mision-block h2,
-    .vision-block h2 {
-        font-size: 2.5em;
-    }
-    .mision-block p,
-    .vision-block p {
-        font-size: 1.1em;
-    }
-    .vertical-bar {
-        height: 60px;
-    }
-
-    /* Valores */
-    .valores-header h2 {
-        font-size: 3em;
-    }
-    .valores-content {
-        grid-template-columns: 1fr 1fr;
-    }
-    .valores-image {
-        padding: 20px;
-    }
-    .valores-list {
-        padding-left: 0;
-    }
-    .valores-about-us {
-        padding-right: 0;
-    }
-    .valor-item h3 {
-        font-size: 1.2em;
-    }
-    .valor-item p {
-        font-size: 0.9em;
-    }
-
-    /* Equipo */
-    .equipo-header h2 {
-        font-size: 3em;
-    }
-    .equipo-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-    .equipo-imagen-wrapper {
-        width: 250px;
-        height: 250px;
-    }
-    .equipo-miembro h4 {
-        font-size: 1.2em;
-    }
-    .equipo-miembro .rol {
-        font-size: 0.9em;
-    }
-
-    /* Metodología */
-    .metodologia-header h2 {
-        font-size: 3em;
-    }
-    .metodologia-content {
-        grid-template-columns: 1fr;
-    }
-    .metodologia-image-container {
-        padding: 0;
-    }
-    .metodologia-list {
-        gap: 15px;
-    }
-    .metodologia-item h3 {
-        font-size: 1.2em;
-    }
-    .metodologia-description.expanded {
-        padding: 10px 0 0 0;
-    }
+    .hero-section h1 { font-size: 3em; }
+    .hero-section p { font-size: 1.1em; }
 
     /* Footer */
-    .footer-top {
-        padding: 40px 5%;
-    }
+    .footer-top { padding: 40px 5%; }
     .footer-links {
         gap: 50px;
         margin-left: 200px;
@@ -1072,19 +983,14 @@ ul {
 }
 
 @media (max-width: 767px) {
-    /* Estilos para móviles (teléfonos) */
+    /* Navbar & Menú Hamburguesa */
     .navbar .container {
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         flex-wrap: wrap;
     }
-
-    .navbar .logo {
-        margin: 0;
-        margin-right: auto;
-    }
-
+    .navbar .logo { margin: 0; margin-right: auto; }
     .navbar .nav-menu {
         display: none;
         position: absolute;
@@ -1098,235 +1004,39 @@ ul {
         transition: height 0.3s ease-in-out;
         text-align: center;
         flex-direction: column;
-        z-index: 999; /* Asegurar que el menú desplegable esté sobre otros elementos */
+        z-index: 999;
     }
-
-    .navbar .nav-menu.active {
-        height: auto;
-        display: flex;
-    }
+    .navbar .nav-menu.active { height: auto; display: flex; }
+    .navbar .nav-menu ul { flex-direction: column; width: 100%; padding: 20px 0; gap: 0; }
+    .navbar .nav-menu ul li { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .navbar .nav-menu ul li a { display: block; padding: 15px 0; }
     
-    .navbar .nav-menu ul {
-        flex-direction: column;
-        width: 100%;
-        padding: 20px 0;
-        gap: 0;
-    }
-
-    .navbar .nav-menu ul li {
-        margin: 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .navbar .nav-menu ul li a {
-        display: block;
-        padding: 15px 0;
-    }
-    
-    /* Mostrar y estilizar el contenedor de acciones de móvil */
-    .navbar-right {
-        display: flex;
-        align-items: center;
-        gap: 15px;
-    }
-
-    .navbar .nav-menu .btn-nav {
-        /* Oculta el botón de navegación del menú principal */
-        display: none;
-    }
-    
-    .btn-nav-mobile {
-        /* Muestra y estiliza el botón de navegación específico para móvil */
-        display: block;
-        background-color: var(--naranja);
-        color: var(--negro);
-        padding: 8px 18px;
-        border-radius: 5px;
-        font-weight: 600;
-        text-transform: uppercase;
-        font-size: 0.9em;
-        border: none;
-        cursor: pointer;
-    }
-
-    .menu-toggle {
-        display: block;
-        background: none;
-        border: none;
-        color: var(--blanco);
-        font-size: 1.5em;
-        cursor: pointer;
-    }
+    .navbar-right { display: flex; align-items: center; gap: 15px; }
+    .navbar .nav-menu .btn-nav { display: none; }
+    .btn-nav-mobile { display: block; background-color: var(--naranja); color: var(--negro); padding: 8px 18px; border-radius: 5px; font-weight: 600; text-transform: uppercase; font-size: 0.9em; border: none; cursor: pointer; }
+    .menu-toggle { display: block; background: none; border: none; color: var(--blanco); font-size: 1.5em; cursor: pointer; }
 
     /* Hero Section */
-    .hero-section {
-        padding: 80px 10px;
-        min-height: 40vh;
-    }
-    .hero-section h1 {
-        font-size: 2.5em;
-    }
-    .hero-section p {
-        font-size: 1em;
-    }
+    .hero-section { padding: 80px 10px; min-height: 40vh; }
+    .hero-section h1 { font-size: 2.5em; }
+    .hero-section p { font-size: 1em; }
 
-    /* Misión y Visión */
-    .mision-vision-content {
-        gap: 30px;
-    }
-    .mision-block h2,
-    .vision-block h2 {
-        font-size: 2em;
-    }
-    .mision-block p,
-    .vision-block p {
-        font-size: 1em;
-        padding-left: 0;
-    }
-    .vertical-bar {
-        height: 50px;
-    }
-    .mision-vision-title-wrapper {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-    }
-    .vertical-bar {
-        width: 100%;
-        height: 5px;
-        margin-bottom: 10px;
-    }
-    .mision-block p, .vision-block p {
-        text-align: center;
-    }
-
-    /* Valores */
-    .valores-header h2 {
-        font-size: 2.5em;
-    }
-    .valores-content {
-        grid-template-columns: 1fr;
-    }
-    .valores-about-us,
-    .valores-list {
-        text-align: center;
-        padding-right: 0;
-        padding-left: 0;
-    }
-    .valores-image {
-        padding: 20px 0;
-    }
-    .valores-about-us h3,
-    .valor-item h3 {
-        font-size: 1.2em;
-    }
-
-    /* Equipo */
-    .equipo-header h2 {
-        font-size: 2.5em;
-    }
-    .equipo-grid {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .equipo-imagen-wrapper {
-        width: 250px;
-        height: 250px;
-        margin-bottom: 15px;
-    }
-    .equipo-miembro h4 {
-        font-size: 1.5em;
-    }
-    .equipo-miembro .rol {
-        font-size: 1em;
-    }
-    .member-description.expanded {
-        padding: 20px;
-    }
-
-    /* Metodología */
-    .metodologia-header h2 {
-        font-size: 2.5em;
-    }
-    .metodologia-content {
-        grid-template-columns: 1fr;
-    }
-    .metodologia-image-container {
-        order: -1; /* Coloca la imagen arriba en móvil */
-        padding: 0;
-    }
-    .metodologia-description.expanded {
-        padding: 10px 0 0 0;
-    }
+    /* --- AJUSTES ESPECÍFICOS DE TESTIMONIOS --- */
+    .section-header h2 { font-size: 2.5em; }
+    .comment-form-box { padding: 25px; margin: 0 10px 50px; }
+    .input-row { grid-template-columns: 1fr; gap: 15px; } /* Una sola columna en móvil */
+    .dynamic-grid { grid-template-columns: 1fr; gap: 20px; }
+    .oliver-card { padding: 20px; }
 
     /* Footer */
-    .footer-top {
-        flex-direction: column;
-        align-items: center;
-        padding: 40px 5%;
-        text-align: center;
-    }
-    .footer-logo {
-        height: auto;
-        margin-bottom: 20px;
-    }
-    .footer-logo-image {
-        position: static;
-        width: 120px;
-        margin-left: 0;
-    }
-    .footer-links {
-        flex-direction: column;
-        align-items: center;
-        gap: 30px;
-        margin-left: 0;
-        margin-top: 20px;
-        text-align: center;
-    }
-    .link-column h4 {
-        margin-bottom: 10px;
-    }
-    .footer-social-media {
-        padding: 15px 0;
-    }
+    .footer-top { flex-direction: column; align-items: center; padding: 40px 5%; text-align: center; }
+    .footer-logo { height: auto; margin-bottom: 20px; }
+    .footer-logo-image { position: static; width: 120px; margin-left: 0; }
+    .footer-links { flex-direction: column; align-items: center; gap: 30px; margin-left: 0; margin-top: 20px; }
 }
 
 @media (max-width: 480px) {
-    /* Hero Section */
-    .hero-section h1 {
-        font-size: 2em;
-    }
-    .hero-section p {
-        font-size: 0.9em;
-    }
-
-    /* Misión y Visión */
-    .mision-block h2,
-    .vision-block h2 {
-        font-size: 1.8em;
-    }
-    .vertical-bar {
-        height: 40px;
-    }
-    
-    /* Valores */
-    .valores-header h2,
-    .equipo-header h2,
-    .metodologia-header h2 {
-        font-size: 2em;
-    }
-    
-    .equipo-imagen-wrapper {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .metodologia-item h3 {
-        font-size: 1.2em;
-    }
-    
-    /* Footer */
-    .footer-logo-image {
-        width: 100px;
-    }
+    .hero-section h1 { font-size: 2em; }
+    .section-header h2 { font-size: 2em; }
+    .footer-logo-image { width: 100px; }
 }

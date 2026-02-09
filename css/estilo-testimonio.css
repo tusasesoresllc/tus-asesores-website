@@ -1,0 +1,577 @@
+:root {
+    --negro: #000000;
+    --amarillo: #f3ce37;
+    --blanco: #ffffff;
+    --naranja: #f8b133;
+    --gris: #ede6d9;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: var(--blanco);
+    background-color: var(--naranja);
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+a {
+    text-decoration: none;
+    color: var(--amarillo);
+}
+
+ul {
+    list-style: none;
+}
+
+/* Navbar */
+.navbar {
+    background-color: var(--negro);
+    color: var(--blanco);
+    padding: 15px 0;
+    position: relative;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    /* Eliminados los márgenes negativos para escritorio, no son necesarios con la nueva estructura */
+    margin-left: 0; 
+    margin-right: auto;
+}
+
+.navbar .logo img {
+    height: 35px;
+    filter: brightness(1.2);
+}
+
+.navbar .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navbar .nav-menu ul {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar .nav-menu ul li a {
+    color: var(--blanco);
+    font-weight: 500;
+    font-family: 'Poppins', sans-serif;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-menu ul li a:hover {
+    color: var(--amarillo);
+}
+
+.navbar .nav-menu .btn-nav {
+    background-color: var(--naranja);
+    color: var(--negro);
+    padding: 8px 18px;
+    border-radius: 5px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    border: none;
+    cursor: pointer;
+}
+
+/* Ocultar botones y menú de móvil en versión de escritorio */
+.btn-nav-mobile,
+.menu-toggle {
+    display: none;
+}
+
+.navbar-right {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* ==================================================== */
+/* Hero Section */
+/* ==================================================== */
+.hero-section {
+    background-image: url(../img/nosotros/portada-nosotros.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: var(--naranja);
+    text-align: center;
+    padding: 150px 20px;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section .container {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+}
+
+.hero-section h1 {
+    font-size: 3.8em;
+    margin-bottom: 25px;
+    color: var(--naranja);
+    font-weight: 800;
+    line-height: 1.15;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.2);
+}
+
+.hero-section p {
+    font-size: 1.2em;
+    margin-bottom: 0;
+    color: var(--blanco);
+    font-weight: 400;
+    font-family: 'Poppins', sans-serif;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* =======================================================
+   SECCIÓN DE CONTENIDO (LO QUE SIGUE DESPUÉS DEL HERO)
+   ======================================================= */
+
+.comments-page {
+    padding: 100px 0;
+    background-color: var(--negro);
+}
+
+/* Ajuste del Header de la sección si ya no usas el anterior */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-header h2 {
+    font-size: 2.5rem;
+    color: var(--blanco);
+    position: relative;
+    padding-bottom: 15px;
+}
+
+/* Línea decorativa similar a tus otras secciones */
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background-color: var(--naranja);
+}
+
+
+/* SECCIÓN DE TESTIMONIOS (MAIN) */
+.comments-page {
+    padding: 80px 0;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-header .subtitle {
+    color: var(--naranja);
+    text-transform: uppercase;
+    font-weight: 700;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.section-header h2 {
+    font-size: 3.5em; /* Proporción similar a tu Hero h1 */
+    color: var(--blanco);
+    font-weight: 800;
+    line-height: 1.1;
+}
+
+/* CAJA DEL FORMULARIO */
+.comment-form-box {
+    max-width: 800px;
+    margin: 0 auto 80px;
+    background-color: var(--naranja); /* Estilo de tus card-items */
+    padding: 40px;
+    border-radius: 0; /* Recto como tus cards */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.comment-form-box h3 {
+    color: var(--negro);
+    text-align: center;
+    font-weight: 800;
+    margin-bottom: 25px;
+    text-transform: uppercase;
+}
+
+.input-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+/* SELECTOR DE ESTRELLAS EN EL FORMULARIO */
+.rating-selection {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+    padding: 10px 15px;
+}
+
+.rating-selection span {
+    color: var(--negro);
+    font-weight: 700;
+    font-size: 0.9em;
+    text-transform: uppercase;
+}
+
+.stars-input {
+    display: flex;
+    flex-direction: row-reverse; /* Importante para la lógica de hover */
+    justify-content: flex-end;
+}
+
+.stars-input input {
+    display: none; /* Escondemos el radio button real */
+}
+
+.stars-input label {
+    font-size: 1.5rem;
+    color: #555; /* Color estrella vacía */
+    cursor: pointer;
+    transition: 0.2s;
+    padding: 0 2px;
+}
+
+/* Color cuando se hace hover o se selecciona */
+.stars-input label:hover,
+.stars-input label:hover ~ label,
+.stars-input input:checked ~ label {
+    color: var(--blanco); /* O puedes usar var(--amarillo) si prefieres */
+}
+.comment-form-box input, 
+.comment-form-box textarea {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    background-color: var(--blanco);
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.9em;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: var(--negro);
+    color: var(--naranja);
+    padding: 15px;
+    border: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-submit:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+/* GRID DE TESTIMONIOS (Estilo Oliver / Dark) */
+.dynamic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.oliver-card {
+    background-color: #111111; /* Negro suave para destacar del fondo */
+    border-left: 6px solid var(--naranja); /* El detalle lateral */
+    padding: 30px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.oliver-card:hover {
+    transform: translateY(-10px);
+}
+
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.card-top h4 {
+    color: var(--blanco);
+    font-size: 1.2em;
+    font-weight: 700;
+}
+
+.card-top span {
+    color: var(--naranja);
+    display: block;
+    font-size: 0.85em;
+    font-weight: 500;
+}
+
+.quote-icon {
+    color: var(--naranja);
+    font-size: 3em;
+    font-family: serif;
+    line-height: 0.5;
+}
+
+.stars {
+    color: var(--amarillo);
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.comment-body {
+    color: #bbbbbb;
+    font-size: 0.95em;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.7;
+}
+
+/* ==================================================== */
+/* Footer */
+/* ==================================================== */
+.footer {
+    width: 100%;
+    background-image: url(../img/nosotros/fondo-N6.png);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: flex-start;
+    padding: 60px 10%;
+    color: var(--negro);
+    position: relative;
+    align-items: flex-start;
+}
+
+.footer-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 150px;
+    position: relative;
+}
+
+.footer-logo a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    text-decoration: none;
+}
+
+.footer-logo-image {
+    position: absolute;
+    left: 100px;
+    width: 150px;
+    max-height: 100%;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-image:hover {
+    transform: scale(1.05);
+}
+
+.footer-links {
+    display: flex;
+    gap: 100px;
+    margin-left: 300px;
+    margin-top: -2%;
+}
+
+.link-column h4 {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: var(--negro);
+}
+
+.link-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.link-column li {
+    margin-bottom: 8px;
+}
+
+.link-column li a {
+    font-size: 0.95em;
+    color: var(--negro);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-column li a:hover {
+    color: var(--amarillo);
+    cursor: pointer;
+}
+
+.footer-social-media {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 20px 0;
+}
+
+.social-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--negro);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    color: var(--naranja);
+    font-size: 1.5em;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    background-color: var(--blanco);
+    color: var(--negro);
+}
+
+.footer-bottom {
+    text-align: center;
+    padding: 20px 5%;
+    color: var(--negro);
+    font-size: 0.9em;
+}
+
+
+/* ==================================================== */
+/* Media Queries - Unificados para Testimonios */
+/* ==================================================== */
+
+@media (max-width: 1024px) {
+    /* Navbar */
+    .navbar .logo { margin-left: 0; }
+    .navbar .nav-menu ul { gap: 20px; }
+
+    /* Hero Section */
+    .hero-section {
+        padding: 120px 10px;
+        min-height: 50vh;
+    }
+    .hero-section h1 { font-size: 3em; }
+    .hero-section p { font-size: 1.1em; }
+
+    /* Footer */
+    .footer-top { padding: 40px 5%; }
+    .footer-links {
+        gap: 50px;
+        margin-left: 200px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Navbar & Menú Hamburguesa */
+    .navbar .container {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .navbar .logo { margin: 0; margin-right: auto; }
+    .navbar .nav-menu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background-color: var(--negro);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease-in-out;
+        text-align: center;
+        flex-direction: column;
+        z-index: 999;
+    }
+    .navbar .nav-menu.active { height: auto; display: flex; }
+    .navbar .nav-menu ul { flex-direction: column; width: 100%; padding: 20px 0; gap: 0; }
+    .navbar .nav-menu ul li { border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+    .navbar .nav-menu ul li a { display: block; padding: 15px 0; }
+    
+    .navbar-right { display: flex; align-items: center; gap: 15px; }
+    .navbar .nav-menu .btn-nav { display: none; }
+    .btn-nav-mobile { display: block; background-color: var(--naranja); color: var(--negro); padding: 8px 18px; border-radius: 5px; font-weight: 600; text-transform: uppercase; font-size: 0.9em; border: none; cursor: pointer; }
+    .menu-toggle { display: block; background: none; border: none; color: var(--blanco); font-size: 1.5em; cursor: pointer; }
+
+    /* Hero Section */
+    .hero-section { padding: 80px 10px; min-height: 40vh; }
+    .hero-section h1 { font-size: 2.5em; }
+    .hero-section p { font-size: 1em; }
+
+    /* --- AJUSTES ESPECÍFICOS DE TESTIMONIOS --- */
+    .section-header h2 { font-size: 2.5em; }
+    .comment-form-box { padding: 25px; margin: 0 10px 50px; }
+    .input-row { grid-template-columns: 1fr; gap: 15px; } /* Una sola columna en móvil */
+    .dynamic-grid { grid-template-columns: 1fr; gap: 20px; }
+    .oliver-card { padding: 20px; }
+
+    /* Footer */
+    .footer-top { flex-direction: column; align-items: center; padding: 40px 5%; text-align: center; }
+    .footer-logo { height: auto; margin-bottom: 20px; }
+    .footer-logo-image { position: static; width: 120px; margin-left: 0; }
+    .footer-links { flex-direction: column; align-items: center; gap: 30px; margin-left: 0; margin-top: 20px; }
+}
+
+@media (max-width: 480px) {
+    .hero-section h1 { font-size: 2em; }
+    .section-header h2 { font-size: 2em; }
+    .footer-logo-image { width: 100px; }
+}
