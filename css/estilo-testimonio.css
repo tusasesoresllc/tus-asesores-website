@@ -217,7 +217,7 @@ ul {
 }
 
 .section-header h2 {
-    font-size: 3.5em; /* Proporción similar a tu Hero h1 */
+    font-size: 3.5em; 
     color: var(--blanco);
     font-weight: 800;
     line-height: 1.1;
@@ -227,9 +227,9 @@ ul {
 .comment-form-box {
     max-width: 800px;
     margin: 0 auto 80px;
-    background-color: var(--naranja); /* Estilo de tus card-items */
+    background-color: var(--naranja); 
     padding: 40px;
-    border-radius: 0; /* Recto como tus cards */
+    border-radius: 0; 
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
@@ -265,17 +265,17 @@ ul {
 
 .stars-input {
     display: flex;
-    flex-direction: row-reverse; /* Importante para la lógica de hover */
+    flex-direction: row-reverse; 
     justify-content: flex-end;
 }
 
 .stars-input input {
-    display: none; /* Escondemos el radio button real */
+    display: none; 
 }
 
 .stars-input label {
     font-size: 1.5rem;
-    color: #555; /* Color estrella vacía */
+    color: #555; 
     cursor: pointer;
     transition: 0.2s;
     padding: 0 2px;
@@ -285,7 +285,7 @@ ul {
 .stars-input label:hover,
 .stars-input label:hover ~ label,
 .stars-input input:checked ~ label {
-    color: var(--blanco); /* O puedes usar var(--amarillo) si prefieres */
+    color: var(--blanco);
 }
 .comment-form-box input, 
 .comment-form-box textarea {
@@ -315,7 +315,7 @@ ul {
     color: var(--negro);
 }
 
-/* GRID DE TESTIMONIOS (Estilo Oliver / Dark) */
+/* GRID DE TESTIMONIOS */
 .dynamic-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -323,8 +323,8 @@ ul {
 }
 
 .oliver-card {
-    background-color: #111111; /* Negro suave para destacar del fondo */
-    border-left: 6px solid var(--naranja); /* El detalle lateral */
+    background-color: #111111; 
+    border-left: 6px solid var(--naranja); 
     padding: 30px;
     position: relative;
     transition: transform 0.3s ease;
@@ -373,9 +373,9 @@ ul {
     line-height: 1.7;
 }
 
-/* ==================================================== */
+/* ====== */
 /* Footer */
-/* ==================================================== */
+/* ====== */
 .footer {
     width: 100%;
     background-color: var(--negro);
@@ -489,9 +489,9 @@ ul {
 }
 
 
-/* ==================================================== */
+/* =========================================== */
 /* Media Queries - Unificados para Testimonios */
-/* ==================================================== */
+/* =========================================== */
 
 @media (max-width: 1024px) {
     /* Navbar */
@@ -556,7 +556,7 @@ ul {
     /* --- AJUSTES ESPECÍFICOS DE TESTIMONIOS --- */
     .section-header h2 { font-size: 2.5em; }
     .comment-form-box { padding: 25px; margin: 0 10px 50px; }
-    .input-row { grid-template-columns: 1fr; gap: 15px; } /* Una sola columna en móvil */
+    .input-row { grid-template-columns: 1fr; gap: 15px; }
     .dynamic-grid { grid-template-columns: 1fr; gap: 20px; }
     .oliver-card { padding: 20px; }
 
