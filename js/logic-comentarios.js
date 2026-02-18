@@ -1,8 +1,7 @@
-// IMPORTANTE: Estas líneas solo funcionan si el script en el HTML tiene type="module"
 import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-import { getDatabase, ref, push, onChildAdded, onChildRemoved, remove } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
 
-// Tu configuración sacada de la captura
+// Configuración basada en tus capturas
 const firebaseConfig = {
     apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-LJc",
     authDomain: "tus-asesores.firebaseapp.com",
@@ -10,54 +9,50 @@ const firebaseConfig = {
     projectId: "tus-asesores",
     storageBucket: "tus-asesores.firebasestorage.app",
     messagingSenderId: "411492054160",
-    appId: "1:411492054160:web:d713919e83f2a8930c144e" // Usa tu ID completo
+    appId: "1:411492054160:web:d713919e83f2a8930c144e" 
 };
 
-// Inicializar
+// Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const testimoniosRef = ref(db, 'testimonios');
 
+// Elementos del HTML
 const grid = document.getElementById('grid-comentarios');
 const form = document.getElementById('form-comentario');
 
-// --- RENDERIZAR COMENTARIOS ---
-function renderizarCard(data, id) {
-    const estrellasHtml = '★'.repeat(data.rating).padEnd(5, '☆');
-
+// Lógica para mostrar los comentarios
+onChildAdded(testimoniosRef, (snapshot) => {
+    const data = snapshot.val();
     const cardHTML = `
-        <div class="oliver-card" id="card-${id}">
+        <div class="oliver-card">
             <div class="card-top">
                 <h4>${data.nombre}</h4>
                 <span>${data.cargo}</span>
             </div>
-            <div class="stars" style="color: #f3ce37;">${estrellasHtml}</div>
             <p class="comment-body">${data.mensaje}</p>
         </div>
     `;
     grid.insertAdjacentHTML('afterbegin', cardHTML);
-}
-
-// --- ESCUCHAR FIREBASE ---
-onChildAdded(testimoniosRef, (snapshot) => {
-    renderizarCard(snapshot.val(), snapshot.key);
 });
 
-// --- ENVIAR ---
+// Lógica para enviar el formulario
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const nuevo = {
+    
+    const nuevoTestimonio = {
         nombre: document.getElementById('nombre').value,
         cargo: document.getElementById('cargo').value,
         mensaje: document.getElementById('mensaje').value,
-        rating: 5 // Por defecto
+        rating: 5
     };
 
     try {
-        await push(testimoniosRef, nuevo);
+        await push(testimoniosRef, nuevoTestimonio);
         form.reset();
-        alert("¡Enviado! Revisa ahora tu panel de Firebase.");
-    } catch (err) {
-        alert("Error de conexión. Revisa las reglas de Firebase.");
+        alert("¡Enviado con éxito! Revisa tu Firebase.");
+    } catch (error) {
+        console.error(error);
+        alert("Error al enviar. ¿Publicaste las REGLAS en Firebase?");
     }
 });
