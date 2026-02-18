@@ -156,76 +156,23 @@
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 
-<script type="module">
-    // 1. IMPORTACIÓN DIRECTA
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-app.js";
-    import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+<script>
+  const firebaseConfig = {
+    apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-Ljc",
+    authDomain: "tus-asesores.firebaseapp.com",
+    projectId: "tus-asesores",
+    storageBucket: "tus-asesores.firebasestorage.app",
+    messagingSenderId: "41149254149",
+    appId: "1:41149254149:web:65e109d9451c8651848520",
+    measurementId: "G-GVEV97K0C8"
+  };
 
-    // 2. CONFIGURACIÓN (Tus datos de la captura)
-    const firebaseConfig = {
-        apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-LJc",
-        authDomain: "tus-asesores.firebaseapp.com",
-        databaseURL: "https://tus-asesores-default-rtdb.firebaseio.com",
-        projectId: "tus-asesores",
-        storageBucket: "tus-asesores.firebasestorage.app",
-        messagingSenderId: "411492054160",
-        appId: "1:411492054160:web:d713919e83f2a8930c144e"
-    };
-
-    // 3. INICIALIZACIÓN FORZADA
-    try {
-        const app = initializeApp(firebaseConfig);
-        const db = getDatabase(app);
-        const testimoniosRef = ref(db, 'testimonios');
-        console.log("Firebase conectado correctamente");
-
-        const grid = document.getElementById('grid-comentarios');
-        const form = document.getElementById('form-comentario');
-
-        // 4. LEER COMENTARIOS
-        onChildAdded(testimoniosRef, (snapshot) => {
-            const data = snapshot.val();
-            const card = document.createElement('div');
-            card.className = 'oliver-card';
-            card.innerHTML = `
-                <h4>${data.nombre}</h4>
-                <small>${data.cargo || ''}</small>
-                <p>${data.mensaje}</p>
-            `;
-            grid.prepend(card);
-        });
-
-        // 5. ENVIAR COMENTARIOS
-        form.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const boton = e.target.querySelector('button');
-            boton.disabled = true;
-            boton.innerText = "Enviando...";
-
-            const nuevo = {
-                nombre: document.getElementById('nombre').value,
-                cargo: document.getElementById('cargo').value,
-                mensaje: document.getElementById('mensaje').value,
-                fecha: new Date().toISOString()
-            };
-
-            try {
-                await push(testimoniosRef, nuevo);
-                form.reset();
-                alert("¡COMENTARIO RECIBIDO!");
-            } catch (error) {
-                alert("ERROR DE PERMISOS: Revisa que en Firebase las REGLAS digan 'true'.");
-                console.error(error);
-            } finally {
-                boton.disabled = false;
-                boton.innerText = "Enviar Comentario";
-            }
-        });
-
-    } catch (e) {
-        alert("Error crítico de carga: " + e.message);
-    }
+  // Inicializar
+  firebase.initializeApp(firebaseConfig);
+  const database = firebase.database();
 </script>
+
+<script type="module" src="../js/logic-comentarios.js"></script>
 <SCript src="../js/script.js"></SCript>
 </body>
 </html>
