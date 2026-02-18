@@ -145,108 +145,113 @@
     </footer>
 
     <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-    import { getDatabase, ref, push, onChildAdded, onChildRemoved, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push, onChildAdded, onChildRemoved, remove } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-Ljc",
-        authDomain: "tus-asesores.firebaseapp.com",
-        databaseURL: "https://tus-asesores-default-rtdb.firebaseio.com",
-        projectId: "tus-asesores",
-        storageBucket: "tus-asesores.firebasestorage.app",
-        messagingSenderId: "41149254149",
-        appId: "1:41149254149:web:65e109d9451c8651848520"
-    };
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-Ljc",
+            authDomain: "tus-asesores.firebaseapp.com",
+            databaseURL: "https://tus-asesores-default-rtdb.firebaseio.com",
+            projectId: "tus-asesores",
+            storageBucket: "tus-asesores.firebasestorage.app",
+            messagingSenderId: "41149254149",
+            appId: "1:41149254149:web:65e109d9451c8651848520"
+        };
 
-    const app = initializeApp(firebaseConfig);
-    const db = getDatabase(app);
-    const testimoniosRef = ref(db, 'testimonios');
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const testimoniosRef = ref(db, 'testimonios');
 
-    const form = document.getElementById('form-comentario');
-    const grid = document.getElementById('grid-comentarios');
+        const form = document.getElementById('form-comentario');
+        const grid = document.getElementById('grid-comentarios');
 
-    // --- LÓGICA DE ADMINISTRADOR ---
-    let modoAdmin = sessionStorage.getItem('isAdminTusAsesores') === 'true';
-    let dKeyPressCount = 0;
-
-    document.addEventListener('keydown', (e) => {
-        if (e.key.toLowerCase() === 'd') {
-            dKeyPressCount++;
-            if (dKeyPressCount === 3) {
-                const pass = prompt("Acceso Administrador - Ingresa Clave:");
-                if (pass === "tusasesores2026") {
-                    modoAdmin = !modoAdmin;
-                    sessionStorage.setItem('isAdminTusAsesores', modoAdmin);
-                    alert(modoAdmin ? "MODO EDICIÓN ACTIVADO" : "MODO EDICIÓN DESACTIVADO");
-                    location.reload();
+        // --- MODO ADMINISTRADOR (Tecla D x3 veces + Clave: tusasesores2026) ---
+        let modoAdmin = sessionStorage.getItem('isAdminTusAsesores') === 'true';
+        let dKeyPressCount = 0;
+        document.addEventListener('keydown', (e) => {
+            if (e.key.toLowerCase() === 'd') {
+                dKeyPressCount++;
+                if (dKeyPressCount === 3) {
+                    const pass = prompt("Acceso Administrador:");
+                    if (pass === "tusasesores2026") {
+                        modoAdmin = !modoAdmin;
+                        sessionStorage.setItem('isAdminTusAsesores', modoAdmin);
+                        location.reload();
+                    }
+                    dKeyPressCount = 0;
                 }
-                dKeyPressCount = 0;
+            } else { dKeyPressCount = 0; }
+        });
+
+        // --- CARGAR TESTIMONIOS CON ESTRELLAS ---
+        onChildAdded(testimoniosRef, (snapshot) => {
+            const data = snapshot.val();
+            const id = snapshot.key;
+            const card = document.createElement('div');
+            card.className = 'oliver-card';
+            card.id = `card-${id}`;
+            
+            // Generar HTML de estrellas
+            const rating = data.rating || 5;
+            let estrellasHtml = '';
+            for (let i = 1; i <= 5; i++) {
+                estrellasHtml += `<i class="${i <= rating ? 'fas' : 'far'} fa-star" style="color: #f3ce37;"></i> `;
             }
-        } else { dKeyPressCount = 0; }
-    });
 
-    // --- MOSTRAR COMENTARIOS ---
-    onChildAdded(testimoniosRef, (snapshot) => {
-        const data = snapshot.val();
-        const id = snapshot.key;
-        const card = document.createElement('div');
-        card.className = 'oliver-card';
-        card.id = `card-${id}`;
-        
-        // Botón de eliminar (Solo si modoAdmin es true)
-        const botonEliminar = modoAdmin ? 
-            `<button class="btn-delete" style="background:#ff4444; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer; width:100%; margin-top:10px; font-weight:bold;">ELIMINAR</button>` : '';
+            const botonEliminar = modoAdmin ? 
+                `<button class="btn-delete" style="background:#ff4444; color:white; border:none; padding:8px; border-radius:5px; cursor:pointer; width:100%; margin-top:10px;">ELIMINAR</button>` : '';
 
-        card.innerHTML = `
-            <div class="card-top">
-                <h4>${data.nombre}</h4>
-                <span>${data.cargo || 'Cliente'}</span>
-            </div>
-            <p>${data.mensaje}</p>
-            ${botonEliminar}
-        `;
-        grid.prepend(card);
+            card.innerHTML = `
+                <div class="card-top" style="display:flex; justify-content:space-between;">
+                    <div>
+                        <h4 style="color:#fff; margin:0;">${data.nombre}</h4>
+                        <span style="color:#f3ce37; font-size:12px;">${data.cargo || 'Cliente'}</span>
+                    </div>
+                </div>
+                <div class="stars" style="margin: 10px 0;">${estrellasHtml}</div>
+                <p style="color:#ccc;">${data.mensaje}</p>
+                ${botonEliminar}
+            `;
+            grid.prepend(card);
 
-        // Acción de eliminar
-        if (modoAdmin) {
-            card.querySelector('.btn-delete').onclick = async () => {
-                if (confirm("¿Segura que quieres borrar este comentario permanentemente?")) {
-                    await remove(ref(db, `testimonios/${id}`));
-                }
-            };
-        }
-    });
+            if (modoAdmin) {
+                card.querySelector('.btn-delete').onclick = async () => {
+                    if (confirm("¿Borrar este comentario?")) await remove(ref(db, `testimonios/${id}`));
+                };
+            }
+        });
 
-    // --- QUITAR COMENTARIO DE LA PANTALLA AL BORRAR ---
-    onChildRemoved(testimoniosRef, (snapshot) => {
-        const el = document.getElementById(`card-${snapshot.key}`);
-        if (el) el.remove();
-    });
+        onChildRemoved(testimoniosRef, (snapshot) => {
+            const el = document.getElementById(`card-${snapshot.key}`);
+            if (el) el.remove();
+        });
 
-    // --- ENVIAR COMENTARIO ---
-    form.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        const btn = document.getElementById('btn-submit');
-        btn.disabled = true;
+        // --- ENVIAR COMENTARIO ---
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit');
+            btn.disabled = true;
+            btn.innerText = "Publicando...";
 
-        try {
-            const nuevo = {
-                nombre: document.getElementById('nombre').value,
-                cargo: document.getElementById('cargo').value,
-                mensaje: document.getElementById('mensaje').value,
-                rating: 5,
-                fecha: new Date().toISOString()
-            };
-            await push(testimoniosRef, nuevo);
-            form.reset();
-            alert("¡Testimonio publicado!");
-        } catch (error) {
-            alert("Error al publicar.");
-        } finally {
-            btn.disabled = false;
-        }
-    });
-</script>
+            try {
+                const nuevo = {
+                    nombre: document.getElementById('nombre').value,
+                    cargo: document.getElementById('cargo').value,
+                    mensaje: document.getElementById('mensaje').value,
+                    rating: parseInt(document.querySelector('input[name="rating"]:checked').value),
+                    fecha: new Date().toISOString()
+                };
+                await push(testimoniosRef, nuevo);
+                form.reset();
+                alert("¡Comentario publicado!");
+            } catch (error) {
+                alert("Error al enviar.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Publicar mi comentario";
+            }
+        });
+    </script>
     <script src="../js/script.js"></script>
 </body>
 </html>
