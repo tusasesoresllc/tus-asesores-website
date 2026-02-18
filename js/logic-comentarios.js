@@ -1,32 +1,31 @@
+// Importamos las funciones necesarias de la versión que tienes (SDK v9+)
+import { getDatabase, ref, push, onChildAdded, onChildRemoved, remove } 
+    from "https://www.gstatic.com/firebasejs/12.9.0/firebase-database.js";
+
+const db = getDatabase();
 const grid = document.getElementById('grid-comentarios');
 const form = document.getElementById('form-comentario');
 
 // --- CONTROL DE ADMINISTRADOR ---
-let modoAdmin = false;
+let modoAdmin = sessionStorage.getItem('isAdminTusAsesores') === 'true';
+const MI_CLAVE = "tusasesores2026";
 let dKeyPressCount = 0;
-const MI_CLAVE = "tusasesores2026"; // <--- CLAVE ACTUALIZADA
 
 document.addEventListener('keydown', (e) => {
     if (e.key.toLowerCase() === 'd') {
         dKeyPressCount++;
         if (dKeyPressCount === 3) {
-            const pass = prompt("Acceso Administrador - Ingresa Clave:");
+            const pass = prompt("Acceso Administrador:");
             if (pass === MI_CLAVE) { 
                 modoAdmin = !modoAdmin;
-                alert(modoAdmin ? "MODO SELECCIÓN ACTIVADO: Ahora verás los botones rojos." : "MODO SELECCIÓN DESACTIVADO");
                 sessionStorage.setItem('isAdminTusAsesores', modoAdmin);
+                alert(modoAdmin ? "MODO EDICIÓN ACTIVADO" : "MODO EDICIÓN DESACTIVADO");
                 location.reload(); 
-            } else {
-                alert("Clave incorrecta");
             }
             dKeyPressCount = 0;
         }
-    } else {
-        dKeyPressCount = 0;
-    }
+    } else { dKeyPressCount = 0; }
 });
-
-if (sessionStorage.getItem('isAdminTusAsesores') === 'true') modoAdmin = true;
 
 // --- RENDERIZAR COMENTARIOS ---
 function renderizarCard(data, id) {
@@ -34,9 +33,8 @@ function renderizarCard(data, id) {
         `<i class="fa${i < data.rating ? 's' : 'r'} fa-star"></i>`
     ).join('');
 
-    // BOTÓN DE BORRADO (Solo aparece si activaste el modoAdmin con la D)
     const botonEliminar = modoAdmin ? 
-        `<button onclick="eliminarManual('${id}')" style="background:#ff3333; color:white; border:none; padding:10px; border-radius:8px; cursor:pointer; width:100%; margin-top:15px; font-weight:bold; font-family:sans-serif;">
+        `<button class="btn-delete" data-id="${id}" style="background:#ff3333; color:white; border:none; padding:10px; border-radius:8px; cursor:pointer; width:100%; margin-top:15px; font-weight:bold;">
             ELIMINAR ESTE COMENTARIO
         </button>` : '';
 
@@ -52,28 +50,38 @@ function renderizarCard(data, id) {
         </div>
     `;
     grid.insertAdjacentHTML('afterbegin', cardHTML);
+
+    // Asignar evento al botón si existe
+    if (modoAdmin) {
+        const btn = document.querySelector(`[data-id="${id}"]`);
+        btn.onclick = () => eliminarManual(id);
+    }
 }
 
-// --- CONEXIÓN FIREBASE ---
-database.ref('testimonios').on('child_added', (snapshot) => {
+// --- CONEXIÓN FIREBASE (LECTURA) ---
+const testimoniosRef = ref(db, 'testimonios');
+
+onChildAdded(testimoniosRef, (snapshot) => {
     renderizarCard(snapshot.val(), snapshot.key);
 });
 
-database.ref('testimonios').on('child_removed', (snapshot) => {
+onChildRemoved(testimoniosRef, (snapshot) => {
     const el = document.getElementById(`card-${snapshot.key}`);
     if (el) el.remove();
 });
 
 // --- ACCIÓN DE ELIMINAR ---
-window.eliminarManual = (id) => {
+async function eliminarManual(id) {
     if (confirm("¿Segura que quieres borrar este comentario?")) {
-        database.ref('testimonios/' + id).remove()
-            .then(() => alert("Eliminado con éxito."));
+        try {
+            await remove(ref(db, `testimonios/${id}`));
+            alert("Eliminado con éxito.");
+        } catch (err) { alert("Error al eliminar."); }
     }
-};
+}
 
 // --- ENVIAR NUEVO ---
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const ratingSeleccionado = document.querySelector('input[name="rating"]:checked')?.value || 5;
 
@@ -84,10 +92,11 @@ form.addEventListener('submit', (e) => {
         rating: parseInt(ratingSeleccionado)
     };
 
-    database.ref('testimonios').push(nuevo)
-        .then(() => {
-            form.reset();
-            alert("¡Publicado correctamente!");
-        })
-        .catch(err => alert("Error de permisos: Revisa las Reglas en Firebase."));
+    try {
+        await push(testimoniosRef, nuevo);
+        form.reset();
+        alert("¡Publicado correctamente!");
+    } catch (err) {
+        alert("Error: Revisa que las REGLAS de Firebase estén en TRUE.");
+    }
 });
