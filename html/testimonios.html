@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../css/estilo-testimonio.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="../img/Isotipo Principal.png"> 
+    
     <script>
     !function(f,b,e,v,n,t,s)
     {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
@@ -21,6 +22,7 @@
     </script>
     <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2065949323809830&ev=PageView&noscript=1"/></noscript>
+    
     <script src="//widget.manychat.com/1383933_10644.js" defer="defer"></script>
     <script src="https://mccdn.me/assets/js/widget.js" defer="defer"></script>
 </head>
@@ -54,18 +56,17 @@
     </header>
 
     <section id="home" class="hero-section">
-    <div class="background-overlay"></div>
-    <div class="container">
-        <h1>Tu éxito es nuestra mayor garantía</h1>
-        <p>Conoce las experiencias de quienes han confiado su crecimiento financiero en nosotros.</p>
-    </div>
-</section>
+        <div class="background-overlay"></div>
+        <div class="container">
+            <h1>Tu éxito es nuestra mayor garantía</h1>
+            <p>Conoce las experiencias de quienes han confiado su crecimiento financiero en nosotros.</p>
+        </div>
+    </section>
 
     <main class="comments-page">
         <div class="container">
-            
             <header class="section-header">
-                <span class="subtitle">Tu opinion es importante para nosotros</span>
+                <span class="subtitle">Tu opinión es importante para nosotros</span>
                 <h2>Testimonios de Clientes</h2>
             </header>
 
@@ -74,30 +75,29 @@
                     <h3>¿Cómo ha sido tu experiencia?</h3>
                     <form id="form-comentario">
                         <div class="input-row">
-    <input type="text" id="nombre" placeholder="Tu Nombre completo" required>
-    <div class="rating-selection">
-    <span>Tu Calificación:</span>
-    <div class="stars-input">
-        <input type="radio" name="rating" id="star-5" value="5"><label for="star-5"><i class="fas fa-star"></i></label>
-        <input type="radio" name="rating" id="star-4" value="4"><label for="star-4"><i class="fas fa-star"></i></label>
-        <input type="radio" name="rating" id="star-3" value="3"><label for="star-3"><i class="fas fa-star"></i></label>
-        <input type="radio" name="rating" id="star-2" value="2"><label for="star-2"><i class="fas fa-star"></i></label>
-        <input type="radio" name="rating" id="star-1" value="1"><label for="star-1"><i class="fas fa-star"></i></label>
-    </div>
-</div>
-</div>
-
+                            <input type="text" id="nombre" placeholder="Tu Nombre completo" required>
+                            
+                            <div class="rating-selection">
+                                <span>Tu Calificación:</span>
+                                <div class="stars-input">
+                                    <input type="radio" name="rating" id="star-5" value="5" checked><label for="star-5"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" id="star-4" value="4"><label for="star-4"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" id="star-3" value="3"><label for="star-3"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" id="star-2" value="2"><label for="star-2"><i class="fas fa-star"></i></label>
+                                    <input type="radio" name="rating" id="star-1" value="1"><label for="star-1"><i class="fas fa-star"></i></label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <input type="hidden" id="cargo" value="Cliente">
 
                         <textarea id="mensaje" rows="4" placeholder="Escribe aquí tu testimonio..." required></textarea>
-                        <button type="submit" class="btn-submit">Publicar mi comentario</button>
+                        <button type="submit" id="btn-submit" class="btn-submit">Publicar mi comentario</button>
                     </form>
                 </div>
-                
             </section>
 
-            <section id="grid-comentarios" class="dynamic-grid">
-                </section>
-
+            <section id="grid-comentarios" class="dynamic-grid"></section>
         </div>
     </main>
 
@@ -105,7 +105,7 @@
         <div class="footer-top">
             <div class="footer-logo">
                 <a href="#home">
-                    <img src="../img/Isotipo Naranja.png" alt="Logotipo de Tus Asesores, LLC en color negro" class="footer-logo-image">
+                    <img src="../img/Isotipo Naranja.png" alt="Logotipo" class="footer-logo-image">
                 </a>
             </div>
             
@@ -134,45 +134,82 @@
                     <ul>
                         <li><a href="mailto:info@tusasesoresllc.com">● info@tusasesoresllc.com</a></li>
                         <li><a href="https://wa.me/13059854905">● +1 (305) 985-4905</a></li>
-                        <li><a href="https://calendly.com/tus-asesores/reunionprivada">● Agenda una consulta</a></li>
                     </ul>
                 </div>
             </div>
-        </div>
-
-        <div class="footer-social-media">
-            <a href="https://www.youtube.com/@TusAsesores/featured" class="social-icon" aria-label="Canal de YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/TusAsesoresLLC/" class="social-icon" aria-label="Página de Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/finanzasfuturas.oficial/" class="social-icon" aria-label="Perfil de Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/ricardo-paez-3598952b0/" class="social-icon" aria-label="Perfil de LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.tiktok.com/@tus_asesores_llc?_t=ZM-8yH3bkfRAoA&_r=1" class="social-icon" aria-label="Perfil de TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/13059854905" class="social-icon" aria-label="Enviar mensaje por WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
 
         <div class="footer-bottom">
             <p>&copy; 2025 Tus Asesores, LLC. Todos los derechos reservados.</p>
         </div>
     </footer>
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.17.1/firebase-database-compat.js"></script>
 
-<script>
-  const firebaseConfig = {
-    apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-Ljc",
-    authDomain: "tus-asesores.firebaseapp.com",
-    projectId: "tus-asesores",
-    storageBucket: "tus-asesores.firebasestorage.app",
-    messagingSenderId: "41149254149",
-    appId: "1:41149254149:web:65e109d9451c8651848520",
-    measurementId: "G-GVEV97K0C8"
-  };
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
+        import { getDatabase, ref, push, onChildAdded } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-database.js";
 
-  // Inicializar
-  firebase.initializeApp(firebaseConfig);
-  const database = firebase.database();
-</script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyD2PoWyxufgEMZnBEsoIkRho__z6vr-Ljc",
+            authDomain: "tus-asesores.firebaseapp.com",
+            databaseURL: "https://tus-asesores-default-rtdb.firebaseio.com",
+            projectId: "tus-asesores",
+            storageBucket: "tus-asesores.firebasestorage.app",
+            messagingSenderId: "41149254149",
+            appId: "1:41149254149:web:65e109d9451c8651848520"
+        };
 
-<script type="module" src="../js/logic-comentarios.js"></script>
-<SCript src="../js/script.js"></SCript>
+        const app = initializeApp(firebaseConfig);
+        const db = getDatabase(app);
+        const testimoniosRef = ref(db, 'testimonios');
+
+        const form = document.getElementById('form-comentario');
+        const grid = document.getElementById('grid-comentarios');
+
+        // Escuchar comentarios nuevos
+        onChildAdded(testimoniosRef, (snapshot) => {
+            const data = snapshot.val();
+            const card = document.createElement('div');
+            card.className = 'oliver-card';
+            card.innerHTML = `
+                <div class="card-top">
+                    <h4>${data.nombre}</h4>
+                    <span>${data.cargo || 'Cliente'}</span>
+                </div>
+                <div class="stars">${'★'.repeat(data.rating || 5)}${'☆'.repeat(5 - (data.rating || 5))}</div>
+                <p>${data.mensaje}</p>
+            `;
+            grid.prepend(card);
+        });
+
+        // Enviar comentario
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('btn-submit');
+            btn.disabled = true;
+            btn.innerText = "Publicando...";
+
+            try {
+                const nuevo = {
+                    nombre: document.getElementById('nombre').value,
+                    cargo: document.getElementById('cargo').value,
+                    mensaje: document.getElementById('mensaje').value,
+                    rating: parseInt(document.querySelector('input[name="rating"]:checked')?.value || 5),
+                    fecha: new Date().toISOString()
+                };
+
+                await push(testimoniosRef, nuevo);
+                form.reset();
+                alert("¡Gracias por tu testimonio!");
+            } catch (error) {
+                console.error(error);
+                alert("Error de conexión. Revisa tus reglas de Firebase.");
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Publicar mi comentario";
+            }
+        });
+    </script>
+
+    <script src="../js/script.js"></script>
 </body>
 </html>
