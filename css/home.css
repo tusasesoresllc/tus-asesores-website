@@ -1,0 +1,117 @@
+/* Inicio renovado — Tus Asesores LLC (nov 2026) */
+body.home { background: #0b0b0b; font-family: 'Montserrat', sans-serif; }
+.home h1, .home h2, .home h3 { font-family: 'Montserrat', sans-serif; }
+
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 10px; padding: 14px 26px; border-radius: 8px; font-weight: 700; text-decoration: none; font-size: 16px; transition: transform .15s ease, box-shadow .15s ease, background .15s ease; }
+.btn:hover { transform: translateY(-2px); }
+.btn-principal { background: var(--amarillo); color: #000; box-shadow: 0 6px 18px rgba(243, 206, 55, .25); }
+.btn-principal:hover { background: #ffd84a; }
+.btn-secundario { border: 2px solid var(--amarillo); color: var(--amarillo); }
+.btn-secundario:hover { background: rgba(243, 206, 55, .1); }
+
+/* Hero */
+.h-hero { background: radial-gradient(circle at 80% 20%, #2a2106 0%, #0b0b0b 55%); padding: 72px 0 64px; }
+.h-hero .container { display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 56px; align-items: center; }
+.h-eyebrow { display: inline-block; color: var(--amarillo); font-size: 14px; font-weight: 600; letter-spacing: .3px; border: 1px solid rgba(243, 206, 55, .4); border-radius: 999px; padding: 6px 14px; margin-bottom: 22px; }
+.h-hero h1 { font-size: 46px; line-height: 1.12; font-weight: 800; color: #fff; margin-bottom: 20px; }
+.h-hero h1 span { color: var(--amarillo); }
+.h-hero p.h-sub { font-size: 19px; color: #d6d6d6; max-width: 560px; margin-bottom: 30px; }
+.h-acciones { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 26px; }
+.h-mini { display: flex; flex-wrap: wrap; gap: 18px; color: #bdbdbd; font-size: 14px; list-style: none; }
+.h-mini li::before { content: "✓ "; color: var(--amarillo); font-weight: 700; }
+
+.h-video { justify-self: center; width: 100%; max-width: 320px; }
+.h-video-marco { position: relative; border-radius: 22px; overflow: hidden; border: 3px solid var(--amarillo); box-shadow: 0 20px 50px rgba(0, 0, 0, .6); aspect-ratio: 9 / 16; background: #000; }
+.h-video-marco video { width: 100%; height: 100%; object-fit: cover; display: block; }
+.h-video-cap { text-align: center; color: #bdbdbd; font-size: 14px; margin-top: 12px; }
+
+/* Franja de confianza */
+.h-confianza { background: #000; border-top: 1px solid #222; border-bottom: 1px solid #222; padding: 26px 0; }
+.h-confianza .container { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 22px; }
+.h-cifras { display: flex; flex-wrap: wrap; gap: 36px; }
+.h-cifra strong { display: block; font-size: 26px; color: var(--amarillo); line-height: 1.1; }
+.h-cifra span { font-size: 14px; color: #cfcfcf; }
+.h-insignias { display: flex; align-items: center; gap: 14px; }
+.h-insignias img { height: 64px; width: auto; }
+.h-insignias .h-natp { font-size: 13px; color: #fff; border: 1px solid #444; border-radius: 8px; padding: 8px 12px; line-height: 1.3; text-align: center; }
+
+/* Servicios */
+.h-seccion { padding: 76px 0; }
+.h-seccion h2 { font-size: 34px; color: #fff; text-align: center; margin-bottom: 12px; }
+.h-seccion .h-intro { text-align: center; color: #cfcfcf; max-width: 640px; margin: 0 auto 44px; font-size: 17px; }
+.h-servicios { background: #0b0b0b; }
+.h-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px; }
+.h-card { background: #151515; border: 1px solid #262626; border-radius: 14px; padding: 28px 22px; display: flex; flex-direction: column; transition: border-color .2s ease, transform .2s ease; }
+.h-card:hover { border-color: var(--amarillo); transform: translateY(-4px); }
+.h-card img { width: 64px; height: 64px; object-fit: contain; margin-bottom: 18px; }
+.h-card h3 { color: #fff; font-size: 19px; margin-bottom: 10px; }
+.h-card p { color: #c9c9c9; font-size: 15px; flex: 1; margin-bottom: 18px; }
+.h-card a { color: var(--amarillo); font-weight: 700; text-decoration: none; }
+
+/* Sobre Ricardo */
+.h-ricardo { background: var(--amarillo); color: #111; }
+.h-ricardo .container { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 56px; align-items: center; }
+.h-ricardo img { width: 100%; max-width: 420px; border-radius: 18px; box-shadow: 0 18px 40px rgba(0, 0, 0, .25); }
+.h-ricardo h2 { color: #000; font-size: 34px; margin-bottom: 6px; }
+.h-ricardo .h-cargo { font-weight: 700; margin-bottom: 18px; }
+.h-ricardo p { font-size: 17px; margin-bottom: 14px; }
+.h-ricardo .btn-oscuro { background: #000; color: var(--amarillo); margin-top: 8px; }
+
+/* Pasos */
+.h-pasos { background: #0b0b0b; }
+.h-pasos-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; counter-reset: paso; }
+.h-paso { background: #151515; border-radius: 14px; padding: 30px 24px; border: 1px solid #262626; }
+.h-paso::before { counter-increment: paso; content: counter(paso); display: inline-flex; width: 42px; height: 42px; border-radius: 50%; background: var(--amarillo); color: #000; font-weight: 800; align-items: center; justify-content: center; margin-bottom: 16px; }
+.h-paso h3 { color: #fff; font-size: 19px; margin-bottom: 8px; }
+.h-paso p { color: #c9c9c9; font-size: 15px; }
+
+/* Testimonios */
+.h-testimonios { background: #000; }
+.h-tgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+.h-t { background: #151515; border-left: 4px solid var(--amarillo); border-radius: 12px; padding: 26px 24px; }
+.h-t p { color: #dcdcdc; font-size: 15px; font-style: italic; margin-bottom: 16px; }
+.h-t strong { color: var(--amarillo); }
+
+/* Cierre */
+.h-cierre { background: linear-gradient(135deg, #f3ce37, #f8b133); text-align: center; padding: 64px 0; }
+.h-cierre h2 { color: #000; font-size: 32px; margin-bottom: 10px; }
+.h-cierre p { color: #222; font-size: 17px; margin-bottom: 26px; }
+.h-cierre .h-acciones { justify-content: center; margin-bottom: 0; }
+.h-cierre .btn-principal { background: #000; color: var(--amarillo); box-shadow: none; }
+.h-cierre .btn-secundario { border-color: #000; color: #000; }
+
+/* Botón flotante WhatsApp */
+.h-wa { position: fixed; right: 18px; bottom: 18px; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 8px 20px rgba(0, 0, 0, .35); z-index: 900; text-decoration: none; }
+
+/* Pop-up de salida */
+.h-pop { position: fixed; inset: 0; background: rgba(0, 0, 0, .75); display: none; align-items: center; justify-content: center; z-index: 2000; padding: 16px; }
+.h-pop.visible { display: flex; }
+.h-pop-caja { background: #111; border: 2px solid var(--amarillo); border-radius: 16px; max-width: 440px; width: 100%; padding: 32px 26px; position: relative; text-align: center; }
+.h-pop-cerrar { position: absolute; top: 8px; right: 14px; background: none; border: 0; color: #fff; font-size: 30px; cursor: pointer; }
+.h-pop h2 { color: var(--amarillo); font-size: 24px; line-height: 1.25; margin-bottom: 10px; }
+.h-pop p { color: #d6d6d6; font-size: 15px; margin-bottom: 18px; }
+.h-pop form { display: flex; flex-direction: column; gap: 10px; }
+.h-pop input { padding: 13px 14px; border-radius: 8px; border: 1px solid #444; background: #000; color: #fff; font-size: 15px; }
+.h-pop button[type=submit] { cursor: pointer; border: 0; }
+.h-pop small { display: block; color: #8d8d8d; margin-top: 10px; font-size: 12px; }
+
+@media (max-width: 1024px) {
+  .h-grid { grid-template-columns: repeat(2, 1fr); }
+  .h-hero h1 { font-size: 38px; }
+}
+@media (max-width: 767px) {
+  .h-hero { padding: 44px 0 48px; }
+  .h-hero .container, .h-ricardo .container { grid-template-columns: 1fr; gap: 36px; }
+  .h-hero h1 { font-size: 30px; }
+  .h-hero p.h-sub { font-size: 17px; }
+  .h-acciones .btn { width: 100%; }
+  .h-grid, .h-pasos-grid, .h-tgrid { grid-template-columns: 1fr; }
+  .h-seccion { padding: 56px 0; }
+  .h-seccion h2, .h-ricardo h2 { font-size: 27px; }
+  .h-ricardo img { max-width: 300px; margin: 0 auto; display: block; }
+  .h-confianza .container { justify-content: center; text-align: center; }
+  .h-cifras { justify-content: center; gap: 24px; }
+}
+.h-ricardo .btn-borde-oscuro { border: 2px solid #000; color: #000; margin-top: 8px; }
+.h-ricardo .btn-borde-oscuro:hover { background: rgba(0, 0, 0, .08); }
+.h-ricardo h2 { text-align: left; }
