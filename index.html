@@ -63,10 +63,10 @@
                     <a class="btn btn-principal" href="https://wa.me/13059854839?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20mi%20LLC" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Escríbenos por WhatsApp</a>
                     <a class="btn btn-secundario" href="https://calendly.com/tus-asesores/reunionprivada" target="_blank" rel="noopener">Agenda tu Reunión Privada</a>
                 </div>
-                <ul class="h-mini">
-                    <li>100% online</li>
-                    <li>Atención en español</li>
-                    <li>Desde cualquier país</li>
+                <ul class="h-si">
+                    <li><b>SÍ,</b> puedes tener tu LLC en EE.UU. sin vivir allá.</li>
+                    <li><b>SÍ,</b> puedes evitar las multas del IRS.</li>
+                    <li><b>SÍ,</b> puedes hacerlo todo en español y 100% online.</li>
                 </ul>
             </div>
             <div class="h-video">
@@ -161,6 +161,21 @@
         </div>
     </section>
 
+    <section class="h-seccion h-cal" id="calendario">
+        <div class="container">
+            <div class="h-cal-foto"><img src="/img/home/ricardo-calendario.webp" alt="Lcdo. Ricardo Páez, MBA" width="560" height="720" loading="lazy"></div>
+            <div class="h-cal-cuerpo">
+                <h2>Calendario fiscal de tu LLC</h2>
+                <p class="h-cal-intro">La próxima fecha límite del IRS es el <strong id="cal-prox-fecha">—</strong></p>
+                <div class="h-cal-cuenta"><strong id="cal-dias">0</strong><span>días</span></div>
+                <p class="h-cal-que" id="cal-prox-que"></p>
+                <ul class="h-cal-lista" id="cal-lista"></ul>
+                <p class="h-cal-nota">Fechas para empresas con año fiscal calendario. Si caen en fin de semana o feriado, pasan al siguiente día hábil.</p>
+                <a class="btn btn-principal" href="https://wa.me/13059854839?text=Hola%2C%20vi%20el%20calendario%20fiscal%20en%20la%20web%20y%20quiero%20asegurar%20mi%20declaraci%C3%B3n" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Asegura tu declaración a tiempo</a>
+            </div>
+        </div>
+    </section>
+
     <section class="h-seccion h-testimonios" id="testimonios">
         <div class="container">
             <h2>Lo que dicen nuestros clientes</h2>
@@ -173,6 +188,16 @@
                 <div class="h-t"><p>“La preparación de taxes en EE.UU. me generaba mucho estrés por el desconocimiento. Tus Asesores gestionó mis impuestos de manera impecable. ¡Me siento realmente respaldado!”</p><strong>Daniel Montes</strong></div>
                 <div class="h-t"><p>“Necesitaba un socio confiable para las finanzas de mi empresa y superaron mis expectativas. Su equipo es transparente, eficiente y siempre está al tanto de las regulaciones.”</p><strong>Carlos Perdomo</strong></div>
             </div>
+        </div>
+    </section>
+
+    <section class="h-frase">
+        <div class="container">
+            <img src="/img/home/ricardo-frase.webp" alt="Lcdo. Ricardo Páez, MBA" width="600" height="666" loading="lazy">
+            <blockquote>
+                <p>“Cumplir a tiempo siempre cuesta menos que corregir tarde.”</p>
+                <cite>Lcdo. Ricardo Páez, MBA · Fundador de Tus Asesores LLC</cite>
+            </blockquote>
         </div>
     </section>
 
@@ -288,6 +313,14 @@
                 <input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
                 <input type="tel" name="whatsapp" placeholder="Tu WhatsApp (con código de país)" required autocomplete="tel">
                 <input type="email" name="email" placeholder="Tu correo (opcional)" autocomplete="email">
+                <select name="necesidad" required>
+                    <option value="" disabled selected>¿Qué necesitas?</option>
+                    <option>Crear mi LLC</option>
+                    <option>Declarar los impuestos de mi LLC</option>
+                    <option>Contabilidad mensual</option>
+                    <option>Estoy atrasado con el IRS</option>
+                    <option>Otro</option>
+                </select>
                 <button type="submit" class="btn btn-principal">Hacer mi chequeo gratis</button>
             </form>
             <small>Te llevamos al chequeo al instante. No compartimos tus datos.</small>

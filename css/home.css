@@ -357,3 +357,51 @@ html { scroll-behavior: smooth; }
 .credential-card h3 { font-size: 15px; line-height: 1.3; }
 .credential-card .short-description { font-size: 12.5px; }
 @media (max-width: 960px) { .credential-card { width: 210px; min-height: 290px; } }
+
+/* ===== Ideas nov-2026 (SÍ, calendario, frase, aviso) ===== */
+.h-si { list-style: none; padding: 0; margin: 0 auto 26px; max-width: 560px; display: flex; flex-direction: column; gap: 8px; text-align: left; }
+.h-si li { color: #e8e8e8; font-size: 17px; padding-left: 4px; }
+.h-si b { color: var(--amarillo); font-weight: 900; letter-spacing: .5px; }
+@media (max-width: 767px) { .h-si { order: 1; margin-top: 4px; } .h-si li { font-size: 16px; } }
+.h-cal { background: #000; position: relative; overflow: hidden; }
+.h-cal .container { display: grid; grid-template-columns: .8fr 1.2fr; gap: 50px; align-items: center; }
+.h-cal-foto img { width: 100%; max-width: 440px; display: block; margin: 0 auto; border-radius: 18px; box-shadow: 0 0 0 1px #2a2a2a; }
+.h-cal h2 { color: #fff; font-size: 36px; margin-bottom: 8px; text-align: left; }
+.h-cal-intro { color: #d6d6d6; font-size: 18px; }
+.h-cal-intro strong { color: var(--amarillo); }
+.h-cal-cuenta { display: flex; align-items: baseline; gap: 10px; margin: 8px 0 4px; }
+.h-cal-cuenta strong { font-size: 84px; line-height: 1; font-weight: 900; color: var(--amarillo); }
+.h-cal-cuenta span { color: #fff; font-size: 22px; font-weight: 700; }
+.h-cal-que { color: #bdbdbd; margin-bottom: 20px; }
+.h-cal-lista { list-style: none; padding: 0; margin: 0 0 14px; display: grid; gap: 8px; }
+.h-cal-lista li { display: flex; gap: 14px; align-items: center; background: #121212; border: 1px solid #262626; border-radius: 12px; padding: 10px 14px; transition: border-color .2s ease, transform .2s ease; }
+.h-cal-lista li:hover { border-color: var(--amarillo); transform: translateX(4px); }
+.h-cal-lista li.prox { border-color: var(--amarillo); background: rgba(243,206,55,.08); }
+.h-cal-lista .f { display: flex; flex-direction: column; align-items: center; min-width: 52px; color: var(--amarillo); text-transform: uppercase; font-size: 12px; font-weight: 700; }
+.h-cal-lista .f b { font-size: 24px; line-height: 1; }
+.h-cal-lista .q { color: #ddd; font-size: 14.5px; }
+.h-cal-nota { color: #8a8a8a; font-size: 12.5px; margin-bottom: 20px; }
+@media (max-width: 767px) {
+  .h-cal .container { grid-template-columns: 1fr; gap: 26px; }
+  .h-cal-foto img { max-width: 260px; }
+  .h-cal h2 { font-size: 28px; text-align: center; }
+  .h-cal-intro, .h-cal-que, .h-cal-nota { text-align: center; }
+  .h-cal-cuenta { justify-content: center; }
+  .h-cal-cuerpo .btn { width: 100%; justify-content: center; }
+}
+.h-frase { background: linear-gradient(90deg, #000 0%, #0b0b0b 100%); padding: 0; overflow: hidden; border-top: 1px solid #222; border-bottom: 1px solid #222; }
+.h-frase .container { display: grid; grid-template-columns: .7fr 1.3fr; align-items: end; gap: 40px; }
+.h-frase img { width: 100%; max-width: 380px; display: block; margin-top: 30px; }
+.h-frase blockquote { margin: 0; padding: 50px 0; align-self: center; }
+.h-frase blockquote p { font-size: 40px; line-height: 1.2; font-weight: 800; color: #fff; margin-bottom: 18px; }
+.h-frase cite { color: var(--amarillo); font-style: normal; font-weight: 700; }
+@media (max-width: 767px) {
+  .h-frase .container { grid-template-columns: 1fr; gap: 0; text-align: center; }
+  .h-frase img { max-width: 240px; margin: 30px auto 0; order: 2; }
+  .h-frase blockquote { padding: 40px 0 10px; }
+  .h-frase blockquote p { font-size: 28px; }
+}
+.h-aviso { background: var(--amarillo); color: #000; font-size: 14px; text-align: center; padding: 8px 40px; position: relative; z-index: 1001; }
+.h-aviso a { color: #000; font-weight: 800; text-decoration: underline; margin-left: 6px; }
+.h-aviso button { position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: 0; font-size: 22px; line-height: 1; cursor: pointer; color: #000; }
+.h-pop select { padding: 13px 14px; border-radius: 8px; border: 1px solid #444; background: #000; color: #ddd; font-size: 15px; width: 100%; }
