@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /html/construccion
+
+Sitemap: https://tusasesoresllc.com/sitemap.xml
