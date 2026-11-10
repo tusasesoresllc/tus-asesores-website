@@ -240,3 +240,6 @@ a.h-card:hover .h-card-btn { gap: 14px; background: #ffd84a; }
   .h-card-btn { width: 100%; padding: 15px; font-size: 16px; }
   .navbar { position: sticky; }
 }
+
+.h-logo-blanco { display: inline-flex; align-items: center; justify-content: center; background: #fafbfc; border-radius: 10px; padding: 6px 10px; flex-shrink: 0; }
+.h-ins .h-logo-blanco img { height: 44px; width: auto; }
