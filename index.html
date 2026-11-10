@@ -8,8 +8,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/estilo.css">
-    <link rel="stylesheet" href="css/home.css">
+    <link rel="stylesheet" href="/css/estilo.css">
+    <link rel="stylesheet" href="/css/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="img/Isotipo Principal.png"> 
     <script>
@@ -32,25 +32,23 @@
     <header id="menu" class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="/" aria-label="Ir al inicio"><img src="img/Logo Naranja.png" alt="Tus Asesores, LLC"></a>
+                <a href="/" aria-label="Ir al inicio"><img src="/img/Logo Naranja.png" alt="Tus Asesores, LLC"></a>
             </div>
-            
             <div class="navbar-right">
-                <a href="html/newsletter.html" class="btn-nav-mobile">Regístrate</a>
-                <button class="menu-toggle" aria-label="Toggle menu">
+                <a href="https://wa.me/13059854839?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20mi%20LLC" class="btn-nav-mobile" target="_blank" rel="noopener">Escríbenos</a>
+                <button class="menu-toggle" aria-label="Abrir menú">
                     <i class="fas fa-bars"></i>
                 </button>
             </div>
-
             <nav class="nav-menu">
                 <ul>
-                    <li><a href="index.html">Inicio</a></li>
-                    <li><a href="html/sobrenosotros.html">Sobre Nosotros</a></li>
-                    <li><a href="html/servicios.html">Servicios</a></li>
-                    <li><a href="html/testimonios.html">Testimonios</a></li>
-                    <li><a href="html/recursos.html">Recursos</a></li>
-                    <li><a href="html/contacto.html">Contacto</a></li>
-                    <li class="btn-desktop-li"><a href="html/newsletter.html" class="btn-nav">Regístrate</a></li>
+                    <li><a href="/" aria-current="page">Inicio</a></li>
+                    <li><a href="/servicios/">Servicios</a></li>
+                    <li><a href="/sobre-nosotros/">Sobre Nosotros</a></li>
+                    <li><a href="/testimonios/">Testimonios</a></li>
+                    <li><a href="/recursos/">Recursos</a></li>
+                    <li><a href="/contacto/">Contacto</a></li>
+                    <li class="btn-desktop-li"><a href="https://wa.me/13059854839?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20mi%20LLC" class="btn-nav" target="_blank" rel="noopener">Escríbenos</a></li>
                 </ul>
             </nav>
         </div>
@@ -74,8 +72,8 @@
             </div>
             <div class="h-video">
                 <div class="h-video-marco">
-                    <video controls playsinline preload="none" poster="img/home/ricardo-video-poster.webp" aria-label="Video de presentación del Lcdo. Ricardo Páez">
-                        <source src="mp4/ricardo-presentacion.mp4" type="video/mp4">
+                    <video controls playsinline preload="none" poster="/img/home/ricardo-video-poster.webp" aria-label="Video de presentación del Lcdo. Ricardo Páez">
+                        <source src="/mp4/ricardo-presentacion.mp4" type="video/mp4">
                     </video>
                 </div>
                 <p class="h-video-cap">Conoce a Ricardo en 1 minuto</p>
@@ -86,13 +84,13 @@
     <section class="h-confianza" aria-label="Por qué confiar en nosotros">
         <div class="container">
             <div class="h-cifras">
-                <div class="h-cifra"><strong>+ de 500</strong><span>empresarios atendidos</span></div>
-                <div class="h-cifra"><strong>+ de 7 países</strong><span>con clientes que confían en nosotros</span></div>
+                <div class="h-cifra"><strong data-n="500" data-pre="+ de ">+ de 500</strong><span>empresarios atendidos</span></div>
+                <div class="h-cifra"><strong data-n="7" data-pre="+ de " data-suf=" países">+ de 7 países</strong><span>con clientes que confían en nosotros</span></div>
                 <div class="h-cifra"><strong>Desde 2023</strong><span>firma registrada en Florida</span></div>
             </div>
             <div class="h-insignias">
-                <img src="img/home/insignia1.webp" alt="Insignia AFSP - Annual Filing Season Program" width="64" height="64" loading="lazy">
-                <img src="img/home/insignia2.webp" alt="Intuit QuickBooks ProAdvisor" width="64" height="64" loading="lazy">
+                <img src="/img/home/insignia1.webp" alt="Insignia AFSP - Annual Filing Season Program" width="64" height="64" loading="lazy">
+                <img src="/img/home/insignia2.webp" alt="Intuit QuickBooks ProAdvisor" width="64" height="64" loading="lazy">
                 <span class="h-natp">Miembro<br><strong>NATP</strong></span>
                 <span class="h-natp">Aliado estratégico<br><strong>Vertex Global Pro</strong></span>
             </div>
@@ -105,28 +103,28 @@
             <p class="h-intro">Todo lo que tu LLC necesita para operar en Estados Unidos, en un solo lugar y en tu idioma.</p>
             <div class="h-grid">
                 <article class="h-card">
-                    <img src="img/home/LLC-home.png" alt="" loading="lazy">
+                    <img src="/img/home/LLC-home.webp" alt="" loading="lazy">
                     <h3>Creación de tu LLC</h3>
                     <p>Registramos tu empresa en EE.UU. de forma 100% remota, con EIN y documentos listos para abrir tu cuenta bancaria.</p>
-                    <a href="html/servicios.html#nuevaempresa">Ver más →</a>
+                    <a href="/servicios/#nuevaempresa">Ver más →</a>
                 </article>
                 <article class="h-card">
-                    <img src="img/home/taxes-home.png" alt="" loading="lazy">
+                    <img src="/img/home/taxes-home.webp" alt="" loading="lazy">
                     <h3>Impuestos de tu LLC</h3>
                     <p>Preparamos y presentamos las declaraciones de tu empresa y las tuyas como no residente, a tiempo y sin errores.</p>
-                    <a href="html/servicios.html#taxes">Ver más →</a>
+                    <a href="/servicios/#taxes">Ver más →</a>
                 </article>
                 <article class="h-card">
-                    <img src="img/home/contabilidad-home.png" alt="" loading="lazy">
+                    <img src="/img/home/contabilidad-home.webp" alt="" loading="lazy">
                     <h3>Contabilidad mensual</h3>
                     <p>Tus libros al día cada mes, con estados financieros claros para que sepas cuánto ganas y tomes mejores decisiones.</p>
-                    <a href="html/servicios.html#contabilidad">Ver más →</a>
+                    <a href="/servicios/#contabilidad">Ver más →</a>
                 </article>
                 <article class="h-card">
-                    <img src="img/home/asesoria-home.png" alt="" loading="lazy">
+                    <img src="/img/home/asesoria-home.webp" alt="" loading="lazy">
                     <h3>Asesoría fiscal estratégica</h3>
                     <p>Te ayudamos a estructurar tu negocio en EE.UU. para pagar lo justo y evitar multas del IRS.</p>
-                    <a href="html/servicios.html#asesoria">Ver más →</a>
+                    <a href="/servicios/#asesoria">Ver más →</a>
                 </article>
             </div>
         </div>
@@ -134,7 +132,7 @@
 
     <section class="h-seccion h-ricardo" id="ricardo">
         <div class="container">
-            <img src="img/home/ricardo-retrato.webp" alt="Lcdo. Ricardo Páez, MBA, fundador de Tus Asesores LLC" width="420" height="560" loading="lazy">
+            <img src="/img/home/ricardo-retrato.webp" alt="Lcdo. Ricardo Páez, MBA, fundador de Tus Asesores LLC" width="420" height="560" loading="lazy">
             <div>
                 <h2>Hola, soy Ricardo Páez</h2>
                 <p class="h-cargo">Lcdo. Ricardo Páez, MBA · Fundador de Tus Asesores LLC</p>
@@ -143,8 +141,8 @@
                 <p>Soy autor del libro <strong>“Construye tu Propio Juego”</strong>, disponible en Amazon: la guía para emprendedores latinos que quieren crear y hacer crecer su negocio en Estados Unidos sin errores costosos.</p>
                 <p>Trabajamos en alianza estratégica con <strong>Vertex Global Pro LLC</strong>, nuestro Service Bureau autorizado para la transmisión electrónica de declaraciones ante el IRS.</p>
                 <div class="h-acciones">
-                    <a class="btn btn-oscuro" href="html/sobrenosotros.html">Conoce a nuestro equipo</a>
-                    <a class="btn btn-borde-oscuro" href="https://www.amazon.com/s?k=Construye+tu+Propio+Juego+Ricardo+Paez" target="_blank" rel="noopener">Ver mi libro en Amazon</a>
+                    <a class="btn btn-oscuro" href="/sobre-nosotros/">Conoce a nuestro equipo</a>
+                    <a class="btn btn-borde-oscuro" href="https://www.amazon.com/stores/author/B0G14PPW1N/about" target="_blank" rel="noopener">Ver mi libro en Amazon</a>
                 </div>
             </div>
         </div>
@@ -191,31 +189,27 @@
 <footer class="footer">
         <div class="footer-top">
             <div class="footer-logo">
-                <a href="#menu">
-                    <img src="img/Isotipo Negro.png" alt="Logotipo de Tus Asesores, LLC en color negro" class="footer-logo-image">
-                </a>
+                <a href="/" aria-label="Ir al inicio"><img src="/img/Isotipo Negro.png" alt="Tus Asesores, LLC" class="footer-logo-image"></a>
             </div>
-
             <div class="footer-links">
                 <div class="link-column">
                     <h4>Servicios</h4>
                     <ul>
-                        <li><a href="html/servicios.html#contabilidad">● Contabilidad</a></li>
-                        <li><a href="html/servicios.html#taxes">● Taxes</a></li>
-                        <li><a href="html/servicios.html#nuevaempresa">● Nueva Empresa en USA</a></li>
-                        <li><a href="html/servicios.html#asesoria">● Asesoría Fiscal</a></li>
+                        <li><a href="/servicios/#nuevaempresa">● Creación de LLC</a></li>
+                        <li><a href="/servicios/#taxes">● Impuestos</a></li>
+                        <li><a href="/servicios/#contabilidad">● Contabilidad</a></li>
+                        <li><a href="/servicios/#asesoria">● Asesoría Fiscal</a></li>
                     </ul>
                 </div>
-
                 <div class="link-column">
                     <h4>De interés</h4>
                     <ul>
-                        <li><a href="html/sobrenosotros.html#equipo">● Quiénes Somos</a></li>
-                        <li><a href="html/recursos.html">● Cursos y Recursos</a></li>
-                        <li><a href="html/newsletter.html">● Boletín Semanal</a></li>
+                        <li><a href="/sobre-nosotros/">● Quiénes Somos</a></li>
+                        <li><a href="/blog/">● Blog</a></li>
+                        <li><a href="/recursos/">● Recursos</a></li>
+                        <li><a href="/newsletter/">● Boletín</a></li>
                     </ul>
                 </div>
-
                 <div class="link-column">
                     <h4>Contacto</h4>
                     <ul>
@@ -226,16 +220,14 @@
                 </div>
             </div>
         </div>
-
         <div class="footer-social-media">
-            <a href="https://www.youtube.com/@TusAsesores/featured" class="social-icon" aria-label="Canal de YouTube"><i class="fab fa-youtube"></i></a>
-            <a href="https://www.facebook.com/TusAsesoresLLC/" class="social-icon" aria-label="Página de Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/tusasesoresllc/" class="social-icon" aria-label="Perfil de Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.linkedin.com/in/ricardo-paez-3598952b0/" class="social-icon" aria-label="Perfil de LinkedIn"><i class="fab fa-linkedin"></i></a>
-            <a href="https://www.tiktok.com/@tus_asesores_llc?_t=ZM-8yH3bkfRAoA&_r=1" class="social-icon" aria-label="Perfil de TikTok"><i class="fab fa-tiktok"></i></a>
-            <a href="https://wa.me/13059854839" class="social-icon" aria-label="Enviar mensaje por WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <a href="https://www.youtube.com/@TusAsesores" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            <a href="https://www.facebook.com/TusAsesoresLLC/" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="https://www.instagram.com/tusasesoresllc/" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://www.linkedin.com/company/tusasesoresllc" class="social-icon" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            <a href="https://www.tiktok.com/@tus_asesores_llc" class="social-icon" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://wa.me/13059854839" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
         </div>
-
         <div class="footer-bottom">
             <p>&copy; 2026 Tus Asesores, LLC. Todos los derechos reservados.</p>
         </div>
@@ -247,7 +239,7 @@
             <button class="h-pop-cerrar" type="button" aria-label="Cerrar">&times;</button>
             <h2 id="h-pop-titulo">Antes de irte: ¿tu LLC está expuesta a una multa de $25,000?</h2>
             <p>Mira gratis el video del Lcdo. Ricardo Páez <strong>“Los 7 errores que le cuestan $25,000 a tu LLC”</strong> y revisa si tu empresa está en riesgo.</p>
-            <form name="guia-7-errores" method="POST" action="/html/gracias-guia.html" data-netlify="true" netlify-honeypot="empresa">
+            <form name="guia-7-errores" method="POST" action="/gracias-guia/" data-netlify="true" netlify-honeypot="empresa">
                 <input type="hidden" name="form-name" value="guia-7-errores">
                 <p hidden><label>No llenar: <input name="empresa"></label></p>
                 <input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
@@ -277,6 +269,7 @@
     })();
     </script>
 
-    <script src="js/script.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/ui.js"></script>
 </body>
 </html>
