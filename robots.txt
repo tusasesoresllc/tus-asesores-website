@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 Disallow: /gracias/
-Disallow: /gracias-guia/
+Disallow: /chequeo-llc/
 
 Sitemap: https://tusasesoresllc.com/sitemap.xml

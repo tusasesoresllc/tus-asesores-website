@@ -21,8 +21,10 @@
 /html/Wyoming-vs-florida-llc.html         /blog/wyoming-vs-florida-llc/       301
 /html/Llc-cero-ingresos-multa-irs         /blog/llc-cero-ingresos-multa-irs/  301
 /html/Llc-cero-ingresos-multa-irs.html    /blog/llc-cero-ingresos-multa-irs/  301
-/html/gracias-guia                        /gracias-guia/                      301
-/html/gracias-guia.html                   /gracias-guia/                      301
+/html/gracias-guia                        /chequeo-llc/                       301
+/gracias-guia/                            /chequeo-llc/                       301
+/gracias-guia                             /chequeo-llc/                       301
+/html/gracias-guia.html                   /chequeo-llc/                       301
 /html/construccion                        /recursos/                          301
 /html/construccion.html                   /recursos/                          301
 /html/*                                   /                                   301
