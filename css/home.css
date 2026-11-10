@@ -473,3 +473,4 @@ html { scroll-behavior: smooth; }
 .h-cal-btn:hover .h-mano { transform: none; }
 @keyframes clic { 0%, 100% { transform: translate(0, 0) scale(1); } 40% { transform: translate(-6px, -8px) scale(1); } 55% { transform: translate(-6px, -8px) scale(.85); } 70% { transform: translate(-6px, -8px) scale(1); } }
 @media (prefers-reduced-motion: reduce) { .h-cal-btn .h-mano { animation: none; } }
+.h-cal-btn > i.h-mano { font-size: 40px; color: #fff; right: 14px; bottom: -18px; -webkit-text-stroke: 1.5px #000; filter: drop-shadow(0 3px 4px rgba(0,0,0,.5)); }
