@@ -432,3 +432,35 @@ html { scroll-behavior: smooth; }
   .r-libro-txt { text-align: center; }
   .r-libro-video iframe { height: 600px; }
 }
+
+/* Calendario y frase v2 */
+.h-cal .container { grid-template-columns: .55fr 1.45fr; }
+.h-cal-foto img { max-width: 320px; aspect-ratio: 1; object-fit: cover; border: 3px solid var(--amarillo); border-radius: 20px; }
+.h-cal-intro { margin-bottom: 18px; }
+.h-cal-lista li { display: grid; grid-template-columns: auto 1fr auto; gap: 16px; padding: 16px 18px; }
+.h-cal-lista .f { flex-direction: row; font-size: 20px; font-weight: 900; min-width: 0; letter-spacing: .5px; }
+.h-cal-lista .d { color: #fff; font-size: 13px; text-align: right; white-space: nowrap; }
+.h-cal-lista .d strong { display: block; font-size: 28px; color: var(--amarillo); line-height: 1; }
+.h-cal-btn { display: inline-flex; align-items: center; gap: 16px; background: linear-gradient(135deg, #f7d64a, #e0ae12); color: #000; text-decoration: none; padding: 16px 24px; border-radius: 14px; box-shadow: 0 10px 30px rgba(243,206,55,.35); animation: latido 2.4s ease-in-out infinite; transition: transform .2s ease; }
+.h-cal-btn:hover { transform: translateY(-3px) scale(1.02); animation: none; }
+.h-cal-btn > i:first-child { font-size: 32px; }
+.h-cal-btn span { display: flex; flex-direction: column; text-align: left; }
+.h-cal-btn b { font-size: 19px; font-weight: 900; }
+.h-cal-btn small { font-size: 13px; opacity: .8; }
+.h-cal-btn > i:last-child { font-size: 18px; transition: transform .2s ease; }
+.h-cal-btn:hover > i:last-child { transform: translateX(5px); }
+@keyframes latido { 0%, 100% { box-shadow: 0 10px 30px rgba(243,206,55,.35); } 50% { box-shadow: 0 10px 44px rgba(243,206,55,.7); } }
+@media (prefers-reduced-motion: reduce) { .h-cal-btn { animation: none; } }
+.h-frase .container { grid-template-columns: auto 1fr; align-items: center; gap: 44px; padding-top: 50px; padding-bottom: 50px; }
+.h-frase img { width: 230px; height: 230px; max-width: none; margin: 0; object-fit: cover; border-radius: 50%; border: 4px solid var(--amarillo); box-shadow: 0 0 0 8px rgba(243,206,55,.12); }
+.h-frase blockquote { padding: 0; }
+@media (max-width: 767px) {
+  .h-cal .container { grid-template-columns: 1fr; }
+  .h-cal-foto img { max-width: 200px; }
+  .h-cal-lista li { grid-template-columns: 1fr auto; }
+  .h-cal-lista .q { grid-column: 1 / -1; grid-row: 2; }
+  .h-cal-btn { width: 100%; justify-content: center; }
+  .h-frase .container { grid-template-columns: 1fr; gap: 24px; padding-top: 40px; padding-bottom: 40px; }
+  .h-frase img { width: 170px; height: 170px; margin: 0 auto; order: 0; }
+}
+.h-cal-foto img { height: auto; }

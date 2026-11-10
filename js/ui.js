@@ -19,7 +19,7 @@
     d.addEventListener('toggle', function () { if (d.open) document.querySelectorAll('.faq[open]').forEach(function (o) { if (o !== d) o.open = false; }); });
   });
 
-  var sel = '.h-card, .h-paso, .h-t, .h-ricardo .container > *, .p-box, .p-canal, .p-video, .h-cierre .container, .h-cifra, .h-ins, .faq, .chq-p';
+  var sel = '.h-card, .h-paso, .h-t, .h-ricardo .container > *, .p-box, .p-canal, .p-video, .h-cierre .container, .h-ins, .faq, .chq-p';
   var els = document.querySelectorAll(sel);
   if (!('IntersectionObserver' in window)) return;
   els.forEach(function (el) { el.classList.add('reveal'); });
@@ -35,13 +35,13 @@
   var nums = document.querySelectorAll('strong[data-n]');
   nums.forEach(function (n) { n.textContent = (n.getAttribute('data-pre') || '') + '0' + (n.getAttribute('data-suf') || ''); });
   var io2 = new IntersectionObserver(function (entries) {
-    entries.forEach(function (e) { if (e.isIntersecting) { io2.unobserve(e.target); contar(e.target); } });
+    entries.forEach(function (e) { if (e.isIntersecting) { io2.unobserve(e.target); setTimeout(function () { contar(e.target); }, 250); } });
   }, { threshold: 0.6 });
   nums.forEach(function (n) { io2.observe(n); });
   function contar(s) {
     var fin = parseInt(s.getAttribute('data-n'), 10), pre = s.getAttribute('data-pre') || '', suf = s.getAttribute('data-suf') || '';
     var t0 = null;
-    function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 2200, 1), q = 1 - Math.pow(1 - p, 3); s.textContent = pre + Math.round(fin * q) + suf; if (p < 1) requestAnimationFrame(paso); }
+    function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 2600, 1), q = 1 - Math.pow(1 - p, 3); s.textContent = pre + Math.round(fin * q) + suf; if (p < 1) requestAnimationFrame(paso); }
     requestAnimationFrame(paso);
   }
   var tabs = document.querySelectorAll('.p-tabs a');
@@ -53,52 +53,36 @@
   }
 })();
 
-// Calendario fiscal y barra de aviso con la próxima fecha límite del IRS
+// Calendario fiscal: 3 fechas clave con cuenta regresiva de cada una
 (function () {
+  var ul = document.getElementById('cal-lista'); if (!ul) return;
   var F = [
     [2, 15, 'LLC con socios (Formulario 1065) y S-Corp (1120-S)'],
-    [3, 15, 'LLC de un dueño extranjero (1120 + 5472), corporaciones (1120) y 1040-NR con salario en EE.UU. (y sus extensiones)'],
-    [4, 1, 'Reporte anual de tu LLC en Florida (Sunbiz)'],
-    [5, 15, 'Declaración personal 1040-NR sin salario en EE.UU.'],
-    [8, 15, 'Declaraciones extendidas de LLC con socios (1065) y S-Corp (1120-S)'],
-    [9, 15, 'Declaraciones extendidas de corporaciones, 1120 + 5472 y 1040-NR con salario']
+    [3, 15, 'LLC de un dueño extranjero (1120 + 5472), corporaciones (1120) y 1040-NR con salario en EE.UU.'],
+    [5, 15, 'Declaración personal 1040-NR sin salario en EE.UU.']
   ];
-  var M = ['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
   var hoy = new Date(); hoy.setHours(0, 0, 0, 0);
-  function habil(d) { while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1); return d; }
-  var lista = [];
-  [hoy.getFullYear(), hoy.getFullYear() + 1].forEach(function (y) {
-    F.forEach(function (f) { var d = new Date(y, f[0], f[1]); if (f[0] !== 4) habil(d); lista.push({ d: d, que: f[2] }); });
+  function pad(n) { return (n < 10 ? '0' : '') + n; }
+  F.forEach(function (f) {
+    var y = hoy.getFullYear(), d = new Date(y, f[0], f[1]);
+    if (d < hoy) d = new Date(y + 1, f[0], f[1]);
+    while (d.getDay() === 0 || d.getDay() === 6) d.setDate(d.getDate() + 1);
+    var dias = Math.round((d - hoy) / 864e5);
+    var li = document.createElement('li');
+    li.innerHTML = '<span class="f">' + pad(d.getMonth() + 1) + '/' + pad(d.getDate()) + '/' + d.getFullYear() + '</span><span class="q"></span><span class="d"><strong data-n="' + dias + '">' + dias + '</strong> días</span>';
+    li.querySelector('.q').textContent = f[2];
+    ul.appendChild(li);
   });
-  lista = lista.filter(function (x) { return x.d >= hoy; }).sort(function (a, b) { return a.d - b.d; });
-  var prox = lista[0]; if (!prox) return;
-  var dias = Math.round((prox.d - hoy) / 864e5);
-  function fmt(d) { return d.getDate() + ' de ' + M[d.getMonth()] + ' de ' + d.getFullYear(); }
-
-  var el = document.getElementById('cal-dias');
-  if (el) {
-    document.getElementById('cal-prox-fecha').textContent = fmt(prox.d);
-    document.getElementById('cal-prox-que').textContent = prox.que;
-    el.setAttribute('data-n', dias); el.textContent = '0';
-    var io = new IntersectionObserver(function (e) {
-      if (!e[0].isIntersecting) return; io.disconnect();
-      var t0 = null; (function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1800, 1); el.textContent = Math.round(dias * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(paso); })(performance.now());
-    }, { threshold: 0.5 });
-    io.observe(el);
-    var ul = document.getElementById('cal-lista');
-    lista.slice(0, 6).forEach(function (x, i) {
-      var li = document.createElement('li'); if (i === 0) li.className = 'prox';
-      li.innerHTML = '<span class="f"><b>' + x.d.getDate() + '</b>' + M[x.d.getMonth()].slice(0, 3) + '</span><span class="q"></span>';
-      li.querySelector('.q').textContent = x.que; ul.appendChild(li);
+  var nums = ul.querySelectorAll('strong[data-n]');
+  nums.forEach(function (n) { n.textContent = '0'; });
+  var io = new IntersectionObserver(function (e) {
+    if (!e[0].isIntersecting) return; io.disconnect();
+    nums.forEach(function (n) {
+      var fin = +n.getAttribute('data-n'), t0 = null;
+      (function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 2000, 1); n.textContent = Math.round(fin * (1 - Math.pow(1 - p, 3))); if (p < 1) requestAnimationFrame(paso); })(performance.now());
     });
-  }
-
-  // Barra superior (se puede cerrar; no vuelve a salir en la misma visita)
-  try { if (sessionStorage.getItem('barra-cerrada')) return; } catch (e) {}
-  var bar = document.createElement('div'); bar.className = 'h-aviso';
-  bar.innerHTML = '<span>📅 Próxima fecha límite del IRS: <b>' + prox.d.getDate() + ' de ' + M[prox.d.getMonth()] + '</b> · faltan <b>' + dias + ' días</b></span> <a href="/#calendario">Ver calendario</a><button type="button" aria-label="Cerrar aviso">&times;</button>';
-  document.body.insertBefore(bar, document.body.firstChild);
-  bar.querySelector('button').addEventListener('click', function () { bar.remove(); try { sessionStorage.setItem('barra-cerrada', '1'); } catch (e) {} });
+  }, { threshold: 0.4 });
+  io.observe(ul);
 })();
 
 // Frase destacada: cambia en cada visita
