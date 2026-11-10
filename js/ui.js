@@ -100,3 +100,12 @@
   document.body.insertBefore(bar, document.body.firstChild);
   bar.querySelector('button').addEventListener('click', function () { bar.remove(); try { sessionStorage.setItem('barra-cerrada', '1'); } catch (e) {} });
 })();
+
+// Frase destacada: cambia en cada visita
+(function () {
+  var p = document.getElementById('frase-txt'); if (!p) return;
+  var F = ['“Cumplir a tiempo siempre cuesta menos que corregir tarde.”',
+           '“Tu LLC no necesita suerte con el IRS: necesita orden y estrategia.”',
+           '“Vivas donde vivas, tu empresa en Estados Unidos merece estar en regla.”'];
+  p.textContent = F[Math.floor(Math.random() * F.length)];
+})();
