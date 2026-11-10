@@ -468,3 +468,8 @@ html { scroll-behavior: smooth; }
 .h-video-marco { position: relative; cursor: pointer; }
 .h-play { position: absolute; inset: 0; margin: auto; width: 86px; height: 86px; border-radius: 50%; border: 0; background: var(--amarillo); color: #000; font-size: 32px; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 0 10px rgba(243,206,55,.25); animation: latido 2.4s ease-in-out infinite; cursor: pointer; padding-left: 6px; }
 .h-video-marco.reproduciendo .h-play { display: none; }
+.h-cal-btn { position: relative; padding-right: 64px; }
+.h-cal-btn .h-mano { position: absolute; right: 16px; bottom: -14px; font-size: 34px; color: #000; text-shadow: 0 0 0 #fff, 2px 2px 0 rgba(255,255,255,.6); transform-origin: 30% 10%; animation: clic 1.4s ease-in-out infinite; }
+.h-cal-btn:hover .h-mano { transform: none; }
+@keyframes clic { 0%, 100% { transform: translate(0, 0) scale(1); } 40% { transform: translate(-6px, -8px) scale(1); } 55% { transform: translate(-6px, -8px) scale(.85); } 70% { transform: translate(-6px, -8px) scale(1); } }
+@media (prefers-reduced-motion: reduce) { .h-cal-btn .h-mano { animation: none; } }
