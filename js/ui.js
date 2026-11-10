@@ -100,4 +100,7 @@
   function primero() { if (v.paused) v.play(); }
   v.addEventListener('click', primero);
   v.addEventListener('play', function () { v.removeEventListener('click', primero); }, { once: true });
+  // Al terminar vuelve a la imagen inicial, sin repetir
+  v.loop = false;
+  v.addEventListener('ended', function () { v.pause(); v.currentTime = 0; setTimeout(function () { v.load(); }, 50); v.addEventListener('click', primero); v.addEventListener('play', function () { v.removeEventListener('click', primero); }, { once: true }); });
 })();

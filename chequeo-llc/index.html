@@ -4,13 +4,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chequeo gratis de tu LLC | Tus Asesores LLC</title>
-    <meta name="description" content="Responde 7 preguntas y descubre si tu LLC está al día con el IRS y el estado.">
+    <meta name="description" content="Chequeo interactivo según tu tipo de empresa: descubre si tu LLC está al día con el IRS y el estado.">
     <meta name="robots" content="noindex">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/estilo.css">
-    <link rel="stylesheet" href="/css/home.css?v=3">
+    <link rel="stylesheet" href="/css/home.css?v=10">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="/img/Isotipo Principal.png">
     <script>
@@ -54,51 +54,112 @@
 
     <section class="p-hero">
         <div class="container">
-            <h1>Chequeo gratis: ¿tu LLC está al día con el IRS?</h1>
-            <p>Responde 7 preguntas rápidas. Al final te decimos tu nivel de riesgo.</p>
+            <h1>Chequeo gratis: ¿tu empresa está al día con el IRS?</h1>
+            <p>Responde según tu tipo de empresa y descubre en 2 minutos qué te falta y si tienes riesgo de multas.</p>
         </div>
     </section>
     <section class="h-seccion h-servicios">
         <div class="container">
-            <div class="chq">
-                <div><div class="chq-barra"><span id="chq-barra"></span></div><div class="chq-cuenta" id="chq-cuenta">0 de 7</div></div>
-                <div class="chq-p" data-i="0"><p>1. ¿Tu LLC presentó su declaración del año pasado ante el IRS, aunque no haya tenido ingresos?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="1"><p>2. Si tu LLC es de un solo dueño extranjero: ¿presentaste el Formulario 5472 con el Formulario 1120 informativo?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="2"><p>3. ¿Renovaste tu LLC este año ante el estado (reporte anual)?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="3"><p>4. ¿Tu LLC tiene un agente registrado vigente?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="4"><p>5. ¿El IRS tiene actualizada la dirección y el responsable de tu LLC?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="5"><p>6. ¿Usas una cuenta bancaria solo para la LLC, separada de la personal?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-p" data-i="6"><p>7. ¿Llevas registro de los aportes y retiros de dinero entre tú y tu LLC?</p><div class="chq-op"><button type="button" data-v="si">Sí</button><button type="button" data-v="no">No / No sé</button></div></div>
-                <div class="chq-res" id="chq-res"><h3 id="chq-tit"></h3><p id="chq-txt"></p><a class="btn btn-principal" id="chq-wa" target="_blank" rel="noopener"><i class="fab fa-whatsapp"></i> Revisar mi caso por WhatsApp</a></div>
+            <div class="cq" id="cq">
+                <div class="cq-top"><button type="button" class="cq-atras" id="cq-atras" hidden><i class="fas fa-arrow-left"></i> Atrás</button><span class="cq-paso" id="cq-paso"></span></div>
+                <div class="chq-barra"><span id="cq-barra"></span></div>
+                <div class="cq-caja" id="cq-caja"></div>
             </div>
+            <p class="cq-aviso">Este chequeo es orientativo y no sustituye una revisión profesional de tu caso.</p>
         </div>
     </section>
     <script>
     (function () {
-        var r = {}, total = 7;
-        document.querySelectorAll('.chq-p').forEach(function (p) {
-            p.querySelectorAll('button').forEach(function (b) {
-                b.addEventListener('click', function () {
-                    p.querySelectorAll('button').forEach(function (x) { x.className = ''; });
-                    b.className = b.dataset.v === 'si' ? 'sel-si' : 'sel-no';
-                    r[p.dataset.i] = b.dataset.v; act();
-                });
-            });
+      var R = {};            // respuestas
+      var hist = [];         // historial de pasos
+      var caja = document.getElementById('cq-caja');
+      var SN = [['si', 'Sí'], ['no', 'No'], ['ns', 'No sé']];
+      var SNA = [['si', 'Sí'], ['no', 'No'], ['na', 'No aplica']];
+
+      // Cada pregunta: id, texto, opciones, si "no"/"ns" genera hallazgo: [riesgo, mensaje]
+      var P = {
+        tipo: { t: '¿Qué tipo de empresa tienes en Estados Unidos?', o: [['smllc', 'LLC de un solo dueño'], ['mmllc', 'LLC con 2 o más socios'], ['corp', 'Corporación (C-Corp)'], ['ninguna', 'Todavía no tengo empresa']] },
+        res: { t: '¿Dónde vives la mayor parte del año?', o: [['ext', 'Fuera de Estados Unidos'], ['usa', 'En Estados Unidos (residente o ciudadano)']] },
+        e1: { t: '¿Tu empresa tiene oficina, local, almacén o empleados en Estados Unidos?', o: SN, eci: true },
+        e2: { t: '¿Tú o tu equipo prestan los servicios estando físicamente en Estados Unidos?', o: SN, eci: true },
+        e3: { t: '¿Vendes productos con inventario guardado en Estados Unidos (por ejemplo, Amazon FBA o un almacén)?', o: SN, eci: true },
+        s5472: { t: '¿Presentaste el año pasado el Formulario 5472 junto con el 1120 informativo de tu LLC?', o: SN, h: ['alto', 'Formulario 5472 sin presentar: la multa es de $25,000 por cada formulario (IRC §6038A(d)), aunque tu LLC no haya tenido ingresos.'] },
+        sreg: { t: '¿Llevas registro de cada aporte y retiro de dinero entre tú y tu LLC?', o: SN, h: ['medio', 'Sin registro de aportes y retiros: el 5472 exige reportar esas transacciones, y sin registros no se puede presentar correctamente.'] },
+        snr: { t: '¿Declaraste esos ingresos conectados con EE.UU. en tu declaración personal 1040-NR?', o: SN, h: ['alto', 'Posibles ingresos conectados (ECI) sin declarar: deben reportarse en tu 1040-NR y pueden generar impuesto, multas e intereses.'] },
+        sc: { t: '¿Reportaste las ganancias de tu LLC en tu declaración personal (Formulario 1040, Anexo C)?', o: SN, h: ['alto', 'Ganancias de la LLC sin reportar en tu 1040: como dueño residente, el IRS las grava en tu declaración personal.'] },
+        p1065: { t: '¿La sociedad presentó el Formulario 1065 a tiempo (15 de marzo o con extensión)?', o: SN, h: ['alto', 'Formulario 1065 tarde o sin presentar: la multa se cobra por cada socio y por cada mes de retraso (IRC §6698).'] },
+        pk1: { t: '¿Cada socio recibió su Anexo K-1?', o: SN, h: ['medio', 'Socios sin su K-1: lo necesitan para presentar su propia declaración.'] },
+        p1446: { t: '¿La sociedad hizo la retención a los socios extranjeros sobre los ingresos conectados (Formularios 8804 y 8805)?', o: SN, h: ['alto', 'Retención a socios extranjeros sin hacer: la sociedad responde por el impuesto sobre el ECI asignable a ellos (IRC §1446).'] },
+        c1120: { t: '¿Tu corporación presentó el Formulario 1120 del año pasado?', o: SN, h: ['alto', 'Formulario 1120 sin presentar: hay multas por presentación y pago tardío, más intereses.'] },
+        c5472: { t: 'Si un extranjero tiene 25% o más de la corporación, ¿presentaste también el Formulario 5472?', o: SNA, h: ['alto', 'Formulario 5472 sin presentar: la multa es de $25,000 por cada formulario (IRC §6038A(d)).'] },
+        fbar: { t: 'Si tienes cuentas fuera de EE.UU. que en algún momento del año sumaron más de $10,000, ¿presentaste el FBAR (FinCEN 114)?', o: SNA, h: ['alto', 'FBAR sin presentar: las multas por no reportar cuentas en el exterior pueden ser muy altas.'] },
+        g1: { t: '¿Presentaste este año el reporte anual de tu empresa ante el estado?', o: SN, h: ['alto', 'Reporte anual del estado pendiente: si no se presenta, el estado puede disolver tu empresa (en Florida, presentarlo tarde cuesta $400 adicionales).'] },
+        g2: { t: '¿Tu empresa tiene un agente registrado vigente?', o: SN, h: ['medio', 'Agente registrado no confirmado: es obligatorio para mantener la empresa activa y recibir avisos legales.'] },
+        g3: { t: '¿Usas una cuenta bancaria solo para la empresa, separada de la personal?', o: SN, h: ['medio', 'Cuentas mezcladas: complica tu contabilidad y puede debilitar la protección de responsabilidad limitada.'] },
+        g4: { t: '¿El IRS tiene actualizada la dirección y el responsable de tu empresa (Formulario 8822-B)?', o: SN, h: ['medio', 'Datos desactualizados ante el IRS: podrías no recibir avisos importantes. Se corrige con el Formulario 8822-B.'] }
+      };
+
+      function eci() { return R.e1 === 'si' || R.e2 === 'si' || R.e3 === 'si'; }
+      function ruta() {
+        var r = ['tipo'];
+        if (!R.tipo || R.tipo === 'ninguna') return r;
+        r.push('res');
+        var ext = R.res === 'ext';
+        if (ext) r.push('e1', 'e2', 'e3');
+        if (R.tipo === 'smllc') { if (ext) { r.push('s5472', 'sreg'); if (eci()) r.push('snr'); } else r.push('sc'); }
+        if (R.tipo === 'mmllc') { r.push('p1065', 'pk1'); if (ext && eci()) r.push('p1446'); }
+        if (R.tipo === 'corp') { r.push('c1120'); if (ext) r.push('c5472'); }
+        if (R.res === 'usa') r.push('fbar');
+        r.push('g1', 'g2', 'g3', 'g4');
+        return r;
+      }
+      function siguiente() { var r = ruta(); for (var i = 0; i < r.length; i++) if (!(r[i] in R)) return r[i]; return null; }
+
+      function pintar() {
+        var id = siguiente(), r = ruta();
+        document.getElementById('cq-atras').hidden = hist.length === 0;
+        var hechos = r.filter(function (k) { return k in R; }).length;
+        var total = (R.tipo && R.tipo !== 'ninguna') ? Math.max(r.length, hechos + 1) : r.length;
+        document.getElementById('cq-barra').style.width = (id ? hechos / total * 100 : 100) + '%';
+        document.getElementById('cq-paso').textContent = id ? 'Pregunta ' + (hechos + 1) : 'Resultado';
+        if (!id) return resultado();
+        var q = P[id];
+        caja.innerHTML = (q.eci && id === 'e1' ? '<p class="cq-nota"><i class="fas fa-info-circle"></i> Ahora veremos si tu negocio tiene <strong>ingresos efectivamente conectados (ECI)</strong> con EE.UU.: eso define si pagas impuesto federal.</p>' : '') + '<h3></h3><div class="cq-ops"></div>';
+        caja.querySelector('h3').textContent = q.t;
+        var ops = caja.querySelector('.cq-ops');
+        q.o.forEach(function (o) {
+          var b = document.createElement('button'); b.type = 'button'; b.textContent = o[1];
+          b.addEventListener('click', function () { R[id] = o[0]; hist.push(id); limpiar(); pintar(); });
+          ops.appendChild(b);
         });
-        function act() {
-            var n = Object.keys(r).length, no = Object.values(r).filter(function (v) { return v === 'no'; }).length;
-            document.getElementById('chq-barra').style.width = (n / total * 100) + '%';
-            document.getElementById('chq-cuenta').textContent = n + ' de ' + total;
-            if (n < total) return;
-            var t, x;
-            if (no === 0) { t = '¡Muy bien! Tu LLC parece estar al día'; x = 'Igual te recomendamos una revisión anual para confirmar que no se te escapa nada antes de la próxima fecha límite.'; }
-            else if (no <= 2) { t = 'Atención: hay ' + no + ' punto' + (no > 1 ? 's' : '') + ' por revisar'; x = 'Estos puntos pueden generar multas o problemas con el IRS o el estado. Escríbenos y los revisamos contigo.'; }
-            else { t = 'Riesgo alto: ' + no + ' puntos pendientes'; x = 'Tu LLC podría estar expuesta a multas importantes, como la de $25,000 por no presentar el Formulario 5472. Escríbenos hoy y te decimos cómo ponerte al día.'; }
-            document.getElementById('chq-tit').textContent = t;
-            document.getElementById('chq-txt').textContent = x;
-            document.getElementById('chq-wa').href = 'https://wa.me/13059854839?text=' + encodeURIComponent('Hola, hice el chequeo de mi LLC en la web y me salieron ' + no + ' puntos pendientes. Quiero revisar mi caso.');
-            var res = document.getElementById('chq-res'); res.classList.add('visible'); res.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        caja.classList.remove('cq-anim'); void caja.offsetWidth; caja.classList.add('cq-anim');
+      }
+      // Si cambia una respuesta anterior, borra las que ya no aplican
+      function limpiar() { var r = ruta(); Object.keys(R).forEach(function (k) { if (r.indexOf(k) < 0) delete R[k]; }); }
+      document.getElementById('cq-atras').addEventListener('click', function () { var k = hist.pop(); delete R[k]; limpiar(); pintar(); });
+
+      function resultado() {
+        var wa = 'https://wa.me/13059854839?text=';
+        if (R.tipo === 'ninguna') {
+          caja.innerHTML = '<div class="cq-res cq-ok"><h3>¡Empecemos bien desde el día uno!</h3><p>Te ayudamos a elegir el tipo de empresa y el estado que más te conviene, y creamos tu LLC 100% en línea, con EIN y documentos listos para tu cuenta bancaria.</p><a class="btn btn-principal" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Hola, hice el chequeo en la web. Todavía no tengo empresa y quiero crear mi LLC.') + '"><i class="fab fa-whatsapp"></i> Quiero crear mi LLC</a></div>';
+          return;
         }
+        var hall = [];
+        ruta().forEach(function (k) { var q = P[k]; if (q.h && (R[k] === 'no' || R[k] === 'ns')) hall.push(q.h); });
+        var altos = hall.filter(function (h) { return h[0] === 'alto'; }).length;
+        var nivel = altos >= 2 ? ['Riesgo alto', 'cq-alto'] : (altos === 1 || hall.length >= 3) ? ['Riesgo medio', 'cq-medio'] : hall.length ? ['Riesgo bajo', 'cq-bajo'] : ['¡Muy bien! Vas al día', 'cq-ok'];
+        var tipos = { smllc: 'LLC de un dueño', mmllc: 'LLC con socios', corp: 'Corporación' };
+        var h = '<div class="cq-res ' + nivel[1] + '"><span class="cq-tag">' + tipos[R.tipo] + (R.res === 'ext' ? ' · dueño extranjero' : ' · dueño residente') + '</span><h3>' + nivel[0] + '</h3>';
+        if (R.res === 'ext') h += '<p class="cq-eci">' + (eci() ? '<strong>Posibles ingresos efectivamente conectados (ECI):</strong> tu negocio tiene actividad en EE.UU., lo que puede generar impuesto federal. Conviene revisarlo con el tratado de tu país.' : '<strong>Sin señales de ECI:</strong> por lo que respondiste, tu negocio no parece tener actividad en EE.UU. Aun así, las declaraciones informativas son obligatorias.') + '</p>';
+        if (hall.length) { h += '<ul class="cq-hall">'; hall.forEach(function (x) { h += '<li class="' + x[0] + '"></li>'; }); h += '</ul>'; }
+        else h += '<p>No encontramos alertas. Te recomendamos una revisión anual para confirmar que todo sigue en regla antes de la próxima fecha límite.</p>';
+        var msg = 'Hola, hice el chequeo en la web (' + tipos[R.tipo] + ', ' + (R.res === 'ext' ? 'vivo fuera de EE.UU.' : 'vivo en EE.UU.') + '). Resultado: ' + nivel[0] + ' con ' + hall.length + ' punto(s) pendiente(s). Quiero revisar mi caso.';
+        h += '<a class="btn btn-principal" target="_blank" rel="noopener" href="' + wa + encodeURIComponent(msg) + '"><i class="fab fa-whatsapp"></i> Revisar mi caso por WhatsApp</a><button type="button" class="cq-rehacer">Hacer el chequeo de nuevo</button></div>';
+        caja.innerHTML = h;
+        var lis = caja.querySelectorAll('.cq-hall li'); hall.forEach(function (x, i) { lis[i].textContent = x[1]; });
+        caja.querySelector('.cq-rehacer').addEventListener('click', function () { R = {}; hist = []; pintar(); });
+      }
+      pintar();
     })();
     </script>
     <footer class="footer">
@@ -152,6 +213,6 @@
 
     <a class="h-wa" href="https://wa.me/13059854839?text=Hola%2C%20vengo%20de%20la%20web%20y%20quiero%20informaci%C3%B3n%20sobre%20mi%20LLC" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp"><i class="fab fa-whatsapp"></i></a>
     <script src="/js/script.js"></script>
-    <script src="/js/ui.js?v=3"></script>
+    <script src="/js/ui.js?v=7"></script>
 </body>
 </html>

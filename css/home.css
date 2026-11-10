@@ -497,3 +497,32 @@ a.h-card:hover .h-card-fondo { opacity: 1; transform: scale(1.05); }
 .h-ricardo .btn-borde-oscuro:hover { background: rgba(243,206,55,.1); }
 a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .h-video-marco { cursor: default; }
+
+/* Chequeo interactivo ramificado */
+.cq { max-width: 720px; margin: 0 auto; background: #151515; border: 1px solid #2a2a2a; border-radius: 18px; padding: 26px; }
+.cq-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; min-height: 30px; }
+.cq-atras { background: none; border: 0; color: var(--amarillo); font-weight: 700; cursor: pointer; font-size: 15px; }
+.cq-paso { color: #9a9a9a; font-size: 14px; margin-left: auto; }
+.cq-caja { padding-top: 18px; }
+.cq-anim { animation: cqEntra .35s ease; }
+@keyframes cqEntra { from { opacity: 0; transform: translateX(18px); } to { opacity: 1; transform: none; } }
+.cq-caja h3 { color: #fff; font-size: 22px; line-height: 1.35; margin-bottom: 20px; }
+.cq-ops { display: grid; gap: 12px; }
+.cq-ops button { text-align: left; background: #0b0b0b; color: #eee; border: 1px solid #333; border-radius: 12px; padding: 16px 18px; font-size: 17px; font-weight: 600; cursor: pointer; transition: border-color .2s ease, background .2s ease, transform .15s ease; }
+.cq-ops button:hover { border-color: var(--amarillo); background: rgba(243,206,55,.08); transform: translateX(4px); }
+.cq-nota { background: rgba(243,206,55,.08); border-left: 3px solid var(--amarillo); color: #ddd; padding: 12px 14px; border-radius: 8px; font-size: 15px; margin-bottom: 18px; }
+.cq-nota i { color: var(--amarillo); margin-right: 6px; }
+.cq-res h3 { font-size: 28px; margin: 8px 0 14px; }
+.cq-tag { display: inline-block; background: #262626; color: #ccc; border-radius: 99px; padding: 5px 12px; font-size: 13px; }
+.cq-alto h3 { color: #ff6b5e; } .cq-medio h3 { color: #ffb648; } .cq-bajo h3, .cq-ok h3 { color: var(--amarillo); }
+.cq-eci { color: #ddd; background: #0b0b0b; border: 1px solid #2c2c2c; border-radius: 10px; padding: 12px 14px; font-size: 15px; margin-bottom: 16px; }
+.cq-eci strong { color: #fff; }
+.cq-res > p { color: #ddd; margin-bottom: 16px; }
+.cq-hall { list-style: none; padding: 0; margin: 0 0 20px; display: grid; gap: 10px; }
+.cq-hall li { color: #e6e6e6; font-size: 15px; padding: 12px 14px 12px 40px; border-radius: 10px; background: #0b0b0b; position: relative; border: 1px solid #2a2a2a; }
+.cq-hall li::before { content: "!"; position: absolute; left: 12px; top: 12px; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 900; font-size: 13px; color: #000; }
+.cq-hall li.alto::before { background: #ff6b5e; } .cq-hall li.medio::before { background: #ffb648; }
+.cq-res .btn { width: 100%; justify-content: center; margin-bottom: 10px; }
+.cq-rehacer { width: 100%; background: none; border: 1px solid #333; color: #bbb; border-radius: 10px; padding: 12px; cursor: pointer; }
+.cq-aviso { text-align: center; color: #8a8a8a; font-size: 13px; margin-top: 16px; }
+@media (max-width: 767px) { .cq { padding: 18px; } .cq-caja h3 { font-size: 19px; } .cq-ops button { font-size: 16px; } }
