@@ -496,3 +496,4 @@ a.h-card:hover .h-card-fondo { opacity: 1; transform: scale(1.05); }
 .h-ricardo .btn-borde-oscuro { border-color: var(--amarillo); color: var(--amarillo); }
 .h-ricardo .btn-borde-oscuro:hover { background: rgba(243,206,55,.1); }
 a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
+.h-video-marco { cursor: default; }

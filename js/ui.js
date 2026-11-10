@@ -94,13 +94,10 @@
   p.textContent = F[Math.floor(Math.random() * F.length)];
 })();
 
-// Video de portada: se reproduce o pausa tocando en cualquier parte
+// Video de portada: el primer toque en cualquier parte lo reproduce (luego mandan los controles normales)
 (function () {
-  var marco = document.querySelector('.h-video-marco'); if (!marco) return;
-  var v = marco.querySelector('video'), b = marco.querySelector('.h-play');
-  function act() { marco.classList.toggle('reproduciendo', !v.paused); }
-  marco.addEventListener('click', function () {
-    if (v.paused) v.play(); else v.pause();
-  });
-  v.addEventListener('play', act); v.addEventListener('pause', act); v.addEventListener('ended', act);
+  var v = document.querySelector('.h-video-marco video'); if (!v) return;
+  function primero() { if (v.paused) v.play(); }
+  v.addEventListener('click', primero);
+  v.addEventListener('play', function () { v.removeEventListener('click', primero); }, { once: true });
 })();
