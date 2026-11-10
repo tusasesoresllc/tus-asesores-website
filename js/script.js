@@ -54,11 +54,11 @@ document.addEventListener('DOMContentLoaded', () => {
     if (wrapper && prevButton && nextButton && credentialCards.length > 0) {
         console.log("Elementos encontrados. Configurando el carrusel.");
 
-        const cardWidth = 320;
+        const cardWidth = credentialCards[0].getBoundingClientRect().width + 20;
         let currentIndex = 0;
         const totalCards = credentialCards.length;
         
-        const visibleCards = 3;
+        const visibleCards = 4;
         for (let i = 0; i < visibleCards; i++) {
             if (credentialCards[i]) {
                 const clonedCard = credentialCards[i].cloneNode(true);
