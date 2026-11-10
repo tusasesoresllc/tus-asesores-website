@@ -464,3 +464,4 @@ html { scroll-behavior: smooth; }
   .h-frase img { width: 170px; height: 170px; margin: 0 auto; order: 0; }
 }
 .h-cal-foto img { height: auto; }
+.h-lema { font-weight: 800; font-style: italic; font-size: 18px; color: #000; opacity: .75; margin-bottom: 6px; }
