@@ -465,3 +465,6 @@ html { scroll-behavior: smooth; }
 }
 .h-cal-foto img { height: auto; }
 .h-lema { font-weight: 800; font-style: italic; font-size: 18px; color: #000; opacity: .75; margin-bottom: 6px; }
+.h-video-marco { position: relative; cursor: pointer; }
+.h-play { position: absolute; inset: 0; margin: auto; width: 86px; height: 86px; border-radius: 50%; border: 0; background: var(--amarillo); color: #000; font-size: 32px; display: flex; align-items: center; justify-content: center; z-index: 2; box-shadow: 0 0 0 10px rgba(243,206,55,.25); animation: latido 2.4s ease-in-out infinite; cursor: pointer; padding-left: 6px; }
+.h-video-marco.reproduciendo .h-play { display: none; }

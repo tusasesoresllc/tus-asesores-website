@@ -93,3 +93,14 @@
            '“Vivas donde vivas, tu empresa en Estados Unidos merece estar en regla.”'];
   p.textContent = F[Math.floor(Math.random() * F.length)];
 })();
+
+// Video de portada: se reproduce o pausa tocando en cualquier parte
+(function () {
+  var marco = document.querySelector('.h-video-marco'); if (!marco) return;
+  var v = marco.querySelector('video'), b = marco.querySelector('.h-play');
+  function act() { marco.classList.toggle('reproduciendo', !v.paused); }
+  marco.addEventListener('click', function () {
+    if (v.paused) v.play(); else v.pause();
+  });
+  v.addEventListener('play', act); v.addEventListener('pause', act); v.addEventListener('ended', act);
+})();
