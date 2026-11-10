@@ -28,15 +28,27 @@
       if (!e.isIntersecting) return;
       e.target.classList.add('visible');
       io.unobserve(e.target);
-      var s = e.target.querySelector && e.target.querySelector('strong[data-n]');
-      if (s) contar(s);
     });
   }, { threshold: 0.12 });
   els.forEach(function (el) { io.observe(el); });
+  // Contadores: arrancan en 0 y suben cuando el número entra en pantalla
+  var nums = document.querySelectorAll('strong[data-n]');
+  nums.forEach(function (n) { n.textContent = (n.getAttribute('data-pre') || '') + '0' + (n.getAttribute('data-suf') || ''); });
+  var io2 = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) { if (e.isIntersecting) { io2.unobserve(e.target); contar(e.target); } });
+  }, { threshold: 0.6 });
+  nums.forEach(function (n) { io2.observe(n); });
   function contar(s) {
     var fin = parseInt(s.getAttribute('data-n'), 10), pre = s.getAttribute('data-pre') || '', suf = s.getAttribute('data-suf') || '';
     var t0 = null;
-    function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 1200, 1); s.textContent = pre + Math.round(fin * p) + suf; if (p < 1) requestAnimationFrame(paso); }
+    function paso(t) { if (!t0) t0 = t; var p = Math.min((t - t0) / 2200, 1), q = 1 - Math.pow(1 - p, 3); s.textContent = pre + Math.round(fin * q) + suf; if (p < 1) requestAnimationFrame(paso); }
     requestAnimationFrame(paso);
+  }
+  var tabs = document.querySelectorAll('.p-tabs a');
+  if (tabs.length) {
+    var io3 = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) tabs.forEach(function (a) { a.classList.toggle('activo', a.getAttribute('href') === '#' + e.target.id); }); });
+    }, { rootMargin: '-45% 0px -50% 0px' });
+    document.querySelectorAll('.p-servicio[id]').forEach(function (sec) { io3.observe(sec); });
   }
 })();

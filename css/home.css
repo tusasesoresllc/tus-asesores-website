@@ -307,3 +307,47 @@ a.h-card:hover { border-color: var(--amarillo); }
 .h-ins span:last-child { max-width: 190px; }
 @media (max-width: 1024px) { .h-insignias { grid-template-columns: repeat(2, minmax(0, 300px)); } }
 @media (max-width: 767px) { a.h-card > .h-card-btn { width: auto; } .h-insignias { grid-template-columns: 1fr 1fr; } }
+
+/* ===== Ajustes nov-2026 (feedback 3) ===== */
+.btn-nav-mobile { display: none !important; }
+html { scroll-behavior: smooth; }
+/* Pasos: ícono como marca de agua en todo el recuadro */
+.h-paso { min-height: 250px; }
+.h-paso > h3, .h-paso > p { position: relative; z-index: 1; }
+.h-paso-i { position: absolute; right: -24px; bottom: -34px; width: auto; height: auto; background: none; box-shadow: none; border-radius: 0; margin: 0; font-size: 190px; color: var(--amarillo); opacity: .09; transition: opacity .3s ease, transform .4s ease; pointer-events: none; }
+.h-paso:hover .h-paso-i { opacity: .16; transform: scale(1.06) rotate(-6deg); }
+.h-paso-n { position: relative; top: auto; right: auto; display: inline-block; font-size: 15px; font-weight: 800; letter-spacing: 2px; color: #000; background: var(--amarillo); opacity: 1; border-radius: 999px; padding: 6px 14px; margin-bottom: 18px; z-index: 1; }
+.h-paso-n::before { content: "PASO "; }
+/* Video YouTube en el inicio */
+.h-video-yt { background: #0b0b0b; }
+.h-yt { max-width: 860px; margin: 0 auto; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; border: 2px solid var(--amarillo); box-shadow: 0 20px 50px rgba(0,0,0,.5); }
+.h-yt iframe { width: 100%; height: 100%; border: 0; display: block; }
+/* Portal del cliente */
+.h-portal { background: var(--amarillo); color: #111; padding: 56px 0; position: relative; overflow: hidden; }
+.h-portal .container { display: flex; align-items: center; justify-content: space-between; gap: 30px; position: relative; }
+.h-portal-marca { position: absolute; left: -40px; top: 50%; transform: translateY(-50%); font-size: 260px; opacity: .08; pointer-events: none; }
+.h-portal-txt { position: relative; max-width: 720px; }
+.h-portal-eyebrow { font-weight: 800; text-transform: uppercase; letter-spacing: 1.5px; font-size: 14px; margin-bottom: 6px; }
+.h-portal h2 { font-size: 32px; color: #000; margin-bottom: 10px; line-height: 1.2; }
+.h-portal p { font-size: 17px; }
+.h-portal-btn { background: #000; color: var(--amarillo); white-space: nowrap; font-size: 17px; padding: 16px 28px; position: relative; }
+.h-portal-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(0,0,0,.25); }
+@media (max-width: 767px) {
+  .h-portal .container { flex-direction: column; text-align: center; }
+  .h-portal h2 { font-size: 26px; }
+  .h-portal-btn { width: 100%; justify-content: center; }
+}
+/* Servicios: botones grandes con imagen */
+.p-tabs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; padding: 30px 20px; }
+.p-tabs a { position: relative; overflow: hidden; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; min-height: 170px; padding: 22px 14px; border-radius: 16px; border: 1px solid #2c2c2c; background-size: cover; background-position: center; color: #fff; font-size: 18px; font-weight: 800; text-align: center; isolation: isolate; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.p-tabs a::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(0,0,0,.55), rgba(0,0,0,.9)); z-index: -1; transition: background .25s ease; }
+.p-tabs a > i { font-size: 34px; color: var(--amarillo); transition: transform .25s ease; }
+.p-tabs a em { font-style: normal; font-size: 13px; font-weight: 600; color: var(--amarillo); opacity: .9; }
+.p-tabs a:hover, .p-tabs a.activo { transform: translateY(-5px); border-color: var(--amarillo); box-shadow: 0 14px 30px rgba(243,206,55,.18); background-color: transparent; }
+.p-tabs a:hover::before, .p-tabs a.activo::before { background: linear-gradient(180deg, rgba(0,0,0,.35), rgba(0,0,0,.8)); }
+.p-tabs a:hover > i { transform: scale(1.15); }
+.p-servicio { scroll-margin-top: 80px; }
+@media (max-width: 767px) {
+  .p-tabs { grid-template-columns: 1fr 1fr; gap: 12px; padding: 20px 16px; }
+  .p-tabs a { min-height: 140px; font-size: 16px; }
+}

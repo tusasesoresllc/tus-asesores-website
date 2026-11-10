@@ -90,7 +90,22 @@
 </section>
 
 
-    <section class="h-cierre">
+<section class="h-seccion h-boletin" id="boletin">
+        <div class="container">
+            <h2>Recibe el boletín mensual</h2>
+            <p class="h-intro">Fechas límite del IRS, novedades y consejos para tu LLC, directo en tu correo. Sin spam.</p>
+            <form class="p-form p-form-corto" name="boletin" method="POST" action="/gracias/" data-netlify="true" netlify-honeypot="empresa">
+                <input type="hidden" name="form-name" value="boletin">
+                <p hidden><label>No llenar: <input name="empresa"></label></p>
+                <input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
+                <input type="email" name="email" placeholder="Tu correo" required autocomplete="email">
+                <input type="text" name="pais" placeholder="País donde vives" autocomplete="country-name">
+                <button type="submit" class="btn btn-principal">Quiero recibir el boletín</button>
+            </form>
+        </div>
+    </section>
+
+        <section class="h-cierre">
         <div class="container">
             <h2>¿Tu LLC está al día con el IRS?</h2>
             <p>Hagamos tu diagnóstico en 30 minutos: agenda tu Reunión Privada o escríbenos por WhatsApp.</p>
@@ -122,7 +137,7 @@
                         <li><a href="/blog/">● Blog</a></li>
                         <li><a href="/recursos/">● Recursos</a></li>
                         <li><a href="/preguntas-frecuentes/">● Preguntas frecuentes</a></li>
-                        <li><a href="/newsletter/">● Boletín</a></li>
+                        <li><a href="/blog/#boletin">● Boletín</a></li>
                     </ul>
                 </div>
                 <div class="link-column">
@@ -131,6 +146,7 @@
                         <li><a href="mailto:info@tusasesoresllc.com">● info@tusasesoresllc.com</a></li>
                         <li><a href="https://wa.me/13059854839">● +1 (305) 985-4839</a></li>
                         <li><a href="https://calendly.com/tus-asesores/reunionprivada">● Agenda tu Reunión Privada</a></li>
+                        <li><a href="https://tusasesoresllc.taxdome.com/login" target="_blank" rel="noopener">● Portal del cliente</a></li>
                     </ul>
                 </div>
             </div>

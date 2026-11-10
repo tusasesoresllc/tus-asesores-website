@@ -1,6 +1,8 @@
 # Direcciones viejas (/html/...) -> nuevas, para no perder posición en Google
 /index.html                               /                                   301
-/newsletter.html                          /newsletter/                        301
+/newsletter.html                          /blog/#boletin                      301
+/newsletter/                              /blog/#boletin                      301
+/newsletter                               /blog/#boletin                      301
 /html/servicios                           /servicios/                         301
 /html/servicios.html                      /servicios/                         301
 /html/sobrenosotros                       /sobre-nosotros/                    301
@@ -11,8 +13,8 @@
 /html/recursos.html                       /recursos/                          301
 /html/contacto                            /contacto/                          301
 /html/contacto.html                       /contacto/                          301
-/html/newsletter                          /newsletter/                        301
-/html/newsletter.html                     /newsletter/                        301
+/html/newsletter                          /blog/#boletin                        301
+/html/newsletter.html                     /blog/#boletin                        301
 /html/blogs                               /blog/                              301
 /html/blogs.html                          /blog/                              301
 /html/guia-formulario-5472                /blog/formulario-5472/              301
