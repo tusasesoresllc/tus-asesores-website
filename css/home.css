@@ -582,3 +582,15 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 @media (max-width: 767px) { .h-equipo .h-sec-tit p { font-size: 26px; letter-spacing: 3px; } .h-equipo-txt { font-size: 17px; } }
 .h-ricardo .h-equipo p.h-equipo-txt { font-size: 23px; line-height: 1.55; max-width: 720px; margin: 0 auto; }
 @media (max-width: 767px) { .h-ricardo .h-equipo p.h-equipo-txt { font-size: 18px; } }
+/* Portada de páginas internas con foto de fondo */
+.p-hero-foto { position: relative; overflow: hidden; padding: 90px 0 70px; border-bottom: 1px solid #222; }
+.p-hero-foto::before { content: ""; position: absolute; inset: 0; background: var(--hero-img) center / cover; opacity: .22; filter: grayscale(1); }
+.p-hero-foto::after { content: ""; position: absolute; inset: 0; background: radial-gradient(circle at 50% 0%, rgba(243,206,55,.18) 0%, rgba(11,11,11,.55) 45%, #0b0b0b 100%); }
+.p-hero-foto .container { position: relative; z-index: 1; }
+.p-hero-eyebrow { color: var(--amarillo) !important; font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 15px !important; margin: 0 auto 14px !important; }
+.p-hero-foto h1 { font-size: 50px; }
+.p-hero-foto h1 span { color: var(--amarillo); }
+.p-hero-chips { list-style: none; padding: 0; margin: 28px 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.p-hero-chips li { display: inline-flex; align-items: center; gap: 8px; color: #eee; font-size: 15px; font-weight: 600; background: rgba(0,0,0,.45); border: 1px solid rgba(243,206,55,.45); border-radius: 99px; padding: 9px 16px; }
+.p-hero-chips i { color: var(--amarillo); }
+@media (max-width: 767px) { .p-hero-foto { padding: 60px 0 50px; } .p-hero-foto h1 { font-size: 31px; } .p-hero-chips li { font-size: 13.5px; padding: 7px 12px; } }
