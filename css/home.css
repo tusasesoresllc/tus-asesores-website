@@ -562,3 +562,10 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .h-lider-cab .h-lema, .h-lider-cab .h-cargo { margin: 0; }
 .h-lider-cab .h-cargo { margin-top: 6px; }
 @media (max-width: 767px) { .h-equipo { min-height: 340px; padding-top: 90px; } .h-equipo-txt { font-size: 16px; } .h-globo { width: 98px !important; height: 84px !important; } .h-globo img { width: 84px !important; height: 84px !important; } }
+
+/* Globo sin colita y título más arriba */
+.h-globo { width: 104px !important; height: 104px !important; border-radius: 50%; overflow: hidden; border: 3px solid var(--amarillo); }
+.h-globo img { width: 100% !important; height: 100% !important; border-radius: 50%; object-fit: cover; object-position: center 20%; }
+.h-lider-cab { gap: 20px; }
+.h-equipo { padding-top: 40px; }
+@media (max-width: 767px) { .h-globo { width: 84px !important; height: 84px !important; } .h-equipo { padding-top: 20px; } }
