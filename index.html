@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/estilo.css">
-    <link rel="stylesheet" href="/css/home.css?v=10">
+    <link rel="stylesheet" href="/css/home.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="img/Isotipo Principal.png"> 
     <script>
@@ -131,6 +131,7 @@
     </section>
 
     <section class="h-seccion h-ricardo" id="ricardo">
+        <div class="h-sec-tit"><p>Quién te acompaña</p><span></span></div>
         <div class="container">
             <img src="/img/home/ricardo-retrato.webp" alt="Lcdo. Ricardo Páez, MBA, fundador de Tus Asesores LLC" width="420" height="413" loading="lazy">
             <div>
@@ -143,7 +144,7 @@
                 <p>Trabajamos en alianza estratégica con <strong>Vertex Global Pro LLC</strong>, nuestro Service Bureau autorizado para la transmisión electrónica de declaraciones ante el IRS.</p>
                 <div class="h-acciones">
                     <a class="btn btn-oscuro" href="/sobre-nosotros/#equipo">Conoce a nuestro equipo</a>
-                    <a class="btn btn-borde-oscuro" href="https://www.amazon.com/stores/author/B0G14PPW1N/about" target="_blank" rel="noopener">Ver mi libro en Amazon</a>
+                    <a class="btn btn-borde-oscuro" href="https://www.amazon.com/dp/B0G1TR8T8S" target="_blank" rel="noopener">Ver mi libro en Amazon</a>
                 </div>
             </div>
         </div>
@@ -304,9 +305,9 @@
     <div class="h-pop" id="h-pop" role="dialog" aria-modal="true" aria-labelledby="h-pop-titulo">
         <div class="h-pop-caja">
             <button class="h-pop-cerrar" type="button" aria-label="Cerrar">&times;</button>
-            <h2 id="h-pop-titulo">Antes de irte: ¿tu LLC está al día con el IRS?</h2>
-            <p>Haz gratis nuestro <strong>chequeo interactivo</strong>: según tu tipo de empresa te decimos en 2 minutos qué te falta y si tienes riesgo de multas.</p>
-            <form name="chequeo-llc" method="POST" action="/chequeo-llc/" data-netlify="true" netlify-honeypot="empresa">
+            <h2 id="h-pop-titulo">Antes de irte: descubre en 2 minutos si tu LLC tiene riesgo de multas</h2>
+            <p>Haz gratis nuestro <strong>chequeo interactivo</strong>: responde según tu tipo de empresa y te decimos qué te falta.</p>
+            <form name="chequeo-llc" method="POST" action="/chequeo-llc/" data-netlify="true" netlify-honeypot="empresa" onsubmit="try{var f=this;sessionStorage.setItem('cqContacto',JSON.stringify({nombre:f.nombre.value,whatsapp:f.whatsapp.value,email:f.email.value,necesidad:f.necesidad.value}))}catch(e){}">
                 <input type="hidden" name="form-name" value="chequeo-llc">
                 <p hidden><label>No llenar: <input name="empresa"></label></p>
                 <input type="text" name="nombre" placeholder="Tu nombre" required autocomplete="name">
@@ -332,15 +333,17 @@
         var shown = false;
         function yaVisto() { try { return sessionStorage.getItem('hPopVisto') === '1'; } catch (e) { return false; } }
         function marcar() { try { sessionStorage.setItem('hPopVisto', '1'); } catch (e) {} }
-        function abrir() { if (shown || yaVisto()) return; shown = true; marcar(); pop.classList.add('visible'); }
+        var listo = false; setTimeout(function () { listo = true; }, 90000);
+        function videoSonando() { var v = document.querySelector('.h-video-marco video'); return v && !v.paused && !v.ended; }
+        function abrir() { if (!listo || shown || yaVisto() || videoSonando()) return; shown = true; marcar(); pop.classList.add('visible'); }
         function cerrar() { pop.classList.remove('visible'); }
         pop.querySelector('.h-pop-cerrar').addEventListener('click', cerrar);
         pop.addEventListener('click', function (e) { if (e.target === pop) cerrar(); });
         document.addEventListener('keydown', function (e) { if (e.key === 'Escape') cerrar(); });
         // Computadora: cuando el cursor sale por arriba (intención de salir)
         document.addEventListener('mouseout', function (e) { if (!e.relatedTarget && e.clientY <= 0) abrir(); });
-        // Celular: después de 45 segundos navegando
-        if (window.matchMedia('(pointer: coarse)').matches) setTimeout(abrir, 45000);
+        // Celular: a los 90 segundos (si el video está sonando, espera a que termine o se pause)
+        if (window.matchMedia('(pointer: coarse)').matches) setTimeout(function intento() { if (videoSonando()) { setTimeout(intento, 5000); return; } abrir(); }, 90000);
     })();
     </script>
 

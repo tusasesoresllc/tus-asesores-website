@@ -10,7 +10,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/estilo.css">
-    <link rel="stylesheet" href="/css/home.css?v=10">
+    <link rel="stylesheet" href="/css/home.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="icon" type="image/png" href="/img/Isotipo Principal.png">
     <script>
@@ -65,12 +65,17 @@
                 <div class="chq-barra"><span id="cq-barra"></span></div>
                 <div class="cq-caja" id="cq-caja"></div>
             </div>
+            <form name="chequeo-resultado" data-netlify="true" netlify-honeypot="empresa" hidden>
+                <input name="nombre"><input name="whatsapp"><input name="email"><input name="necesidad"><input name="empresa">
+                <input name="tipo"><input name="residencia"><input name="eci"><input name="nivel"><textarea name="hallazgos"></textarea><textarea name="respuestas"></textarea>
+            </form>
             <p class="cq-aviso">Este chequeo es orientativo y no sustituye una revisión profesional de tu caso.</p>
         </div>
     </section>
     <script>
     (function () {
       var R = {};            // respuestas
+      var C = null;          // datos de contacto
       var hist = [];         // historial de pasos
       var caja = document.getElementById('cq-caja');
       var SN = [['si', 'Sí'], ['no', 'No'], ['ns', 'No sé']];
@@ -122,7 +127,7 @@
         var total = (R.tipo && R.tipo !== 'ninguna') ? Math.max(r.length, hechos + 1) : r.length;
         document.getElementById('cq-barra').style.width = (id ? hechos / total * 100 : 100) + '%';
         document.getElementById('cq-paso').textContent = id ? 'Pregunta ' + (hechos + 1) : 'Resultado';
-        if (!id) return resultado();
+        if (!id) return C ? resultado() : contacto();
         var q = P[id];
         caja.innerHTML = (q.eci && id === 'e1' ? '<p class="cq-nota"><i class="fas fa-info-circle"></i> Ahora veremos si tu negocio tiene <strong>ingresos efectivamente conectados (ECI)</strong> con EE.UU.: eso define si pagas impuesto federal.</p>' : '') + '<h3></h3><div class="cq-ops"></div>';
         caja.querySelector('h3').textContent = q.t;
@@ -138,10 +143,35 @@
       function limpiar() { var r = ruta(); Object.keys(R).forEach(function (k) { if (r.indexOf(k) < 0) delete R[k]; }); }
       document.getElementById('cq-atras').addEventListener('click', function () { var k = hist.pop(); delete R[k]; limpiar(); pintar(); });
 
+      var enviado = false;
+      function etiqueta(k) { var o = P[k].o.filter(function (x) { return x[0] === R[k]; })[0]; return o ? o[1] : R[k]; }
+      function contacto() {
+        var g = {}; try { g = JSON.parse(sessionStorage.getItem('cqContacto') || '{}'); } catch (e) {}
+        caja.innerHTML = '<h3>¡Listo! ¿A nombre de quién preparamos tu resultado?</h3><p class="cq-sub">Un asesor podrá revisarlo contigo por WhatsApp si lo necesitas.</p>' +
+          '<form class="cq-form"><input name="nombre" placeholder="Tu nombre" required autocomplete="name"><input name="whatsapp" type="tel" placeholder="Tu WhatsApp (con código de país)" required autocomplete="tel"><input name="email" type="email" placeholder="Tu correo (opcional)" autocomplete="email"><button type="submit" class="btn btn-principal">Ver mi resultado</button></form>';
+        var f = caja.querySelector('form');
+        f.nombre.value = g.nombre || ''; f.whatsapp.value = g.whatsapp || ''; f.email.value = g.email || '';
+        f.addEventListener('submit', function (e) { e.preventDefault(); C = { nombre: f.nombre.value, whatsapp: f.whatsapp.value, email: f.email.value, necesidad: g.necesidad || '' }; pintar(); });
+        caja.classList.remove('cq-anim'); void caja.offsetWidth; caja.classList.add('cq-anim');
+      }
+      function enviar(nivel, hall) {
+        var tipos = { smllc: 'LLC de un dueño', mmllc: 'LLC con socios', corp: 'Corporación', ninguna: 'Todavía no tiene empresa' };
+        var d = {
+          'form-name': 'chequeo-resultado', nombre: C.nombre, whatsapp: C.whatsapp, email: C.email, necesidad: C.necesidad,
+          tipo: tipos[R.tipo] || '', residencia: R.res === 'ext' ? 'Vive fuera de EE.UU.' : (R.res === 'usa' ? 'Vive en EE.UU.' : ''),
+          eci: R.res === 'ext' ? (eci() ? 'SÍ: posible ECI' : 'No hay señales de ECI') : 'No aplica',
+          nivel: nivel,
+          hallazgos: hall.length ? hall.map(function (x, i) { return (i + 1) + '. [' + x[0].toUpperCase() + '] ' + x[1]; }).join('\n') : 'Sin hallazgos',
+          respuestas: ruta().filter(function (k) { return k in R; }).map(function (k) { return '• ' + P[k].t + ' → ' + etiqueta(k); }).join('\n')
+        };
+        var body = Object.keys(d).map(function (k) { return encodeURIComponent(k) + '=' + encodeURIComponent(d[k] || ''); }).join('&');
+        fetch('/', { method: 'POST', headers: { 'Content-Type': 'application/x-www-form-urlencoded' }, body: body }).catch(function () {});
+      }
       function resultado() {
         var wa = 'https://wa.me/13059854839?text=';
         if (R.tipo === 'ninguna') {
           caja.innerHTML = '<div class="cq-res cq-ok"><h3>¡Empecemos bien desde el día uno!</h3><p>Te ayudamos a elegir el tipo de empresa y el estado que más te conviene, y creamos tu LLC 100% en línea, con EIN y documentos listos para tu cuenta bancaria.</p><a class="btn btn-principal" target="_blank" rel="noopener" href="' + wa + encodeURIComponent('Hola, hice el chequeo en la web. Todavía no tengo empresa y quiero crear mi LLC.') + '"><i class="fab fa-whatsapp"></i> Quiero crear mi LLC</a></div>';
+          if (!enviado) { enviado = true; enviar('Sin empresa: quiere crear su LLC', []); }
           return;
         }
         var hall = [];
@@ -157,7 +187,8 @@
         h += '<a class="btn btn-principal" target="_blank" rel="noopener" href="' + wa + encodeURIComponent(msg) + '"><i class="fab fa-whatsapp"></i> Revisar mi caso por WhatsApp</a><button type="button" class="cq-rehacer">Hacer el chequeo de nuevo</button></div>';
         caja.innerHTML = h;
         var lis = caja.querySelectorAll('.cq-hall li'); hall.forEach(function (x, i) { lis[i].textContent = x[1]; });
-        caja.querySelector('.cq-rehacer').addEventListener('click', function () { R = {}; hist = []; pintar(); });
+        caja.querySelector('.cq-rehacer').addEventListener('click', function () { R = {}; hist = []; enviado = false; pintar(); });
+        if (!enviado) { enviado = true; enviar(nivel[0], hall); }
       }
       pintar();
     })();
