@@ -653,3 +653,23 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
   .h-ricardo .h-equipo p.h-equipo-txt { font-size: 26px; max-width: 800px; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
 }
 @media (min-width: 768px) { .h-equipo-in { max-width: 920px; } }
+/* Ajustes 11-nov (2) */
+/* Logo: tamaño original, más aire alrededor */
+.navbar { padding: 20px 0; }
+.navbar.compacto { padding: 14px 0; }
+.navbar .logo img { height: 35px; }
+@media (max-width: 767px) { .navbar { padding: 16px 0; } .navbar.compacto { padding: 12px 0; } .navbar .logo img { height: 32px; } }
+/* Foto del equipo: se ve completa también en pantallas anchas */
+@media (min-width: 768px) {
+  .h-equipo { height: clamp(560px, calc(100vh - 70px), 900px); }
+  .h-equipo::before { background: url(/img/home/equipo-centro.webp) center top / auto 100% no-repeat, url(/img/home/equipo-difuso.webp) center / cover no-repeat; }
+}
+/* Testimonios del inicio: 3 + botón */
+.h-t-mas { text-align: center; margin-top: 34px; }
+.h-t-btn { display: inline-flex; align-items: center; gap: 10px; border: 2px solid var(--amarillo); color: var(--amarillo); background: transparent; padding: 13px 28px; border-radius: 30px; font-weight: 700; transition: background .25s ease, color .25s ease, transform .25s ease; }
+.h-t-btn:hover { background: var(--amarillo); color: #000; transform: translateY(-2px); }
+.h-t-btn i { transition: transform .25s ease; }
+.h-t-btn:hover i { transform: translateX(4px); }
+/* Sobre nosotros: fotos sin fondo */
+.equipo-imagen-wrapper.sin-fondo { background: transparent; overflow: visible; display: flex; align-items: flex-end; justify-content: center; border-bottom: 2px solid var(--amarillo); border-radius: 0 !important; }
+.equipo-imagen-wrapper.sin-fondo img { object-fit: contain; object-position: center bottom; height: 100% !important; width: 100%; filter: drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
