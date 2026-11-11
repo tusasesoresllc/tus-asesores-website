@@ -678,7 +678,7 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .equipo-miembro .expand-arrow { position: relative; width: 40px !important; height: 40px !important; background: rgba(243,206,55,.08); animation: eqPulso 2.2s ease-in-out infinite; }
 .equipo-miembro .expand-arrow i { display: none; }
 .equipo-miembro .expand-arrow::after { content: ""; width: 10px; height: 10px; border-right: 3px solid var(--amarillo); border-bottom: 3px solid var(--amarillo); transform: translateY(-2px) rotate(45deg); }
-.equipo-miembro .expand-arrow:hover { background: var(--amarillo); }
-.equipo-miembro .expand-arrow:hover::after { border-color: #000; }
+.equipo-miembro .expand-arrow::after { transition: transform .25s ease; }
+.equipo-miembro .expand-arrow:hover::after { transform: translateY(1px) rotate(45deg); }
 .equipo-miembro .expand-arrow.expanded { animation: none; }
 @keyframes eqPulso { 0%,100% { box-shadow: 0 0 0 0 rgba(243,206,55,.35); } 50% { box-shadow: 0 0 0 8px rgba(243,206,55,0); } }
