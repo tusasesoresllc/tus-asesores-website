@@ -597,3 +597,20 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 /* Título de Sobre nosotros sin palabras huérfanas */
 .hero-section h1.n-titulo { text-wrap: balance; max-width: 1000px; }
 @media (min-width: 768px) { .hero-section h1.n-titulo .n-linea { display: block; white-space: nowrap; } }
+/* Sobre nosotros: equipo con la estética nueva */
+.equipo-section { background: radial-gradient(circle at 50% 0%, #2a2106 0%, #0b0b0b 55%) !important; color: #ddd; border-top: 1px solid #222; }
+.equipo-header .eq-eyebrow { color: var(--amarillo); font-weight: 800; letter-spacing: 4px; text-transform: uppercase; font-size: 15px; margin-bottom: 10px; }
+.equipo-header h2 { color: #fff !important; font-size: 44px !important; }
+.equipo-header h2 span { color: var(--amarillo); }
+.equipo-header p { color: #cfcfcf; }
+.equipo-grid { gap: 26px; }
+.equipo-miembro { background: #151515; border: 1px solid #2a2a2a; border-radius: 18px; padding: 22px 22px 26px; transition: transform .25s ease, border-color .25s ease, box-shadow .25s ease; }
+.equipo-miembro:hover { transform: translateY(-6px); border-color: var(--amarillo); box-shadow: 0 16px 34px rgba(243,206,55,.14); }
+.equipo-imagen-wrapper { width: 100% !important; max-width: 300px; height: auto !important; aspect-ratio: 1; border-radius: 14px !important; }
+.equipo-imagen-wrapper img { position: static !important; width: 100%; height: 100% !important; object-fit: cover; }
+.equipo-miembro h4 { color: #fff; font-size: 22px; margin-top: 4px; }
+.equipo-miembro .titulo { color: var(--amarillo); font-weight: 600; font-size: 14px; margin-top: 6px; }
+.equipo-miembro .rol { color: #bdbdbd; font-size: 14.5px; margin-top: 4px; }
+.equipo-section .expand-arrow { border-color: var(--amarillo); color: var(--amarillo); width: 36px; height: 36px; font-size: 16px; }
+.member-description p { color: #d6d6d6; }
+@media (max-width: 767px) { .equipo-header h2 { font-size: 30px !important; } }
