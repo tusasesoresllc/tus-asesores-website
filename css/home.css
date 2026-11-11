@@ -637,3 +637,5 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 }
 @media (min-width: 768px) { .h-equipo::before { background-image: url(/img/home/equipo-ancho.webp); background-position: center top; } }
 @media (min-width: 768px) { .h-equipo { height: clamp(560px, 56vw, 820px); } .h-equipo::before { background-position: center 45%; } .h-equipo::after { background: linear-gradient(180deg, #0b0b0b 0%, rgba(11,11,11,0) 14%, rgba(11,11,11,0) 86%, #0b0b0b 100%); } }
+/* Cabezas completas arriba */
+@media (min-width: 768px) { .h-equipo { height: clamp(600px, 64vw, 940px); } .h-equipo::before { background-position: center top; } .h-equipo::after { background: linear-gradient(180deg, rgba(11,11,11,0) 0%, rgba(11,11,11,0) 84%, #0b0b0b 100%); } }
