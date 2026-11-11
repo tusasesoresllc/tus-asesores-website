@@ -15,8 +15,30 @@
   addEventListener('scroll', onScroll, { passive: true }); onScroll();
 
   // Preguntas: abrir una a la vez
+  // con apertura y cierre suaves
+  var faqDur = 380;
+  function faqAnim(d, abrir) {
+    var c = d.querySelector('summary + div'); if (!c) { d.open = abrir; return; }
+    if (d._anim) { d._anim.cancel(); }
+    if (abrir) { d.open = true; }
+    var h = c.scrollHeight;
+    c.style.overflow = 'hidden';
+    d.classList.toggle('faq-abierta', abrir);
+    var a = c.animate(abrir
+      ? [{ height: '0px', opacity: 0 }, { height: h + 'px', opacity: 1 }]
+      : [{ height: h + 'px', opacity: 1 }, { height: '0px', opacity: 0 }],
+      { duration: faqDur, easing: 'cubic-bezier(.4,0,.2,1)' });
+    d._anim = a;
+    a.onfinish = function () { d._anim = null; c.style.overflow = ''; if (!abrir) d.open = false; };
+  }
   document.querySelectorAll('.faq').forEach(function (d) {
-    d.addEventListener('toggle', function () { if (d.open) document.querySelectorAll('.faq[open]').forEach(function (o) { if (o !== d) o.open = false; }); });
+    if (d.open) d.classList.add('faq-abierta');
+    d.querySelector('summary').addEventListener('click', function (e) {
+      e.preventDefault();
+      var abrir = !d.classList.contains('faq-abierta');
+      if (abrir) document.querySelectorAll('.faq.faq-abierta').forEach(function (o) { if (o !== d) faqAnim(o, false); });
+      faqAnim(d, abrir);
+    });
   });
 
   var sel = '.h-card, .h-paso, .h-t, .h-ricardo .container > *, .p-box, .p-canal, .p-video, .h-cierre .container, .h-ins, .faq, .chq-p';

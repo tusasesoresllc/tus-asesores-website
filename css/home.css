@@ -639,3 +639,17 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 @media (min-width: 768px) { .h-equipo { height: clamp(560px, 56vw, 820px); } .h-equipo::before { background-position: center 45%; } .h-equipo::after { background: linear-gradient(180deg, #0b0b0b 0%, rgba(11,11,11,0) 14%, rgba(11,11,11,0) 86%, #0b0b0b 100%); } }
 /* Cabezas completas arriba */
 @media (min-width: 768px) { .h-equipo { height: clamp(600px, 64vw, 940px); } .h-equipo::before { background-position: center top; } .h-equipo::after { background: linear-gradient(180deg, rgba(11,11,11,0) 0%, rgba(11,11,11,0) 84%, #0b0b0b 100%); } }
+/* Preguntas: transición suave */
+.faq { transition: border-color .35s ease, background-color .35s ease; }
+.faq.faq-abierta { border-color: var(--amarillo); background: #181818; }
+.faq[open]:not(.faq-abierta) { border-color: #262626; }
+.faq summary::after { transition: transform .38s cubic-bezier(.4,0,.2,1); }
+.faq.faq-abierta summary::after { transform: translateY(-50%) rotate(45deg); }
+.faq[open]:not(.faq-abierta) summary::after { transform: translateY(-50%); }
+/* Equipo: letras algo más grandes en computadora, suavizadas */
+@media (min-width: 768px) {
+  .h-equipo .h-sec-tit p { font-size: 52px; letter-spacing: 7px; text-shadow: 0 2px 18px rgba(0,0,0,.55); }
+  .h-equipo .h-sec-tit span { width: 150px; }
+  .h-ricardo .h-equipo p.h-equipo-txt { font-size: 26px; max-width: 800px; text-shadow: 0 1px 12px rgba(0,0,0,.6); }
+}
+@media (min-width: 768px) { .h-equipo-in { max-width: 920px; } }
