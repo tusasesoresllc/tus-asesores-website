@@ -580,3 +580,5 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .h-equipo .h-sec-tit span { width: 130px; height: 5px; }
 .h-equipo-txt { font-size: 21px; }
 @media (max-width: 767px) { .h-equipo .h-sec-tit p { font-size: 26px; letter-spacing: 3px; } .h-equipo-txt { font-size: 17px; } }
+.h-ricardo .h-equipo p.h-equipo-txt { font-size: 23px; line-height: 1.55; max-width: 720px; margin: 0 auto; }
+@media (max-width: 767px) { .h-ricardo .h-equipo p.h-equipo-txt { font-size: 18px; } }
