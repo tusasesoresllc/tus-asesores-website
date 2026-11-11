@@ -623,3 +623,10 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .r-libro .btn { background: var(--amarillo); color: #000; }
 .r-libro .btn:hover { box-shadow: 0 10px 24px rgba(243,206,55,.3); transform: translateY(-2px); }
 .r-libro-video iframe { box-shadow: 0 0 0 3px var(--amarillo), 0 18px 40px rgba(0,0,0,.5); }
+/* Logo del menú centrado y con aire */
+.navbar { padding: 14px 0; }
+.navbar.compacto { padding: 11px 0; }
+.navbar .logo, .navbar .logo a { display: flex; align-items: center; line-height: 0; }
+.navbar .logo img { display: block; height: 40px; width: auto; }
+.navbar .container { align-items: center; }
+@media (max-width: 767px) { .navbar { padding: 12px 0; } .navbar .logo img { height: 36px; } }
