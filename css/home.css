@@ -543,3 +543,22 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .cq-form .tel-pais select { padding: 14px 10px; border-radius: 10px; border: 1px solid #333; background: #0b0b0b; color: #eee; font-size: 15px; }
 .h-pop .tel-pais select { padding: 13px 8px; border-radius: 8px; border: 1px solid #444; background: #000; color: #ddd; font-size: 14px; }
 .p-form .tel-pais select { padding: 14px 10px; border-radius: 10px; border: 1px solid #333; background: #0b0b0b; color: #eee; font-size: 15px; }
+
+/* Equipo como marca de agua + líder en globo */
+.h-ricardo { padding-top: 0; }
+.h-equipo { position: relative; min-height: 420px; display: flex; align-items: center; padding-top: 110px; justify-content: center; margin-bottom: 40px; overflow: hidden; }
+.h-equipo::before { content: ""; position: absolute; inset: 0; background: url(/img/home/equipo.webp) center 20% / cover; opacity: .34; filter: grayscale(1); }
+.h-equipo::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, #0b0b0b 0%, rgba(11,11,11,0) 25%, rgba(11,11,11,0) 75%, #0b0b0b 100%); }
+.h-equipo-in { position: relative; z-index: 1; padding: 0 20px; max-width: 680px; text-align: center; }
+.h-equipo .h-sec-tit { margin: 0 0 14px; }
+.h-equipo-txt { color: #eee; font-size: 18px; margin: 0; }
+.h-ricardo .container.h-lider { display: block; max-width: 860px; }
+.h-lider-cab { display: flex; align-items: center; gap: 10px; margin-bottom: 18px; }
+.h-globo { position: relative; flex-shrink: 0; width: 121px; height: 104px; }
+.h-globo img { width: 104px !important; height: 104px !important; max-width: none; border-radius: 50%; object-fit: cover; border: 0; box-shadow: none !important; aspect-ratio: 1; display: block; background: #111; }
+.h-globo svg { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.h-globo svg circle, .h-globo svg path { fill: none; stroke: var(--amarillo); stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+.h-globo svg path.tapa { fill: #0b0b0b; stroke: none; }
+.h-lider-cab .h-lema, .h-lider-cab .h-cargo { margin: 0; }
+.h-lider-cab .h-cargo { margin-top: 6px; }
+@media (max-width: 767px) { .h-equipo { min-height: 340px; padding-top: 90px; } .h-equipo-txt { font-size: 16px; } .h-globo { width: 98px !important; height: 84px !important; } .h-globo img { width: 84px !important; height: 84px !important; } }
