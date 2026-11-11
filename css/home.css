@@ -682,3 +682,15 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .equipo-miembro .expand-arrow:hover::after { transform: translateY(1px) rotate(45deg); }
 .equipo-miembro .expand-arrow.expanded { animation: none; }
 @keyframes eqPulso { 0%,100% { box-shadow: 0 0 0 0 rgba(243,206,55,.35); } 50% { box-shadow: 0 0 0 8px rgba(243,206,55,0); } }
+/* Testimonios que rotan */
+#t-rota .h-t { transition: opacity .45s ease, transform .45s ease; }
+#t-rota .h-t.t-sale { opacity: 0; transform: translateY(10px); }
+#t-rota { align-items: stretch; }
+/* Quién te acompaña: letras más grandes */
+@media (min-width: 768px) {
+  .h-equipo .h-sec-tit p { font-size: 68px; letter-spacing: 8px; }
+  .h-equipo .h-sec-tit span { width: 180px; height: 6px; }
+  .h-ricardo .h-equipo p.h-equipo-txt { font-size: 32px; max-width: 980px; line-height: 1.45; }
+  .h-equipo-in { max-width: 1100px; }
+}
+@media (max-width: 767px) { .h-equipo .h-sec-tit p { font-size: 30px; } .h-ricardo .h-equipo p.h-equipo-txt { font-size: 20px; } }

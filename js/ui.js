@@ -126,3 +126,32 @@
   v.loop = false;
   v.addEventListener('ended', function () { v.pause(); v.currentTime = 0; setTimeout(function () { v.load(); }, 50); v.addEventListener('click', primero); v.addEventListener('play', function () { v.removeEventListener('click', primero); }, { once: true }); });
 })();
+
+// Testimonios del inicio: rotan cada 9 s (pausa al pasar el mouse)
+(function () {
+  var g = document.getElementById('t-rota'); if (!g) return;
+  var extra = [
+    ['“Excelente atención y asesoría desde el momento 1 de parte del equipo completo, siempre respondiendo todas nuestras dudas de una manera clara y concisa.”', 'Steamline Group LLC'],
+    ['“Trato muy cercano, comprensibles y atentos. Gracias por el servicio que me habéis ofrecido. ¡Un abrazo a todo el equipo!”', 'Educating Crypto Labs LLC'],
+    ['“Necesitaba un socio confiable para las finanzas de mi empresa y superaron mis expectativas. Su equipo es transparente, eficiente y siempre está al tanto de las regulaciones.”', 'Carlos Perdomo']
+  ];
+  var cards = g.querySelectorAll('.h-t'); if (!cards.length) return;
+  var base = [].map.call(cards, function (c) { return [c.querySelector('p').textContent, c.querySelector('strong').textContent]; });
+  var sets = [base, extra], i = 0, pausa = false;
+  g.addEventListener('mouseenter', function () { pausa = true; });
+  g.addEventListener('mouseleave', function () { pausa = false; });
+  setInterval(function () {
+    if (pausa || document.hidden) return;
+    i = (i + 1) % sets.length;
+    [].forEach.call(cards, function (c, k) {
+      setTimeout(function () {
+        c.classList.add('t-sale');
+        setTimeout(function () {
+          var t = sets[i][k]; if (!t) return;
+          c.querySelector('p').textContent = t[0]; c.querySelector('strong').textContent = t[1];
+          c.classList.remove('t-sale');
+        }, 450);
+      }, k * 180);
+    });
+  }, 9000);
+})();
