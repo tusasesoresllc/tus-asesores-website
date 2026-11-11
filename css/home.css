@@ -661,8 +661,9 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 @media (max-width: 767px) { .navbar { padding: 16px 0; } .navbar.compacto { padding: 12px 0; } .navbar .logo img { height: 32px; } }
 /* Foto del equipo: se ve completa también en pantallas anchas */
 @media (min-width: 768px) {
-  .h-equipo { height: clamp(560px, calc(100vh - 70px), 900px); }
-  .h-equipo::before { background: url(/img/home/equipo-centro.webp) center top / auto 100% no-repeat, url(/img/home/equipo-difuso.webp) center / cover no-repeat; }
+  .h-equipo { height: auto; aspect-ratio: 529 / 442; }
+  .h-equipo::before { background: url(/img/home/equipo-ancho.webp) center / 100% 100% no-repeat; }
+  .h-equipo::after { display: none; }
 }
 /* Testimonios del inicio: 3 + botón */
 .h-t-mas { text-align: center; margin-top: 34px; }
@@ -673,3 +674,11 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 /* Sobre nosotros: fotos sin fondo */
 .equipo-imagen-wrapper.sin-fondo { background: transparent; overflow: visible; display: flex; align-items: flex-end; justify-content: center; border-bottom: 2px solid var(--amarillo); border-radius: 0 !important; }
 .equipo-imagen-wrapper.sin-fondo img { object-fit: contain; object-position: center bottom; height: 100% !important; width: 100%; filter: drop-shadow(0 10px 22px rgba(0,0,0,.55)); }
+/* Sobre nosotros: flechita visible en el círculo de cada tarjeta */
+.equipo-miembro .expand-arrow { position: relative; width: 40px !important; height: 40px !important; background: rgba(243,206,55,.08); animation: eqPulso 2.2s ease-in-out infinite; }
+.equipo-miembro .expand-arrow i { display: none; }
+.equipo-miembro .expand-arrow::after { content: ""; width: 10px; height: 10px; border-right: 3px solid var(--amarillo); border-bottom: 3px solid var(--amarillo); transform: translateY(-2px) rotate(45deg); }
+.equipo-miembro .expand-arrow:hover { background: var(--amarillo); }
+.equipo-miembro .expand-arrow:hover::after { border-color: #000; }
+.equipo-miembro .expand-arrow.expanded { animation: none; }
+@keyframes eqPulso { 0%,100% { box-shadow: 0 0 0 0 rgba(243,206,55,.35); } 50% { box-shadow: 0 0 0 8px rgba(243,206,55,0); } }
