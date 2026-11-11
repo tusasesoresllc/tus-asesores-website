@@ -574,3 +574,9 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
   .h-equipo { max-width: 1000px; margin: 0 auto 40px; aspect-ratio: 548 / 442; min-height: 0; padding-top: 0; border-radius: 18px; }
   .h-equipo::before { background-position: center top; background-size: cover; }
 }
+/* Título del equipo más grande y fondo 5% más claro */
+.h-equipo::before { opacity: .39; }
+.h-equipo .h-sec-tit p { font-size: 44px; letter-spacing: 6px; }
+.h-equipo .h-sec-tit span { width: 130px; height: 5px; }
+.h-equipo-txt { font-size: 21px; }
+@media (max-width: 767px) { .h-equipo .h-sec-tit p { font-size: 26px; letter-spacing: 3px; } .h-equipo-txt { font-size: 17px; } }
