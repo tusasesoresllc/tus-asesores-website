@@ -615,3 +615,11 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .member-description p { color: #d6d6d6; }
 @media (max-width: 767px) { .equipo-header h2 { font-size: 30px !important; } }
 .p-hero-foto h1 { text-wrap: balance; max-width: 980px; margin-left: auto; margin-right: auto; }
+/* Recursos: sección del libro en negro (no dos amarillas seguidas) */
+.r-libro { background: radial-gradient(circle at 15% 20%, #2a2106 0%, #0b0b0b 60%); color: #ddd; border-top: 1px solid #222; }
+.r-libro .r-eyebrow { color: var(--amarillo); }
+.r-libro h2 { color: #fff; }
+.r-libro p { color: #d0d0d0; }
+.r-libro .btn { background: var(--amarillo); color: #000; }
+.r-libro .btn:hover { box-shadow: 0 10px 24px rgba(243,206,55,.3); transform: translateY(-2px); }
+.r-libro-video iframe { box-shadow: 0 0 0 3px var(--amarillo), 0 18px 40px rgba(0,0,0,.5); }
