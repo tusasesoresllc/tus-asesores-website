@@ -630,3 +630,10 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .navbar .logo img { display: block; height: 40px; width: auto; }
 .navbar .container { align-items: center; }
 @media (max-width: 767px) { .navbar { padding: 12px 0; } .navbar .logo img { height: 36px; } }
+/* Foto del equipo de borde a borde en computadora (sin franjas negras) */
+@media (min-width: 768px) {
+  .h-equipo { max-width: none; width: 100%; aspect-ratio: auto; height: clamp(520px, 46vw, 680px); border-radius: 0; margin: 0 0 40px; }
+  .h-equipo::before { background-position: center 22%; background-size: cover; }
+}
+@media (min-width: 768px) { .h-equipo::before { background-image: url(/img/home/equipo-ancho.webp); background-position: center top; } }
+@media (min-width: 768px) { .h-equipo { height: clamp(560px, 56vw, 820px); } .h-equipo::before { background-position: center 45%; } .h-equipo::after { background: linear-gradient(180deg, #0b0b0b 0%, rgba(11,11,11,0) 14%, rgba(11,11,11,0) 86%, #0b0b0b 100%); } }
