@@ -534,3 +534,12 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .h-sec-tit { display: flex; flex-direction: column; align-items: center; gap: 10px; margin: 0 auto 40px; text-align: center; }
 .h-sec-tit p { font-size: 15px; font-weight: 800; letter-spacing: 3px; text-transform: uppercase; color: var(--amarillo); margin: 0; }
 .h-sec-tit span { width: 70px; height: 3px; border-radius: 3px; background: var(--amarillo); }
+.h-sec-tit p { font-size: 24px; letter-spacing: 4px; }
+.h-sec-tit span { width: 90px; height: 4px; }
+@media (max-width: 767px) { .h-sec-tit p { font-size: 20px; letter-spacing: 3px; } }
+.tel-pais { display: grid; grid-template-columns: 130px 1fr; gap: 8px; }
+.tel-pais select { min-width: 0; }
+.tel-pais select, .tel-pais input { width: 100%; }
+.cq-form .tel-pais select { padding: 14px 10px; border-radius: 10px; border: 1px solid #333; background: #0b0b0b; color: #eee; font-size: 15px; }
+.h-pop .tel-pais select { padding: 13px 8px; border-radius: 8px; border: 1px solid #444; background: #000; color: #ddd; font-size: 14px; }
+.p-form .tel-pais select { padding: 14px 10px; border-radius: 10px; border: 1px solid #333; background: #0b0b0b; color: #eee; font-size: 15px; }
