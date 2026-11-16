@@ -155,3 +155,14 @@
     });
   }, 9000);
 })();
+
+// Selector de la portada: "Ya tengo mi LLC" despliega 2 opciones
+(function () {
+  var b = document.querySelector('.h-sel-op[data-abre]'); if (!b) return;
+  var sub = document.getElementById(b.getAttribute('data-abre'));
+  b.addEventListener('click', function () {
+    var abrir = sub.hasAttribute('hidden');
+    if (abrir) sub.removeAttribute('hidden'); else sub.setAttribute('hidden', '');
+    b.setAttribute('aria-expanded', abrir ? 'true' : 'false');
+  });
+})();
