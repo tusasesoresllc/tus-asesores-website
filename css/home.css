@@ -730,3 +730,9 @@ a.h-card > h3 { margin-top: 0; } a.h-card > p { flex: 1; }
 .h-cierre-frase p { font-size: 28px; line-height: 1.25; font-weight: 800; color: #000 !important; margin-bottom: 8px !important; }
 .h-cierre-frase cite { font-style: normal; font-weight: 700; font-size: 15px; color: #333; }
 @media (max-width: 768px) { .h-cierre-frase p { font-size: 22px; } }
+
+/* Recursos: título que presenta el libro */
+.r-libro .container.r-libro-intro { display: block; text-align: center; max-width: 860px; margin: 0 auto 44px; padding-bottom: 34px; border-bottom: 2px solid rgba(243,206,55,.35); }
+.r-libro .r-libro-intro h2 { text-align: center; font-size: 32px; line-height: 1.25; margin-bottom: 12px; }
+.r-libro .r-libro-intro p { font-size: 18px; margin: 0; opacity: .85; }
+@media (max-width: 768px) { .r-libro .r-libro-intro h2 { font-size: 24px; } .r-libro .container.r-libro-intro { margin-bottom: 30px; } }
