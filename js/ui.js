@@ -166,3 +166,23 @@
     b.setAttribute('aria-expanded', abrir ? 'true' : 'false');
   });
 })();
+
+// Medición en Google Analytics (gtag lo inyecta Netlify): contactos y formularios
+(function () {
+  function ev(nombre, datos) { try { if (typeof window.gtag === 'function') window.gtag('event', nombre, datos || {}); } catch (e) {} }
+  function seccion(el) { var s = el.closest('section,header,footer,.h-pop,#h-sel'); return s ? (s.id || s.className.split(' ')[0] || s.tagName.toLowerCase()) : 'pagina'; }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a,button'); if (!a) return;
+    var href = a.getAttribute('href') || '';
+    var datos = { ubicacion: seccion(a), pagina: location.pathname, texto: (a.innerText || '').trim().slice(0, 60) };
+    if (/wa\.me|whatsapp\.com/.test(href)) ev('contacto_whatsapp', datos);
+    else if (/calendly\.com/.test(href)) ev('agenda_calendly', datos);
+    else if (/taxdome\.com/.test(href)) ev('portal_cliente', datos);
+    else if (/amazon\.com/.test(href)) ev('libro_amazon', datos);
+    if (a.closest('#h-sel')) ev('selector_portada', datos);
+  }, true);
+  document.addEventListener('submit', function (e) {
+    var f = e.target; var nombre = f.getAttribute('name') || (f.querySelector('input[name="form-name"]') || {}).value || 'formulario';
+    ev('formulario_enviado', { formulario: nombre, pagina: location.pathname });
+  }, true);
+})();
